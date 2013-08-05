@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		188F929417B0007100861D3B /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 188F929317B0007100861D3B /* test.m */; };
 		280A3E7517A7024B006A12D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7417A7024B006A12D5 /* UIKit.framework */; };
 		280A3E7717A7024B006A12D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7617A7024B006A12D5 /* Foundation.framework */; };
 		280A3E7917A7024B006A12D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7817A7024B006A12D5 /* CoreGraphics.framework */; };
@@ -22,8 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		188F929217B0007100861D3B /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
-		188F929317B0007100861D3B /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		280A3E7417A7024B006A12D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		280A3E7617A7024B006A12D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -92,8 +89,6 @@
 				280A3E8F17A7024B006A12D5 /* ViewController.h */,
 				280A3E9017A7024B006A12D5 /* ViewController.m */,
 				280A3E7B17A7024B006A12D5 /* Supporting Files */,
-				188F929217B0007100861D3B /* test.h */,
-				188F929317B0007100861D3B /* test.m */,
 			);
 			path = "NTT Data Job Application App";
 			sourceTree = "<group>";
@@ -181,7 +176,6 @@
 				280A3E8117A7024B006A12D5 /* main.m in Sources */,
 				280A3E8517A7024B006A12D5 /* AppDelegate.m in Sources */,
 				280A3E9117A7024B006A12D5 /* ViewController.m in Sources */,
-				188F929417B0007100861D3B /* test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
