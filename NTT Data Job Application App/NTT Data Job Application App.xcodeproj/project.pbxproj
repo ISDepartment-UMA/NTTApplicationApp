@@ -298,6 +298,7 @@
 				280A3E9617A7024B006A12D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
