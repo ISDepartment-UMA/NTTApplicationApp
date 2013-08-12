@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <sql:query var="rs" dataSource="jdbc/nttDB">
-select * from jobs
+SELECT DISTINCT * FROM jobs WHERE 1=1 AND location1='munich' OR location2='munich' OR location3='munich' OR location4='munich'
 </sql:query>
 
 <html>

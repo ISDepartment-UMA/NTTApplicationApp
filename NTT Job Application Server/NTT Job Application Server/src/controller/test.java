@@ -18,7 +18,7 @@ import model.Jobs;
 
 
 public class test extends HttpServlet {
-	public static String nttDB = "java:comp/env/jdbc/nttDB";
+	
 	
 	
 	public test(){
@@ -29,13 +29,13 @@ public class test extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		List<Jobs> myjobs=new ArrayList<Jobs>();
 		JobsDao myJobsDao=new JobsDao();
-		DbUtilHelper.initDatasource(nttDB);
-		myjobs=myJobsDao.queryJobsByLocation("MŸnchen");
-	
-		Jobs testJob=new Jobs();
-		testJob=myjobs.get(0);
-		System.out.println("testJob description:"+testJob.getJob_description());
 		
+		//myjobs=myJobsDao.queryJobsByLocation("munich");
+		myjobs=myJobsDao.queryJobsByDefinedCriteria(null, "munich", null, null);
+		for(int i=0;i<=myjobs.size()-1;i++)
+		{		 
+		System.out.println("search results:"+myjobs.get(i).getRef_no());
+		}
 		
 	}
 
