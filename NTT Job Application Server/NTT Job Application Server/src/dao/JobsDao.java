@@ -27,12 +27,12 @@ public class JobsDao {
 	private ResultSetHandler<List<Jobs>> h;
 	private String dbTable = "jobs";
 	private String query;
-	public static String nttDB = "java:comp/env/jdbc/nttDB";
+	
 
 	public JobsDao() {
 		run = DbUtilHelper.getQueryRunner();
 		h = new BeanListHandler<Jobs>(Jobs.class);
-		DbUtilHelper.initDatasource(nttDB);
+		
 	}
 
 	// now we write database actions
@@ -128,16 +128,16 @@ public class JobsDao {
 	public List<Jobs> queryJobsByDefinedCriteria(String jobtitle, String location, String topic, String exp) {
 		List<Jobs> jobs = null;
 		query = "SELECT DISTINCT * FROM " + dbTable + " WHERE 1=1 ";
-		if(jobtitle!=null){
+		if(jobtitle!=null&&!jobtitle.equalsIgnoreCase("null")){
 		query+="AND job_title='" + jobtitle	+ "'";
 		}
-		if(location!=null){
-		query+="AND location1='" + location	+ "' OR location2='" + location + "' OR location3='" + location + "' OR location4='"+ location + "'";
+		if(location!=null&&!location.equalsIgnoreCase("null")){
+		query+="AND ( location1='" + location	+ "' OR location2='" + location + "' OR location3='" + location + "' OR location4='"+ location + "' )";
 		}
-		if(topic!=null){
-		query+=" AND topic1='" + topic	+ "' OR topic2='" + topic + "' OR topic3='" + topic + "' OR topic4='"+ topic + "'";
+		if(topic!=null&&!topic.equalsIgnoreCase("null")){
+		query+=" AND ( topic1='" + topic	+ "' OR topic2='" + topic + "' OR topic3='" + topic + "' OR topic4='"+ topic + "' )";
 		}
-		if(exp!=null){
+		if(exp!=null&&!exp.equalsIgnoreCase("null")){
 		query+="AND exp='" + exp + "'";
 		}
 		
