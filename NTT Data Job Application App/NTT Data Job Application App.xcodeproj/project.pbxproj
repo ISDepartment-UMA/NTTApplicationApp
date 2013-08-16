@@ -16,8 +16,9 @@
 		280A3E8717A7024B006A12D5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8617A7024B006A12D5 /* Default.png */; };
 		280A3E8917A7024B006A12D5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8817A7024B006A12D5 /* Default@2x.png */; };
 		280A3E8B17A7024B006A12D5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */; };
-		280A3E8E17A7024B006A12D5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8C17A7024B006A12D5 /* MainStoryboard.storyboard */; };
 		280A3E9117A7024B006A12D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E9017A7024B006A12D5 /* ViewController.m */; };
+		C3F491B717BE3EA000A2C879 /* JobAPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */; };
+		C3F491B917BE3EC100A2C879 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +35,11 @@
 		280A3E8617A7024B006A12D5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		280A3E8817A7024B006A12D5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		280A3E8D17A7024B006A12D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		280A3E8F17A7024B006A12D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		280A3E9017A7024B006A12D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C3F491B517BE3EA000A2C879 /* JobAPPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobAPPViewController.h; sourceTree = "<group>"; };
+		C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobAPPViewController.m; sourceTree = "<group>"; };
+		C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +88,9 @@
 			children = (
 				280A3E8317A7024B006A12D5 /* AppDelegate.h */,
 				280A3E8417A7024B006A12D5 /* AppDelegate.m */,
-				280A3E8C17A7024B006A12D5 /* MainStoryboard.storyboard */,
+				C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */,
+				C3F491B517BE3EA000A2C879 /* JobAPPViewController.h */,
+				C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */,
 				280A3E8F17A7024B006A12D5 /* ViewController.h */,
 				280A3E9017A7024B006A12D5 /* ViewController.m */,
 				280A3E7B17A7024B006A12D5 /* Supporting Files */,
@@ -162,7 +167,7 @@
 				280A3E8717A7024B006A12D5 /* Default.png in Resources */,
 				280A3E8917A7024B006A12D5 /* Default@2x.png in Resources */,
 				280A3E8B17A7024B006A12D5 /* Default-568h@2x.png in Resources */,
-				280A3E8E17A7024B006A12D5 /* MainStoryboard.storyboard in Resources */,
+				C3F491B917BE3EC100A2C879 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +181,7 @@
 				280A3E8117A7024B006A12D5 /* main.m in Sources */,
 				280A3E8517A7024B006A12D5 /* AppDelegate.m in Sources */,
 				280A3E9117A7024B006A12D5 /* ViewController.m in Sources */,
+				C3F491B717BE3EA000A2C879 /* JobAPPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +194,6 @@
 				280A3E7E17A7024B006A12D5 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		280A3E8C17A7024B006A12D5 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				280A3E8D17A7024B006A12D5 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

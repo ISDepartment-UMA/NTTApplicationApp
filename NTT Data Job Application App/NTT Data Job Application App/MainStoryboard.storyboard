@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3103" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--JobAPP View Controller - Search-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="JobAPPViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LZ-Gn-sZT">
+                                <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="rk1-ve-Slg"/>
+                                    <constraint firstAttribute="height" constant="125" id="x92-46-c72"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <state key="normal" title="Job Title">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="1" green="0.70511299770000002" blue="0.077149121789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectTitle:" destination="2" eventType="touchUpInside" id="YbH-ld-02I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXA-Dm-eRJ">
+                                <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="Ofg-1Q-zPj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <state key="normal" title="Topics">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="1" green="0.70511299770000002" blue="0.077149121789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectTopic:" destination="2" eventType="touchUpInside" id="gEY-bG-crr"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kwc-Nx-WLi">
+                                <color key="backgroundColor" red="0.92926290760869568" green="0.92926290760869568" blue="0.92926290760869568" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="u87-Eh-8pB"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectionItem" id="307-Mg-HdF">
+                                        <rect key="frame" x="0.0" y="22" width="202" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="202" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvy-Th-MSV">
+                                <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="Ygm-ZQ-GrR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <state key="normal" title="Location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="1" green="0.70511299770000002" blue="0.077149121789999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectLocation:" destination="2" eventType="touchUpInside" id="2MX-si-l6h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2L-c0-2eD">
+                                <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="jca-i5-RUP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <state key="normal" title="Experience">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="1" green="0.7051129977352335" blue="0.077149121786795449" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectExperience:" destination="2" eventType="touchUpInside" id="fes-BK-srV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result : 17 Positions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRW-nV-ho7">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsc-kf-6QG">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="g5I-KU-xeh" kind="push" id="M4b-4Q-m0D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWg-ct-zRs">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="182" id="BBK-5k-oBY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="contSearch:" destination="2" eventType="touchUpInside" id="zq2-XP-RKY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.55889343559101223" green="0.62273820870324803" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="L2L-c0-2eD" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="4VX-qQ-WKO"/>
+                            <constraint firstAttribute="bottom" secondItem="xWg-ct-zRs" secondAttribute="bottom" constant="101" id="6Wf-Tc-sL6"/>
+                            <constraint firstItem="L2L-c0-2eD" firstAttribute="trailing" secondItem="kvy-Th-MSV" secondAttribute="trailing" type="default" id="8Qw-V3-i4c"/>
+                            <constraint firstAttribute="bottom" secondItem="PRW-nV-ho7" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="BYn-f5-3gK"/>
+                            <constraint firstItem="7LZ-Gn-sZT" firstAttribute="trailing" secondItem="dXA-Dm-eRJ" secondAttribute="trailing" type="default" id="DME-nY-VC2"/>
+                            <constraint firstItem="kvy-Th-MSV" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="HzU-oG-W6N"/>
+                            <constraint firstAttribute="bottom" secondItem="L2L-c0-2eD" secondAttribute="bottom" constant="1" id="OYi-xD-pQL"/>
+                            <constraint firstAttribute="trailing" secondItem="hsc-kf-6QG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QZ8-nX-bsJ"/>
+                            <constraint firstAttribute="trailing" secondItem="xWg-ct-zRs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RLZ-9x-5f2"/>
+                            <constraint firstAttribute="bottom" secondItem="hsc-kf-6QG" secondAttribute="bottom" constant="49" id="V6U-kx-NUd"/>
+                            <constraint firstItem="xWg-ct-zRs" firstAttribute="leading" secondItem="kwc-Nx-WLi" secondAttribute="leading" type="default" id="YDn-5B-ZRV"/>
+                            <constraint firstItem="7LZ-Gn-sZT" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="bhJ-Qt-kNV"/>
+                            <constraint firstItem="kwc-Nx-WLi" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="ccc-FF-ixf"/>
+                            <constraint firstItem="PRW-nV-ho7" firstAttribute="top" secondItem="hsc-kf-6QG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fnD-jC-7jc"/>
+                            <constraint firstItem="dXA-Dm-eRJ" firstAttribute="trailing" secondItem="kvy-Th-MSV" secondAttribute="trailing" type="default" id="g2n-wi-NMx"/>
+                            <constraint firstItem="hsc-kf-6QG" firstAttribute="leading" secondItem="PRW-nV-ho7" secondAttribute="leading" type="default" id="kp5-0C-dlg"/>
+                            <constraint firstItem="7LZ-Gn-sZT" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="l56-Kk-EMO"/>
+                            <constraint firstItem="xWg-ct-zRs" firstAttribute="leading" secondItem="hsc-kf-6QG" secondAttribute="leading" type="default" id="mIt-6r-2Z0"/>
+                            <constraint firstItem="kwc-Nx-WLi" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="nvU-a7-jRU"/>
+                            <constraint firstItem="dXA-Dm-eRJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="126" id="pwP-rp-1J9"/>
+                            <constraint firstAttribute="bottom" secondItem="kvy-Th-MSV" secondAttribute="bottom" constant="127" id="uf6-eV-2xA"/>
+                            <constraint firstItem="dXA-Dm-eRJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="zRq-aU-0Nh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search" id="KsQ-5D-79c"/>
+                    <connections>
+                        <outlet property="contButton" destination="xWg-ct-zRs" id="smY-fD-dEb"/>
+                        <outlet property="experience" destination="L2L-c0-2eD" id="GgT-Cp-ngc"/>
+                        <outlet property="jobTitle" destination="7LZ-Gn-sZT" id="E16-ze-UYJ"/>
+                        <outlet property="location" destination="kvy-Th-MSV" id="34E-WQ-TsK"/>
+                        <outlet property="searchSelection" destination="kwc-Nx-WLi" id="9TA-zc-2ws"/>
+                        <outlet property="topics" destination="dXA-Dm-eRJ" id="uCV-He-I4k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="-2"/>
+        </scene>
+        <!--Table View Controller - Positions-->
+        <scene sceneID="StM-Id-3z2">
+            <objects>
+                <tableViewController id="g5I-KU-xeh" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S03-rs-IER">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Position" id="eAK-bq-8xB">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="g5I-KU-xeh" id="aBM-oE-lxa"/>
+                            <outlet property="delegate" destination="g5I-KU-xeh" id="s3F-vY-6Kq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Positions" id="yKp-0r-Nfp"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eoa-uB-RGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971" y="-4"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gJx-Nk-xOJ">
+            <objects>
+                <navigationController id="Rus-ER-RXI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VYK-5B-ZrR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="w0m-MT-8vt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WD2-Yy-0xZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="-4"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="JobAPPViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobAPPViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="contSearch:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectExperience:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectLocation:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectTitle:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectTopic:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="contButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="experience" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="jobTitle" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="location" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="searchSelection" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="topics" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
