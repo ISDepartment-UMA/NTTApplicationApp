@@ -7,7 +7,8 @@
 //
 
 #import "JobAPPViewController.h"
-
+#import "QuartzCore/QuartzCore.h"
+#import "OSAPIManager.h"
 @interface JobAPPViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *jobTitle;
@@ -26,20 +27,115 @@
 @end
 
 @implementation JobAPPViewController
+@synthesize loaderView;
+@synthesize loader;
+@synthesize parser;
+@synthesize searchObject;
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [OSAPIManager sharedManager].flashObjects = searchObject;
+    NSLog(@"search is %@",searchObject);
+}
 
+-(void)initLoader
+{
+    float width = 100;
+    float hight = 100;
+    loader =[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, width, hight)];
+    loaderView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 -width/2, self.view.frame.size.height/2 - hight/2, width, hight)];
+    
+    [loaderView setBackgroundColor:[UIColor clearColor]];
+    UIImageView* loaderImage = [[UIImageView alloc] initWithFrame:loaderView.frame];
+    CGRect frame = loaderView.frame;
+    frame.origin.x = 0;
+    frame.origin.y= 0;
+    [loaderImage setFrame:frame];
+    [loaderImage setBackgroundColor:[UIColor grayColor]];
+    [loaderImage setAlpha:0.8];
+    [loaderView addSubview:loaderImage];
+    
+    
+    [loader setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    loaderImage.layer.cornerRadius = 5.0;
+    loaderView.layer.cornerRadius = 5.0;
+    [loaderImage setClipsToBounds:YES];
+    [loader setColor:[UIColor whiteColor]];
+    [loaderView addSubview:loader];
+    [self.view addSubview:loaderView];
+    [loaderView setHidden:YES];
+
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.jobTitles = @[@"Consultant",@"Project Manager",@"Students",@"Technical Consultant"];
-    self.topicsList = @[@"Application Management",@"Business Intelligence",@"Business Process Management",@"Corporate Functions",@"Customer Management",@"Finance Transformation",@"Financial Services",@"IT Management", @"IT and Methods", @"Management Consulting", @"Manufacturing", @"Public", @"SAP Consulting", @"Sales", @"Services & Logistics", @"Telekommunikation", @"Utilities"];
-    self.locationsList =@[@"Ettingen", @"Frankfurt", @"Hamburg", @"Hannover", @"Köln", @"München", @"Stuttgart", @"Deutschlandweit"];
-    self.experienceList = @[@"Alle", @"Students", @"Young Professional/Graduate", @"Professional", @"Senior Professional"];
+    self.jobTitles = [[NSArray alloc] init];
+    self.topicsList = [[NSArray alloc] init];
+    self.locationsList =[[NSArray alloc] init];
+    self.experienceList = [[NSArray alloc] init];
     self.selected = self.jobTitles;
     self.jobTitle.selected = YES;
     self.searchSelection.dataSource = self;
     self.searchSelection.delegate = self;
-    
+        [self initLoader];
+    [self loadAllData];
+
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [OSConnectionManager sharedManager].delegate = self;
+    [super viewDidAppear:animated];
+}
+
+-(void)loadAllData
+{
+    searchObject= [[NSMutableDictionary alloc] init];
+    parser = [[SBJsonParser alloc] init];
+    [[OSConnectionManager sharedManager] StartConnection:OSCGetTopics];
+    [[OSConnectionManager sharedManager] StartConnection:OSCGetLocation];
+    [[OSConnectionManager sharedManager] StartConnection:OSCGetJobTitle];
+    [[OSConnectionManager sharedManager] StartConnection:OSCGetExperience];
+    [loader startAnimating];
+    [loaderView setHidden:NO];
+}
+
+-(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
+{
+    NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+
+    if (connectionType ==OSCGetLocation)
+    {
+      id jsonObject=  [parser objectWithString:responseString];
+        self.locationsList = [jsonObject objectForKey:@"items"];
+    }
+    else
+    if (connectionType ==OSCGetJobTitle)
+    {
+        id jsonObject=  [parser objectWithString:responseString];
+        self.jobTitles = [jsonObject objectForKey:@"items"];
+    }
+    else
+        if (connectionType ==OSCGetExperience)
+        {
+            id jsonObject=  [parser objectWithString:responseString];
+            self.experienceList = [jsonObject objectForKey:@"items"];
+        }
+        else
+            if (connectionType ==OSCGetTopics)
+            {
+                id jsonObject=  [parser objectWithString:responseString];
+                self.topicsList = [jsonObject objectForKey:@"items"];
+            }
+    if ([self.jobTitles count]>0 &&[self.locationsList count]>0 &&[self.experienceList count]>0 &&[self.topicsList count]>0 )
+    {
+        [loaderView setHidden:YES];
+        [loader stopAnimating];
+        self.contButton.selected=YES;
+        self.selected = self.jobTitles;
+        [self.optionsTable reloadData];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,6 +195,7 @@
         self.topics.selected = YES;
         self.selected = self.topicsList;
         [self.searchSelection reloadData];
+        
     }
     
     else if (self.topics.isSelected) {
@@ -120,19 +217,40 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
-    
-    if ([tableView cellForRowAtIndexPath:indexPath].accessoryType==UITableViewCellAccessoryCheckmark) {
-        [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryNone;
-    } else {
-        
         [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryCheckmark;
-        if (self.jobTitle.isSelected) {
-            
-        }
+    
+    if (self.topics.selected)
+    {
+        NSDictionary* object = [self.topicsList objectAtIndex:indexPath.row];
+        [searchObject setObject:[object objectForKey:@"title"] forKey:@"topics"];
     }
+    if (self.experience.selected)
+    {
+        NSDictionary* object = [self.experienceList objectAtIndex:indexPath.row];
+        [searchObject setObject:[object objectForKey:@"title"] forKey:@"experience"];
+    }
+    if (self.location.selected)
+    {
+        NSDictionary* object = [self.locationsList objectAtIndex:indexPath.row];
+        [searchObject setObject:[object objectForKey:@"title"] forKey:@"location"];
+    }
+    if (self.contButton.selected)
+    {
+        NSDictionary* object = [self.jobTitles objectAtIndex:indexPath.row];
+        [searchObject setObject:[object objectForKey:@"title"] forKey:@"jobtitles"];
+    }
+    
   }
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryNone;
+    
+    
+}
 
 
 #pragma mark - UITableViewDataSource
@@ -148,7 +266,7 @@
 
 - (NSString *)titleForRow:(NSUInteger)row
 {
-    return self.selected[row];
+    return [self.selected[row] objectForKey:@"title"];
 }
 
 // loads up a table view cell with the search criteria at the given row in the Model
