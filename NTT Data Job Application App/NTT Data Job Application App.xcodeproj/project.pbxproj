@@ -31,8 +31,9 @@
 		7134036817CFFB2500BFE7F8 /* OSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134036717CFFB2500BFE7F8 /* OSURLHelper.m */; };
 		71E12D6E17D0AB0300C46907 /* OSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E12D6D17D0AB0300C46907 /* OSAPIManager.m */; };
 		71E12D7417D0BC6600C46907 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E12D7317D0BC6600C46907 /* ItemViewController.m */; };
+		8006E9EC17D7BE0E0004A238 /* JobProposalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8006E9EA17D7BE0E0004A238 /* JobProposalViewController.m */; };
+		8006E9ED17D7BE0E0004A238 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8006E9EB17D7BE0E0004A238 /* MainStoryboard.storyboard */; };
 		C3F491B717BE3EA000A2C879 /* JobAPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */; };
-		C3F491B917BE3EC100A2C879 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,9 +82,11 @@
 		71E12D6D17D0AB0300C46907 /* OSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSAPIManager.m; sourceTree = "<group>"; };
 		71E12D7217D0BC6500C46907 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
 		71E12D7317D0BC6600C46907 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		8006E9E917D7BE0E0004A238 /* JobProposalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobProposalViewController.h; sourceTree = "<group>"; };
+		8006E9EA17D7BE0E0004A238 /* JobProposalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobProposalViewController.m; sourceTree = "<group>"; };
+		8006E9EB17D7BE0E0004A238 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C3F491B517BE3EA000A2C879 /* JobAPPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobAPPViewController.h; sourceTree = "<group>"; };
 		C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobAPPViewController.m; sourceTree = "<group>"; };
-		C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +133,11 @@
 		280A3E7A17A7024B006A12D5 /* NTT Data Job Application App */ = {
 			isa = PBXGroup;
 			children = (
+				8006E9E917D7BE0E0004A238 /* JobProposalViewController.h */,
+				8006E9EA17D7BE0E0004A238 /* JobProposalViewController.m */,
+				8006E9EB17D7BE0E0004A238 /* MainStoryboard.storyboard */,
 				280A3E8317A7024B006A12D5 /* AppDelegate.h */,
 				280A3E8417A7024B006A12D5 /* AppDelegate.m */,
-				C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */,
 				C3F491B517BE3EA000A2C879 /* JobAPPViewController.h */,
 				C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */,
 				280A3E8F17A7024B006A12D5 /* ViewController.h */,
@@ -257,7 +262,7 @@
 				280A3E8717A7024B006A12D5 /* Default.png in Resources */,
 				280A3E8917A7024B006A12D5 /* Default@2x.png in Resources */,
 				280A3E8B17A7024B006A12D5 /* Default-568h@2x.png in Resources */,
-				C3F491B917BE3EC100A2C879 /* MainStoryboard.storyboard in Resources */,
+				8006E9ED17D7BE0E0004A238 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +291,7 @@
 				7134036817CFFB2500BFE7F8 /* OSURLHelper.m in Sources */,
 				71E12D6E17D0AB0300C46907 /* OSAPIManager.m in Sources */,
 				71E12D7417D0BC6600C46907 /* ItemViewController.m in Sources */,
+				8006E9EC17D7BE0E0004A238 /* JobProposalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

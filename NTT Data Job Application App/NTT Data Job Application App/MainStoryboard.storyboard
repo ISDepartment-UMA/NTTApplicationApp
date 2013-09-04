@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3103" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--JobAPP View Controller - Search-->
+        <!--JobAPP View Controller - Clasical Search-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="JobAPPViewController" sceneMemberID="viewController">
@@ -121,7 +121,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWg-ct-zRs">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="182" id="2xK-dT-0Qk"/>
+                                    <constraint firstAttribute="width" constant="182" id="AbO-vC-9yI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Continue">
@@ -134,33 +134,50 @@
                                     <action selector="contSearch:" destination="2" eventType="touchUpInside" id="zq2-XP-RKY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRI-F7-igD">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Propose a Job">
+                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tvI-34-nXW" kind="push" id="ob9-sW-QZw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.55889343559101223" green="0.62273820870324803" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="PRW-nV-ho7" firstAttribute="top" secondItem="hsc-kf-6QG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8nv-wD-dER"/>
-                            <constraint firstAttribute="bottom" secondItem="PRW-nV-ho7" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="AWp-Wx-y3t"/>
+                            <constraint firstItem="hsc-kf-6QG" firstAttribute="baseline" secondItem="L2L-c0-2eD" secondAttribute="baseline" type="default" id="2Tf-Wu-FBv"/>
+                            <constraint firstItem="IRI-F7-igD" firstAttribute="leading" secondItem="hsc-kf-6QG" secondAttribute="leading" type="default" id="2oD-j1-Jwh"/>
+                            <constraint firstItem="kwc-Nx-WLi" firstAttribute="leading" secondItem="xWg-ct-zRs" secondAttribute="leading" type="default" id="FDY-t4-nlF"/>
                             <constraint firstItem="dXA-Dm-eRJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="FQf-AX-Zoj"/>
+                            <constraint firstItem="IRI-F7-igD" firstAttribute="top" secondItem="hsc-kf-6QG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="I26-jv-7Rh"/>
                             <constraint firstItem="kwc-Nx-WLi" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="IC2-Rh-l53"/>
-                            <constraint firstAttribute="bottom" secondItem="xWg-ct-zRs" secondAttribute="bottom" constant="101" id="Kj4-jx-7f2"/>
+                            <constraint firstItem="IRI-F7-igD" firstAttribute="leading" secondItem="PRW-nV-ho7" secondAttribute="leading" type="default" id="JfS-mG-8Wd"/>
+                            <constraint firstAttribute="trailing" secondItem="IRI-F7-igD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MQ1-Bc-4P9"/>
                             <constraint firstItem="dXA-Dm-eRJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="126" id="MsK-VV-RxU"/>
                             <constraint firstAttribute="trailing" secondItem="hsc-kf-6QG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NhN-fa-MXs"/>
                             <constraint firstItem="kwc-Nx-WLi" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="QTR-An-bML"/>
+                            <constraint firstAttribute="bottom" secondItem="PRW-nV-ho7" secondAttribute="bottom" constant="8" id="THl-7T-e17"/>
                             <constraint firstItem="kvy-Th-MSV" firstAttribute="trailing" secondItem="L2L-c0-2eD" secondAttribute="trailing" type="default" id="Vcu-ed-MnR"/>
+                            <constraint firstAttribute="bottom" secondItem="IRI-F7-igD" secondAttribute="bottom" constant="36" id="aTl-kN-KsL"/>
                             <constraint firstAttribute="trailing" secondItem="xWg-ct-zRs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="bw6-7l-TjS"/>
                             <constraint firstItem="dXA-Dm-eRJ" firstAttribute="trailing" secondItem="7LZ-Gn-sZT" secondAttribute="trailing" type="default" id="cOv-Cw-pTe"/>
                             <constraint firstItem="dXA-Dm-eRJ" firstAttribute="trailing" secondItem="kvy-Th-MSV" secondAttribute="trailing" type="default" id="fLv-uT-MHV"/>
                             <constraint firstItem="xWg-ct-zRs" firstAttribute="leading" secondItem="hsc-kf-6QG" secondAttribute="leading" type="default" id="fv0-Eq-lds"/>
                             <constraint firstItem="L2L-c0-2eD" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gIZ-g4-k79"/>
                             <constraint firstItem="kvy-Th-MSV" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="kE6-bg-X5w"/>
-                            <constraint firstItem="PRW-nV-ho7" firstAttribute="leading" secondItem="hsc-kf-6QG" secondAttribute="leading" type="default" id="kN0-5i-rBb"/>
                             <constraint firstAttribute="bottom" secondItem="L2L-c0-2eD" secondAttribute="bottom" constant="1" id="mjK-A6-hSA"/>
                             <constraint firstAttribute="bottom" secondItem="kvy-Th-MSV" secondAttribute="bottom" constant="127" id="sN0-Sp-Z09"/>
-                            <constraint firstItem="kwc-Nx-WLi" firstAttribute="leading" secondItem="xWg-ct-zRs" secondAttribute="leading" type="default" id="saS-MH-poE"/>
+                            <constraint firstItem="hsc-kf-6QG" firstAttribute="top" secondItem="xWg-ct-zRs" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vum-6k-esi"/>
                             <constraint firstItem="7LZ-Gn-sZT" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="xsb-oO-LBe"/>
                             <constraint firstItem="7LZ-Gn-sZT" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="zDP-HA-TjX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="KsQ-5D-79c"/>
+                    <navigationItem key="navigationItem" title="Clasical Search" id="KsQ-5D-79c"/>
                     <connections>
                         <outlet property="contButton" destination="xWg-ct-zRs" id="smY-fD-dEb"/>
                         <outlet property="experience" destination="L2L-c0-2eD" id="GgT-Cp-ngc"/>
@@ -174,6 +191,95 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="564" y="-2"/>
+        </scene>
+        <!--Job Proposal View Controller - Job Proposal-->
+        <scene sceneID="6gp-DC-hbC">
+            <objects>
+                <viewController id="tvI-34-nXW" customClass="JobProposalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MHD-5b-3u3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Question 1:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-DG-S0L">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="4Lg-He-uf1"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Do you like traveling for job purpose?" translatesAutoresizingMaskIntoConstraints="NO" id="PTX-Rf-hCP">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="VkL-5R-VBU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kIX-rZ-55m">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="243" id="0ks-er-AjU"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="rk5-r7-7hi">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GT-zM-8o3">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOL-Cm-lNI">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Propose Jobs">
+                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="g5I-KU-xeh" kind="push" id="H9e-7p-BVX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.55889343560000004" green="0.62273820869999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SOL-Cm-lNI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1s8-SV-6C1"/>
+                            <constraint firstAttribute="trailing" secondItem="4Lg-He-uf1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="DZy-x5-DPZ"/>
+                            <constraint firstItem="4Lg-He-uf1" firstAttribute="top" secondItem="MHD-5b-3u3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Kym-CE-jSL"/>
+                            <constraint firstItem="kIX-rZ-55m" firstAttribute="top" secondItem="MHD-5b-3u3" secondAttribute="top" constant="87" id="RvF-ua-Ozd"/>
+                            <constraint firstItem="UFO-DG-S0L" firstAttribute="top" secondItem="MHD-5b-3u3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="SNC-mD-q2T"/>
+                            <constraint firstAttribute="trailing" secondItem="4GT-zM-8o3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="X89-7a-KEd"/>
+                            <constraint firstItem="UFO-DG-S0L" firstAttribute="leading" secondItem="MHD-5b-3u3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Zco-jU-yJX"/>
+                            <constraint firstItem="4GT-zM-8o3" firstAttribute="top" secondItem="kIX-rZ-55m" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aNt-oH-Xcr"/>
+                            <constraint firstAttribute="trailing" secondItem="kIX-rZ-55m" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="bLn-cd-1TW"/>
+                            <constraint firstItem="SOL-Cm-lNI" firstAttribute="leading" secondItem="MHD-5b-3u3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gqI-Je-8Kl"/>
+                            <constraint firstItem="SOL-Cm-lNI" firstAttribute="top" secondItem="4GT-zM-8o3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kfx-Ka-QVb"/>
+                            <constraint firstItem="kIX-rZ-55m" firstAttribute="leading" secondItem="MHD-5b-3u3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kky-ab-ZiC"/>
+                            <constraint firstItem="4GT-zM-8o3" firstAttribute="leading" secondItem="MHD-5b-3u3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oqW-YC-dnj"/>
+                            <constraint firstItem="PTX-Rf-hCP" firstAttribute="top" secondItem="4Lg-He-uf1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rJf-2l-iue"/>
+                            <constraint firstItem="PTX-Rf-hCP" firstAttribute="leading" secondItem="MHD-5b-3u3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uWg-VN-fQ5"/>
+                            <constraint firstAttribute="trailing" secondItem="PTX-Rf-hCP" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xiP-aM-5g1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Job Proposal" id="szB-wE-396"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pSH-OR-kYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="653"/>
         </scene>
         <!--View Controller - Positions-->
         <scene sceneID="StM-Id-3z2">
@@ -507,11 +613,6 @@
         <class className="JobAPPViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JobAPPViewController.h"/>
             <relationships>
-                <relationship kind="action" name="contSearch:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectExperience:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectLocation:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectTitle:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectTopic:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="contButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="experience" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="jobTitle" candidateClass="UIButton"/>
@@ -520,6 +621,9 @@
                 <relationship kind="outlet" name="searchSelection" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="topics" candidateClass="UIButton"/>
             </relationships>
+        </class>
+        <class className="JobProposalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobProposalViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -536,4 +640,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="H9e-7p-BVX"/>
+    </inferredMetricsTieBreakers>
 </document>
