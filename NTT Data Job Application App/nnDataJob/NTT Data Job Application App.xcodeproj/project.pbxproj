@@ -1,0 +1,408 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		280A3E7517A7024B006A12D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7417A7024B006A12D5 /* UIKit.framework */; };
+		280A3E7717A7024B006A12D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7617A7024B006A12D5 /* Foundation.framework */; };
+		280A3E7917A7024B006A12D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7817A7024B006A12D5 /* CoreGraphics.framework */; };
+		280A3E7F17A7024B006A12D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E7D17A7024B006A12D5 /* InfoPlist.strings */; };
+		280A3E8117A7024B006A12D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E8017A7024B006A12D5 /* main.m */; };
+		280A3E8517A7024B006A12D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E8417A7024B006A12D5 /* AppDelegate.m */; };
+		280A3E8717A7024B006A12D5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8617A7024B006A12D5 /* Default.png */; };
+		280A3E8917A7024B006A12D5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8817A7024B006A12D5 /* Default@2x.png */; };
+		280A3E8B17A7024B006A12D5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */; };
+		280A3E9117A7024B006A12D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E9017A7024B006A12D5 /* ViewController.m */; };
+		7134035817CFFACE00BFE7F8 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034517CFFACE00BFE7F8 /* SBJsonParser.m */; };
+		7134035917CFFACE00BFE7F8 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034717CFFACE00BFE7F8 /* SBJsonStreamParser.m */; };
+		7134035A17CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034917CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m */; };
+		7134035B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m */; };
+		7134035C17CFFACE00BFE7F8 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034D17CFFACE00BFE7F8 /* SBJsonStreamParserState.m */; };
+		7134035D17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034F17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m */; };
+		7134035E17CFFACE00BFE7F8 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134035117CFFACE00BFE7F8 /* SBJsonStreamWriter.m */; };
+		7134035F17CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134035317CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m */; };
+		7134036017CFFACE00BFE7F8 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134035517CFFACE00BFE7F8 /* SBJsonStreamWriterState.m */; };
+		7134036117CFFACE00BFE7F8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134035717CFFACE00BFE7F8 /* SBJsonWriter.m */; };
+		7134036517CFFB1400BFE7F8 /* OSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134036417CFFB1400BFE7F8 /* OSConnectionManager.m */; };
+		7134036817CFFB2500BFE7F8 /* OSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134036717CFFB2500BFE7F8 /* OSURLHelper.m */; };
+		71E12D6E17D0AB0300C46907 /* OSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E12D6D17D0AB0300C46907 /* OSAPIManager.m */; };
+		71E12D7417D0BC6600C46907 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E12D7317D0BC6600C46907 /* ItemViewController.m */; };
+		C3F491B717BE3EA000A2C879 /* JobAPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */; };
+		C3F491B917BE3EC100A2C879 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		280A3E7417A7024B006A12D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		280A3E7617A7024B006A12D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		280A3E7817A7024B006A12D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		280A3E7C17A7024B006A12D5 /* NTT Data Job Application App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application App-Info.plist"; sourceTree = "<group>"; };
+		280A3E7E17A7024B006A12D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		280A3E8017A7024B006A12D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		280A3E8217A7024B006A12D5 /* NTT Data Job Application App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NTT Data Job Application App-Prefix.pch"; sourceTree = "<group>"; };
+		280A3E8317A7024B006A12D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		280A3E8417A7024B006A12D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		280A3E8617A7024B006A12D5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		280A3E8817A7024B006A12D5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		280A3E8F17A7024B006A12D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		280A3E9017A7024B006A12D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7134034317CFFACE00BFE7F8 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		7134034417CFFACE00BFE7F8 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		7134034517CFFACE00BFE7F8 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		7134034617CFFACE00BFE7F8 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		7134034717CFFACE00BFE7F8 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		7134034817CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		7134034917CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		7134034A17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		7134034B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		7134034C17CFFACE00BFE7F8 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		7134034D17CFFACE00BFE7F8 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		7134034E17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamTokeniser.h; sourceTree = "<group>"; };
+		7134034F17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamTokeniser.m; sourceTree = "<group>"; };
+		7134035017CFFACE00BFE7F8 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		7134035117CFFACE00BFE7F8 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		7134035217CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		7134035317CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		7134035417CFFACE00BFE7F8 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		7134035517CFFACE00BFE7F8 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		7134035617CFFACE00BFE7F8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		7134035717CFFACE00BFE7F8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		7134036317CFFB1400BFE7F8 /* OSConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSConnectionManager.h; sourceTree = "<group>"; };
+		7134036417CFFB1400BFE7F8 /* OSConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSConnectionManager.m; sourceTree = "<group>"; };
+		7134036617CFFB2500BFE7F8 /* OSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSURLHelper.h; sourceTree = "<group>"; };
+		7134036717CFFB2500BFE7F8 /* OSURLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSURLHelper.m; sourceTree = "<group>"; };
+		7134036917CFFB6000BFE7F8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		71E12D6C17D0AB0300C46907 /* OSAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSAPIManager.h; sourceTree = "<group>"; };
+		71E12D6D17D0AB0300C46907 /* OSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSAPIManager.m; sourceTree = "<group>"; };
+		71E12D7217D0BC6500C46907 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		71E12D7317D0BC6600C46907 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		C3F491B517BE3EA000A2C879 /* JobAPPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobAPPViewController.h; sourceTree = "<group>"; };
+		C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobAPPViewController.m; sourceTree = "<group>"; };
+		C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		280A3E6E17A7024B006A12D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				280A3E7517A7024B006A12D5 /* UIKit.framework in Frameworks */,
+				280A3E7717A7024B006A12D5 /* Foundation.framework in Frameworks */,
+				280A3E7917A7024B006A12D5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		280A3E6817A7024B006A12D5 = {
+			isa = PBXGroup;
+			children = (
+				280A3E7A17A7024B006A12D5 /* NTT Data Job Application App */,
+				280A3E7317A7024B006A12D5 /* Frameworks */,
+				280A3E7217A7024B006A12D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		280A3E7217A7024B006A12D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		280A3E7317A7024B006A12D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				280A3E7417A7024B006A12D5 /* UIKit.framework */,
+				280A3E7617A7024B006A12D5 /* Foundation.framework */,
+				280A3E7817A7024B006A12D5 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		280A3E7A17A7024B006A12D5 /* NTT Data Job Application App */ = {
+			isa = PBXGroup;
+			children = (
+				280A3E8317A7024B006A12D5 /* AppDelegate.h */,
+				280A3E8417A7024B006A12D5 /* AppDelegate.m */,
+				C3F491B817BE3EC100A2C879 /* MainStoryboard.storyboard */,
+				C3F491B517BE3EA000A2C879 /* JobAPPViewController.h */,
+				C3F491B617BE3EA000A2C879 /* JobAPPViewController.m */,
+				280A3E8F17A7024B006A12D5 /* ViewController.h */,
+				280A3E9017A7024B006A12D5 /* ViewController.m */,
+				71E12D7217D0BC6500C46907 /* ItemViewController.h */,
+				71E12D7317D0BC6600C46907 /* ItemViewController.m */,
+				7134036217CFFB0400BFE7F8 /* connection handling */,
+				7134034217CFFACE00BFE7F8 /* SBJson */,
+				280A3E7B17A7024B006A12D5 /* Supporting Files */,
+			);
+			path = "NTT Data Job Application App";
+			sourceTree = "<group>";
+		};
+		280A3E7B17A7024B006A12D5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				280A3E7C17A7024B006A12D5 /* NTT Data Job Application App-Info.plist */,
+				280A3E7D17A7024B006A12D5 /* InfoPlist.strings */,
+				280A3E8017A7024B006A12D5 /* main.m */,
+				280A3E8217A7024B006A12D5 /* NTT Data Job Application App-Prefix.pch */,
+				280A3E8617A7024B006A12D5 /* Default.png */,
+				280A3E8817A7024B006A12D5 /* Default@2x.png */,
+				280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7134034217CFFACE00BFE7F8 /* SBJson */ = {
+			isa = PBXGroup;
+			children = (
+				7134034317CFFACE00BFE7F8 /* SBJson.h */,
+				7134034417CFFACE00BFE7F8 /* SBJsonParser.h */,
+				7134034517CFFACE00BFE7F8 /* SBJsonParser.m */,
+				7134034617CFFACE00BFE7F8 /* SBJsonStreamParser.h */,
+				7134034717CFFACE00BFE7F8 /* SBJsonStreamParser.m */,
+				7134034817CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.h */,
+				7134034917CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m */,
+				7134034A17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.h */,
+				7134034B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m */,
+				7134034C17CFFACE00BFE7F8 /* SBJsonStreamParserState.h */,
+				7134034D17CFFACE00BFE7F8 /* SBJsonStreamParserState.m */,
+				7134034E17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.h */,
+				7134034F17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m */,
+				7134035017CFFACE00BFE7F8 /* SBJsonStreamWriter.h */,
+				7134035117CFFACE00BFE7F8 /* SBJsonStreamWriter.m */,
+				7134035217CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.h */,
+				7134035317CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m */,
+				7134035417CFFACE00BFE7F8 /* SBJsonStreamWriterState.h */,
+				7134035517CFFACE00BFE7F8 /* SBJsonStreamWriterState.m */,
+				7134035617CFFACE00BFE7F8 /* SBJsonWriter.h */,
+				7134035717CFFACE00BFE7F8 /* SBJsonWriter.m */,
+			);
+			path = SBJson;
+			sourceTree = "<group>";
+		};
+		7134036217CFFB0400BFE7F8 /* connection handling */ = {
+			isa = PBXGroup;
+			children = (
+				71E12D6C17D0AB0300C46907 /* OSAPIManager.h */,
+				71E12D6D17D0AB0300C46907 /* OSAPIManager.m */,
+				7134036617CFFB2500BFE7F8 /* OSURLHelper.h */,
+				7134036717CFFB2500BFE7F8 /* OSURLHelper.m */,
+				7134036317CFFB1400BFE7F8 /* OSConnectionManager.h */,
+				7134036417CFFB1400BFE7F8 /* OSConnectionManager.m */,
+				7134036917CFFB6000BFE7F8 /* Constants.h */,
+			);
+			path = "connection handling";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		280A3E7017A7024B006A12D5 /* NTT Data Job Application App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 280A3E9417A7024B006A12D5 /* Build configuration list for PBXNativeTarget "NTT Data Job Application App" */;
+			buildPhases = (
+				280A3E6D17A7024B006A12D5 /* Sources */,
+				280A3E6E17A7024B006A12D5 /* Frameworks */,
+				280A3E6F17A7024B006A12D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NTT Data Job Application App";
+			productName = "NTT Data Job Application App";
+			productReference = 280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		280A3E6917A7024B006A12D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "University of Mannheim - NTT Data Team Project";
+			};
+			buildConfigurationList = 280A3E6C17A7024B006A12D5 /* Build configuration list for PBXProject "NTT Data Job Application App" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 280A3E6817A7024B006A12D5;
+			productRefGroup = 280A3E7217A7024B006A12D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				280A3E7017A7024B006A12D5 /* NTT Data Job Application App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		280A3E6F17A7024B006A12D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				280A3E7F17A7024B006A12D5 /* InfoPlist.strings in Resources */,
+				280A3E8717A7024B006A12D5 /* Default.png in Resources */,
+				280A3E8917A7024B006A12D5 /* Default@2x.png in Resources */,
+				280A3E8B17A7024B006A12D5 /* Default-568h@2x.png in Resources */,
+				C3F491B917BE3EC100A2C879 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		280A3E6D17A7024B006A12D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				280A3E8117A7024B006A12D5 /* main.m in Sources */,
+				280A3E8517A7024B006A12D5 /* AppDelegate.m in Sources */,
+				280A3E9117A7024B006A12D5 /* ViewController.m in Sources */,
+				C3F491B717BE3EA000A2C879 /* JobAPPViewController.m in Sources */,
+				7134035817CFFACE00BFE7F8 /* SBJsonParser.m in Sources */,
+				7134035917CFFACE00BFE7F8 /* SBJsonStreamParser.m in Sources */,
+				7134035A17CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m in Sources */,
+				7134035B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m in Sources */,
+				7134035C17CFFACE00BFE7F8 /* SBJsonStreamParserState.m in Sources */,
+				7134035D17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m in Sources */,
+				7134035E17CFFACE00BFE7F8 /* SBJsonStreamWriter.m in Sources */,
+				7134035F17CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				7134036017CFFACE00BFE7F8 /* SBJsonStreamWriterState.m in Sources */,
+				7134036117CFFACE00BFE7F8 /* SBJsonWriter.m in Sources */,
+				7134036517CFFB1400BFE7F8 /* OSConnectionManager.m in Sources */,
+				7134036817CFFB2500BFE7F8 /* OSURLHelper.m in Sources */,
+				71E12D6E17D0AB0300C46907 /* OSAPIManager.m in Sources */,
+				71E12D7417D0BC6600C46907 /* ItemViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		280A3E7D17A7024B006A12D5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				280A3E7E17A7024B006A12D5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		280A3E9217A7024B006A12D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		280A3E9317A7024B006A12D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		280A3E9517A7024B006A12D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
+				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		280A3E9617A7024B006A12D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
+				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		280A3E6C17A7024B006A12D5 /* Build configuration list for PBXProject "NTT Data Job Application App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				280A3E9217A7024B006A12D5 /* Debug */,
+				280A3E9317A7024B006A12D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		280A3E9417A7024B006A12D5 /* Build configuration list for PBXNativeTarget "NTT Data Job Application App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				280A3E9517A7024B006A12D5 /* Debug */,
+				280A3E9617A7024B006A12D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 280A3E6917A7024B006A12D5 /* Project object */;
+}
