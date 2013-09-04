@@ -9,6 +9,7 @@
 #import "JobAPPViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "OSAPIManager.h"
+
 @interface JobAPPViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *jobTitle;
@@ -31,6 +32,7 @@
 @synthesize loader;
 @synthesize parser;
 @synthesize searchObject;
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [OSAPIManager sharedManager].flashObjects = searchObject;
@@ -74,12 +76,12 @@
     self.experienceList = [[NSArray alloc] init];
     self.selected = self.jobTitles;
     self.jobTitle.selected = YES;
+    [self selectTitle:nil];
+    
     self.searchSelection.dataSource = self;
     self.searchSelection.delegate = self;
         [self initLoader];
     [self loadAllData];
-
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -92,10 +94,12 @@
 {
     searchObject= [[NSMutableDictionary alloc] init];
     parser = [[SBJsonParser alloc] init];
+    
     [[OSConnectionManager sharedManager] StartConnection:OSCGetTopics];
     [[OSConnectionManager sharedManager] StartConnection:OSCGetLocation];
     [[OSConnectionManager sharedManager] StartConnection:OSCGetJobTitle];
     [[OSConnectionManager sharedManager] StartConnection:OSCGetExperience];
+    
     [loader startAnimating];
     [loaderView setHidden:NO];
 }
@@ -138,10 +142,9 @@
     
 }
 
-- (void)didReceiveMemoryWarning
+-(void)connectionFailed:(OSConnectionType)connectionType;
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (IBAction)selectTitle:(UIButton *)sender {
@@ -251,9 +254,7 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryNone;
-    
-    
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryNone; 
 }
 
 
@@ -265,8 +266,6 @@
 {
     return [self.selected count];
 }
-
-
 
 - (NSString *)titleForRow:(NSUInteger)row
 {

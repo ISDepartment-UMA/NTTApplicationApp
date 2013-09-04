@@ -1,10 +1,9 @@
 
-
 #import "OSURLHelper.h"
 @implementation OSURLHelper
+
 static OSURLHelper *sharedHelper = nil;
 
-#pragma mark -
 #pragma mark singilton init methods
 // alloce shared API singelton
 + (id)alloc
@@ -112,7 +111,7 @@ static OSURLHelper *sharedHelper = nil;
     return url;
 }
 -(NSURL*)getExperience
-{//
+{
     NSString* result =[NSString stringWithFormat:@"http://nttdata.apiary.io/get_experience"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;

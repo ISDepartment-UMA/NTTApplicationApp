@@ -13,10 +13,12 @@
 @synthesize loaderView;
 @synthesize loader;
 @synthesize resultArray;
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
 }
+
 -(void)initLoader
 {
     float width = 100;
@@ -51,7 +53,6 @@
     self.resultArray = [[NSArray alloc] init];
     parser = [[SBJsonParser alloc] init];
     [self initLoader];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -78,14 +79,6 @@
     [loader setHidden:NO];
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 #pragma mark - UITableViewDataSource
 
 // lets the UITableView know how many rows it should display
@@ -94,8 +87,6 @@
 {
     return [resultArray count];
 }
-
-
 
 - (NSString *)titleForRow:(NSUInteger)row
 {

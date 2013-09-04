@@ -2,7 +2,6 @@
 //  ItemViewController.m
 //  NTT Data Job Application App
 //
-
 //  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
 
@@ -13,22 +12,6 @@
 @end
 
 @implementation ItemViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-	// Do any additional setup after loading the view.
-}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -49,13 +32,6 @@
     self.requirement.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
     self.result.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"our_offer"];
     [self.scrollView setContentSize:CGSizeMake(320, 950)];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
