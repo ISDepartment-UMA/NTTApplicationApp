@@ -36,7 +36,7 @@ static OSConnectionManager *sharedManager = nil;
 	if ((self=[super init]))
     {
         self.connectionsHashTable = [[NSMutableDictionary alloc] init];
-                self.connectionsData = [[NSMutableDictionary alloc] init];
+        self.connectionsData = [[NSMutableDictionary alloc] init];
 	}
 	return self;
 }
@@ -50,15 +50,31 @@ static OSConnectionManager *sharedManager = nil;
  *
  *	@return	yes if connection not duplicated, and then send connection, or no if duplicated
  */
--(BOOL)StartConnection:(OSConnectionType)connectionType 
+-(BOOL)StartConnection:(OSConnectionType)connectionType
 {
     // get object of connection Type
     NSString* connectionTypeValue = [NSString stringWithFormat:@"%i",connectionType];
     NSURL* url = [[OSURLHelper sharedHelper] getUrl:connectionType];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    if (connectionType == OSCGetSearch)
+    {
+        NSDictionary* searchObject = [OSAPIManager sharedManager].flashObjects;
+        NSString* exp = [searchObject objectForKey:@"experience"];
+        NSString* topic = [searchObject objectForKey:@"topics"];
+        NSString* jobtitle = [searchObject objectForKey:@"location"];
+        NSString* location = [searchObject objectForKey:@"jobtitles"];
+        
+        NSString* postString =[NSString stringWithFormat:@"jobtitle=%@&location=%@&topic=%@&exp=%@",jobtitle,location,topic,exp] ;
+        postString = [postString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        NSLog(@"parms are %@",postString);
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+        
+    }
     // start connection for requested url and set the connection type
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:request delegate:self];
-
+    
     // get object of hash key of object
     NSString* hashKey = [NSString stringWithFormat:@"%i",connection.hash];
     // open mutable Data object for this connection
@@ -85,12 +101,14 @@ static OSConnectionManager *sharedManager = nil;
     NSString* hashKey = [NSString stringWithFormat:@"%i",theConnection.hash];
     NSString* connectionType = [[sharedManager connectionsHashTable] objectForKey:hashKey];
     // connection status get error response
+    NSLog(@"response is %i",httpResponse.statusCode);
     if ((httpResponse.statusCode / 100) != 2)// response of not success
     {
         // send faild delegate function to parent control
         [delegate connectionFailed:[connectionType intValue]];
         // remove connection from connections hashtable and connections data dictionary
         [connectionsHashTable removeObjectForKey:hashKey];
+        
         [connectionsData removeObjectForKey:hashKey];
         // cancel connection
         [theConnection cancel];
@@ -131,7 +149,7 @@ static OSConnectionManager *sharedManager = nil;
     // append data with original data
     [connectionData appendData:[connectionsData objectForKey:hashKey]];
     [connectionData appendData:data];
-    // resign data in dectionary 
+    // resign data in dectionary
     [connectionsData setObject:connectionData forKey:hashKey];
 }
 
@@ -154,7 +172,7 @@ static OSConnectionManager *sharedManager = nil;
     // remove connection from connections hashtable and connections data dictionary
     [connectionsHashTable removeObjectForKey:hashKey];
     [connectionsData removeObjectForKey:hashKey];
-
+    
 }
 
 

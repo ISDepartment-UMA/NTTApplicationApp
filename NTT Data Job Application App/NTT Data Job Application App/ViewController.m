@@ -15,7 +15,7 @@
 @synthesize resultArray;
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    
 }
 -(void)initLoader
 {
@@ -48,7 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        self.resultArray = [[NSArray alloc] init];
+    self.resultArray = [[NSArray alloc] init];
     parser = [[SBJsonParser alloc] init];
     [self initLoader];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -65,15 +65,19 @@
 -(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
 {
     NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-   responseString = [responseString stringByReplacingOccurrencesOfString:@"null" withString:@"\"none\""];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"null" withString:@"\"none\""];
     
-        id jsonObject=  [parser objectWithString:responseString];
+    id jsonObject=  [parser objectWithString:responseString];
+    if (connectionType != OSCGetSearch) {
         self.resultArray = [jsonObject objectForKey:@"items"];
+    }
+    else
+        self.resultArray = jsonObject;
     [self.tableView reloadData];
     [loaderView setHidden:YES];
     [loader setHidden:NO];
 }
-    
+
 
 - (void)didReceiveMemoryWarning
 {

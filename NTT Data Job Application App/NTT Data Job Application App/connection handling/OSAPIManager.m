@@ -39,8 +39,9 @@ static OSAPIManager *sharedManager = nil;
 	if ((self=[super init]))
     {
         flashObjects = [[NSMutableDictionary alloc] init];
-                searchObject = [[NSMutableDictionary alloc] init];
+        searchObject = [[NSMutableDictionary alloc] init];
     }
 	return self;
 }
 @end
+

@@ -6,4 +6,4 @@
 
 +(OSURLHelper*)sharedHelper;
 -(NSURL*)getUrl:(OSConnectionType)connectionType;
-@end
+@end	

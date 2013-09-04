@@ -116,20 +116,15 @@ static OSURLHelper *sharedHelper = nil;
     NSString* result =[NSString stringWithFormat:@"http://nttdata.apiary.io/get_experience"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
-
+    
 }
 -(NSURL*)getSearch
 {
-    NSDictionary* searchObject = [OSAPIManager sharedManager].searchObject;
-    NSString* exp = [searchObject objectForKey:@"experience"];
-        NSString* topic = [searchObject objectForKey:@"topics"];
-        NSString* jobtitle = [searchObject objectForKey:@"location"];
-        NSString* location = [searchObject objectForKey:@"jobtitles"];
     
-    NSString* result =[NSString stringWithFormat:@"http://nttdata.apiary.io/get_search"];
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/fixedjobsquery"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
-
+    
 }
 
 @end

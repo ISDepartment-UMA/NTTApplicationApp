@@ -26,7 +26,7 @@
     NSMutableDictionary* connectionsData;
     // dictinay for saving connection type of each connection
     NSMutableDictionary* connectionsHashTable;
-   __weak id<OSConnectionCompletionDelegate> delegate;
+    __weak id<OSConnectionCompletionDelegate> delegate;
 }
 
 @property (nonatomic,strong)    NSMutableDictionary* connectionsData;

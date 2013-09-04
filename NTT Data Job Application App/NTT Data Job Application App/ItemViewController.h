@@ -2,7 +2,7 @@
 //  ItemViewController.h
 //  NTT Data Job Application App
 //
-//  Created by abdullah barjoud on 8/30/13.
+
 //  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
 

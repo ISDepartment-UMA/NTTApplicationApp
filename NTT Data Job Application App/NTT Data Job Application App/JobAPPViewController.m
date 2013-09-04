@@ -103,30 +103,30 @@
 -(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
 {
     NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-
+    
     if (connectionType ==OSCGetLocation)
     {
-      id jsonObject=  [parser objectWithString:responseString];
+        id jsonObject=  [parser objectWithString:responseString];
         self.locationsList = [jsonObject objectForKey:@"items"];
     }
     else
-    if (connectionType ==OSCGetJobTitle)
-    {
-        id jsonObject=  [parser objectWithString:responseString];
-        self.jobTitles = [jsonObject objectForKey:@"items"];
-    }
-    else
-        if (connectionType ==OSCGetExperience)
+        if (connectionType ==OSCGetJobTitle)
         {
             id jsonObject=  [parser objectWithString:responseString];
-            self.experienceList = [jsonObject objectForKey:@"items"];
+            self.jobTitles = [jsonObject objectForKey:@"items"];
         }
         else
-            if (connectionType ==OSCGetTopics)
+            if (connectionType ==OSCGetExperience)
             {
                 id jsonObject=  [parser objectWithString:responseString];
-                self.topicsList = [jsonObject objectForKey:@"items"];
+                self.experienceList = [jsonObject objectForKey:@"items"];
             }
+            else
+                if (connectionType ==OSCGetTopics)
+                {
+                    id jsonObject=  [parser objectWithString:responseString];
+                    self.topicsList = [jsonObject objectForKey:@"items"];
+                }
     if ([self.jobTitles count]>0 &&[self.locationsList count]>0 &&[self.experienceList count]>0 &&[self.topicsList count]>0 )
     {
         [loaderView setHidden:YES];
@@ -161,6 +161,7 @@
     self.location.selected = NO;
     self.jobTitle.selected = NO;
     self.experience.selected = NO;
+    self.contButton.selected = NO;
     self.contButton.enabled = YES;
     self.contButton.alpha = 1.0;
     [self.searchSelection reloadData];
@@ -216,34 +217,37 @@
     }
     
 }
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-        [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryCheckmark;
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryCheckmark;
     
     if (self.topics.selected)
     {
         NSDictionary* object = [self.topicsList objectAtIndex:indexPath.row];
         [searchObject setObject:[object objectForKey:@"title"] forKey:@"topics"];
+        self.topicsLabel.text = [searchObject objectForKey:@"topics"];
     }
     if (self.experience.selected)
     {
         NSDictionary* object = [self.experienceList objectAtIndex:indexPath.row];
         [searchObject setObject:[object objectForKey:@"title"] forKey:@"experience"];
+        self.expLabel.text = [searchObject objectForKey:@"experience"];
     }
     if (self.location.selected)
     {
         NSDictionary* object = [self.locationsList objectAtIndex:indexPath.row];
         [searchObject setObject:[object objectForKey:@"title"] forKey:@"location"];
+        self.locationLabel.text = [searchObject objectForKey:@"location"];
     }
     if (self.contButton.selected)
     {
         NSDictionary* object = [self.jobTitles objectAtIndex:indexPath.row];
         [searchObject setObject:[object objectForKey:@"title"] forKey:@"jobtitles"];
+        self.jobTitleLabel.text = [searchObject objectForKey:@"jobtitles"];
     }
     
-  }
+}
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
