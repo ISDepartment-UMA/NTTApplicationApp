@@ -15,6 +15,7 @@ static OSURLHelper *sharedHelper = nil;
 	}
 	return nil;
 }
+
 // Init shared API singelton
 + (OSURLHelper*)sharedHelper
 {

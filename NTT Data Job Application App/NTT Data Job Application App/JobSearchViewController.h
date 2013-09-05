@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OSConnectionManager.h"
 #import "SBJson.h"
-@interface JobAPPViewController : UIViewController<OSConnectionCompletionDelegate>
+@interface JobSearchViewController : UIViewController<OSConnectionCompletionDelegate>
 {
     UIView* loaderView;
     UIActivityIndicatorView* loader;

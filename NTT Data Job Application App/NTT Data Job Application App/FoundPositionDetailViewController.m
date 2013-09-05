@@ -5,13 +5,13 @@
 //  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
 
-#import "ItemViewController.h"
+#import "FoundPositionDetailViewController.h"
 
-@interface ItemViewController ()
+@interface FoundPositionDetailViewController ()
 
 @end
 
-@implementation ItemViewController
+@implementation FoundPositionDetailViewController
 
 -(void)viewDidAppear:(BOOL)animated
 {

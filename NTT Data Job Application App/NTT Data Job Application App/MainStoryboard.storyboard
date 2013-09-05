@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--JobAPP View Controller - Clasical Search-->
+        <!--Job Search View Controller - Clasical Search-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="JobAPPViewController" sceneMemberID="viewController">
+                <viewController id="2" customClass="JobSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -268,7 +268,7 @@
                                     <constraint firstAttribute="height" constant="243" id="Tbn-X2-XMN"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="rk5-r7-7hi">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="AnsweringOption" id="rk5-r7-7hi">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -329,10 +329,10 @@
             </objects>
             <point key="canvasLocation" x="746" y="677"/>
         </scene>
-        <!--View Controller - Positions-->
+        <!--Found Positions Overview View Controller - Positions-->
         <scene sceneID="StM-Id-3z2">
             <objects>
-                <tableViewController id="g5I-KU-xeh" customClass="ViewController" sceneMemberID="viewController">
+                <tableViewController id="g5I-KU-xeh" customClass="FoundPositionsOverviewViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S03-rs-IER">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,10 +362,10 @@
             </objects>
             <point key="canvasLocation" x="1015" y="-140"/>
         </scene>
-        <!--Item View Controller-->
+        <!--Found Position Detail View Controller-->
         <scene sceneID="gkz-cV-mHx">
             <objects>
-                <viewController id="Gyy-ut-UNb" customClass="ItemViewController" sceneMemberID="viewController">
+                <viewController id="Gyy-ut-UNb" customClass="FoundPositionDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Po-sd-Hab">
                         <rect key="frame" x="0.0" y="64" width="320" height="950"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -639,60 +639,12 @@
             <point key="canvasLocation" x="-11" y="-22"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contact" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="email" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="exp" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="jobTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainTask" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="phone" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="prespective" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reference" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="requirement" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="result" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="JobAPPViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobAPPViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="expLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="experience" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="jobTitle" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="jobTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="location" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="searchSelection" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="topics" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="topicsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="JobProposalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobProposalViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="M4b-4Q-m0D"/>
+        <segue reference="H9e-7p-BVX"/>
     </inferredMetricsTieBreakers>
 </document>

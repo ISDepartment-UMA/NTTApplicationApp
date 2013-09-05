@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "OSAPIManager.h"
 
-@interface ItemViewController : UIViewController
+@interface FoundPositionDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *reference;
 @property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UILabel *exp;

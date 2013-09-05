@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Pavel Kurasov and Hilal Yavuz. All rights reserved.
 //
 
-#import "JobAPPViewController.h"
+#import "JobSearchViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "OSAPIManager.h"
 
-@interface JobAPPViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface JobSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *jobTitle;
 @property (weak, nonatomic) IBOutlet UIButton *topics;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation JobAPPViewController
+@implementation JobSearchViewController
 @synthesize loaderView;
 @synthesize loader;
 @synthesize parser;
@@ -113,24 +113,22 @@
         id jsonObject=  [parser objectWithString:responseString];
         self.locationsList = [jsonObject objectForKey:@"items"];
     }
-    else
-        if (connectionType ==OSCGetJobTitle)
-        {
-            id jsonObject=  [parser objectWithString:responseString];
-            self.jobTitles = [jsonObject objectForKey:@"items"];
-        }
-        else
-            if (connectionType ==OSCGetExperience)
-            {
-                id jsonObject=  [parser objectWithString:responseString];
-                self.experienceList = [jsonObject objectForKey:@"items"];
-            }
-            else
-                if (connectionType ==OSCGetTopics)
-                {
-                    id jsonObject=  [parser objectWithString:responseString];
-                    self.topicsList = [jsonObject objectForKey:@"items"];
-                }
+    else if (connectionType ==OSCGetJobTitle)
+    {
+        id jsonObject=  [parser objectWithString:responseString];
+        self.jobTitles = [jsonObject objectForKey:@"items"];
+    }
+    else if (connectionType ==OSCGetExperience)
+    {
+        id jsonObject=  [parser objectWithString:responseString];
+        self.experienceList = [jsonObject objectForKey:@"items"];
+    }
+    else if (connectionType ==OSCGetTopics)
+    {
+        id jsonObject=  [parser objectWithString:responseString];
+        self.topicsList = [jsonObject objectForKey:@"items"];
+    }
+    
     if ([self.jobTitles count]>0 &&[self.locationsList count]>0 &&[self.experienceList count]>0 &&[self.topicsList count]>0 )
     {
         [loaderView setHidden:YES];
