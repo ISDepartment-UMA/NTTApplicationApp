@@ -10,7 +10,7 @@
 #import "OSConnectionManager.h"
 #import "SBJson.h"
 #import "OSAPIManager.h"
-@interface ViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,OSConnectionCompletionDelegate>
+@interface FoundPositionsOverviewViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,OSConnectionCompletionDelegate>
 {
     NSArray* resultArray;
     UIView* loaderView;
