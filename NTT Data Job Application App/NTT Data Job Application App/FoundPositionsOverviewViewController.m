@@ -13,6 +13,7 @@
 @synthesize loaderView;
 @synthesize loader;
 @synthesize resultArray;
+@synthesize parser;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
