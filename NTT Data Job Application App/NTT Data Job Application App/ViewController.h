@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OSConnectionManager.h"
+#import "SBJson.h"
+#import "OSAPIManager.h"
+@interface ViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,OSConnectionCompletionDelegate>
+{
+    NSArray* resultArray;
+    UIView* loaderView;
+    UIActivityIndicatorView* loader;
+    SBJsonParser *parser;
+}
 
-@interface ViewController : UIViewController
+@property(nonatomic,strong)    UIView* loaderView;
+@property(nonatomic,strong)    UIActivityIndicatorView* loader;
+@property (nonatomic, strong) SBJsonParser *parser;
+@property (weak, nonatomic) IBOutlet UITableView *optionsTable;
+@property (strong, nonatomic)  NSArray* resultArray;
+
 
 @end
