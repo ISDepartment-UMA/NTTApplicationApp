@@ -58,7 +58,11 @@ import dao.JobsDao;
 		}
 		 
     	 List<Jobs> myjobs=new ArrayList<Jobs>();
- 		JobsDao myJobsDao=new JobsDao(); 		
+ 		JobsDao myJobsDao=new JobsDao(); 	
+ 		Boolean bool=null;
+ 		
+ 		bool=myJobsDao.checkJobTitleInput("consultant1");
+ 		System.out.println("test result: "+bool);
  		
  		myjobs=myJobsDao.queryJobsByDefinedCriteria(jobtitle, location, topic, exp);
  		

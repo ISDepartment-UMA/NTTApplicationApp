@@ -36,49 +36,118 @@ public class JobsDao {
 	}
 
 	// now we write database actions
-	public List<Jobs> queryJobsByJobTitle(String jobtitle) {
-		List<Jobs> jobs = null;
-		query = "SELECT * FROM " + dbTable + " WHERE job_title='" + jobtitle
+	public Boolean checkJobTitleInput(String jobtitle) {
+		ResultSet rs=null;
+		Boolean test=null;
+		query = "SELECT * FROM jobtitle WHERE jobtitle='" + jobtitle
 				+ "'";
-		try {
-			jobs = run.query(query, h);
-			DbUtilHelper.log("queryJobsByJobTitle success: " + query);
+		try{
+			Statement stmt=DbUtilHelper.getConnection().createStatement();
+			rs=stmt.executeQuery(query);
+			DbUtilHelper.log("checkJobTitleInput success: " + query);
+			 
+			if(rs.next()){
+				test=true;
+			}				
+				else{
+					test=false;
+			}			
+			DbUtilHelper.log("checkJobTitleInput: " + test);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			DbUtilHelper.log("queryJobsByJobTitle failed");
+			DbUtilHelper.log("checkJobTitleInput failed");
 
 		}
 
-		if (jobs.isEmpty()) {
-			DbUtilHelper.log("queryJobsByJobTitle result is empty!");
-
-		}
-
-		return jobs.isEmpty() ? null : jobs;
+		 return test;
+		
 
 	}
 	
-	public List<Jobs> queryJobsByLocation(String location) {
-		List<Jobs> jobs = null;
-		query = "SELECT DISTINCT * FROM " + dbTable + " WHERE location1='" + location
-				+ "' OR location2='" + location + "' OR location3='" + location + "' OR location4='"+ location + "'";
-		try {
-			jobs = run.query(query, h);
-			DbUtilHelper.log("queryJobsByLocation success: " + query);
+	public Boolean checkLocationInput(String location) {
+		ResultSet rs=null;
+		Boolean test=null;
+		query = "SELECT * FROM locations WHERE location='" + location
+				+ "'";
+		try{
+			Statement stmt=DbUtilHelper.getConnection().createStatement();
+			rs=stmt.executeQuery(query);
+			DbUtilHelper.log("checkLocationInput success: " + query);
+			 
+			if(rs.next()){				
+				test=true;				
+			}				
+			else{
+				test=false;
+			}			
+			DbUtilHelper.log("checkLocationInput: " + test);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			DbUtilHelper.log("queryJobsByLocation failed");
+			DbUtilHelper.log("checkLocationInput failed");
 
 		}
 
-		if (jobs.isEmpty()) {
-			DbUtilHelper.log("queryJobsByLocation result is empty!");
-
-		}
-
-		return jobs.isEmpty() ? null : jobs;
+		 return test;
+		
 
 	}
+	
+	public Boolean checkTopicsInput(String topics) {
+		ResultSet rs=null;
+		Boolean test=null;
+		query = "SELECT * FROM topics WHERE topic='" + topics
+				+ "'";
+		try{
+			Statement stmt=DbUtilHelper.getConnection().createStatement();
+			rs=stmt.executeQuery(query);
+			DbUtilHelper.log("checkTopicsInput success: " + query);
+			 
+			if(rs.next()){				
+				test=true;
+			}				
+			else{
+				test=false;
+			}
+			DbUtilHelper.log("checkTopicsInput: "+test);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("checkTopicsInput failed");
+
+		}
+
+		 return test;
+		
+
+	}
+	
+	public Boolean checkExpInput(String exp) {
+		ResultSet rs=null;
+		Boolean test=null;
+		query = "SELECT * FROM experience WHERE experience='" + exp
+				+ "'";
+		try{
+			Statement stmt=DbUtilHelper.getConnection().createStatement();
+			rs=stmt.executeQuery(query);
+			DbUtilHelper.log("checkExpInput success: " + query);
+			 
+			if(rs.next()){				
+				test=true;
+			}				
+			else{
+				test=false;
+			}
+			DbUtilHelper.log("checkExpInput: "+test);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("checkExpInput failed");
+
+		}
+
+		 return test;
+		
+
+	}
+	
 	
 	public List<Jobs> queryJobsByTopic(String topic) {
 		List<Jobs> jobs = null;
