@@ -38,6 +38,13 @@ import dao.JobsDao;
 		 String topic=null;
 		 String jobtitle=null;
 		 String exp=null;
+		 Boolean locationIsValid=null;
+		 Boolean topicIsValid=null;
+		 Boolean jobtitleIsValid=null;
+		 Boolean expIsValid=null;
+		 String errorMessage="";
+		 String responseMessage=null;
+		 
 		 
 		 System.out.println("posted string:"+message);
 		 
@@ -58,14 +65,24 @@ import dao.JobsDao;
 		}
 		 
     	 List<Jobs> myjobs=new ArrayList<Jobs>();
- 		JobsDao myJobsDao=new JobsDao(); 		
+ 		JobsDao myJobsDao=new JobsDao(); 	
+ 		 
  		
+ 		locationIsValid=myJobsDao.checkLocationInput(location);
+ 		topicIsValid=myJobsDao.checkTopicsInput(topic);
+ 		jobtitleIsValid=myJobsDao.checkJobTitleInput(jobtitle);
+ 		expIsValid=myJobsDao.checkExpInput(exp);
+ 		 
+ 		if(locationIsValid==true&&
+ 				topicIsValid==true&&
+ 				jobtitleIsValid==true&&
+ 				expIsValid==true){
  		myjobs=myJobsDao.queryJobsByDefinedCriteria(jobtitle, location, topic, exp);
  		
  		if(myjobs.isEmpty()||myjobs==null){
  			
  			System.out.println("{\"resultIsEmpty\":true}");
- 			return "{\"resultIsEmpty\":true}"; 			
+ 			responseMessage= "{\"resultIsEmpty\":true}"; 			
  		}
  		
  		else{
@@ -90,13 +107,35 @@ import dao.JobsDao;
 			e.printStackTrace();
 		}
  		System.out.println("stringwriter: "+sw);
- 		if(sw.toString().isEmpty()){
- 			return null;
+ 		//if(sw.toString().isEmpty()){
+ 			//return null;
+ 		//}
+ 		
+ 		responseMessage=sw.toString();
  		}
  		
- 		return sw.toString(); 	 
+ 		
+ 		
+ 			}else{
+ 			if(locationIsValid==false){
+ 				errorMessage+="the parameter location: "+location +" is wrong, please check again";
+ 			}
+ 			if(topicIsValid==false){
+ 				errorMessage+="the parameter topic: "+topic+ " is wrong, please check again";
+ 			}
+ 			if(jobtitleIsValid==false){
+ 				errorMessage+="the parameter jobtitle: "+jobtitle+ " is wrong, please check again";
+ 			}
+ 			if(expIsValid==false){
+ 				errorMessage+="the parameter exp: "+exp+ " is wrong, please check again";
+ 			}
+ 			
+ 			responseMessage=errorMessage;
+ 			
  		}
- 
+ 		
+ 		
+ 		return responseMessage;
      }
 	 
  }
