@@ -56,26 +56,36 @@ static OSConnectionManager *sharedManager = nil;
     NSString* connectionTypeValue = [NSString stringWithFormat:@"%i",connectionType];
     NSURL* url = [[OSURLHelper sharedHelper] getUrl:connectionType];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    
     if (connectionType == OSCGetSearch)
     {
         NSDictionary* searchObject = [OSAPIManager sharedManager].flashObjects;
         NSString* exp = [searchObject objectForKey:@"experience"];
         NSString* topic = [searchObject objectForKey:@"topics"];
-        NSString* jobtitle = [searchObject objectForKey:@"location"];
-        NSString* location = [searchObject objectForKey:@"jobtitles"];
+        NSString* jobtitle = [searchObject objectForKey:@"jobtitles"];
+        NSString* location = [searchObject objectForKey:@"location"];
         
         //NSString* postString =[NSString stringWithFormat:@"jobtitle=%@&location=%@&topic=%@&exp=%@",jobtitle,location,topic,exp] ;
-        NSString* postString =[NSString stringWithFormat:@"{\"jobtitle\":%@,\"location\":%@,\"topic\":%@,\"exp\":%@}",jobtitle,location,topic,exp] ;
-        //{"jobtitle":%@,"location":%@,"topic":%@,"exp":%@}
-        postString = [postString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+        NSString* postString =[NSString stringWithFormat:@"'{\"jobtitle\":\"%@\",\"location\":\"%@\",\"topic\":\"%@\",\"exp\":\"%@\"}'",
+                               [jobtitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                               [location stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                               [topic stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                               [exp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+
+        NSData* requestdata = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        
+        [request setHTTPBody:requestdata];
+        NSLog(@"Poststring: %@", postString);
+        NSLog(@"request: %@", request);
+
     }
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPMethod:@"POST"];
+
     
     // start connection for requested url and set the connection type
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:request delegate:self];
-    
+
     // get object of hash key of object
     NSString* hashKey = [NSString stringWithFormat:@"%i",connection.hash];
     // open mutable Data object for this connection

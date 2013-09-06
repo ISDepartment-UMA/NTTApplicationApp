@@ -44,6 +44,10 @@
 @synthesize searchObject;
 
 #define JSON_SELECTOR @"display_name"
+#define JSON_DATABASE_LOCATION_SELECTOR @"location"
+#define JSON_DATABASE_EXPERIENCE_SELECTOR @"experience"
+#define JSON_DATABASE_JOBTITLE_SELECTOR @"jobtitle"
+#define JSON_DATABASE_TOPIC_SELECTOR @"topic"
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -237,26 +241,26 @@
     if (self.topics.selected)
     {
         NSDictionary* object = [self.topicsList objectAtIndex:indexPath.row];
-        [searchObject setObject:[object objectForKey:JSON_SELECTOR] forKey:@"topics"];
-        self.topicsLabel.text = [searchObject objectForKey:@"topics"];
+        [searchObject setObject:[object objectForKey:JSON_DATABASE_TOPIC_SELECTOR] forKey:@"topics"];
+        self.topicsLabel.text = [object objectForKey:JSON_SELECTOR];
     }
     if (self.experience.selected)
     {
         NSDictionary* object = [self.experienceList objectAtIndex:indexPath.row];
-        [searchObject setObject:[object objectForKey:JSON_SELECTOR] forKey:@"experience"];
-        self.expLabel.text = [searchObject objectForKey:@"experience"];
+        [searchObject setObject:[object objectForKey:JSON_DATABASE_EXPERIENCE_SELECTOR] forKey:@"experience"];
+        self.expLabel.text = [object objectForKey:JSON_SELECTOR];
     }
     if (self.location.selected)
     {
         NSDictionary* object = [self.locationsList objectAtIndex:indexPath.row];
-        [searchObject setObject:[object objectForKey:JSON_SELECTOR] forKey:@"location"];
-        self.locationLabel.text = [searchObject objectForKey:@"location"];
+        [searchObject setObject:[object objectForKey:JSON_DATABASE_LOCATION_SELECTOR] forKey:@"location"];
+        self.locationLabel.text = [object objectForKey:JSON_SELECTOR];
     }
     if (self.contButton.selected)
     {
         NSDictionary* object = [self.jobTitles objectAtIndex:indexPath.row];
-        [searchObject setObject:[object objectForKey:JSON_SELECTOR] forKey:@"jobtitles"];
-        self.jobTitleLabel.text = [searchObject objectForKey:@"jobtitles"];
+        [searchObject setObject:[object objectForKey:JSON_DATABASE_JOBTITLE_SELECTOR] forKey:@"jobtitles"];
+        self.jobTitleLabel.text = [object objectForKey:JSON_SELECTOR];
     }
     
 }
