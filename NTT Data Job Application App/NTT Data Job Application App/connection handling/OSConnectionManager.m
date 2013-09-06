@@ -64,7 +64,9 @@ static OSConnectionManager *sharedManager = nil;
         NSString* jobtitle = [searchObject objectForKey:@"location"];
         NSString* location = [searchObject objectForKey:@"jobtitles"];
         
-        NSString* postString =[NSString stringWithFormat:@"jobtitle=%@&location=%@&topic=%@&exp=%@",jobtitle,location,topic,exp] ;
+        //NSString* postString =[NSString stringWithFormat:@"jobtitle=%@&location=%@&topic=%@&exp=%@",jobtitle,location,topic,exp] ;
+        NSString* postString =[NSString stringWithFormat:@"{\"jobtitle\":%@,\"location\":%@,\"topic\":%@,\"exp\":%@}",jobtitle,location,topic,exp] ;
+        //{"jobtitle":%@,"location":%@,"topic":%@,"exp":%@}
         postString = [postString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     }
