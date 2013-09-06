@@ -26,10 +26,14 @@
     self.contact.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"contact_person"];
     self.email.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"email"];
     self.phone.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"phone_no"];
-    self.description.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
-    self.mainTask.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
-    self.prespective.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
-    self.requirement.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
+    //self.description.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
+    self.descriptionText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
+    self.mainTaskText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
+    //self.mainTask.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
+    self.perspectiveText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
+    //self.prespective.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
+    self.requirementText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
+    //self.requirement.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
     self.result.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"our_offer"];
     [self.scrollView setContentSize:CGSizeMake(320, 950)];
 }

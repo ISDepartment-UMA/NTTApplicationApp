@@ -22,5 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *requirement;
 @property (weak, nonatomic) IBOutlet UILabel *result;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionText;
+@property (weak, nonatomic) IBOutlet UITextView *mainTaskText;
+@property (weak, nonatomic) IBOutlet UITextView *perspectiveText;
+@property (weak, nonatomic) IBOutlet UITextView *requirementText;
 
 @end
