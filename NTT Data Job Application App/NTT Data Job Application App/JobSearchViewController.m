@@ -43,6 +43,8 @@
 @synthesize parser;
 @synthesize searchObject;
 
+#define JSON_SELECTOR @"display_name"
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [OSAPIManager sharedManager].flashObjects = searchObject;
@@ -121,45 +123,23 @@
     if (connectionType ==OSCGetLocation)
     {
         id jsonObject=  [parser objectWithString:responseString];
-        
-        NSMutableArray* titles = [[NSMutableArray alloc]init];
-        for (NSArray* s in (NSArray*)jsonObject) {
-            NSString* value = [s valueForKey:@"display_name"];
-            [titles addObject:value];
-        }
-        
-        self.locationsList = [titles copy]; //[jsonObject objectForKey:@"items"];
+        self.locationsList = (NSArray*)jsonObject; //[jsonObject objectForKey:@"items"];
     }
     else if (connectionType ==OSCGetJobTitle)
     {
         id jsonObject=  [parser objectWithString:responseString];
-        
-        NSMutableArray* titles = [[NSMutableArray alloc]init];
-        for (NSArray* s in (NSArray*)jsonObject) {
-            NSString* value = [s valueForKey:@"display_name"];
-            [titles addObject:value];
-        }
-        self.jobTitles = titles; //[jsonObject objectForKey:@"items"];
+        self.jobTitles = (NSArray*)jsonObject; //[jsonObject objectForKey:@"items"];
     }
     else if (connectionType ==OSCGetExperience)
     {
         id jsonObject=  [parser objectWithString:responseString];
-        NSMutableArray* titles = [[NSMutableArray alloc]init];
-        for (NSArray* s in (NSArray*)jsonObject) {
-            NSString* value = [s valueForKey:@"display_name"];
-            [titles addObject:value];
-        }
-        self.experienceList = titles; //[jsonObject objectForKey:@"items"];
+        self.experienceList = (NSArray*)jsonObject; //[jsonObject objectForKey:@"items"];
     }
     else if (connectionType ==OSCGetTopics)
     {
         id jsonObject=  [parser objectWithString:responseString];
-        NSMutableArray* titles = [[NSMutableArray alloc]init];
-        for (NSArray* s in (NSArray*)jsonObject) {
-            NSString* value = [s valueForKey:@"display_name"];
-            [titles addObject:value];
-        }
-        self.topicsList = titles; //[jsonObject objectForKey:@"items"];
+
+        self.topicsList = (NSArray*)jsonObject; //[jsonObject objectForKey:@"items"];
     }
     
     if ([self.jobTitles count]>0 &&[self.locationsList count]>0 &&[self.experienceList count]>0 &&[self.topicsList count]>0 )
@@ -249,6 +229,7 @@
     }
     
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -257,25 +238,25 @@
     if (self.topics.selected)
     {
         NSDictionary* object = [self.topicsList objectAtIndex:indexPath.row];
-        [searchObject setObject:[object objectForKey:@"title"] forKey:@"topics"];
+        [searchObject setObject:[object objectForKey:JSON_SELECTOR] forKey:@"topics"];
         self.topicsLabel.text = [searchObject objectForKey:@"topics"];
     }
     if (self.experience.selected)
     {
         NSDictionary* object = [self.experienceList objectAtIndex:indexPath.row];
-        [searchObject setObject:[object objectForKey:@"title"] forKey:@"experience"];
+        [searchObject setObject:[object objectForKey:JSON_SELECTOR] forKey:@"experience"];
         self.expLabel.text = [searchObject objectForKey:@"experience"];
     }
     if (self.location.selected)
     {
         NSDictionary* object = [self.locationsList objectAtIndex:indexPath.row];
-        [searchObject setObject:[object objectForKey:@"title"] forKey:@"location"];
+        [searchObject setObject:[object objectForKey:JSON_SELECTOR] forKey:@"location"];
         self.locationLabel.text = [searchObject objectForKey:@"location"];
     }
     if (self.contButton.selected)
     {
         NSDictionary* object = [self.jobTitles objectAtIndex:indexPath.row];
-        [searchObject setObject:[object objectForKey:@"title"] forKey:@"jobtitles"];
+        [searchObject setObject:[object objectForKey:JSON_SELECTOR] forKey:@"jobtitles"];
         self.jobTitleLabel.text = [searchObject objectForKey:@"jobtitles"];
     }
     
@@ -297,8 +278,7 @@
 
 - (NSString *)titleForRow:(NSUInteger)row
 {
-    //return [self.selected[row] objectForKey:@"title"];
-    return [self.selected objectAtIndex:row];
+    return [self.selected[row] objectForKey:JSON_SELECTOR];
 }
 
 // loads up a table view cell with the search criteria at the given row in the Model

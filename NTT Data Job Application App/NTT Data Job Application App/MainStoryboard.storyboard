@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Job Search View Controller - Clasical Search-->
+        <!--Job Search View Controller - Classical Search-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="JobSearchViewController" sceneMemberID="viewController">
@@ -221,7 +221,7 @@
                             <constraint firstItem="7LZ-Gn-sZT" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="z6U-ed-cwL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Clasical Search" id="KsQ-5D-79c"/>
+                    <navigationItem key="navigationItem" title="Classical Search" id="KsQ-5D-79c"/>
                     <connections>
                         <outlet property="contButton" destination="xWg-ct-zRs" id="smY-fD-dEb"/>
                         <outlet property="expLabel" destination="S00-dp-7dP" id="3k0-m5-G6z"/>
@@ -329,7 +329,7 @@
             </objects>
             <point key="canvasLocation" x="746" y="677"/>
         </scene>
-        <!--Found Positions Overview View Controller - Positions-->
+        <!--Found Positions Overview View Controller - Open Positions-->
         <scene sceneID="StM-Id-3z2">
             <objects>
                 <tableViewController id="g5I-KU-xeh" customClass="FoundPositionsOverviewViewController" sceneMemberID="viewController">
@@ -356,7 +356,7 @@
                             <outlet property="delegate" destination="g5I-KU-xeh" id="s3F-vY-6Kq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Positions" id="yKp-0r-Nfp"/>
+                    <navigationItem key="navigationItem" title="Open Positions" id="yKp-0r-Nfp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoa-uB-RGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -645,6 +645,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="H9e-7p-BVX"/>
+        <segue reference="M4b-4Q-m0D"/>
     </inferredMetricsTieBreakers>
 </document>
