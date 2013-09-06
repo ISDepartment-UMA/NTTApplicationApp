@@ -66,12 +66,11 @@ static OSConnectionManager *sharedManager = nil;
         
         NSString* postString =[NSString stringWithFormat:@"jobtitle=%@&location=%@&topic=%@&exp=%@",jobtitle,location,topic,exp] ;
         postString = [postString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        NSLog(@"parms are %@",postString);
-        [request setHTTPMethod:@"POST"];
         [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
-        
     }
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    
     // start connection for requested url and set the connection type
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:request delegate:self];
     

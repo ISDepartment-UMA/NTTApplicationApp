@@ -80,51 +80,40 @@ static OSURLHelper *sharedHelper = nil;
     }
     return [NSURL URLWithString:@""];
 }
+
 #pragma mark customize url for each connection type
-/**
- *	get the url for countries
- *
- *	@return	url of get countries
- */
 -(NSURL*)getJobTitleUrl
 {
-    NSString* result = [NSString stringWithFormat:@"http://nttdata.apiary.io/get_job_title"];
+    NSString* result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/jobtitlechoicequery"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }
 
-/**
- *	get the url for categories
- *
- *	@return	url of get categories
- */
 -(NSURL*)getTopics
 {
-    NSString* result = [NSString stringWithFormat:@"http://nttdata.apiary.io/get_topics"];
+    NSString* result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/topicschoicequery"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }
 
 -(NSURL*)getLocation
 {
-    NSString* result =[NSString stringWithFormat:@"http://nttdata.apiary.io/get_locations"];
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/locationschoicequery"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }
+
 -(NSURL*)getExperience
 {
-    NSString* result =[NSString stringWithFormat:@"http://nttdata.apiary.io/get_experience"];
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/experiencechoicequery"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
-    
 }
+
 -(NSURL*)getSearch
 {
-    
     NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/fixedjobsquery"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
-    
 }
-
 @end
