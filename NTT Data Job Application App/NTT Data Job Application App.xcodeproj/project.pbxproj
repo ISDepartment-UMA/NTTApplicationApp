@@ -133,7 +133,6 @@
 		280A3E6817A7024B006A12D5 = {
 			isa = PBXGroup;
 			children = (
-				282023DA17DA956F00F86979 /* CoreData.framework */,
 				280A3E7A17A7024B006A12D5 /* NTT Data Job Application App */,
 				2876DE3317D93D0D0053B4DB /* JobApplicationAppUnitTests */,
 				280A3E7317A7024B006A12D5 /* Frameworks */,
@@ -153,6 +152,7 @@
 		280A3E7317A7024B006A12D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				282023DA17DA956F00F86979 /* CoreData.framework */,
 				280A3E7417A7024B006A12D5 /* UIKit.framework */,
 				280A3E7617A7024B006A12D5 /* Foundation.framework */,
 				280A3E7817A7024B006A12D5 /* CoreGraphics.framework */,
