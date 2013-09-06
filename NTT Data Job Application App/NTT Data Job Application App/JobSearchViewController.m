@@ -123,23 +123,22 @@
     if (connectionType ==OSCGetLocation)
     {
         id jsonObject=  [parser objectWithString:responseString];
-        self.locationsList = (NSArray*)jsonObject; //[jsonObject objectForKey:@"items"];
+        self.locationsList = (NSArray*)jsonObject; 
     }
     else if (connectionType ==OSCGetJobTitle)
     {
         id jsonObject=  [parser objectWithString:responseString];
-        self.jobTitles = (NSArray*)jsonObject; //[jsonObject objectForKey:@"items"];
+        self.jobTitles = (NSArray*)jsonObject; 
     }
     else if (connectionType ==OSCGetExperience)
     {
-        id jsonObject=  [parser objectWithString:responseString];
-        self.experienceList = (NSArray*)jsonObject; //[jsonObject objectForKey:@"items"];
+        id jsonObject= [parser objectWithString:responseString];
+        self.experienceList = (NSArray*)jsonObject; 
     }
     else if (connectionType ==OSCGetTopics)
     {
-        id jsonObject=  [parser objectWithString:responseString];
-
-        self.topicsList = (NSArray*)jsonObject; //[jsonObject objectForKey:@"items"];
+        id jsonObject= [parser objectWithString:responseString];
+        self.topicsList = (NSArray*)jsonObject; 
     }
     
     if ([self.jobTitles count]>0 &&[self.locationsList count]>0 &&[self.experienceList count]>0 &&[self.topicsList count]>0 )
@@ -270,7 +269,6 @@
 
 #pragma mark - UITableViewDataSource
 // lets the UITableView know how many rows it should display
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.selected count];
