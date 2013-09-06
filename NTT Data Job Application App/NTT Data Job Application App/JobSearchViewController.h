@@ -8,13 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OSConnectionManager.h"
-#import "SBJson.h"
+
 @interface JobSearchViewController : UIViewController<OSConnectionCompletionDelegate>
-{
-    UIView* loaderView;
-    UIActivityIndicatorView* loader;
-    SBJsonParser *parser;
-    NSMutableDictionary* searchObject;
-}
 
 @end

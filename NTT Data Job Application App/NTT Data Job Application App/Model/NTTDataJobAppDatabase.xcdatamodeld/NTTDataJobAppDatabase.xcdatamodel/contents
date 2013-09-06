@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Experience" syncable="YES"/>
+    <entity name="JobTitle" syncable="YES"/>
+    <entity name="Location" syncable="YES"/>
+    <entity name="Topic" syncable="YES"/>
+    <elements>
+        <element name="Location" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="Topic" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="Experience" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="JobTitle" positionX="160" positionY="192" width="128" height="45"/>
+    </elements>
+</model>

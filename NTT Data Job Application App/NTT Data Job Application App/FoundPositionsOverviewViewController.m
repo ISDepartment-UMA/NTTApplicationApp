@@ -8,6 +8,18 @@
 
 #import "FoundPositionsOverviewViewController.h"
 #import "QuartzCore/QuartzCore.h"
+#import "OSConnectionManager.h"
+#import "SBJson.h"
+#import "OSAPIManager.h"
+
+@interface FoundPositionsOverviewViewController()
+@property(nonatomic,strong) UIView* loaderView;
+@property(nonatomic,strong)  UIActivityIndicatorView* loader;
+@property (nonatomic, strong) SBJsonParser *parser;
+@property (weak, nonatomic) IBOutlet UITableView *optionsTable;
+@property (strong, nonatomic)  NSArray* resultArray;
+
+@end
 
 @implementation FoundPositionsOverviewViewController
 @synthesize loaderView;
@@ -17,7 +29,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
 }
 
 -(void)initLoader
@@ -70,9 +81,8 @@
     responseString = [responseString stringByReplacingOccurrencesOfString:@"null" withString:@"\"none\""];
     
     id jsonObject=  [parser objectWithString:responseString];
-    if (connectionType != OSCGetSearch) {
-        self.resultArray = [jsonObject objectForKey:@"items"];
-    }
+    if (connectionType != OSCGetSearch)
+        self.resultArray = (NSArray*)jsonObject;
     else
         self.resultArray = jsonObject;
     [self.tableView reloadData];
@@ -86,7 +96,6 @@
 #pragma mark - UITableViewDataSource
 
 // lets the UITableView know how many rows it should display
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [resultArray count];

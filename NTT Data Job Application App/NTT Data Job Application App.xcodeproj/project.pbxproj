@@ -17,6 +17,8 @@
 		280A3E8917A7024B006A12D5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8817A7024B006A12D5 /* Default@2x.png */; };
 		280A3E8B17A7024B006A12D5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */; };
 		280A3E9117A7024B006A12D5 /* FoundPositionsOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E9017A7024B006A12D5 /* FoundPositionsOverviewViewController.m */; };
+		282023D917DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */; };
+		282023DB17DA956F00F86979 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282023DA17DA956F00F86979 /* CoreData.framework */; };
 		2876DE3017D93D0D0053B4DB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */; };
 		2876DE3117D93D0D0053B4DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7417A7024B006A12D5 /* UIKit.framework */; };
 		2876DE3217D93D0D0053B4DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7617A7024B006A12D5 /* Foundation.framework */; };
@@ -57,6 +59,8 @@
 		280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		280A3E8F17A7024B006A12D5 /* FoundPositionsOverviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundPositionsOverviewViewController.h; sourceTree = "<group>"; };
 		280A3E9017A7024B006A12D5 /* FoundPositionsOverviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundPositionsOverviewViewController.m; sourceTree = "<group>"; };
+		282023D817DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTTDataJobAppDatabase.xcdatamodel; sourceTree = "<group>"; };
+		282023DA17DA956F00F86979 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobApplicationAppUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2876DE3517D93D0D0053B4DB /* JobApplicationAppUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JobApplicationAppUnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282023DB17DA956F00F86979 /* CoreData.framework in Frameworks */,
 				280A3E7517A7024B006A12D5 /* UIKit.framework in Frameworks */,
 				280A3E7717A7024B006A12D5 /* Foundation.framework in Frameworks */,
 				280A3E7917A7024B006A12D5 /* CoreGraphics.framework in Frameworks */,
@@ -128,6 +133,7 @@
 		280A3E6817A7024B006A12D5 = {
 			isa = PBXGroup;
 			children = (
+				282023DA17DA956F00F86979 /* CoreData.framework */,
 				280A3E7A17A7024B006A12D5 /* NTT Data Job Application App */,
 				2876DE3317D93D0D0053B4DB /* JobApplicationAppUnitTests */,
 				280A3E7317A7024B006A12D5 /* Frameworks */,
@@ -169,6 +175,7 @@
 				71E12D7317D0BC6600C46907 /* FoundPositionDetailViewController.m */,
 				7134036217CFFB0400BFE7F8 /* Connection handling */,
 				7134034217CFFACE00BFE7F8 /* SBJson */,
+				282023D617DA929400F86979 /* Model */,
 				280A3E7B17A7024B006A12D5 /* Supporting Files */,
 			);
 			path = "NTT Data Job Application App";
@@ -188,6 +195,14 @@
 				280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		282023D617DA929400F86979 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		2876DE3317D93D0D0053B4DB /* JobApplicationAppUnitTests */ = {
@@ -381,6 +396,7 @@
 				71E12D6E17D0AB0300C46907 /* OSAPIManager.m in Sources */,
 				71E12D7417D0BC6600C46907 /* FoundPositionDetailViewController.m in Sources */,
 				8006E9EC17D7BE0E0004A238 /* JobProposalViewController.m in Sources */,
+				282023D917DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,8 +566,23 @@
 				2876DE3E17D93D0D0053B4DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				282023D817DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodel */,
+			);
+			currentVersion = 282023D817DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodel */;
+			name = NTTDataJobAppDatabase.xcdatamodeld;
+			path = Model/NTTDataJobAppDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 280A3E6917A7024B006A12D5 /* Project object */;
 }

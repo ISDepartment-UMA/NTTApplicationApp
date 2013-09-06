@@ -8,7 +8,23 @@
 #import "FoundPositionDetailViewController.h"
 
 @interface FoundPositionDetailViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *reference;
+@property (weak, nonatomic) IBOutlet UILabel *position;
+@property (weak, nonatomic) IBOutlet UILabel *exp;
+@property (weak, nonatomic) IBOutlet UILabel *jobTitle;
+@property (weak, nonatomic) IBOutlet UILabel *contact;
+@property (weak, nonatomic) IBOutlet UILabel *phone;
+@property (weak, nonatomic) IBOutlet UILabel *email;
+@property (weak, nonatomic) IBOutlet UILabel *description;
+@property (weak, nonatomic) IBOutlet UILabel *mainTask;
+@property (weak, nonatomic) IBOutlet UILabel *prespective;
+@property (weak, nonatomic) IBOutlet UILabel *requirement;
+@property (weak, nonatomic) IBOutlet UILabel *result;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionText;
+@property (weak, nonatomic) IBOutlet UITextView *mainTaskText;
+@property (weak, nonatomic) IBOutlet UITextView *perspectiveText;
+@property (weak, nonatomic) IBOutlet UITextView *requirementText;
 @end
 
 @implementation FoundPositionDetailViewController
@@ -17,6 +33,7 @@
 {
     [self loadData];
 }
+
 -(void)loadData
 {
     self.reference.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"ref_no"];

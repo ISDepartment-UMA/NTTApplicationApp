@@ -9,6 +9,7 @@
 #import "JobSearchViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "OSAPIManager.h"
+#import "SBJson.h"
 
 @interface JobSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
