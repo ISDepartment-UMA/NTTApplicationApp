@@ -43,6 +43,11 @@ static OSConnectionManager *sharedManager = nil;
 #pragma mark -
 #pragma mark Connection LifeCycle
 
+- (NSString*) preprocessString:(NSString*)input
+{
+    return ((input) ? [NSString stringWithFormat:@"\"%@\"",input] : @"null");
+}
+
 /**
  *	Start a connection for getting data from server api with post&get parameters
  *
@@ -62,24 +67,23 @@ static OSConnectionManager *sharedManager = nil;
     if (connectionType == OSCGetSearch)
     {
         NSDictionary* searchObject = [OSAPIManager sharedManager].flashObjects;
-        NSString* exp = [searchObject objectForKey:@"experience"];
-        NSString* topic = [searchObject objectForKey:@"topics"];
-        NSString* jobtitle = [searchObject objectForKey:@"jobtitles"];
-        NSString* location = [searchObject objectForKey:@"location"];
         
-        //NSString* postString =[NSString stringWithFormat:@"jobtitle=%@&location=%@&topic=%@&exp=%@",jobtitle,location,topic,exp] ;
-        NSString* postString =[NSString stringWithFormat:@"'{\"jobtitle\":\"%@\",\"location\":\"%@\",\"topic\":\"%@\",\"exp\":\"%@\"}'",
-                               [jobtitle stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                               [location stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                               [topic stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                               [exp stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-
+        NSString* exp = [searchObject objectForKey:@"experience"];
+        exp = [self preprocessString:exp];
+        
+        NSString* topic = [searchObject objectForKey:@"topics"];
+        topic = [self preprocessString:topic];
+        
+        NSString* jobtitle = [searchObject objectForKey:@"jobtitles"];
+        jobtitle = [self preprocessString:jobtitle];
+    
+        NSString* location = [searchObject objectForKey:@"location"];
+        location = [self preprocessString:location];
+        
+        NSString* postString =[NSString stringWithFormat:@"{\"jobtitle\":%@,\"location\":%@,\"topic\":%@,\"exp\":%@}", jobtitle, location, topic, exp];
         NSData* requestdata = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         
         [request setHTTPBody:requestdata];
-        NSLog(@"Poststring: %@", postString);
-        NSLog(@"request: %@", request);
-
     }
 
     
@@ -183,7 +187,6 @@ static OSConnectionManager *sharedManager = nil;
     // remove connection from connections hashtable and connections data dictionary
     [connectionsHashTable removeObjectForKey:hashKey];
     [connectionsData removeObjectForKey:hashKey];
-    
 }
 
 
