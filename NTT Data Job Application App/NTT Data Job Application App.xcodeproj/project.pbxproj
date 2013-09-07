@@ -19,6 +19,14 @@
 		280A3E9117A7024B006A12D5 /* FoundPositionsOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E9017A7024B006A12D5 /* FoundPositionsOverviewViewController.m */; };
 		282023D917DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */; };
 		282023DB17DA956F00F86979 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282023DA17DA956F00F86979 /* CoreData.framework */; };
+		282023DE17DB663700F86979 /* JobTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023DD17DB663700F86979 /* JobTitle.m */; };
+		282023E117DB663700F86979 /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023E017DB663700F86979 /* Experience.m */; };
+		282023E417DB663700F86979 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023E317DB663700F86979 /* Topic.m */; };
+		282023E717DB663700F86979 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023E617DB663700F86979 /* Location.m */; };
+		282023EA17DB8A0B00F86979 /* JobTitle+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023E917DB8A0B00F86979 /* JobTitle+Create.m */; };
+		282023ED17DB8A2000F86979 /* Experience+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023EC17DB8A1F00F86979 /* Experience+Create.m */; };
+		282023F017DB8A3200F86979 /* Topic+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023EF17DB8A3200F86979 /* Topic+Create.m */; };
+		282023F317DB8A4300F86979 /* Location+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023F217DB8A4300F86979 /* Location+Create.m */; };
 		2876DE3017D93D0D0053B4DB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */; };
 		2876DE3117D93D0D0053B4DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7417A7024B006A12D5 /* UIKit.framework */; };
 		2876DE3217D93D0D0053B4DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7617A7024B006A12D5 /* Foundation.framework */; };
@@ -61,6 +69,22 @@
 		280A3E9017A7024B006A12D5 /* FoundPositionsOverviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundPositionsOverviewViewController.m; sourceTree = "<group>"; };
 		282023D817DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTTDataJobAppDatabase.xcdatamodel; sourceTree = "<group>"; };
 		282023DA17DA956F00F86979 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		282023DC17DB663700F86979 /* JobTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobTitle.h; path = Model/JobTitle.h; sourceTree = "<group>"; };
+		282023DD17DB663700F86979 /* JobTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobTitle.m; path = Model/JobTitle.m; sourceTree = "<group>"; };
+		282023DF17DB663700F86979 /* Experience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Experience.h; path = Model/Experience.h; sourceTree = "<group>"; };
+		282023E017DB663700F86979 /* Experience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Experience.m; path = Model/Experience.m; sourceTree = "<group>"; };
+		282023E217DB663700F86979 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = Model/Topic.h; sourceTree = "<group>"; };
+		282023E317DB663700F86979 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = Model/Topic.m; sourceTree = "<group>"; };
+		282023E517DB663700F86979 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Model/Location.h; sourceTree = "<group>"; };
+		282023E617DB663700F86979 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Model/Location.m; sourceTree = "<group>"; };
+		282023E817DB8A0B00F86979 /* JobTitle+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JobTitle+Create.h"; path = "Model/JobTitle+Create.h"; sourceTree = "<group>"; };
+		282023E917DB8A0B00F86979 /* JobTitle+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JobTitle+Create.m"; path = "Model/JobTitle+Create.m"; sourceTree = "<group>"; };
+		282023EB17DB8A1F00F86979 /* Experience+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Experience+Create.h"; path = "Model/Experience+Create.h"; sourceTree = "<group>"; };
+		282023EC17DB8A1F00F86979 /* Experience+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Experience+Create.m"; path = "Model/Experience+Create.m"; sourceTree = "<group>"; };
+		282023EE17DB8A3200F86979 /* Topic+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Topic+Create.h"; sourceTree = "<group>"; };
+		282023EF17DB8A3200F86979 /* Topic+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Topic+Create.m"; sourceTree = "<group>"; };
+		282023F117DB8A4300F86979 /* Location+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Location+Create.h"; path = "Model/Location+Create.h"; sourceTree = "<group>"; };
+		282023F217DB8A4300F86979 /* Location+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+Create.m"; path = "Model/Location+Create.m"; sourceTree = "<group>"; };
 		2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobApplicationAppUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2876DE3517D93D0D0053B4DB /* JobApplicationAppUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JobApplicationAppUnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -201,6 +225,22 @@
 			isa = PBXGroup;
 			children = (
 				282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */,
+				282023E517DB663700F86979 /* Location.h */,
+				282023E617DB663700F86979 /* Location.m */,
+				282023F117DB8A4300F86979 /* Location+Create.h */,
+				282023F217DB8A4300F86979 /* Location+Create.m */,
+				282023E217DB663700F86979 /* Topic.h */,
+				282023E317DB663700F86979 /* Topic.m */,
+				282023EE17DB8A3200F86979 /* Topic+Create.h */,
+				282023EF17DB8A3200F86979 /* Topic+Create.m */,
+				282023DF17DB663700F86979 /* Experience.h */,
+				282023E017DB663700F86979 /* Experience.m */,
+				282023EB17DB8A1F00F86979 /* Experience+Create.h */,
+				282023EC17DB8A1F00F86979 /* Experience+Create.m */,
+				282023DC17DB663700F86979 /* JobTitle.h */,
+				282023DD17DB663700F86979 /* JobTitle.m */,
+				282023E817DB8A0B00F86979 /* JobTitle+Create.h */,
+				282023E917DB8A0B00F86979 /* JobTitle+Create.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -397,6 +437,14 @@
 				71E12D7417D0BC6600C46907 /* FoundPositionDetailViewController.m in Sources */,
 				8006E9EC17D7BE0E0004A238 /* JobProposalViewController.m in Sources */,
 				282023D917DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld in Sources */,
+				282023DE17DB663700F86979 /* JobTitle.m in Sources */,
+				282023E117DB663700F86979 /* Experience.m in Sources */,
+				282023E417DB663700F86979 /* Topic.m in Sources */,
+				282023E717DB663700F86979 /* Location.m in Sources */,
+				282023EA17DB8A0B00F86979 /* JobTitle+Create.m in Sources */,
+				282023ED17DB8A2000F86979 /* Experience+Create.m in Sources */,
+				282023F017DB8A3200F86979 /* Topic+Create.m in Sources */,
+				282023F317DB8A4300F86979 /* Location+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
