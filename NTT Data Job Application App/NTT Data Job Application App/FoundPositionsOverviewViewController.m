@@ -115,9 +115,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.accessoryType=UITableViewCellAccessoryNone;
+    cell.accessoryType= UITableViewCellAccessoryNone;
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     cell.textLabel.text = [self titleForRow:indexPath.row];
+
+    
+    NSString *subtitle = @"Location\nReferenceID";
+        
+    cell.detailTextLabel.numberOfLines = 2;
+    cell.detailTextLabel.text = subtitle;
+    
     
     return cell;
 }
