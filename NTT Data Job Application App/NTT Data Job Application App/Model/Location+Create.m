@@ -7,7 +7,46 @@
 //
 
 #import "Location+Create.h"
+#import "NSManagedObjectContext+Shared.h"
 
 @implementation Location (Create)
++ (NSArray*)allLocationsIncludingJSON:(NSString*)jsonResponse
+{
+    NSMutableArray* allLocations = [[NSMutableArray alloc]init];
+    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    {
+        [allLocations addObject:[Location createLocationFromDictionary:dict]];
+    }
+    
+    return [allLocations copy];
+}
 
++ (Location*) createLocationFromDictionary:(NSDictionary*)dictionary
+{
+    Location* location = nil;
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"databasename = %@ && displayname = %@", [dictionary objectForKey:@"location"], [dictionary objectForKey:@"display_name"]];
+    
+    NSError* error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    
+    if (!results || [results count]>1)
+    {
+        //error handling
+    }
+    else if (![results count])
+    {
+        location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:context];
+        location.databasename = [dictionary objectForKey:@"location"];
+        location.displayname = [dictionary objectForKey:@"display_name"];
+    }
+    else
+    {
+        location = [results lastObject];
+    }
+    
+    return location;
+}
 @end
