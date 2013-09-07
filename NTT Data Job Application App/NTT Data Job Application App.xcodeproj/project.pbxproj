@@ -27,6 +27,7 @@
 		282023ED17DB8A2000F86979 /* Experience+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023EC17DB8A1F00F86979 /* Experience+Create.m */; };
 		282023F017DB8A3200F86979 /* Topic+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023EF17DB8A3200F86979 /* Topic+Create.m */; };
 		282023F317DB8A4300F86979 /* Location+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023F217DB8A4300F86979 /* Location+Create.m */; };
+		282023F617DBB0E400F86979 /* NSManagedObjectContext+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */; };
 		2876DE3017D93D0D0053B4DB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */; };
 		2876DE3117D93D0D0053B4DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7417A7024B006A12D5 /* UIKit.framework */; };
 		2876DE3217D93D0D0053B4DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7617A7024B006A12D5 /* Foundation.framework */; };
@@ -85,6 +86,8 @@
 		282023EF17DB8A3200F86979 /* Topic+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Topic+Create.m"; sourceTree = "<group>"; };
 		282023F117DB8A4300F86979 /* Location+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Location+Create.h"; path = "Model/Location+Create.h"; sourceTree = "<group>"; };
 		282023F217DB8A4300F86979 /* Location+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+Create.m"; path = "Model/Location+Create.m"; sourceTree = "<group>"; };
+		282023F417DBB0E400F86979 /* NSManagedObjectContext+Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+Shared.h"; path = "Model/NSManagedObjectContext+Shared.h"; sourceTree = "<group>"; };
+		282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+Shared.m"; path = "Model/NSManagedObjectContext+Shared.m"; sourceTree = "<group>"; };
 		2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobApplicationAppUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2876DE3517D93D0D0053B4DB /* JobApplicationAppUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JobApplicationAppUnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				282023DD17DB663700F86979 /* JobTitle.m */,
 				282023E817DB8A0B00F86979 /* JobTitle+Create.h */,
 				282023E917DB8A0B00F86979 /* JobTitle+Create.m */,
+				282023F417DBB0E400F86979 /* NSManagedObjectContext+Shared.h */,
+				282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				282023ED17DB8A2000F86979 /* Experience+Create.m in Sources */,
 				282023F017DB8A3200F86979 /* Topic+Create.m in Sources */,
 				282023F317DB8A4300F86979 /* Location+Create.m in Sources */,
+				282023F617DBB0E400F86979 /* NSManagedObjectContext+Shared.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
