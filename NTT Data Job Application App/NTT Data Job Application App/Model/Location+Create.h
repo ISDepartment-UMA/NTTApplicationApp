@@ -11,4 +11,5 @@
 @interface Location (Create)
 + (NSArray*)allLocationsIncludingJSON:(NSString*)jsonResponse;
 + (Location*)createLocationFromDictionary:(NSDictionary*)dictionary;
++ (NSArray*)getAllLocations;
 @end

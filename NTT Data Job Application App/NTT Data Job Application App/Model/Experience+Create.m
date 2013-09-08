@@ -41,12 +41,16 @@
     for (NSDictionary* dict in (NSArray*)jsonResponse)
         [Experience createExperienceFromDictionary:dict];
 
+    return [Experience getAllExperiences];
+}
+
++(NSArray*)getAllExperiences
+{
     NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Experience"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
     
     NSError* error = nil;
-    NSArray* results = [context executeFetchRequest:request error:&error];
-    return results;
+    return [context executeFetchRequest:request error:&error];
 }
 @end

@@ -15,14 +15,7 @@
     for (NSDictionary* dict in (NSArray*)jsonResponse)
         [Location createLocationFromDictionary:dict];
     
-    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
-    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
-    
-    NSError* error = nil;
-    NSArray* allLocations = [context executeFetchRequest:request error:&error];
-    
-    return allLocations;
+    return [Location getAllLocations];
 }
 
 + (Location*) createLocationFromDictionary:(NSDictionary*)dictionary
@@ -48,5 +41,15 @@
         location = [results lastObject];
     
     return location;
+}
+
++ (NSArray*)getAllLocations
+{
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
+    
+    NSError* error = nil;
+    return [context executeFetchRequest:request error:&error];
 }
 @end

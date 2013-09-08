@@ -41,12 +41,16 @@
     for (NSDictionary* dict in (NSArray*)jsonResponse)
         [Topic createTopicFromDictionary:dict];
     
+    return [Topic getAllTopics];
+}
+
++ (NSArray*)getAllTopics
+{
     NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Topic"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
     
     NSError* error = nil;
-    NSArray* results = [context executeFetchRequest:request error:&error];
-    return results;
+    return [context executeFetchRequest:request error:&error];
 }
 @end

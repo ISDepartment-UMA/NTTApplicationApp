@@ -42,13 +42,16 @@
     for (NSDictionary* dict in (NSArray*)jsonResponse)
         [JobTitle createJobTitleFromDictionary:dict];
     
+    return [JobTitle getAllJobTitles];
+}
+
++(NSArray*)getAllJobTitles
+{
     NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"JobTitle"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
     
     NSError* error = nil;
-    NSArray* allJobTitles = [context executeFetchRequest:request error:&error];
-    
-    return allJobTitles;
+    return [context executeFetchRequest:request error:&error];
 }
 @end

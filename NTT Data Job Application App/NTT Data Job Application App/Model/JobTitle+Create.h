@@ -11,4 +11,5 @@
 @interface JobTitle (Create)
 +(JobTitle*)createJobTitleFromDictionary:(NSDictionary*)dictionary;
 +(NSArray*)allJobTitlesIncludingJSON:(NSString*)jsonResponse;
++(NSArray*)getAllJobTitles;
 @end

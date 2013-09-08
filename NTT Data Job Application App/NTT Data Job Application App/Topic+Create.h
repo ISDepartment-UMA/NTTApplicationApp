@@ -11,4 +11,5 @@
 @interface Topic (Create)
 +(Topic*)createTopicFromDictionary:(NSDictionary*)dictionary;
 +(NSArray*)allTopicsIncludingJSON:(NSString*)jsonResponse;
++(NSArray*)getAllTopics;
 @end
