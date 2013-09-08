@@ -9,5 +9,6 @@
 #import "JobTitle.h"
 
 @interface JobTitle (Create)
-
++(JobTitle*)createJobTitleFromDictionary:(NSDictionary*)dictionary;
++(NSArray*)allJobTitlesIncludingJSON:(NSString*)jsonResponse;
 @end

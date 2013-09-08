@@ -9,5 +9,6 @@
 #import "Experience.h"
 
 @interface Experience (Create)
-
++(Experience*)createExperienceFromDictionary:(NSDictionary*)dictionary;
++(NSArray*)allExperiencesIncludingJSON:(NSString*)jsonResponse;
 @end

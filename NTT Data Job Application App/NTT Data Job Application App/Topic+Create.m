@@ -7,7 +7,46 @@
 //
 
 #import "Topic+Create.h"
+#import "NSManagedObjectContext+Shared.h"
 
 @implementation Topic (Create)
++(Topic*)createTopicFromDictionary:(NSDictionary*)dictionary
+{
+    Topic* topic = nil;
+    
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Topic"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"databasename = %@ && displayname = %@", [dictionary objectForKey:@"location"], [dictionary objectForKey:@"display_name"]];
+    
+    NSError* error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    
+    if (!results && [results count]> 1)
+    {
+    }else if (![results count])
+    {
+        topic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:context];
+        topic.databasename = [dictionary objectForKey:@"databasename"];
+        topic.displayname = [dictionary objectForKey:@"display_name"];
+    }
+    else
+        topic = [results lastObject];
+    
+    return topic;
+}
 
++(NSArray*)allTopicsIncludingJSON:(NSString*)jsonResponse
+{
+    for (NSDictionary* dict in (NSArray*)jsonResponse)
+        [Topic createTopicFromDictionary:dict];
+    
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Topic"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
+    
+    NSError* error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    return results;
+}
 @end

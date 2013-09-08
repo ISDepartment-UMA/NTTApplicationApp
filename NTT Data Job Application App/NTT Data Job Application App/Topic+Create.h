@@ -9,5 +9,6 @@
 #import "Topic.h"
 
 @interface Topic (Create)
-
++(Topic*)createTopicFromDictionary:(NSDictionary*)dictionary;
++(NSArray*)allTopicsIncludingJSON:(NSString*)jsonResponse;
 @end

@@ -12,13 +12,17 @@
 @implementation Location (Create)
 + (NSArray*)allLocationsIncludingJSON:(NSString*)jsonResponse
 {
-    NSMutableArray* allLocations = [[NSMutableArray alloc]init];
     for (NSDictionary* dict in (NSArray*)jsonResponse)
-    {
-        [allLocations addObject:[Location createLocationFromDictionary:dict]];
-    }
+        [Location createLocationFromDictionary:dict];
     
-    return [allLocations copy];
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
+    
+    NSError* error = nil;
+    NSArray* allLocations = [context executeFetchRequest:request error:&error];
+    
+    return allLocations;
 }
 
 + (Location*) createLocationFromDictionary:(NSDictionary*)dictionary
@@ -33,9 +37,7 @@
     NSArray* results = [context executeFetchRequest:request error:&error];
     
     if (!results || [results count]>1)
-    {
-        //error handling
-    }
+    {}
     else if (![results count])
     {
         location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:context];
@@ -43,9 +45,7 @@
         location.displayname = [dictionary objectForKey:@"display_name"];
     }
     else
-    {
         location = [results lastObject];
-    }
     
     return location;
 }

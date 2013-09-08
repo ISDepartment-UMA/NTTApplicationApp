@@ -227,6 +227,14 @@
 		282023D617DA929400F86979 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				282023F817DCEB0600F86979 /* CoreData */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		282023F817DCEB0600F86979 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
 				282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */,
 				282023E517DB663700F86979 /* Location.h */,
 				282023E617DB663700F86979 /* Location.m */,
@@ -247,7 +255,7 @@
 				282023F417DBB0E400F86979 /* NSManagedObjectContext+Shared.h */,
 				282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */,
 			);
-			name = Model;
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		2876DE3317D93D0D0053B4DB /* JobApplicationAppUnitTests */ = {
