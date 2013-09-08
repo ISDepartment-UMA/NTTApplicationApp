@@ -82,6 +82,63 @@
 
 - (void)connectionFailed:(OSConnectionType)connectionType
 {}
+- (IBAction)byTitleSelected:(UIBarButtonItem *)sender {
+    [self sortByTitle];
+    [self.tableView reloadData];
+}
+
+- (void)sortByTitle{
+    NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
+        NSString *score1 = [item1 objectForKey:@"job_title"];
+        //NSLog([NSString stringWithFormat:@"start:%@",score1]  );
+        
+        NSString *score2 = [item2 objectForKey:@"job_title"];
+        //NSLog(score2);
+        
+        //NSLog([NSString stringWithFormat:@"%d",[score1 localizedCaseInsensitiveCompare :score2 ] ]);
+        return (NSComparisonResult)[score1 compare:score2 options:NSCaseInsensitiveSearch] ;
+    }];
+    self.resultArray =sorted;
+}
+- (IBAction)byLocationSelected:(UIBarButtonItem *)sender {
+    [self sortByLocation];
+    [self.tableView reloadData];
+}
+
+- (void)sortByLocation{
+    NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
+        NSString *score1 = [item1 objectForKey:@"location1"];
+        //NSLog([NSString stringWithFormat:@"start:%@",score1]  );
+        
+        NSString *score2 = [item2 objectForKey:@"location1"];
+        //NSLog(score2);
+        
+        //NSLog([NSString stringWithFormat:@"%d",[score1 localizedCaseInsensitiveCompare :score2 ] ]);
+        return (NSComparisonResult)[score1 compare:score2 options:NSCaseInsensitiveSearch] ;
+    }];
+    self.resultArray =sorted;
+}
+
+- (IBAction)byRefNoSelected:(UIBarButtonItem *)sender {
+    [self sortByRefNo];
+    [self.tableView reloadData];
+}
+
+- (void)sortByRefNo{
+    NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
+        NSString *score1 = [item1 objectForKey:@"ref_no"];
+        //NSLog([NSString stringWithFormat:@"start:%@",score1]  );
+        
+        NSString *score2 = [item2 objectForKey:@"ref_no"];
+        //NSLog(score2);
+        
+        //NSLog([NSString stringWithFormat:@"%d",[score1 localizedCaseInsensitiveCompare :score2 ] ]);
+        return (NSComparisonResult)[score1 compare:score2 options:NSCaseInsensitiveSearch] ;
+    }];
+    self.resultArray =sorted;
+}
+
+
 
 #pragma mark - UITableViewDataSource
 
@@ -98,6 +155,25 @@
     return [object objectForKey:@"position_name"];
 }
 
+- (NSString *)jobTitleForRow:(NSUInteger)row
+{
+    NSDictionary* object = [resultArray objectAtIndex:row];
+    return [object objectForKey:@"job_title"];
+}
+
+- (NSString *)locationForRow:(NSUInteger)row
+{
+    NSDictionary* object = [resultArray objectAtIndex:row];
+    return [object objectForKey:@"location1"];
+}
+
+- (NSString *)refNoForRow:(NSUInteger)row
+{
+    NSDictionary* object = [resultArray objectAtIndex:row];
+    return [object objectForKey:@"ref_no"];
+}
+
+
 // loads up a table view cell with the search criteria at the given row in the Model
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,10 +186,10 @@
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     cell.textLabel.text = [self titleForRow:indexPath.row];
 
-    
-    NSString *subtitle = @"Location\nReferenceID";
+    //@"Location\nReferenceID"
+    NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@ && Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
         
-    cell.detailTextLabel.numberOfLines = 2;
+    cell.detailTextLabel.numberOfLines = 3;
     cell.detailTextLabel.text = subtitle;
     
     

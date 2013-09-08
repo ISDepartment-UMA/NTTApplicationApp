@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3103" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -337,9 +337,32 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <toolbar key="tableHeaderView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="SsM-vK-7fR">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Sort by:" style="plain" id="M4s-Mm-dJm"/>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="omV-OI-aPu"/>
+                                <barButtonItem title="Title" id="nkA-Mh-6Eb">
+                                    <connections>
+                                        <action selector="byTitleSelected:" destination="g5I-KU-xeh" id="E9N-db-mlB"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="Location" id="5HC-Ij-83P">
+                                    <connections>
+                                        <action selector="byLocationSelected:" destination="g5I-KU-xeh" id="CJe-LQ-pFc"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="RefNo" id="v5M-tq-7pR">
+                                    <connections>
+                                        <action selector="byRefNoSelected:" destination="g5I-KU-xeh" id="qRa-Vq-cfU"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Position" textLabel="wdr-bW-Xln" detailTextLabel="urH-sL-nCU" rowHeight="55" style="IBUITableViewCellStyleSubtitle" id="eAK-bq-8xB">
-                                <rect key="frame" x="0.0" y="22" width="320" height="55"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="54"/>
@@ -774,6 +797,9 @@
         <class className="FoundPositionsOverviewViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FoundPositionsOverviewViewController.h"/>
             <relationships>
+                <relationship kind="action" name="byLocationSelected:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="byRefNoSelected:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="byTitleSelected:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -783,6 +809,11 @@
         <class className="JobSearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JobSearchViewController.h"/>
             <relationships>
+                <relationship kind="action" name="contSearch:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectExperience:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectLocation:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectTitle:" candidateClass="UIButton"/>
+                <relationship kind="action" name="selectTopic:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="contButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="expLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="experience" candidateClass="UIButton"/>
