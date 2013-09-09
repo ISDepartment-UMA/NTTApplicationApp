@@ -37,9 +37,9 @@
     return jobTitle;
 }
 
-+(NSArray*)allJobTitlesIncludingJSON:(NSString*)jsonResponse
++(NSArray*)allJobTitlesIncludingJSON:(id)jsonObject
 {
-    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    for (NSDictionary* dict in (NSArray*)jsonObject)
         [JobTitle createJobTitleFromDictionary:dict];
     
     return [JobTitle getAllJobTitles];

@@ -17,7 +17,7 @@
     NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Topic"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
-    request.predicate = [NSPredicate predicateWithFormat:@"databasename = %@ && displayname = %@", [dictionary objectForKey:@"location"], [dictionary objectForKey:@"display_name"]];
+    request.predicate = [NSPredicate predicateWithFormat:@"databasename = %@ && displayname = %@", [dictionary objectForKey:@"topic"], [dictionary objectForKey:@"display_name"]];
     
     NSError* error = nil;
     NSArray* results = [context executeFetchRequest:request error:&error];
@@ -27,7 +27,7 @@
     }else if (![results count])
     {
         topic = [NSEntityDescription insertNewObjectForEntityForName:@"Topic" inManagedObjectContext:context];
-        topic.databasename = [dictionary objectForKey:@"databasename"];
+        topic.databasename = [dictionary objectForKey:@"topic"];
         topic.displayname = [dictionary objectForKey:@"display_name"];
     }
     else
@@ -36,9 +36,9 @@
     return topic;
 }
 
-+(NSArray*)allTopicsIncludingJSON:(NSString*)jsonResponse
++(NSArray*)allTopicsIncludingJSON:(id)jsonObject
 {
-    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    for (NSDictionary* dict in (NSArray*)jsonObject)
         [Topic createTopicFromDictionary:dict];
     
     return [Topic getAllTopics];
@@ -49,7 +49,11 @@
     NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Topic"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
-    
+    if (context) {
+        NSLog(@"Context: %@", context);
+
+    }
+
     NSError* error = nil;
     return [context executeFetchRequest:request error:&error];
 }

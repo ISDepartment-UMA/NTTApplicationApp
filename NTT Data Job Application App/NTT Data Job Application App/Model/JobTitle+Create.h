@@ -10,6 +10,6 @@
 
 @interface JobTitle (Create)
 +(JobTitle*)createJobTitleFromDictionary:(NSDictionary*)dictionary;
-+(NSArray*)allJobTitlesIncludingJSON:(NSString*)jsonResponse;
++(NSArray*)allJobTitlesIncludingJSON:(id)jsonObject;
 +(NSArray*)getAllJobTitles;
 @end

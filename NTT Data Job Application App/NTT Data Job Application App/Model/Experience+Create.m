@@ -36,9 +36,9 @@
     return experience;
 }
 
-+(NSArray*)allExperiencesIncludingJSON:(NSString*)jsonResponse
++(NSArray*)allExperiencesIncludingJSON:(id)jsonObject
 {
-    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    for (NSDictionary* dict in (NSArray*)jsonObject)
         [Experience createExperienceFromDictionary:dict];
 
     return [Experience getAllExperiences];

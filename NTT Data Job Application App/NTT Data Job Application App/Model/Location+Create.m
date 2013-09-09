@@ -10,9 +10,9 @@
 #import "NSManagedObjectContext+Shared.h"
 
 @implementation Location (Create)
-+ (NSArray*)allLocationsIncludingJSON:(NSString*)jsonResponse
++ (NSArray*)allLocationsIncludingJSON:(id)jsonObject
 {
-    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    for (NSDictionary* dict in (NSArray*)jsonObject)
         [Location createLocationFromDictionary:dict];
     
     return [Location getAllLocations];

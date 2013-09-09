@@ -10,6 +10,6 @@
 
 @interface Topic (Create)
 +(Topic*)createTopicFromDictionary:(NSDictionary*)dictionary;
-+(NSArray*)allTopicsIncludingJSON:(NSString*)jsonResponse;
++(NSArray*)allTopicsIncludingJSON:(id)jsonObject;
 +(NSArray*)getAllTopics;
 @end

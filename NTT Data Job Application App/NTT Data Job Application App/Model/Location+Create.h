@@ -9,7 +9,7 @@
 #import "Location.h"
 
 @interface Location (Create)
-+ (NSArray*)allLocationsIncludingJSON:(NSString*)jsonResponse;
++ (NSArray*)allLocationsIncludingJSON:(id)jsonObject;
 + (Location*)createLocationFromDictionary:(NSDictionary*)dictionary;
 + (NSArray*)getAllLocations;
 @end

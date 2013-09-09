@@ -10,6 +10,6 @@
 
 @interface Experience (Create)
 +(Experience*)createExperienceFromDictionary:(NSDictionary*)dictionary;
-+(NSArray*)allExperiencesIncludingJSON:(NSString*)jsonResponse;
++(NSArray*)allExperiencesIncludingJSON:(id)jsonObject;
 +(NSArray*)getAllExperiences;
 @end
