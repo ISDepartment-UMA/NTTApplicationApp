@@ -143,8 +143,11 @@
     else
         self.experienceList = experiences;
     
-    //[loader startAnimating];
-    //[loaderView setHidden:NO];
+    if ([self.jobTitleList count]<=0 ||[self.locationsList count]<=0 ||[self.experienceList count]<=0 ||[self.topicsList count]<=0 )
+    {
+        [loader startAnimating];
+        [loaderView setHidden:NO];
+    }
 }
 
 -(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
@@ -178,8 +181,8 @@
     
     if ([self.jobTitleList count]>0 &&[self.locationsList count]>0 &&[self.experienceList count]>0 &&[self.topicsList count]>0 )
     {
-       // [loaderView setHidden:YES];
-       // [loader stopAnimating];
+        [loaderView setHidden:YES];
+        [loader stopAnimating];
         self.contButton.selected=YES;
         self.selected = self.jobTitleList;
         [self.optionsTable reloadData];

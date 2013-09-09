@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIManagedDocument (Shared)
-
++ (UIManagedDocument*)sharedManagedDocument;
 @end

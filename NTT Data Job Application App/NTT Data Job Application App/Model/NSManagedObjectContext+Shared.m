@@ -7,6 +7,7 @@
 //
 
 #import "NSManagedObjectContext+Shared.h"
+#import "UIManagedDocument+Shared.h"
 
 @implementation NSManagedObjectContext (Shared)
 + (NSManagedObjectContext*)sharedManagedObjectContext
@@ -16,7 +17,24 @@
     {
         static dispatch_once_t dispatchToken;
         dispatch_once(&dispatchToken, ^{
-            sharedContext = [[NSManagedObjectContext alloc]init];
+            UIManagedDocument* doc = [UIManagedDocument sharedManagedDocument];
+            if (![[NSFileManager defaultManager] fileExistsAtPath:[[doc fileURL] path]])
+            {
+                [doc saveToURL:[doc fileURL] forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success)
+                {
+                    if (success)
+                        sharedContext = doc.managedObjectContext;
+                }];
+            }
+            else if (doc.documentState == UIDocumentStateClosed)
+            {
+                [doc openWithCompletionHandler:^(BOOL success)
+                {
+                    if (success)
+                        sharedContext = doc.managedObjectContext;
+                }];
+            }else
+                sharedContext = doc.managedObjectContext;
         });
     }
     return sharedContext;

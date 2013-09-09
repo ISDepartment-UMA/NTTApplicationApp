@@ -49,10 +49,6 @@
     NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Topic"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
-    if (context) {
-        NSLog(@"Context: %@", context);
-
-    }
 
     NSError* error = nil;
     return [context executeFetchRequest:request error:&error];
