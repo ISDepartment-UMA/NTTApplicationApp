@@ -85,6 +85,11 @@
         self.resultArray = (NSArray*)jsonObject;
     else
         self.resultArray = jsonObject;
+    resultArray = [resultArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1[@"position_name"] compare:obj2[@"position_name"]
+                                         options:NSCaseInsensitiveSearch];
+        [self. tableView reloadData];
+    }];
     [self.tableView reloadData];
     [loaderView setHidden:YES];
     [loader setHidden:NO];
