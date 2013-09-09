@@ -28,7 +28,7 @@
 @synthesize parser;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+{  
 }
 
 -(void)initLoader
@@ -63,6 +63,7 @@
 {
     [super viewDidLoad];
     self.resultArray = [[NSArray alloc] init];
+    
     parser = [[SBJsonParser alloc] init];
     [self initLoader];
 }
@@ -83,13 +84,15 @@
     id jsonObject=  [parser objectWithString:responseString];
     if (connectionType != OSCGetSearch)
         self.resultArray = (NSArray*)jsonObject;
+    
     else
         self.resultArray = jsonObject;
     resultArray = [resultArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [obj1[@"position_name"] compare:obj2[@"position_name"]
-                                         options:NSCaseInsensitiveSearch];
+                                       options:NSCaseInsensitiveSearch];
         [self. tableView reloadData];
     }];
+    
     [self.tableView reloadData];
     [loaderView setHidden:YES];
     [loader setHidden:NO];
