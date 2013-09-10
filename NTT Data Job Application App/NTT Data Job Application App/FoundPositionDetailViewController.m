@@ -61,21 +61,35 @@
 -(void)loadData
 {
     self.reference.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"ref_no"];
+    
     self.position.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"position_name"];
+    
     self.exp.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"exp"];
+    self.exp.text = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"exp"]];
+    
     self.jobTitle.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"];
+    self.jobTitle.text = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
+    
     self.contact.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"contact_person"];
+    
     self.email.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"email"];
+    
     self.phone.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"phone_no"];
+    
     //self.description.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
     self.descriptionText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
+    
     self.mainTaskText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
     //self.mainTask.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
+    
     self.perspectiveText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
     //self.prespective.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
+    
     self.requirementText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
     //self.requirement.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
+    
     self.result.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"our_offer"];
+    
     [self.scrollView setContentSize:CGSizeMake(320, 950)];
 }
 
