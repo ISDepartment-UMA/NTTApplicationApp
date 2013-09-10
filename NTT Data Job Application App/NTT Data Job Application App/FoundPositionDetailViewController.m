@@ -12,8 +12,10 @@
 #import "Location+Create.h"
 #import "Experience+Create.h"
 #import "Topic+Create.h"
+#import "MessageUI/MessageUI.h"
+#import "MessageUI/MFMailComposeViewController.h"
 
-@interface FoundPositionDetailViewController ()
+@interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedTitle;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedTopic;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedLocation;
@@ -73,8 +75,20 @@
     self.contact.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"contact_person"];
     
     self.email.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"email"];
+    if (self.email.text && ![self.email.text isEqualToString:@"none"])
+    {
+        UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mailLabelClicked)];
+        [self.email setUserInteractionEnabled:YES];
+        [self.email addGestureRecognizer:recognizer];
+    }
     
     self.phone.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"phone_no"];
+    if (self.phone.text && ![self.phone.text isEqualToString:@"none"])
+    {
+        UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(phoneLabelClicked)];
+        [self.phone setUserInteractionEnabled:YES];
+        [self.phone addGestureRecognizer:gesture];
+    }
     
     //self.description.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
     self.descriptionText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
@@ -91,6 +105,34 @@
     self.result.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"our_offer"];
     
     [self.scrollView setContentSize:CGSizeMake(320, 950)];
+}
+
+- (void) phoneLabelClicked
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString: [NSString stringWithFormat:@"tel:%@", [self.phone.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]]];
+    }
+}
+
+- (void) mailLabelClicked
+{
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController* mailViewController = [[MFMailComposeViewController alloc]init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:[NSString stringWithFormat:@"Application for position: %@ %@", self.position.text, self.reference.text]];
+        
+        NSString *trimmed = [self.email.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        [mailViewController setToRecipients:@[trimmed]];
+        
+        [self presentViewController:mailViewController animated:YES completion:NULL];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

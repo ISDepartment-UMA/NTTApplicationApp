@@ -29,6 +29,7 @@
 		282023F317DB8A4300F86979 /* Location+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023F217DB8A4300F86979 /* Location+Create.m */; };
 		282023F617DBB0E400F86979 /* NSManagedObjectContext+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */; };
 		2820242517DE4C0A00F86979 /* UIManagedDocument+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 2820242417DE4C0A00F86979 /* UIManagedDocument+Shared.m */; };
+		2858E3AA17DFD29A008F8D19 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858E3A917DFD29A008F8D19 /* MessageUI.framework */; };
 		2876DE3017D93D0D0053B4DB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */; };
 		2876DE3117D93D0D0053B4DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7417A7024B006A12D5 /* UIKit.framework */; };
 		2876DE3217D93D0D0053B4DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7617A7024B006A12D5 /* Foundation.framework */; };
@@ -91,6 +92,7 @@
 		282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+Shared.m"; path = "Model/NSManagedObjectContext+Shared.m"; sourceTree = "<group>"; };
 		2820242317DE4C0A00F86979 /* UIManagedDocument+Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIManagedDocument+Shared.h"; path = "Model/UIManagedDocument+Shared.h"; sourceTree = "<group>"; };
 		2820242417DE4C0A00F86979 /* UIManagedDocument+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIManagedDocument+Shared.m"; path = "Model/UIManagedDocument+Shared.m"; sourceTree = "<group>"; };
+		2858E3A917DFD29A008F8D19 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobApplicationAppUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2876DE3517D93D0D0053B4DB /* JobApplicationAppUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JobApplicationAppUnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2858E3AA17DFD29A008F8D19 /* MessageUI.framework in Frameworks */,
 				282023DB17DA956F00F86979 /* CoreData.framework in Frameworks */,
 				280A3E7517A7024B006A12D5 /* UIKit.framework in Frameworks */,
 				280A3E7717A7024B006A12D5 /* Foundation.framework in Frameworks */,
@@ -182,6 +185,7 @@
 		280A3E7317A7024B006A12D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2858E3A917DFD29A008F8D19 /* MessageUI.framework */,
 				282023DA17DA956F00F86979 /* CoreData.framework */,
 				280A3E7417A7024B006A12D5 /* UIKit.framework */,
 				280A3E7617A7024B006A12D5 /* Foundation.framework */,
