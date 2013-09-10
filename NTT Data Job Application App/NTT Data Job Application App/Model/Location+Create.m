@@ -13,8 +13,9 @@
 + (NSArray*)allLocationsIncludingJSON:(id)jsonObject
 {
     for (NSDictionary* dict in (NSArray*)jsonObject)
-        [Location createLocationFromDictionary:dict];
-    
+        if (![[dict objectForKey:@"location"] isEqual:@"null"])
+            [Location createLocationFromDictionary:dict];            
+        
     return [Location getAllLocations];
 }
 
