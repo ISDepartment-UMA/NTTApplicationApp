@@ -12,6 +12,9 @@
 #import "SBJson.h"
 #import "OSAPIManager.h"
 
+#import "JobTitle+Create.h"
+#import "Location+Create.h"
+
 @interface FoundPositionsOverviewViewController()
 @property(nonatomic,strong) UIView* loaderView;
 @property(nonatomic,strong)  UIActivityIndicatorView* loader;
@@ -108,8 +111,9 @@
 }
 
 - (void)sortByTitle{
-    NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
-        return (NSComparisonResult)[[item1 objectForKey:@"job_title"] compare:[item2 objectForKey:@"job_title"] options:NSCaseInsensitiveSearch] ;
+    NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2)
+    {
+        return (NSComparisonResult)[[JobTitle getDisplayNameFromDatabaseName:[item1 objectForKey:@"job_title"]] compare:[JobTitle getDisplayNameFromDatabaseName:[item2 objectForKey:@"job_title"]] options:NSCaseInsensitiveSearch] ;
     }];
     self.resultArray = sorted;
 }
@@ -122,7 +126,7 @@
 - (void)sortByLocation
 {
     NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
-        return (NSComparisonResult)[[item1 objectForKey:@"location1"] compare:[item2 objectForKey:@"location1"] options:NSCaseInsensitiveSearch] ;
+        return (NSComparisonResult)[[Location getDisplayNameFromDatabaseName:[item1 objectForKey:@"location1"]] compare:[Location getDisplayNameFromDatabaseName:[item2 objectForKey:@"location1"]] options:NSCaseInsensitiveSearch] ;
     }];
     self.resultArray =sorted;
 }
@@ -157,13 +161,13 @@
 - (NSString *)jobTitleForRow:(NSUInteger)row
 {
     NSDictionary* object = [resultArray objectAtIndex:row];
-    return [object objectForKey:@"job_title"];
+    return [JobTitle getDisplayNameFromDatabaseName:[object objectForKey:@"job_title"]];
 }
 
 - (NSString *)locationForRow:(NSUInteger)row
 {
     NSDictionary* object = [resultArray objectAtIndex:row];
-    return [object objectForKey:@"location1"];
+    return [Location getDisplayNameFromDatabaseName:[object objectForKey:@"location1"]];
 }
 
 - (NSString *)refNoForRow:(NSUInteger)row
