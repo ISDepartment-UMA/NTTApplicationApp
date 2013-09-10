@@ -52,4 +52,44 @@
     NSError* error = nil;
     return [context executeFetchRequest:request error:&error];
 }
+
++ (NSString*)getDisplayNameFromDatabaseName: (NSString*)databaseName
+{
+    Location* location = nil;
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"databasename = %@", databaseName];
+    
+    NSError* error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    
+    if (!results || [results count] != 1)
+        return nil;
+    else
+    {
+        location = [results lastObject];
+        return location.displayname;
+    }
+}
+
++ (NSString*)getDatabaseNameFromDisplayName: (NSString*)displayName
+{
+    Location* location = nil;
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"Location"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"displayname" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"displayname = %@", displayName];
+    
+    NSError* error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    
+    if (!results || [results count] != 1)
+        return nil;
+    else
+    {
+        location = [results lastObject];
+        return location.databasename;
+    }
+}
 @end

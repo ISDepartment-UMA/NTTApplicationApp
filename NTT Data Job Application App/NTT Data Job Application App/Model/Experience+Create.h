@@ -12,4 +12,6 @@
 +(Experience*)createExperienceFromDictionary:(NSDictionary*)dictionary;
 +(NSArray*)allExperiencesIncludingJSON:(id)jsonObject;
 +(NSArray*)getAllExperiences;
++(NSString*)getDisplayNameFromDatabaseName: (NSString*)databaseName;
++ (NSString*)getDatabaseNameFromDisplayName: (NSString*)displayName;
 @end

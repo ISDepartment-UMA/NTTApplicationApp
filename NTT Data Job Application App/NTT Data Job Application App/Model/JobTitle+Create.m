@@ -54,4 +54,44 @@
     NSError* error = nil;
     return [context executeFetchRequest:request error:&error];
 }
+
++ (NSString*)getDisplayNameFromDatabaseName: (NSString*)databaseName
+{
+    JobTitle* jobTitle = nil;
+    
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"JobTitle"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"databasename" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"databasename = %@", databaseName];
+    
+    NSError* error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    
+    if (!results || [results count] != 1)
+        return nil;
+    else {
+        jobTitle = [results lastObject];
+        return jobTitle.displayname;
+    }
+}
+
++ (NSString*)getDatabaseNameFromDisplayName: (NSString*)displayName
+{
+    JobTitle* jobTitle = nil;
+    
+    NSManagedObjectContext* context = [NSManagedObjectContext sharedManagedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:@"JobTitle"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"displayname" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"displayname = %@", displayName];
+    
+    NSError* error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    
+    if (!results || [results count] != 1)
+        return nil;
+    else {
+        jobTitle = [results lastObject];
+        return jobTitle.databasename;
+    }
+}
 @end

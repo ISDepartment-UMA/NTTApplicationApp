@@ -9,7 +9,8 @@
 #import "Location.h"
 
 @interface Location (Create)
-+ (NSArray*)allLocationsIncludingJSON:(id)jsonObject;
-+ (Location*)createLocationFromDictionary:(NSDictionary*)dictionary;
-+ (NSArray*)getAllLocations;
++(NSArray*)allLocationsIncludingJSON:(id)jsonObject;
++(Location*)createLocationFromDictionary:(NSDictionary*)dictionary;
++(NSArray*)getAllLocations;
++(NSString*)getDisplayNameFromDatabaseName: (NSString*)databaseName;
 @end

@@ -12,4 +12,6 @@
 +(Topic*)createTopicFromDictionary:(NSDictionary*)dictionary;
 +(NSArray*)allTopicsIncludingJSON:(id)jsonObject;
 +(NSArray*)getAllTopics;
++(NSString*)getDisplayNameFromDatabaseName: (NSString*)databaseName;
++ (NSString*)getDatabaseNameFromDisplayName: (NSString*)displayName;
 @end

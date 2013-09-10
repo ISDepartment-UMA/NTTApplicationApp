@@ -12,4 +12,6 @@
 +(JobTitle*)createJobTitleFromDictionary:(NSDictionary*)dictionary;
 +(NSArray*)allJobTitlesIncludingJSON:(id)jsonObject;
 +(NSArray*)getAllJobTitles;
++(NSString*)getDisplayNameFromDatabaseName: (NSString*)databaseName;
++ (NSString*)getDatabaseNameFromDisplayName: (NSString*)displayName;
 @end
