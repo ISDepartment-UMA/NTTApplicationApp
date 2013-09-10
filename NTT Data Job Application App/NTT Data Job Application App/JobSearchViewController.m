@@ -42,6 +42,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *topicsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expLabel;
+@property (weak, nonatomic) IBOutlet UILabel *searchCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (strong, nonatomic) NSMutableDictionary* searchObject;
 @end
 
@@ -106,6 +108,7 @@
     self.searchSelection.delegate = self;
         [self initLoader];
     [self loadAllData];
+    self.searchCountLabel.text = @"";
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -178,8 +181,25 @@
         NSArray* topics = [Topic allTopicsIncludingJSON:jsonObject];
         self.topicsList = topics;
     }
+    else if(connectionType == OSCGetSearch)
+    {
+        self.searchCountLabel.text = @"";
+        id jsonObject = [parser objectWithString:responseString];
+        NSArray* results = (NSArray*)jsonObject;
+        
+        if ([results count] >= 1)
+        {
+            self.searchCountLabel.text = [NSString stringWithFormat:@"%d Jobs", [results count]];
+            if (self.searchButton.enabled != YES)
+            {
+                self.searchButton.enabled = YES;
+                self.searchButton.alpha = 1.0;
+            }
+        }
+        
+    }
     
-    if ([self.jobTitleList count]>0 &&[self.locationsList count]>0 &&[self.experienceList count]>0 &&[self.topicsList count]>0 )
+    if ([self.jobTitleList count]>0 &&[self.locationsList count]>0 &&[self.experienceList count]>0 &&[self.topicsList count]>0 && (connectionType != OSCGetSearch))
     {
         [loaderView setHidden:YES];
         [loader stopAnimating];
@@ -191,6 +211,16 @@
 
 -(void)connectionFailed:(OSConnectionType)connectionType;
 {
+    if (connectionType == OSCGetSearch)
+    {
+        self.searchCountLabel.text = @"No Jobs";
+        if (self.searchButton.enabled != NO)
+        {
+            self.searchButton.enabled = NO;
+            self.searchButton.alpha = 0.3;
+        }
+    }
+    
 }
 
 - (IBAction)selectTitle:(UIButton *)sender {
@@ -296,7 +326,9 @@
         [searchObject setObject:jobTitle.databasename forKey:@"jobtitles"];
         self.jobTitleLabel.text = jobTitle.displayname;
     }
-    
+
+    [OSAPIManager sharedManager].flashObjects = searchObject;
+    [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -231,6 +231,8 @@
                         <outlet property="location" destination="kvy-Th-MSV" id="34E-WQ-TsK"/>
                         <outlet property="locationLabel" destination="9WY-q2-xpm" id="M4M-mD-w78"/>
                         <outlet property="optionsTable" destination="kwc-Nx-WLi" id="Y5a-ds-XCZ"/>
+                        <outlet property="searchButton" destination="hsc-kf-6QG" id="EvL-Ri-Zgi"/>
+                        <outlet property="searchCountLabel" destination="PRW-nV-ho7" id="dxm-aA-ZX2"/>
                         <outlet property="searchSelection" destination="kwc-Nx-WLi" id="9TA-zc-2ws"/>
                         <outlet property="topics" destination="dXA-Dm-eRJ" id="uCV-He-I4k"/>
                         <outlet property="topicsLabel" destination="D36-Dr-YAY" id="B3a-bW-zEC"/>
@@ -771,69 +773,12 @@
             <point key="canvasLocation" x="-11" y="-22"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FoundPositionDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoundPositionDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contact" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="email" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="exp" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="jobTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainTask" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainTaskText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="perspectiveText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="phone" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="prespective" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reference" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="requirement" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="requirementText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="result" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="FoundPositionsOverviewViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoundPositionsOverviewViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="JobProposalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobProposalViewController.h"/>
-        </class>
-        <class className="JobSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="contSearch:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectExperience:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectLocation:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectTitle:" candidateClass="UIButton"/>
-                <relationship kind="action" name="selectTopic:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="contButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="expLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="experience" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="jobTitle" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="jobTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="location" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="searchSelection" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="topics" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="topicsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="H9e-7p-BVX"/>
+        <segue reference="M4b-4Q-m0D"/>
     </inferredMetricsTieBreakers>
 </document>
