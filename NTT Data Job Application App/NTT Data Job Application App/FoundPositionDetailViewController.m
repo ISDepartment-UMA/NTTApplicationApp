@@ -6,8 +6,14 @@
 //
 
 #import "FoundPositionDetailViewController.h"
+#import "OSAPIManager.h"
+#import "OSConnectionManager.h"
 
 @interface FoundPositionDetailViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedTitle;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedTopic;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedLocation;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedExperience;
 @property (weak, nonatomic) IBOutlet UILabel *reference;
 @property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UILabel *exp;
@@ -25,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *mainTaskText;
 @property (weak, nonatomic) IBOutlet UITextView *perspectiveText;
 @property (weak, nonatomic) IBOutlet UITextView *requirementText;
+//@property (strong, nonatomic) NSDictionary *myDictionary;
 @end
 
 @implementation FoundPositionDetailViewController
@@ -32,6 +39,12 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self loadData];
+    self.selectedExperience.title = [[OSAPIManager sharedManager].searchObject objectForKey:@"exp"];
+    self.selectedTitle.title = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"];
+    self.selectedTopic.title = [[OSAPIManager sharedManager].searchObject objectForKey:@"topic"];
+    self.selectedLocation.title = [[OSAPIManager sharedManager].searchObject objectForKey:@"location"];
+
+   
 }
 
 -(void)loadData
