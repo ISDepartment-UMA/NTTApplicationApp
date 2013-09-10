@@ -8,6 +8,10 @@
 #import "FoundPositionDetailViewController.h"
 #import "OSAPIManager.h"
 #import "OSConnectionManager.h"
+#import "JobTitle+Create.h"
+#import "Location+Create.h"
+#import "Experience+Create.h"
+#import "Topic+Create.h"
 
 @interface FoundPositionDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedTitle;
@@ -39,10 +43,17 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self loadData];
-    self.selectedExperience.title = [[OSAPIManager sharedManager].searchObject objectForKey:@"exp"];
-    self.selectedTitle.title = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"];
-    self.selectedTopic.title = [[OSAPIManager sharedManager].searchObject objectForKey:@"topic"];
-    self.selectedLocation.title = [[OSAPIManager sharedManager].searchObject objectForKey:@"location"];
+    self.selectedExperience.title = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
+    [self.selectedExperience setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:7], UITextAttributeFont,nil] forState:UIControlStateNormal];
+
+        
+    self.selectedTitle.title = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
+    [self.selectedTitle setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:7], UITextAttributeFont,nil] forState:UIControlStateNormal];
+    
+    self.selectedTopic.title = [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
+    [self.selectedTopic setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:7], UITextAttributeFont,nil] forState:UIControlStateNormal];
+    self.selectedLocation.title = [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
+    [self.selectedLocation setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:7], UITextAttributeFont,nil] forState:UIControlStateNormal];
 
    
 }
