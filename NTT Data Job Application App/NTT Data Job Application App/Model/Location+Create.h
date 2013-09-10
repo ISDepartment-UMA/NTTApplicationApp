@@ -13,4 +13,5 @@
 +(Location*)createLocationFromDictionary:(NSDictionary*)dictionary;
 +(NSArray*)getAllLocations;
 +(NSString*)getDisplayNameFromDatabaseName: (NSString*)databaseName;
++ (NSString*)getDatabaseNameFromDisplayName: (NSString*)displayName;
 @end
