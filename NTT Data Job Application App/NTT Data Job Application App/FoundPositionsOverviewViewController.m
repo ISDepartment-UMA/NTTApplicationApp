@@ -84,14 +84,14 @@
     id jsonObject=  [parser objectWithString:responseString];
     if (connectionType != OSCGetSearch)
         self.resultArray = (NSArray*)jsonObject;
-    
     else
         self.resultArray = jsonObject;
-    resultArray = [resultArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [obj1[@"position_name"] compare:obj2[@"position_name"]
-                                       options:NSCaseInsensitiveSearch];
-        [self. tableView reloadData];
-    }];
+    
+//    resultArray = [resultArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+//        return [obj1[@"position_name"] compare:obj2[@"position_name"]
+//                                       options:NSCaseInsensitiveSearch];
+//        [self. tableView reloadData];
+//    }];
     
     [self.tableView reloadData];
     [loaderView setHidden:YES];
@@ -100,66 +100,48 @@
 
 - (void)connectionFailed:(OSConnectionType)connectionType
 {}
-- (IBAction)byTitleSelected:(UIBarButtonItem *)sender {
+
+- (IBAction)byTitleSelected
+{
     [self sortByTitle];
     [self.tableView reloadData];
 }
 
 - (void)sortByTitle{
     NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
-        NSString *score1 = [item1 objectForKey:@"job_title"];
-        //NSLog([NSString stringWithFormat:@"start:%@",score1]  );
-        
-        NSString *score2 = [item2 objectForKey:@"job_title"];
-        //NSLog(score2);
-        
-        //NSLog([NSString stringWithFormat:@"%d",[score1 localizedCaseInsensitiveCompare :score2 ] ]);
-        return (NSComparisonResult)[score1 compare:score2 options:NSCaseInsensitiveSearch] ;
+        return (NSComparisonResult)[[item1 objectForKey:@"job_title"] compare:[item2 objectForKey:@"job_title"] options:NSCaseInsensitiveSearch] ;
     }];
-    self.resultArray =sorted;
+    self.resultArray = sorted;
 }
-- (IBAction)byLocationSelected:(UIBarButtonItem *)sender {
+- (IBAction)byLocationSelected
+{
     [self sortByLocation];
     [self.tableView reloadData];
 }
 
-- (void)sortByLocation{
+- (void)sortByLocation
+{
     NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
-        NSString *score1 = [item1 objectForKey:@"location1"];
-        //NSLog([NSString stringWithFormat:@"start:%@",score1]  );
-        
-        NSString *score2 = [item2 objectForKey:@"location1"];
-        //NSLog(score2);
-        
-        //NSLog([NSString stringWithFormat:@"%d",[score1 localizedCaseInsensitiveCompare :score2 ] ]);
-        return (NSComparisonResult)[score1 compare:score2 options:NSCaseInsensitiveSearch] ;
+        return (NSComparisonResult)[[item1 objectForKey:@"location1"] compare:[item2 objectForKey:@"location1"] options:NSCaseInsensitiveSearch] ;
     }];
     self.resultArray =sorted;
 }
 
-- (IBAction)byRefNoSelected:(UIBarButtonItem *)sender {
+- (IBAction)byRefNoSelected
+{
     [self sortByRefNo];
     [self.tableView reloadData];
 }
 
 - (void)sortByRefNo{
     NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
-        NSString *score1 = [item1 objectForKey:@"ref_no"];
-        //NSLog([NSString stringWithFormat:@"start:%@",score1]  );
-        
-        NSString *score2 = [item2 objectForKey:@"ref_no"];
-        //NSLog(score2);
-        
-        //NSLog([NSString stringWithFormat:@"%d",[score1 localizedCaseInsensitiveCompare :score2 ] ]);
-        return (NSComparisonResult)[score1 compare:score2 options:NSCaseInsensitiveSearch] ;
+        return (NSComparisonResult)[[item1 objectForKey:@"ref_no"] compare:[item2 objectForKey:@"ref_no"] options:NSCaseInsensitiveSearch] ;
     }];
     self.resultArray =sorted;
 }
 
 
-
 #pragma mark - UITableViewDataSource
-
 // lets the UITableView know how many rows it should display
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -209,7 +191,6 @@
     cell.detailTextLabel.numberOfLines = 3;
     cell.detailTextLabel.text = subtitle;
     
-    
     return cell;
 }
 
@@ -218,7 +199,4 @@
 {
     [OSAPIManager sharedManager].searchObject = [resultArray objectAtIndex:indexPath.row];
 }
-
-
-
 @end

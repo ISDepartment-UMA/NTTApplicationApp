@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3103" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -345,17 +345,17 @@
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="omV-OI-aPu"/>
                                 <barButtonItem title="Title" id="nkA-Mh-6Eb">
                                     <connections>
-                                        <action selector="byTitleSelected:" destination="g5I-KU-xeh" id="E9N-db-mlB"/>
+                                        <action selector="byTitleSelected" destination="g5I-KU-xeh" id="ty7-bi-izK"/>
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem title="Location" id="5HC-Ij-83P">
                                     <connections>
-                                        <action selector="byLocationSelected:" destination="g5I-KU-xeh" id="CJe-LQ-pFc"/>
+                                        <action selector="byLocationSelected" destination="g5I-KU-xeh" id="VOJ-Zj-Qoc"/>
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem title="RefNo" id="v5M-tq-7pR">
                                     <connections>
-                                        <action selector="byRefNoSelected:" destination="g5I-KU-xeh" id="qRa-Vq-cfU"/>
+                                        <action selector="byRefNoSelected" destination="g5I-KU-xeh" id="kQl-Ki-llL"/>
                                     </connections>
                                 </barButtonItem>
                             </items>
@@ -797,9 +797,6 @@
         <class className="FoundPositionsOverviewViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FoundPositionsOverviewViewController.h"/>
             <relationships>
-                <relationship kind="action" name="byLocationSelected:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="byRefNoSelected:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="byTitleSelected:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
             </relationships>
         </class>
