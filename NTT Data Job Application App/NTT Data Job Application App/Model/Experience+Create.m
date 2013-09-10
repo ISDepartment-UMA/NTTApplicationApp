@@ -39,7 +39,8 @@
 +(NSArray*)allExperiencesIncludingJSON:(id)jsonObject
 {
     for (NSDictionary* dict in (NSArray*)jsonObject)
-        [Experience createExperienceFromDictionary:dict];
+        if (![[dict objectForKey:@"experience"]isEqualToString:@"null"])
+            [Experience createExperienceFromDictionary:dict];
 
     return [Experience getAllExperiences];
 }

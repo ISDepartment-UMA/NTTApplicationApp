@@ -40,7 +40,8 @@
 +(NSArray*)allJobTitlesIncludingJSON:(id)jsonObject
 {
     for (NSDictionary* dict in (NSArray*)jsonObject)
-        [JobTitle createJobTitleFromDictionary:dict];
+        if (![[dict objectForKey:@"jobtitle"]isEqualToString:@"null"])
+            [JobTitle createJobTitleFromDictionary:dict];
     
     return [JobTitle getAllJobTitles];
 }

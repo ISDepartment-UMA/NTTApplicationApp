@@ -39,7 +39,8 @@
 +(NSArray*)allTopicsIncludingJSON:(id)jsonObject
 {
     for (NSDictionary* dict in (NSArray*)jsonObject)
-        [Topic createTopicFromDictionary:dict];
+        if (![[dict objectForKey:@"topic"] isEqualToString:@"null"]) 
+            [Topic createTopicFromDictionary:dict];
     
     return [Topic getAllTopics];
 }
