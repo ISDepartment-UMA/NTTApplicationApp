@@ -222,7 +222,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Classical Search" id="KsQ-5D-79c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="pDd-zL-DYD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="pDd-zL-DYD">
+                            <connections>
+                                <action selector="refreshButton:" destination="2" id="PVr-OT-rly"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="contButton" destination="xWg-ct-zRs" id="smY-fD-dEb"/>
@@ -233,6 +237,7 @@
                         <outlet property="location" destination="kvy-Th-MSV" id="34E-WQ-TsK"/>
                         <outlet property="locationLabel" destination="9WY-q2-xpm" id="M4M-mD-w78"/>
                         <outlet property="optionsTable" destination="kwc-Nx-WLi" id="Y5a-ds-XCZ"/>
+                        <outlet property="proposeJobButton" destination="IRI-F7-igD" id="v71-yF-ixe"/>
                         <outlet property="refreshButton" destination="pDd-zL-DYD" id="8nU-QT-QtT"/>
                         <outlet property="searchButton" destination="hsc-kf-6QG" id="EvL-Ri-Zgi"/>
                         <outlet property="searchCountLabel" destination="PRW-nV-ho7" id="dxm-aA-ZX2"/>
@@ -830,65 +835,6 @@
             <point key="canvasLocation" x="-11" y="-22"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FoundPositionDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoundPositionDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contact" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="email" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="exp" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="jobTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainTask" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainTaskText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="perspectiveText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="phone" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="prespective" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reference" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="requirement" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="requirementText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="result" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="selectedExperience" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedLocation" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedTopic" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FoundPositionsOverviewViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoundPositionsOverviewViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="JobProposalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobProposalViewController.h"/>
-        </class>
-        <class className="JobSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobSearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="contButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="expLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="experience" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="jobTitle" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="jobTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="location" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="searchCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="searchSelection" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="topics" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="topicsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

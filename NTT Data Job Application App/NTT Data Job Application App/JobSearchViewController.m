@@ -46,6 +46,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *expLabel;
 @property (weak, nonatomic) IBOutlet UILabel *searchCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIButton *proposeJobButton;
 @property (strong, nonatomic) NSMutableDictionary* searchObject;
 @end
 
@@ -66,6 +67,8 @@
     [OSAPIManager sharedManager].flashObjects = searchObject;
     NSLog(@"search is %@",searchObject);
 }
+
+
 
 -(void)initLoader
 {
@@ -111,7 +114,45 @@
         [self initLoader];
     [self loadAllData];
     self.searchCountLabel.text = @"";
+    
+    UIBarButtonItem *refreshButton =[[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                     target:self
+                                     action:@selector(refreshButtonClicked:)];
+    [self.navigationItem setRightBarButtonItem:refreshButton animated:YES];
+    
+
+
 }
+
+- (void)refreshButtonClicked:(id)sender {
+   
+    self.location.selected = NO;
+    self.topics.selected = NO;
+    self.experience.selected = NO;
+    self.jobTitle.selected = NO;
+    
+    self.jobTitleLabel.text = @"";
+    self.topicsLabel.text = @"";
+    self.locationLabel.text = @"";
+    self.expLabel.text = @"";
+    
+    self.contButton.enabled = YES;
+    self.searchButton.enabled = YES;
+    self.proposeJobButton.enabled = YES;
+    self.searchCountLabel.text = @"";
+    
+    self.contButton.alpha = 1;
+    self.searchButton.alpha = 1;
+    
+
+    
+    
+}
+
+
+
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -224,6 +265,9 @@
     }
     
 }
+ 
+
+
 
 - (IBAction)selectTitle:(UIButton *)sender {
     self.selected = self.jobTitleList;
