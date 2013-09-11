@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3103" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Rus-ER-RXI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -718,25 +718,62 @@
                                 </constraints>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzO-HA-1sk">
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Cfu-eY-jzP"/>
-                                    <barButtonItem title="Item" id="1be-BZ-9AK"/>
-                                    <barButtonItem title="Item" id="oEC-Jc-wEF"/>
-                                    <barButtonItem title="Item" id="Bb2-C0-Ryn"/>
-                                    <barButtonItem title="Item" id="nFe-7e-9Mt"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Skf-dj-8KM"/>
-                                </items>
+                                <items/>
                             </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label1" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="2qj-ve-foq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="84i-md-tWI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label2" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="KSu-eF-QI7">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="DCI-W1-WN4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label3" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="TiI-Bz-wOR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="ss9-72-pNh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label4" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="gyc-mV-LvS">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="NwT-dk-UBZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="bottom" secondItem="7Po-sd-Hab" secondAttribute="bottom" type="default" id="39n-E0-v7T"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="top" secondItem="hzO-HA-1sk" secondAttribute="bottom" type="default" id="AhT-vk-udY"/>
+                            <constraint firstItem="gyc-mV-LvS" firstAttribute="baseline" secondItem="TiI-Bz-wOR" secondAttribute="baseline" type="default" id="Bfn-qc-Glp"/>
+                            <constraint firstItem="TiI-Bz-wOR" firstAttribute="leading" secondItem="KSu-eF-QI7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="F4H-cd-phZ"/>
+                            <constraint firstItem="KSu-eF-QI7" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="Gfa-CB-bf8"/>
+                            <constraint firstItem="TiI-Bz-wOR" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="Gmn-x1-AtC"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" type="default" id="IJW-fU-HUW"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="JEO-9G-dbK"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="trailing" secondItem="7Po-sd-Hab" secondAttribute="trailing" type="default" id="Mez-dr-KjQ"/>
+                            <constraint firstItem="2qj-ve-foq" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="N7t-Dc-boi"/>
+                            <constraint firstItem="gyc-mV-LvS" firstAttribute="bottom" secondItem="hzO-HA-1sk" secondAttribute="bottom" type="default" id="QpY-Sa-7JU"/>
+                            <constraint firstItem="gyc-mV-LvS" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="aM8-xd-g6m"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="trailing" secondItem="7Po-sd-Hab" secondAttribute="trailing" type="default" id="bds-70-0lw"/>
+                            <constraint firstItem="KSu-eF-QI7" firstAttribute="baseline" secondItem="2qj-ve-foq" secondAttribute="baseline" type="default" id="cjX-3D-8hF"/>
+                            <constraint firstItem="gyc-mV-LvS" firstAttribute="leading" secondItem="TiI-Bz-wOR" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="dY0-yR-KhE"/>
+                            <constraint firstItem="TiI-Bz-wOR" firstAttribute="baseline" secondItem="KSu-eF-QI7" secondAttribute="baseline" type="default" id="gn0-tl-DtC"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" type="default" id="nnh-Zo-M8l"/>
+                            <constraint firstItem="KSu-eF-QI7" firstAttribute="leading" secondItem="2qj-ve-foq" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="tef-WZ-ft4"/>
+                            <constraint firstItem="2qj-ve-foq" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" constant="14" id="zNv-Yx-JhH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Job Description" id="okN-df-ygD"/>
@@ -761,10 +798,10 @@
                         <outlet property="requirementText" destination="go3-tt-4m0" id="P7R-oB-pCm"/>
                         <outlet property="result" destination="4EK-rc-i1B" id="u4Y-gJ-8QG"/>
                         <outlet property="scrollView" destination="l7N-Yr-VMz" id="HKv-Tb-S4v"/>
-                        <outlet property="selectedExperience" destination="nFe-7e-9Mt" id="1xX-un-hx6"/>
-                        <outlet property="selectedLocation" destination="Bb2-C0-Ryn" id="0CL-8a-ddB"/>
-                        <outlet property="selectedTitle" destination="1be-BZ-9AK" id="2mS-JA-EjE"/>
-                        <outlet property="selectedTopic" destination="oEC-Jc-wEF" id="PgB-fU-fx6"/>
+                        <outlet property="selectedExperience" destination="gyc-mV-LvS" id="6A8-J5-Dct"/>
+                        <outlet property="selectedLocation" destination="TiI-Bz-wOR" id="03G-0j-2YZ"/>
+                        <outlet property="selectedTitle" destination="2qj-ve-foq" id="vX5-Og-FAk"/>
+                        <outlet property="selectedTopic" destination="KSu-eF-QI7" id="h5W-bl-lYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSv-qO-9U3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -790,6 +827,64 @@
             <point key="canvasLocation" x="-11" y="-22"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="FoundPositionDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoundPositionDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contact" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="email" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="exp" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="jobTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mainTask" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mainTaskText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="perspectiveText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="phone" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="position" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="prespective" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reference" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="requirement" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="requirementText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="result" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="selectedExperience" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="selectedLocation" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="selectedTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="selectedTopic" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FoundPositionsOverviewViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoundPositionsOverviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="JobProposalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobProposalViewController.h"/>
+        </class>
+        <class className="JobSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobSearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="expLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="experience" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="jobTitle" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="jobTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="location" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="searchCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="searchSelection" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="topics" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="topicsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

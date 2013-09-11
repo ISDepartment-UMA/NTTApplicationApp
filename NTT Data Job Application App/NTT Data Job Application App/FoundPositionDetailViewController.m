@@ -16,10 +16,16 @@
 #import "MessageUI/MFMailComposeViewController.h"
 
 @interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedTitle;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedTopic;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedLocation;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectedExperience;
+
+
+
+@property (weak, nonatomic) IBOutlet UILabel *selectedTitle;
+@property (weak, nonatomic) IBOutlet UILabel *selectedTopic;
+@property (weak, nonatomic) IBOutlet UILabel *selectedLocation;
+@property (weak, nonatomic) IBOutlet UILabel *selectedExperience;
+
+
+
 @property (weak, nonatomic) IBOutlet UILabel *reference;
 @property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UILabel *exp;
@@ -45,19 +51,15 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self loadData];
-    self.selectedExperience.title = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
-    [self.selectedExperience setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:7], UITextAttributeFont,nil] forState:UIControlStateNormal];
-
-        
-    self.selectedTitle.title = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
-    [self.selectedTitle setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:7], UITextAttributeFont,nil] forState:UIControlStateNormal];
     
-    self.selectedTopic.title = [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
-    [self.selectedTopic setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:7], UITextAttributeFont,nil] forState:UIControlStateNormal];
-    self.selectedLocation.title = [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
-    [self.selectedLocation setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:7], UITextAttributeFont,nil] forState:UIControlStateNormal];
+    self.selectedExperience.text = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
+         
+    self.selectedTitle.text = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
 
-   
+    self.selectedTopic.text = [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
+    
+    self.selectedLocation.text = [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
+       
 }
 
 -(void)loadData
@@ -70,7 +72,7 @@
     self.exp.text = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"exp"]];
     
     self.jobTitle.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"];
-    self.jobTitle.text = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
+    self.jobTitle.text = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
     
     self.contact.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"contact_person"];
     
