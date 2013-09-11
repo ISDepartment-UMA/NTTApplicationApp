@@ -55,7 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		280A3E7117A7024B006A12D5 /* NTT Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		280A3E7417A7024B006A12D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		280A3E7617A7024B006A12D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		280A3E7817A7024B006A12D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,7 +176,7 @@
 		280A3E7217A7024B006A12D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				280A3E7117A7024B006A12D5 /* NTT Data.app */,
+				280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */,
 				2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */,
 			);
 			name = Products;
@@ -347,7 +347,7 @@
 			);
 			name = "NTT Data Job Application App";
 			productName = "NTT Data Job Application App";
-			productReference = 280A3E7117A7024B006A12D5 /* NTT Data.app */;
+			productReference = 280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2876DE2D17D93D0D0053B4DB /* JobApplicationAppUnitTests */ = {
