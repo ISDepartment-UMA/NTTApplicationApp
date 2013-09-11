@@ -131,18 +131,7 @@
     self.resultArray =sorted;
 }
 
-- (IBAction)byRefNoSelected
-{
-    [self sortByRefNo];
-    [self.tableView reloadData];
-}
 
-- (void)sortByRefNo{
-    NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
-        return (NSComparisonResult)[[item1 objectForKey:@"ref_no"] compare:[item2 objectForKey:@"ref_no"] options:NSCaseInsensitiveSearch] ;
-    }];
-    self.resultArray =sorted;
-}
 
 
 #pragma mark - UITableViewDataSource
