@@ -55,14 +55,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		280A3E7117A7024B006A12D5 /* 	.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "	.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		280A3E7117A7024B006A12D5 /* NTT Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		280A3E7417A7024B006A12D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		280A3E7617A7024B006A12D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		280A3E7817A7024B006A12D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		280A3E7C17A7024B006A12D5 /* NTT Data Job Application App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application App-Info.plist"; sourceTree = "<group>"; };
+		280A3E7C17A7024B006A12D5 /* NTT Data Job Application AppApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application AppApp-Info.plist"; sourceTree = "<group>"; };
 		280A3E7E17A7024B006A12D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		280A3E8017A7024B006A12D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		280A3E8217A7024B006A12D5 /* NTT Data Job Application App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NTT Data Job Application App-Prefix.pch"; sourceTree = "<group>"; };
+		280A3E8217A7024B006A12D5 /* NTT Data Job Application AppApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NTT Data Job Application AppApp-Prefix.pch"; sourceTree = "<group>"; };
 		280A3E8317A7024B006A12D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		280A3E8417A7024B006A12D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		280A3E8617A7024B006A12D5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		280A3E7217A7024B006A12D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				280A3E7117A7024B006A12D5 /* 	.app */,
+				280A3E7117A7024B006A12D5 /* NTT Data.app */,
 				2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */,
 			);
 			name = Products;
@@ -218,12 +218,12 @@
 		280A3E7B17A7024B006A12D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				280A3E7C17A7024B006A12D5 /* NTT Data Job Application App-Info.plist */,
+				280A3E7C17A7024B006A12D5 /* NTT Data Job Application AppApp-Info.plist */,
 				280A3E7D17A7024B006A12D5 /* InfoPlist.strings */,
 				280A3E8317A7024B006A12D5 /* AppDelegate.h */,
 				280A3E8417A7024B006A12D5 /* AppDelegate.m */,
 				280A3E8017A7024B006A12D5 /* main.m */,
-				280A3E8217A7024B006A12D5 /* NTT Data Job Application App-Prefix.pch */,
+				280A3E8217A7024B006A12D5 /* NTT Data Job Application AppApp-Prefix.pch */,
 				280A3E8617A7024B006A12D5 /* Default.png */,
 				280A3E8817A7024B006A12D5 /* Default@2x.png */,
 				280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */,
@@ -333,9 +333,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		280A3E7017A7024B006A12D5 /* 	 */ = {
+		280A3E7017A7024B006A12D5 /* NTT Data Job Application App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 280A3E9417A7024B006A12D5 /* Build configuration list for PBXNativeTarget "	" */;
+			buildConfigurationList = 280A3E9417A7024B006A12D5 /* Build configuration list for PBXNativeTarget "NTT Data Job Application App" */;
 			buildPhases = (
 				280A3E6D17A7024B006A12D5 /* Sources */,
 				280A3E6E17A7024B006A12D5 /* Frameworks */,
@@ -345,9 +345,9 @@
 			);
 			dependencies = (
 			);
-			name = "	";
+			name = "NTT Data Job Application App";
 			productName = "NTT Data Job Application App";
-			productReference = 280A3E7117A7024B006A12D5 /* 	.app */;
+			productReference = 280A3E7117A7024B006A12D5 /* NTT Data.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2876DE2D17D93D0D0053B4DB /* JobApplicationAppUnitTests */ = {
@@ -389,7 +389,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				280A3E7017A7024B006A12D5 /* 	 */,
+				280A3E7017A7024B006A12D5 /* NTT Data Job Application App */,
 				2876DE2D17D93D0D0053B4DB /* JobApplicationAppUnitTests */,
 			);
 		};
@@ -562,8 +562,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
-				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
+				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application AppApp-Prefix.pch";
+				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application AppApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -573,8 +573,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
-				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
+				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application AppApp-Prefix.pch";
+				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application AppApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -622,7 +622,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		280A3E9417A7024B006A12D5 /* Build configuration list for PBXNativeTarget "	" */ = {
+		280A3E9417A7024B006A12D5 /* Build configuration list for PBXNativeTarget "NTT Data Job Application App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				280A3E9517A7024B006A12D5 /* Debug */,
