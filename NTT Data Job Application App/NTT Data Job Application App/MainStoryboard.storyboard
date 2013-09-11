@@ -183,11 +183,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.55889343559101223" green="0.62273820870324803" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="PRW-nV-ho7" secondAttribute="bottom" constant="83" id="15q-Lf-iBM"/>
                             <constraint firstItem="OMC-pY-88Z" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="5jK-pY-bVw"/>
                             <constraint firstItem="S00-dp-7dP" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="6mb-1i-sxR"/>
                             <constraint firstAttribute="bottom" secondItem="S00-dp-7dP" secondAttribute="bottom" constant="10" id="BQE-XM-BBY"/>
                             <constraint firstItem="9WY-q2-xpm" firstAttribute="bottom" secondItem="kvy-Th-MSV" secondAttribute="bottom" type="default" id="CAY-b5-wK1"/>
-                            <constraint firstItem="PRW-nV-ho7" firstAttribute="bottom" secondItem="hsc-kf-6QG" secondAttribute="bottom" type="default" id="COl-BG-yR1"/>
                             <constraint firstItem="xWg-ct-zRs" firstAttribute="leading" secondItem="hsc-kf-6QG" secondAttribute="leading" type="default" id="Clk-IO-RjI"/>
                             <constraint firstItem="IRI-F7-igD" firstAttribute="leading" secondItem="hsc-kf-6QG" secondAttribute="leading" type="default" id="Dbq-Bn-aTw"/>
                             <constraint firstItem="kwc-Nx-WLi" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="DtL-E1-TZz"/>
@@ -196,7 +196,6 @@
                             <constraint firstAttribute="trailing" secondItem="hsc-kf-6QG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="IA4-M1-SPV"/>
                             <constraint firstAttribute="bottom" secondItem="IRI-F7-igD" secondAttribute="bottom" constant="34" id="Mrv-iD-xSQ"/>
                             <constraint firstItem="L2L-c0-2eD" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="OgQ-63-hzL"/>
-                            <constraint firstItem="hsc-kf-6QG" firstAttribute="top" secondItem="L2L-c0-2eD" secondAttribute="top" type="default" id="P1W-Os-oJU"/>
                             <constraint firstAttribute="trailing" secondItem="xWg-ct-zRs" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Pjb-gq-CRn"/>
                             <constraint firstItem="OMC-pY-88Z" firstAttribute="trailing" secondItem="7LZ-Gn-sZT" secondAttribute="trailing" type="default" id="Rc8-O2-9OG"/>
                             <constraint firstItem="7LZ-Gn-sZT" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Rtl-Ei-GAI"/>
@@ -206,6 +205,7 @@
                             <constraint firstItem="D36-Dr-YAY" firstAttribute="trailing" secondItem="kvy-Th-MSV" secondAttribute="trailing" type="default" id="XvH-ws-Fgs"/>
                             <constraint firstItem="9WY-q2-xpm" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="YHi-ky-gIS"/>
                             <constraint firstAttribute="trailing" secondItem="PRW-nV-ho7" secondAttribute="trailing" constant="24" id="aAq-pI-fTT"/>
+                            <constraint firstAttribute="bottom" secondItem="hsc-kf-6QG" secondAttribute="bottom" constant="84" id="bTM-8n-o0Q"/>
                             <constraint firstItem="xWg-ct-zRs" firstAttribute="top" secondItem="kwc-Nx-WLi" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bxu-0e-DJt"/>
                             <constraint firstItem="kvy-Th-MSV" firstAttribute="trailing" secondItem="9WY-q2-xpm" secondAttribute="trailing" type="default" id="geE-St-PWH"/>
                             <constraint firstItem="D36-Dr-YAY" firstAttribute="trailing" secondItem="OMC-pY-88Z" secondAttribute="trailing" type="default" id="gnR-Vr-yCo"/>
@@ -221,7 +221,9 @@
                             <constraint firstItem="7LZ-Gn-sZT" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="z6U-ed-cwL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Classical Search" id="KsQ-5D-79c"/>
+                    <navigationItem key="navigationItem" title="Classical Search" id="KsQ-5D-79c">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="pDd-zL-DYD"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="contButton" destination="xWg-ct-zRs" id="smY-fD-dEb"/>
                         <outlet property="expLabel" destination="S00-dp-7dP" id="3k0-m5-G6z"/>
@@ -231,6 +233,7 @@
                         <outlet property="location" destination="kvy-Th-MSV" id="34E-WQ-TsK"/>
                         <outlet property="locationLabel" destination="9WY-q2-xpm" id="M4M-mD-w78"/>
                         <outlet property="optionsTable" destination="kwc-Nx-WLi" id="Y5a-ds-XCZ"/>
+                        <outlet property="refreshButton" destination="pDd-zL-DYD" id="8nU-QT-QtT"/>
                         <outlet property="searchButton" destination="hsc-kf-6QG" id="EvL-Ri-Zgi"/>
                         <outlet property="searchCountLabel" destination="PRW-nV-ho7" id="dxm-aA-ZX2"/>
                         <outlet property="searchSelection" destination="kwc-Nx-WLi" id="9TA-zc-2ws"/>
@@ -874,6 +877,7 @@
                 <relationship kind="outlet" name="location" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="optionsTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="searchCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="searchSelection" candidateClass="UITableView"/>

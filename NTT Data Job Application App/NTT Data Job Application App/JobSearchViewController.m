@@ -21,6 +21,8 @@
 
 @interface JobSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *jobTitle;
 @property (weak, nonatomic) IBOutlet UIButton *topics;
 @property (weak, nonatomic) IBOutlet UIButton *location;
