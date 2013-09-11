@@ -178,8 +178,8 @@
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     cell.textLabel.text = [self titleForRow:indexPath.row];
 
-    //@"Location\nReferenceID"
-    NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@ && Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
+  
+    NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
         
     cell.detailTextLabel.numberOfLines = 3;
     cell.detailTextLabel.text = subtitle;
