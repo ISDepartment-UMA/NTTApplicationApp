@@ -143,10 +143,12 @@
     self.searchCountLabel.text = @"";
     
     self.contButton.alpha = 1;
-    self.searchButton.alpha = 1;
-    
+    self.searchButton.alpha = 1;    
 
-    
+    self.selected = nil;   
+    [self initLoader];
+    [self loadAllData];
+    [self.searchSelection reloadData];   
     
 }
 
