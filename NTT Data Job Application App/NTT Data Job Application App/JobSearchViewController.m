@@ -280,6 +280,10 @@
     self.contButton.enabled = YES;
     self.contButton.alpha = 1.0;
     [self.searchSelection reloadData];
+    if (!sender.selected){
+        self.selected = nil;
+        [self.searchSelection reloadData];        
+    }
 }
 
 - (IBAction)selectTopic:(UIButton *) sender {
@@ -292,6 +296,11 @@
     self.contButton.enabled = YES;
     self.contButton.alpha = 1.0;
     [self.searchSelection reloadData];
+    if (!sender.selected){
+        self.selected = nil;
+        [self.searchSelection reloadData];
+    }
+
     
 }
 
@@ -304,6 +313,11 @@
     self.contButton.enabled = YES;
     self.contButton.alpha = 1.0;
     [self.searchSelection reloadData];
+    if (!sender.selected){
+        self.selected = nil;
+        [self.searchSelection reloadData];
+    }
+
 }
 
 - (IBAction)selectExperience:(UIButton *)sender {
@@ -315,6 +329,11 @@
     self.contButton.enabled = NO;
     self.contButton.alpha = 0.3;
     [self.searchSelection reloadData];
+    if (!sender.selected){
+        self.selected = nil;
+        [self.searchSelection reloadData];
+    }
+
 }
 
 - (IBAction)contSearch:(UIButton *)sender {
