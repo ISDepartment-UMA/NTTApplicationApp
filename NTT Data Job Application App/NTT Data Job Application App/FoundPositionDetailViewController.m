@@ -19,12 +19,7 @@
 
 
 
-@property (weak, nonatomic) IBOutlet UILabel *selectedTitle;
-@property (weak, nonatomic) IBOutlet UILabel *selectedTopic;
-@property (weak, nonatomic) IBOutlet UILabel *selectedLocation;
-@property (weak, nonatomic) IBOutlet UILabel *selectedExperience;
-
-
+@property (weak, nonatomic) IBOutlet UILabel *displaySelectedFilters;
 
 @property (weak, nonatomic) IBOutlet UILabel *reference;
 @property (weak, nonatomic) IBOutlet UILabel *position;
@@ -52,15 +47,25 @@
 {
     [self loadData];
     
-    self.selectedExperience.text = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
-         
-    self.selectedTitle.text = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
 
-    self.selectedTopic.text = [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
     
-    self.selectedLocation.text = [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
-       
+    NSString * content = [NSString stringWithFormat:@"Selected filters: %@, %@,\n%@ and %@",
+                          [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]],
+                          [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]],
+                          [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]],
+                          [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]]];
+    
+    
+    self.displaySelectedFilters.text = content;
+    self.displaySelectedFilters.numberOfLines=2;
+    
+                                      
+    
 }
+
+                           
+
+    
 
 -(void)loadData
 {
@@ -92,17 +97,14 @@
         [self.phone addGestureRecognizer:gesture];
     }
     
-    //self.description.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
+
     self.descriptionText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
     
     self.mainTaskText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
-    //self.mainTask.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
     
     self.perspectiveText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
-    //self.prespective.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
     
     self.requirementText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
-    //self.requirement.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
     
     self.result.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"our_offer"];
     

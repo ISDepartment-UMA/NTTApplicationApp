@@ -723,60 +723,25 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzO-HA-1sk">
                                 <items/>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label1" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="2qj-ve-foq">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="84i-md-tWI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label2" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="KSu-eF-QI7">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="DCI-W1-WN4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label3" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="TiI-Bz-wOR">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="ss9-72-pNh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label4" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="68" translatesAutoresizingMaskIntoConstraints="NO" id="gyc-mV-LvS">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="NwT-dk-UBZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-jV-iQh">
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Bla-jV-iQh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1iY-Wg-oMx"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="bottom" secondItem="7Po-sd-Hab" secondAttribute="bottom" type="default" id="39n-E0-v7T"/>
+                            <constraint firstItem="Bla-jV-iQh" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="3PY-oV-S4V"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="top" secondItem="hzO-HA-1sk" secondAttribute="bottom" type="default" id="AhT-vk-udY"/>
-                            <constraint firstItem="gyc-mV-LvS" firstAttribute="baseline" secondItem="TiI-Bz-wOR" secondAttribute="baseline" type="default" id="Bfn-qc-Glp"/>
-                            <constraint firstItem="TiI-Bz-wOR" firstAttribute="leading" secondItem="KSu-eF-QI7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="F4H-cd-phZ"/>
-                            <constraint firstItem="KSu-eF-QI7" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="Gfa-CB-bf8"/>
-                            <constraint firstItem="TiI-Bz-wOR" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="Gmn-x1-AtC"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" type="default" id="IJW-fU-HUW"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="JEO-9G-dbK"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="trailing" secondItem="7Po-sd-Hab" secondAttribute="trailing" type="default" id="Mez-dr-KjQ"/>
-                            <constraint firstItem="2qj-ve-foq" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="N7t-Dc-boi"/>
-                            <constraint firstItem="gyc-mV-LvS" firstAttribute="bottom" secondItem="hzO-HA-1sk" secondAttribute="bottom" type="default" id="QpY-Sa-7JU"/>
-                            <constraint firstItem="gyc-mV-LvS" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="aM8-xd-g6m"/>
+                            <constraint firstItem="Bla-jV-iQh" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Mt6-bp-BXp"/>
+                            <constraint firstItem="Bla-jV-iQh" firstAttribute="bottom" secondItem="hzO-HA-1sk" secondAttribute="bottom" type="default" id="ZUe-z6-I8y"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="trailing" secondItem="7Po-sd-Hab" secondAttribute="trailing" type="default" id="bds-70-0lw"/>
-                            <constraint firstItem="KSu-eF-QI7" firstAttribute="baseline" secondItem="2qj-ve-foq" secondAttribute="baseline" type="default" id="cjX-3D-8hF"/>
-                            <constraint firstItem="gyc-mV-LvS" firstAttribute="leading" secondItem="TiI-Bz-wOR" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="dY0-yR-KhE"/>
-                            <constraint firstItem="TiI-Bz-wOR" firstAttribute="baseline" secondItem="KSu-eF-QI7" secondAttribute="baseline" type="default" id="gn0-tl-DtC"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" type="default" id="nnh-Zo-M8l"/>
-                            <constraint firstItem="KSu-eF-QI7" firstAttribute="leading" secondItem="2qj-ve-foq" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="tef-WZ-ft4"/>
-                            <constraint firstItem="2qj-ve-foq" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" constant="14" id="zNv-Yx-JhH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Job Description" id="okN-df-ygD"/>
@@ -787,6 +752,7 @@
                         <outlet property="contact" destination="r7b-rD-Z9u" id="gOm-ce-DhB"/>
                         <outlet property="description" destination="jQd-BV-FT1" id="bYb-Qk-iKG"/>
                         <outlet property="descriptionText" destination="7LM-eo-X7K" id="Xmr-vz-twn"/>
+                        <outlet property="displaySelectedFilters" destination="Bla-jV-iQh" id="tOG-ph-1wG"/>
                         <outlet property="email" destination="XoF-Kz-XeS" id="O06-CG-E7M"/>
                         <outlet property="exp" destination="ZIr-9A-hpF" id="aP0-rz-aJ9"/>
                         <outlet property="jobTitle" destination="WvF-X4-se2" id="oKN-RF-3Cf"/>
@@ -801,10 +767,6 @@
                         <outlet property="requirementText" destination="go3-tt-4m0" id="P7R-oB-pCm"/>
                         <outlet property="result" destination="4EK-rc-i1B" id="u4Y-gJ-8QG"/>
                         <outlet property="scrollView" destination="l7N-Yr-VMz" id="HKv-Tb-S4v"/>
-                        <outlet property="selectedExperience" destination="gyc-mV-LvS" id="6A8-J5-Dct"/>
-                        <outlet property="selectedLocation" destination="TiI-Bz-wOR" id="03G-0j-2YZ"/>
-                        <outlet property="selectedTitle" destination="2qj-ve-foq" id="vX5-Og-FAk"/>
-                        <outlet property="selectedTopic" destination="KSu-eF-QI7" id="h5W-bl-lYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSv-qO-9U3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -837,6 +799,7 @@
                 <relationship kind="outlet" name="contact" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="description" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="displaySelectedFilters" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="email" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="exp" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="jobTitle" candidateClass="UILabel"/>
@@ -851,10 +814,6 @@
                 <relationship kind="outlet" name="requirementText" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="result" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="selectedExperience" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedLocation" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedTopic" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="FoundPositionsOverviewViewController" superclassName="UITableViewController">
