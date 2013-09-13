@@ -38,7 +38,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *mainTaskText;
 @property (weak, nonatomic) IBOutlet UITextView *perspectiveText;
 @property (weak, nonatomic) IBOutlet UITextView *requirementText;
-//@property (strong, nonatomic) NSDictionary *myDictionary;
 @end
 
 @implementation FoundPositionDetailViewController
@@ -48,42 +47,36 @@
     
     [self loadData];
     [self loadSelectedFilters];
-                                         
-    
 }
 
                            
-- (void)loadSelectedFilters {
+- (void)loadSelectedFilters
+{
     
     NSString *contentExperience = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
-    
     NSString *contentJobTitle = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
-    
     NSString *contentTopic = [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
-    
     NSString *contentLocation = [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
     
-    
-    
-    if (contentExperience == NULL ) {
+    if (!contentExperience) {
         contentExperience = @"";
     } else {
         contentExperience = [contentExperience stringByAppendingString:@", "];
     }
     
-    if (contentJobTitle == NULL ) {
+    if (!contentJobTitle) {
         contentJobTitle= @"";
     } else {
         contentJobTitle = [contentJobTitle stringByAppendingString:@", "];
     }
     
-    if (contentLocation== NULL ) {
+    if (!contentLocation) {
         contentLocation = @"";
     }else {
         contentLocation = [contentLocation stringByAppendingString:@", "];
     }
     
-    if (contentTopic == NULL ) {
+    if (!contentTopic) {
         contentTopic = @"";
     }else {
         contentTopic = [contentTopic stringByAppendingString:@", "];
@@ -100,18 +93,12 @@
 -(void)loadData
 {
     self.reference.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"ref_no"];
-    
     self.position.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"position_name"];
-    
-    self.exp.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"exp"];
     self.exp.text = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"exp"]];
-    
-    self.jobTitle.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"];
     self.jobTitle.text = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
-    
     self.contact.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"contact_person"];
-    
     self.email.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"email"];
+
     if (self.email.text && ![self.email.text isEqualToString:@"none"])
     {
         UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mailLabelClicked)];
@@ -129,18 +116,15 @@
     
 
     self.descriptionText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
-    
     self.mainTaskText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
-    
     self.perspectiveText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
-    
     self.requirementText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
-    
     self.result.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"our_offer"];
     
     [self.scrollView setContentSize:CGSizeMake(320, 950)];
 }
 
+#pragma mark - Phone and Mail capabilities
 - (void) phoneLabelClicked
 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
