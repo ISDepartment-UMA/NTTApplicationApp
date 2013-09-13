@@ -45,26 +45,56 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    
     [self loadData];
-    
-
-    
-    NSString * content = [NSString stringWithFormat:@"Selected filters: %@, %@,\n%@ and %@",
-                          [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]],
-                          [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]],
-                          [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]],
-                          [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]]];
-    
-    
-    self.displaySelectedFilters.text = content;
-    self.displaySelectedFilters.numberOfLines=2;
-    
-                                      
+    [self loadSelectedFilters];
+                                         
     
 }
 
                            
-
+- (void)loadSelectedFilters {
+    
+    NSString *contentExperience = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
+    
+    NSString *contentJobTitle = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
+    
+    NSString *contentTopic = [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
+    
+    NSString *contentLocation = [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
+    
+    
+    
+    if (contentExperience == NULL ) {
+        contentExperience = @"";
+    } else {
+        contentExperience = [contentExperience stringByAppendingString:@", "];
+    }
+    
+    if (contentJobTitle == NULL ) {
+        contentJobTitle= @"";
+    } else {
+        contentJobTitle = [contentJobTitle stringByAppendingString:@", "];
+    }
+    
+    if (contentLocation== NULL ) {
+        contentLocation = @"";
+    }else {
+        contentLocation = [contentLocation stringByAppendingString:@", "];
+    }
+    
+    if (contentTopic == NULL ) {
+        contentTopic = @"";
+    }else {
+        contentTopic = [contentTopic stringByAppendingString:@", "];
+    }
+    
+    NSString *content = [NSString stringWithFormat:@"%@%@\n%@%@",
+                         contentExperience, contentJobTitle, contentLocation, contentTopic];
+    
+    self.displaySelectedFilters.text = content;
+    self.displaySelectedFilters.numberOfLines=2;
+}
     
 
 -(void)loadData

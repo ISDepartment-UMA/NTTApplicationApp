@@ -721,27 +721,33 @@
                                 </constraints>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzO-HA-1sk">
-                                <items/>
+                                <items>
+                                    <barButtonItem title="Your search:" style="plain" id="rXW-tw-bxA">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                </items>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-jV-iQh">
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-jV-iQh">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Jec-Ra-lss"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Bla-jV-iQh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1iY-Wg-oMx"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="bottom" secondItem="7Po-sd-Hab" secondAttribute="bottom" type="default" id="39n-E0-v7T"/>
                             <constraint firstItem="Bla-jV-iQh" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="3PY-oV-S4V"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="top" secondItem="hzO-HA-1sk" secondAttribute="bottom" type="default" id="AhT-vk-udY"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" type="default" id="IJW-fU-HUW"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="top" secondItem="7Po-sd-Hab" secondAttribute="top" type="default" id="JEO-9G-dbK"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="trailing" secondItem="7Po-sd-Hab" secondAttribute="trailing" type="default" id="Mez-dr-KjQ"/>
-                            <constraint firstItem="Bla-jV-iQh" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Mt6-bp-BXp"/>
                             <constraint firstItem="Bla-jV-iQh" firstAttribute="bottom" secondItem="hzO-HA-1sk" secondAttribute="bottom" type="default" id="ZUe-z6-I8y"/>
                             <constraint firstItem="hzO-HA-1sk" firstAttribute="trailing" secondItem="7Po-sd-Hab" secondAttribute="trailing" type="default" id="bds-70-0lw"/>
                             <constraint firstItem="l7N-Yr-VMz" firstAttribute="leading" secondItem="7Po-sd-Hab" secondAttribute="leading" type="default" id="nnh-Zo-M8l"/>
+                            <constraint firstItem="Bla-jV-iQh" firstAttribute="trailing" secondItem="7Po-sd-Hab" secondAttribute="trailing" type="default" id="zL9-xA-Gog"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Job Description" id="okN-df-ygD"/>
