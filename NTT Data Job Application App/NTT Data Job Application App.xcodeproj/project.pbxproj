@@ -7,339 +7,341 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		280A3E7517A7024B006A12D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7417A7024B006A12D5 /* UIKit.framework */; };
-		280A3E7717A7024B006A12D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7617A7024B006A12D5 /* Foundation.framework */; };
-		280A3E7917A7024B006A12D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7817A7024B006A12D5 /* CoreGraphics.framework */; };
-		280A3E7F17A7024B006A12D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E7D17A7024B006A12D5 /* InfoPlist.strings */; };
-		280A3E8117A7024B006A12D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E8017A7024B006A12D5 /* main.m */; };
-		280A3E8517A7024B006A12D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E8417A7024B006A12D5 /* AppDelegate.m */; };
-		280A3E8717A7024B006A12D5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8617A7024B006A12D5 /* Default.png */; };
-		280A3E8917A7024B006A12D5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8817A7024B006A12D5 /* Default@2x.png */; };
-		280A3E8B17A7024B006A12D5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */; };
-		280A3E9117A7024B006A12D5 /* FoundPositionsOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 280A3E9017A7024B006A12D5 /* FoundPositionsOverviewViewController.m */; };
-		282023D917DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */; };
-		282023DB17DA956F00F86979 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282023DA17DA956F00F86979 /* CoreData.framework */; };
-		282023DE17DB663700F86979 /* JobTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023DD17DB663700F86979 /* JobTitle.m */; };
-		282023E117DB663700F86979 /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023E017DB663700F86979 /* Experience.m */; };
-		282023E417DB663700F86979 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023E317DB663700F86979 /* Topic.m */; };
-		282023E717DB663700F86979 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023E617DB663700F86979 /* Location.m */; };
-		282023EA17DB8A0B00F86979 /* JobTitle+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023E917DB8A0B00F86979 /* JobTitle+Create.m */; };
-		282023ED17DB8A2000F86979 /* Experience+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023EC17DB8A1F00F86979 /* Experience+Create.m */; };
-		282023F017DB8A3200F86979 /* Topic+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023EF17DB8A3200F86979 /* Topic+Create.m */; };
-		282023F317DB8A4300F86979 /* Location+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023F217DB8A4300F86979 /* Location+Create.m */; };
-		282023F617DBB0E400F86979 /* NSManagedObjectContext+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */; };
-		2820242517DE4C0A00F86979 /* UIManagedDocument+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 2820242417DE4C0A00F86979 /* UIManagedDocument+Shared.m */; };
-		2858E3AA17DFD29A008F8D19 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2858E3A917DFD29A008F8D19 /* MessageUI.framework */; };
-		2876DE3017D93D0D0053B4DB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */; };
-		2876DE3117D93D0D0053B4DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7417A7024B006A12D5 /* UIKit.framework */; };
-		2876DE3217D93D0D0053B4DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280A3E7617A7024B006A12D5 /* Foundation.framework */; };
-		2876DE3817D93D0D0053B4DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2876DE3617D93D0D0053B4DB /* InfoPlist.strings */; };
-		2876DE3B17D93D0D0053B4DB /* JobApplicationAppUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2876DE3A17D93D0D0053B4DB /* JobApplicationAppUnitTests.m */; };
-		7134035817CFFACE00BFE7F8 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034517CFFACE00BFE7F8 /* SBJsonParser.m */; };
-		7134035917CFFACE00BFE7F8 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034717CFFACE00BFE7F8 /* SBJsonStreamParser.m */; };
-		7134035A17CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034917CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m */; };
-		7134035B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m */; };
-		7134035C17CFFACE00BFE7F8 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034D17CFFACE00BFE7F8 /* SBJsonStreamParserState.m */; };
-		7134035D17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134034F17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m */; };
-		7134035E17CFFACE00BFE7F8 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134035117CFFACE00BFE7F8 /* SBJsonStreamWriter.m */; };
-		7134035F17CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134035317CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m */; };
-		7134036017CFFACE00BFE7F8 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134035517CFFACE00BFE7F8 /* SBJsonStreamWriterState.m */; };
-		7134036117CFFACE00BFE7F8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134035717CFFACE00BFE7F8 /* SBJsonWriter.m */; };
-		7134036517CFFB1400BFE7F8 /* OSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134036417CFFB1400BFE7F8 /* OSConnectionManager.m */; };
-		7134036817CFFB2500BFE7F8 /* OSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7134036717CFFB2500BFE7F8 /* OSURLHelper.m */; };
-		71E12D6E17D0AB0300C46907 /* OSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E12D6D17D0AB0300C46907 /* OSAPIManager.m */; };
-		71E12D7417D0BC6600C46907 /* FoundPositionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E12D7317D0BC6600C46907 /* FoundPositionDetailViewController.m */; };
-		8006E9EC17D7BE0E0004A238 /* JobProposalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8006E9EA17D7BE0E0004A238 /* JobProposalViewController.m */; };
-		8006E9ED17D7BE0E0004A238 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8006E9EB17D7BE0E0004A238 /* MainStoryboard.storyboard */; };
-		C3F491B717BE3EA000A2C879 /* JobSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F491B617BE3EA000A2C879 /* JobSearchViewController.m */; };
+		28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
+		28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
+		28E44A9E17E3C5510084543B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9D17E3C5510084543B /* CoreGraphics.framework */; };
+		28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AA217E3C5510084543B /* InfoPlist.strings */; };
+		28E44AA617E3C5510084543B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AA517E3C5510084543B /* main.m */; };
+		28E44AAC17E3C5510084543B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AAB17E3C5510084543B /* Default.png */; };
+		28E44AAE17E3C5510084543B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AAD17E3C5510084543B /* Default@2x.png */; };
+		28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AAF17E3C5510084543B /* Default-568h@2x.png */; };
+		28E44ABE17E3C5510084543B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44ABD17E3C5510084543B /* SenTestingKit.framework */; };
+		28E44ABF17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
+		28E44AC017E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
+		28E44AC817E3C5510084543B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AC617E3C5510084543B /* InfoPlist.strings */; };
+		28E44ACB17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44ACA17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m */; };
+		28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AD717E3C5810084543B /* OSAPIManager.m */; };
+		28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AD917E3C5810084543B /* OSConnectionManager.m */; };
+		28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44ADB17E3C5810084543B /* OSURLHelper.m */; };
+		28E44AF417E3C5DF0084543B /* Experience+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AE117E3C5DF0084543B /* Experience+Create.m */; };
+		28E44AF517E3C5DF0084543B /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AE317E3C5DF0084543B /* Experience.m */; };
+		28E44AF617E3C5DF0084543B /* JobTitle+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AE517E3C5DF0084543B /* JobTitle+Create.m */; };
+		28E44AF717E3C5DF0084543B /* JobTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AE717E3C5DF0084543B /* JobTitle.m */; };
+		28E44AF817E3C5DF0084543B /* Location+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AE917E3C5DF0084543B /* Location+Create.m */; };
+		28E44AF917E3C5DF0084543B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AEB17E3C5DF0084543B /* Location.m */; };
+		28E44AFA17E3C5DF0084543B /* NSManagedObjectContext+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AED17E3C5DF0084543B /* NSManagedObjectContext+Shared.m */; };
+		28E44AFB17E3C5DF0084543B /* NTTDataJobAppDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AEE17E3C5DF0084543B /* NTTDataJobAppDatabase.xcdatamodeld */; };
+		28E44AFC17E3C5DF0084543B /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AF117E3C5DF0084543B /* Topic.m */; };
+		28E44AFD17E3C5DF0084543B /* UIManagedDocument+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AF317E3C5DF0084543B /* UIManagedDocument+Shared.m */; };
+		28E44B1417E3C68A0084543B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0117E3C68A0084543B /* SBJsonParser.m */; };
+		28E44B1517E3C68A0084543B /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0317E3C68A0084543B /* SBJsonStreamParser.m */; };
+		28E44B1617E3C68A0084543B /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0517E3C68A0084543B /* SBJsonStreamParserAccumulator.m */; };
+		28E44B1717E3C68A0084543B /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0717E3C68A0084543B /* SBJsonStreamParserAdapter.m */; };
+		28E44B1817E3C68A0084543B /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0917E3C68A0084543B /* SBJsonStreamParserState.m */; };
+		28E44B1917E3C68A0084543B /* SBJsonStreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0B17E3C68A0084543B /* SBJsonStreamTokeniser.m */; };
+		28E44B1A17E3C68A0084543B /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0D17E3C68A0084543B /* SBJsonStreamWriter.m */; };
+		28E44B1B17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0F17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m */; };
+		28E44B1C17E3C68A0084543B /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B1117E3C68A0084543B /* SBJsonStreamWriterState.m */; };
+		28E44B1D17E3C68A0084543B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B1317E3C68A0084543B /* SBJsonWriter.m */; };
+		28E44B2017E3C6B30084543B /* Topic+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B1F17E3C6B30084543B /* Topic+Create.m */; };
+		28E44B2917E3C6CB0084543B /* FoundPositionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B2217E3C6CB0084543B /* FoundPositionDetailViewController.m */; };
+		28E44B2A17E3C6CB0084543B /* FoundPositionsOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B2417E3C6CB0084543B /* FoundPositionsOverviewViewController.m */; };
+		28E44B2B17E3C6CB0084543B /* JobProposalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B2617E3C6CB0084543B /* JobProposalViewController.m */; };
+		28E44B2C17E3C6CB0084543B /* JobSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B2817E3C6CB0084543B /* JobSearchViewController.m */; };
+		28E44B2E17E3C6D50084543B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */; };
+		28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
+		28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B3117E3C7600084543B /* MessageUI.framework */; };
+		28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B3417E3C7A30084543B /* AppDelegate.m */; };
+		28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		28E44AC117E3C5510084543B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28E44A8E17E3C5510084543B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28E44A9517E3C5510084543B;
+			remoteInfo = "NTT Data Job Application App";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		280A3E7417A7024B006A12D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		280A3E7617A7024B006A12D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		280A3E7817A7024B006A12D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		280A3E7C17A7024B006A12D5 /* NTT Data Job Application AppApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application AppApp-Info.plist"; sourceTree = "<group>"; };
-		280A3E7E17A7024B006A12D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		280A3E8017A7024B006A12D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		280A3E8217A7024B006A12D5 /* NTT Data Job Application AppApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NTT Data Job Application AppApp-Prefix.pch"; sourceTree = "<group>"; };
-		280A3E8317A7024B006A12D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		280A3E8417A7024B006A12D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		280A3E8617A7024B006A12D5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		280A3E8817A7024B006A12D5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		280A3E8F17A7024B006A12D5 /* FoundPositionsOverviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundPositionsOverviewViewController.h; sourceTree = "<group>"; };
-		280A3E9017A7024B006A12D5 /* FoundPositionsOverviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundPositionsOverviewViewController.m; sourceTree = "<group>"; };
-		282023D817DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTTDataJobAppDatabase.xcdatamodel; sourceTree = "<group>"; };
-		282023DA17DA956F00F86979 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		282023DC17DB663700F86979 /* JobTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobTitle.h; path = Model/JobTitle.h; sourceTree = "<group>"; };
-		282023DD17DB663700F86979 /* JobTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobTitle.m; path = Model/JobTitle.m; sourceTree = "<group>"; };
-		282023DF17DB663700F86979 /* Experience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Experience.h; path = Model/Experience.h; sourceTree = "<group>"; };
-		282023E017DB663700F86979 /* Experience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Experience.m; path = Model/Experience.m; sourceTree = "<group>"; };
-		282023E217DB663700F86979 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = Model/Topic.h; sourceTree = "<group>"; };
-		282023E317DB663700F86979 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = Model/Topic.m; sourceTree = "<group>"; };
-		282023E517DB663700F86979 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Model/Location.h; sourceTree = "<group>"; };
-		282023E617DB663700F86979 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Model/Location.m; sourceTree = "<group>"; };
-		282023E817DB8A0B00F86979 /* JobTitle+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JobTitle+Create.h"; path = "Model/JobTitle+Create.h"; sourceTree = "<group>"; };
-		282023E917DB8A0B00F86979 /* JobTitle+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "JobTitle+Create.m"; path = "Model/JobTitle+Create.m"; sourceTree = "<group>"; };
-		282023EB17DB8A1F00F86979 /* Experience+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Experience+Create.h"; path = "Model/Experience+Create.h"; sourceTree = "<group>"; };
-		282023EC17DB8A1F00F86979 /* Experience+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Experience+Create.m"; path = "Model/Experience+Create.m"; sourceTree = "<group>"; };
-		282023EE17DB8A3200F86979 /* Topic+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Topic+Create.h"; sourceTree = "<group>"; };
-		282023EF17DB8A3200F86979 /* Topic+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Topic+Create.m"; sourceTree = "<group>"; };
-		282023F117DB8A4300F86979 /* Location+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Location+Create.h"; path = "Model/Location+Create.h"; sourceTree = "<group>"; };
-		282023F217DB8A4300F86979 /* Location+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+Create.m"; path = "Model/Location+Create.m"; sourceTree = "<group>"; };
-		282023F417DBB0E400F86979 /* NSManagedObjectContext+Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+Shared.h"; path = "Model/NSManagedObjectContext+Shared.h"; sourceTree = "<group>"; };
-		282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+Shared.m"; path = "Model/NSManagedObjectContext+Shared.m"; sourceTree = "<group>"; };
-		2820242317DE4C0A00F86979 /* UIManagedDocument+Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIManagedDocument+Shared.h"; path = "Model/UIManagedDocument+Shared.h"; sourceTree = "<group>"; };
-		2820242417DE4C0A00F86979 /* UIManagedDocument+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIManagedDocument+Shared.m"; path = "Model/UIManagedDocument+Shared.m"; sourceTree = "<group>"; };
-		2858E3A917DFD29A008F8D19 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobApplicationAppUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		2876DE3517D93D0D0053B4DB /* JobApplicationAppUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JobApplicationAppUnitTests-Info.plist"; sourceTree = "<group>"; };
-		2876DE3717D93D0D0053B4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2876DE3917D93D0D0053B4DB /* JobApplicationAppUnitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobApplicationAppUnitTests.h; sourceTree = "<group>"; };
-		2876DE3A17D93D0D0053B4DB /* JobApplicationAppUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobApplicationAppUnitTests.m; sourceTree = "<group>"; };
-		2876DE3C17D93D0D0053B4DB /* JobApplicationAppUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JobApplicationAppUnitTests-Prefix.pch"; sourceTree = "<group>"; };
-		7134034317CFFACE00BFE7F8 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
-		7134034417CFFACE00BFE7F8 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		7134034517CFFACE00BFE7F8 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		7134034617CFFACE00BFE7F8 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
-		7134034717CFFACE00BFE7F8 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
-		7134034817CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
-		7134034917CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
-		7134034A17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
-		7134034B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
-		7134034C17CFFACE00BFE7F8 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
-		7134034D17CFFACE00BFE7F8 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
-		7134034E17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamTokeniser.h; sourceTree = "<group>"; };
-		7134034F17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamTokeniser.m; sourceTree = "<group>"; };
-		7134035017CFFACE00BFE7F8 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
-		7134035117CFFACE00BFE7F8 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
-		7134035217CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
-		7134035317CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
-		7134035417CFFACE00BFE7F8 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
-		7134035517CFFACE00BFE7F8 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
-		7134035617CFFACE00BFE7F8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		7134035717CFFACE00BFE7F8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		7134036317CFFB1400BFE7F8 /* OSConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSConnectionManager.h; sourceTree = "<group>"; };
-		7134036417CFFB1400BFE7F8 /* OSConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSConnectionManager.m; sourceTree = "<group>"; };
-		7134036617CFFB2500BFE7F8 /* OSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSURLHelper.h; sourceTree = "<group>"; };
-		7134036717CFFB2500BFE7F8 /* OSURLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSURLHelper.m; sourceTree = "<group>"; };
-		7134036917CFFB6000BFE7F8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		71E12D6C17D0AB0300C46907 /* OSAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSAPIManager.h; sourceTree = "<group>"; };
-		71E12D6D17D0AB0300C46907 /* OSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSAPIManager.m; sourceTree = "<group>"; };
-		71E12D7217D0BC6500C46907 /* FoundPositionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundPositionDetailViewController.h; sourceTree = "<group>"; };
-		71E12D7317D0BC6600C46907 /* FoundPositionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundPositionDetailViewController.m; sourceTree = "<group>"; };
-		8006E9E917D7BE0E0004A238 /* JobProposalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobProposalViewController.h; sourceTree = "<group>"; };
-		8006E9EA17D7BE0E0004A238 /* JobProposalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobProposalViewController.m; sourceTree = "<group>"; };
-		8006E9EB17D7BE0E0004A238 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C3F491B517BE3EA000A2C879 /* JobSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobSearchViewController.h; sourceTree = "<group>"; };
-		C3F491B617BE3EA000A2C879 /* JobSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobSearchViewController.m; sourceTree = "<group>"; };
+		28E44A9617E3C5510084543B /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E44A9917E3C5510084543B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28E44A9B17E3C5510084543B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		28E44A9D17E3C5510084543B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28E44AA117E3C5510084543B /* NTT Data Job Application App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application App-Info.plist"; sourceTree = "<group>"; };
+		28E44AA317E3C5510084543B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28E44AA517E3C5510084543B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		28E44AA717E3C5510084543B /* NTT Data Job Application App-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NTT Data Job Application App-Prefix.pch"; sourceTree = "<group>"; };
+		28E44AAB17E3C5510084543B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		28E44AAD17E3C5510084543B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		28E44AAF17E3C5510084543B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NTT Data Job Application AppTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E44ABD17E3C5510084543B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		28E44AC517E3C5510084543B /* NTT Data Job Application AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application AppTests-Info.plist"; sourceTree = "<group>"; };
+		28E44AC717E3C5510084543B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28E44AC917E3C5510084543B /* NTT_Data_Job_Application_AppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTT_Data_Job_Application_AppTests.h; sourceTree = "<group>"; };
+		28E44ACA17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTT_Data_Job_Application_AppTests.m; sourceTree = "<group>"; };
+		28E44AD517E3C5810084543B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		28E44AD617E3C5810084543B /* OSAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSAPIManager.h; sourceTree = "<group>"; };
+		28E44AD717E3C5810084543B /* OSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSAPIManager.m; sourceTree = "<group>"; };
+		28E44AD817E3C5810084543B /* OSConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSConnectionManager.h; sourceTree = "<group>"; };
+		28E44AD917E3C5810084543B /* OSConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSConnectionManager.m; sourceTree = "<group>"; };
+		28E44ADA17E3C5810084543B /* OSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSURLHelper.h; sourceTree = "<group>"; };
+		28E44ADB17E3C5810084543B /* OSURLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSURLHelper.m; sourceTree = "<group>"; };
+		28E44AE017E3C5DF0084543B /* Experience+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Experience+Create.h"; sourceTree = "<group>"; };
+		28E44AE117E3C5DF0084543B /* Experience+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Experience+Create.m"; sourceTree = "<group>"; };
+		28E44AE217E3C5DF0084543B /* Experience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Experience.h; sourceTree = "<group>"; };
+		28E44AE317E3C5DF0084543B /* Experience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Experience.m; sourceTree = "<group>"; };
+		28E44AE417E3C5DF0084543B /* JobTitle+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JobTitle+Create.h"; sourceTree = "<group>"; };
+		28E44AE517E3C5DF0084543B /* JobTitle+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JobTitle+Create.m"; sourceTree = "<group>"; };
+		28E44AE617E3C5DF0084543B /* JobTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTitle.h; sourceTree = "<group>"; };
+		28E44AE717E3C5DF0084543B /* JobTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobTitle.m; sourceTree = "<group>"; };
+		28E44AE817E3C5DF0084543B /* Location+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+Create.h"; sourceTree = "<group>"; };
+		28E44AE917E3C5DF0084543B /* Location+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+Create.m"; sourceTree = "<group>"; };
+		28E44AEA17E3C5DF0084543B /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		28E44AEB17E3C5DF0084543B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		28E44AEC17E3C5DF0084543B /* NSManagedObjectContext+Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Shared.h"; sourceTree = "<group>"; };
+		28E44AED17E3C5DF0084543B /* NSManagedObjectContext+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Shared.m"; sourceTree = "<group>"; };
+		28E44AEF17E3C5DF0084543B /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTTDataJobAppDatabase.xcdatamodel; sourceTree = "<group>"; };
+		28E44AF017E3C5DF0084543B /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Topic.h; sourceTree = "<group>"; };
+		28E44AF117E3C5DF0084543B /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Topic.m; sourceTree = "<group>"; };
+		28E44AF217E3C5DF0084543B /* UIManagedDocument+Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIManagedDocument+Shared.h"; sourceTree = "<group>"; };
+		28E44AF317E3C5DF0084543B /* UIManagedDocument+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIManagedDocument+Shared.m"; sourceTree = "<group>"; };
+		28E44AFF17E3C68A0084543B /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		28E44B0017E3C68A0084543B /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		28E44B0117E3C68A0084543B /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		28E44B0217E3C68A0084543B /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		28E44B0317E3C68A0084543B /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		28E44B0417E3C68A0084543B /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		28E44B0517E3C68A0084543B /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		28E44B0617E3C68A0084543B /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		28E44B0717E3C68A0084543B /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		28E44B0817E3C68A0084543B /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		28E44B0917E3C68A0084543B /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		28E44B0A17E3C68A0084543B /* SBJsonStreamTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamTokeniser.h; sourceTree = "<group>"; };
+		28E44B0B17E3C68A0084543B /* SBJsonStreamTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamTokeniser.m; sourceTree = "<group>"; };
+		28E44B0C17E3C68A0084543B /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		28E44B0D17E3C68A0084543B /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		28E44B0E17E3C68A0084543B /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		28E44B0F17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		28E44B1017E3C68A0084543B /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		28E44B1117E3C68A0084543B /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		28E44B1217E3C68A0084543B /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		28E44B1317E3C68A0084543B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		28E44B1E17E3C6B30084543B /* Topic+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Topic+Create.h"; sourceTree = "<group>"; };
+		28E44B1F17E3C6B30084543B /* Topic+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Topic+Create.m"; sourceTree = "<group>"; };
+		28E44B2117E3C6CB0084543B /* FoundPositionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundPositionDetailViewController.h; sourceTree = "<group>"; };
+		28E44B2217E3C6CB0084543B /* FoundPositionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundPositionDetailViewController.m; sourceTree = "<group>"; };
+		28E44B2317E3C6CB0084543B /* FoundPositionsOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundPositionsOverviewViewController.h; sourceTree = "<group>"; };
+		28E44B2417E3C6CB0084543B /* FoundPositionsOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundPositionsOverviewViewController.m; sourceTree = "<group>"; };
+		28E44B2517E3C6CB0084543B /* JobProposalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobProposalViewController.h; sourceTree = "<group>"; };
+		28E44B2617E3C6CB0084543B /* JobProposalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobProposalViewController.m; sourceTree = "<group>"; };
+		28E44B2717E3C6CB0084543B /* JobSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobSearchViewController.h; sourceTree = "<group>"; };
+		28E44B2817E3C6CB0084543B /* JobSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobSearchViewController.m; sourceTree = "<group>"; };
+		28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		28E44B2F17E3C75A0084543B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		28E44B3117E3C7600084543B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		28E44B3317E3C7A30084543B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		28E44B3417E3C7A30084543B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		280A3E6E17A7024B006A12D5 /* Frameworks */ = {
+		28E44A9317E3C5510084543B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2858E3AA17DFD29A008F8D19 /* MessageUI.framework in Frameworks */,
-				282023DB17DA956F00F86979 /* CoreData.framework in Frameworks */,
-				280A3E7517A7024B006A12D5 /* UIKit.framework in Frameworks */,
-				280A3E7717A7024B006A12D5 /* Foundation.framework in Frameworks */,
-				280A3E7917A7024B006A12D5 /* CoreGraphics.framework in Frameworks */,
+				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
+				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
+				28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */,
+				28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */,
+				28E44A9E17E3C5510084543B /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2876DE2A17D93D0D0053B4DB /* Frameworks */ = {
+		28E44AB817E3C5510084543B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2876DE3017D93D0D0053B4DB /* SenTestingKit.framework in Frameworks */,
-				2876DE3117D93D0D0053B4DB /* UIKit.framework in Frameworks */,
-				2876DE3217D93D0D0053B4DB /* Foundation.framework in Frameworks */,
+				28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */,
+				28E44ABE17E3C5510084543B /* SenTestingKit.framework in Frameworks */,
+				28E44ABF17E3C5510084543B /* UIKit.framework in Frameworks */,
+				28E44AC017E3C5510084543B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		280A3E6817A7024B006A12D5 = {
+		28E44A8D17E3C5510084543B = {
 			isa = PBXGroup;
 			children = (
-				280A3E7A17A7024B006A12D5 /* NTT Data Job Application App */,
-				2876DE3317D93D0D0053B4DB /* JobApplicationAppUnitTests */,
-				280A3E7317A7024B006A12D5 /* Frameworks */,
-				280A3E7217A7024B006A12D5 /* Products */,
+				28E44A9F17E3C5510084543B /* NTT Data Job Application App */,
+				28E44AC317E3C5510084543B /* NTT Data Job Application AppTests */,
+				28E44A9817E3C5510084543B /* Frameworks */,
+				28E44A9717E3C5510084543B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		280A3E7217A7024B006A12D5 /* Products */ = {
+		28E44A9717E3C5510084543B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */,
-				2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */,
+				28E44A9617E3C5510084543B /* NTT Data Job Application App.app */,
+				28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		280A3E7317A7024B006A12D5 /* Frameworks */ = {
+		28E44A9817E3C5510084543B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2858E3A917DFD29A008F8D19 /* MessageUI.framework */,
-				282023DA17DA956F00F86979 /* CoreData.framework */,
-				280A3E7417A7024B006A12D5 /* UIKit.framework */,
-				280A3E7617A7024B006A12D5 /* Foundation.framework */,
-				280A3E7817A7024B006A12D5 /* CoreGraphics.framework */,
-				2876DE2F17D93D0D0053B4DB /* SenTestingKit.framework */,
+				28E44B3117E3C7600084543B /* MessageUI.framework */,
+				28E44B2F17E3C75A0084543B /* CoreData.framework */,
+				28E44A9917E3C5510084543B /* UIKit.framework */,
+				28E44A9B17E3C5510084543B /* Foundation.framework */,
+				28E44A9D17E3C5510084543B /* CoreGraphics.framework */,
+				28E44ABD17E3C5510084543B /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		280A3E7A17A7024B006A12D5 /* NTT Data Job Application App */ = {
+		28E44A9F17E3C5510084543B /* NTT Data Job Application App */ = {
 			isa = PBXGroup;
 			children = (
-				8006E9E917D7BE0E0004A238 /* JobProposalViewController.h */,
-				8006E9EA17D7BE0E0004A238 /* JobProposalViewController.m */,
-				8006E9EB17D7BE0E0004A238 /* MainStoryboard.storyboard */,
-				C3F491B517BE3EA000A2C879 /* JobSearchViewController.h */,
-				C3F491B617BE3EA000A2C879 /* JobSearchViewController.m */,
-				280A3E8F17A7024B006A12D5 /* FoundPositionsOverviewViewController.h */,
-				280A3E9017A7024B006A12D5 /* FoundPositionsOverviewViewController.m */,
-				71E12D7217D0BC6500C46907 /* FoundPositionDetailViewController.h */,
-				71E12D7317D0BC6600C46907 /* FoundPositionDetailViewController.m */,
-				7134036217CFFB0400BFE7F8 /* Connection handling */,
-				7134034217CFFACE00BFE7F8 /* SBJson */,
-				282023D617DA929400F86979 /* Model */,
-				280A3E7B17A7024B006A12D5 /* Supporting Files */,
+				28E44B2117E3C6CB0084543B /* FoundPositionDetailViewController.h */,
+				28E44B2217E3C6CB0084543B /* FoundPositionDetailViewController.m */,
+				28E44B2317E3C6CB0084543B /* FoundPositionsOverviewViewController.h */,
+				28E44B2417E3C6CB0084543B /* FoundPositionsOverviewViewController.m */,
+				28E44B2517E3C6CB0084543B /* JobProposalViewController.h */,
+				28E44B2617E3C6CB0084543B /* JobProposalViewController.m */,
+				28E44B2717E3C6CB0084543B /* JobSearchViewController.h */,
+				28E44B2817E3C6CB0084543B /* JobSearchViewController.m */,
+				28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */,
+				28E44AFE17E3C68A0084543B /* SBJson */,
+				28E44ADF17E3C5DF0084543B /* Model */,
+				28E44AD417E3C5810084543B /* connection handling */,
+				28E44AA017E3C5510084543B /* Supporting Files */,
 			);
 			path = "NTT Data Job Application App";
 			sourceTree = "<group>";
 		};
-		280A3E7B17A7024B006A12D5 /* Supporting Files */ = {
+		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				280A3E7C17A7024B006A12D5 /* NTT Data Job Application AppApp-Info.plist */,
-				280A3E7D17A7024B006A12D5 /* InfoPlist.strings */,
-				280A3E8317A7024B006A12D5 /* AppDelegate.h */,
-				280A3E8417A7024B006A12D5 /* AppDelegate.m */,
-				280A3E8017A7024B006A12D5 /* main.m */,
-				280A3E8217A7024B006A12D5 /* NTT Data Job Application AppApp-Prefix.pch */,
-				280A3E8617A7024B006A12D5 /* Default.png */,
-				280A3E8817A7024B006A12D5 /* Default@2x.png */,
-				280A3E8A17A7024B006A12D5 /* Default-568h@2x.png */,
+				28E44AA117E3C5510084543B /* NTT Data Job Application App-Info.plist */,
+				28E44B3317E3C7A30084543B /* AppDelegate.h */,
+				28E44B3417E3C7A30084543B /* AppDelegate.m */,
+				28E44AA217E3C5510084543B /* InfoPlist.strings */,
+				28E44AA517E3C5510084543B /* main.m */,
+				28E44AA717E3C5510084543B /* NTT Data Job Application App-Prefix.pch */,
+				28E44AAB17E3C5510084543B /* Default.png */,
+				28E44AAD17E3C5510084543B /* Default@2x.png */,
+				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		282023D617DA929400F86979 /* Model */ = {
+		28E44AC317E3C5510084543B /* NTT Data Job Application AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				282023F817DCEB0600F86979 /* CoreData */,
+				28E44AC917E3C5510084543B /* NTT_Data_Job_Application_AppTests.h */,
+				28E44ACA17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m */,
+				28E44AC417E3C5510084543B /* Supporting Files */,
+			);
+			path = "NTT Data Job Application AppTests";
+			sourceTree = "<group>";
+		};
+		28E44AC417E3C5510084543B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28E44AC517E3C5510084543B /* NTT Data Job Application AppTests-Info.plist */,
+				28E44AC617E3C5510084543B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28E44AD417E3C5810084543B /* connection handling */ = {
+			isa = PBXGroup;
+			children = (
+				28E44AD517E3C5810084543B /* Constants.h */,
+				28E44AD617E3C5810084543B /* OSAPIManager.h */,
+				28E44AD717E3C5810084543B /* OSAPIManager.m */,
+				28E44AD817E3C5810084543B /* OSConnectionManager.h */,
+				28E44AD917E3C5810084543B /* OSConnectionManager.m */,
+				28E44ADA17E3C5810084543B /* OSURLHelper.h */,
+				28E44ADB17E3C5810084543B /* OSURLHelper.m */,
+			);
+			path = "connection handling";
+			sourceTree = "<group>";
+		};
+		28E44ADF17E3C5DF0084543B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				28E44AE017E3C5DF0084543B /* Experience+Create.h */,
+				28E44AE117E3C5DF0084543B /* Experience+Create.m */,
+				28E44AE217E3C5DF0084543B /* Experience.h */,
+				28E44AE317E3C5DF0084543B /* Experience.m */,
+				28E44AE417E3C5DF0084543B /* JobTitle+Create.h */,
+				28E44AE517E3C5DF0084543B /* JobTitle+Create.m */,
+				28E44AE617E3C5DF0084543B /* JobTitle.h */,
+				28E44AE717E3C5DF0084543B /* JobTitle.m */,
+				28E44AE817E3C5DF0084543B /* Location+Create.h */,
+				28E44AE917E3C5DF0084543B /* Location+Create.m */,
+				28E44AEA17E3C5DF0084543B /* Location.h */,
+				28E44AEB17E3C5DF0084543B /* Location.m */,
+				28E44AEC17E3C5DF0084543B /* NSManagedObjectContext+Shared.h */,
+				28E44AED17E3C5DF0084543B /* NSManagedObjectContext+Shared.m */,
+				28E44AEE17E3C5DF0084543B /* NTTDataJobAppDatabase.xcdatamodeld */,
+				28E44B1E17E3C6B30084543B /* Topic+Create.h */,
+				28E44B1F17E3C6B30084543B /* Topic+Create.m */,
+				28E44AF017E3C5DF0084543B /* Topic.h */,
+				28E44AF117E3C5DF0084543B /* Topic.m */,
+				28E44AF217E3C5DF0084543B /* UIManagedDocument+Shared.h */,
+				28E44AF317E3C5DF0084543B /* UIManagedDocument+Shared.m */,
 			);
 			name = Model;
+			path = "connection handling/Model";
 			sourceTree = "<group>";
 		};
-		282023F817DCEB0600F86979 /* CoreData */ = {
+		28E44AFE17E3C68A0084543B /* SBJson */ = {
 			isa = PBXGroup;
 			children = (
-				282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */,
-				282023E517DB663700F86979 /* Location.h */,
-				282023E617DB663700F86979 /* Location.m */,
-				282023F117DB8A4300F86979 /* Location+Create.h */,
-				282023F217DB8A4300F86979 /* Location+Create.m */,
-				282023E217DB663700F86979 /* Topic.h */,
-				282023E317DB663700F86979 /* Topic.m */,
-				282023EE17DB8A3200F86979 /* Topic+Create.h */,
-				282023EF17DB8A3200F86979 /* Topic+Create.m */,
-				282023DF17DB663700F86979 /* Experience.h */,
-				282023E017DB663700F86979 /* Experience.m */,
-				282023EB17DB8A1F00F86979 /* Experience+Create.h */,
-				282023EC17DB8A1F00F86979 /* Experience+Create.m */,
-				282023DC17DB663700F86979 /* JobTitle.h */,
-				282023DD17DB663700F86979 /* JobTitle.m */,
-				282023E817DB8A0B00F86979 /* JobTitle+Create.h */,
-				282023E917DB8A0B00F86979 /* JobTitle+Create.m */,
-				282023F417DBB0E400F86979 /* NSManagedObjectContext+Shared.h */,
-				282023F517DBB0E400F86979 /* NSManagedObjectContext+Shared.m */,
-				2820242317DE4C0A00F86979 /* UIManagedDocument+Shared.h */,
-				2820242417DE4C0A00F86979 /* UIManagedDocument+Shared.m */,
-			);
-			name = CoreData;
-			sourceTree = "<group>";
-		};
-		2876DE3317D93D0D0053B4DB /* JobApplicationAppUnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				2876DE3917D93D0D0053B4DB /* JobApplicationAppUnitTests.h */,
-				2876DE3A17D93D0D0053B4DB /* JobApplicationAppUnitTests.m */,
-				2876DE3417D93D0D0053B4DB /* Supporting Files */,
-			);
-			path = JobApplicationAppUnitTests;
-			sourceTree = "<group>";
-		};
-		2876DE3417D93D0D0053B4DB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2876DE3517D93D0D0053B4DB /* JobApplicationAppUnitTests-Info.plist */,
-				2876DE3617D93D0D0053B4DB /* InfoPlist.strings */,
-				2876DE3C17D93D0D0053B4DB /* JobApplicationAppUnitTests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7134034217CFFACE00BFE7F8 /* SBJson */ = {
-			isa = PBXGroup;
-			children = (
-				7134034317CFFACE00BFE7F8 /* SBJson.h */,
-				7134034417CFFACE00BFE7F8 /* SBJsonParser.h */,
-				7134034517CFFACE00BFE7F8 /* SBJsonParser.m */,
-				7134034617CFFACE00BFE7F8 /* SBJsonStreamParser.h */,
-				7134034717CFFACE00BFE7F8 /* SBJsonStreamParser.m */,
-				7134034817CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.h */,
-				7134034917CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m */,
-				7134034A17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.h */,
-				7134034B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m */,
-				7134034C17CFFACE00BFE7F8 /* SBJsonStreamParserState.h */,
-				7134034D17CFFACE00BFE7F8 /* SBJsonStreamParserState.m */,
-				7134034E17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.h */,
-				7134034F17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m */,
-				7134035017CFFACE00BFE7F8 /* SBJsonStreamWriter.h */,
-				7134035117CFFACE00BFE7F8 /* SBJsonStreamWriter.m */,
-				7134035217CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.h */,
-				7134035317CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m */,
-				7134035417CFFACE00BFE7F8 /* SBJsonStreamWriterState.h */,
-				7134035517CFFACE00BFE7F8 /* SBJsonStreamWriterState.m */,
-				7134035617CFFACE00BFE7F8 /* SBJsonWriter.h */,
-				7134035717CFFACE00BFE7F8 /* SBJsonWriter.m */,
+				28E44AFF17E3C68A0084543B /* SBJson.h */,
+				28E44B0017E3C68A0084543B /* SBJsonParser.h */,
+				28E44B0117E3C68A0084543B /* SBJsonParser.m */,
+				28E44B0217E3C68A0084543B /* SBJsonStreamParser.h */,
+				28E44B0317E3C68A0084543B /* SBJsonStreamParser.m */,
+				28E44B0417E3C68A0084543B /* SBJsonStreamParserAccumulator.h */,
+				28E44B0517E3C68A0084543B /* SBJsonStreamParserAccumulator.m */,
+				28E44B0617E3C68A0084543B /* SBJsonStreamParserAdapter.h */,
+				28E44B0717E3C68A0084543B /* SBJsonStreamParserAdapter.m */,
+				28E44B0817E3C68A0084543B /* SBJsonStreamParserState.h */,
+				28E44B0917E3C68A0084543B /* SBJsonStreamParserState.m */,
+				28E44B0A17E3C68A0084543B /* SBJsonStreamTokeniser.h */,
+				28E44B0B17E3C68A0084543B /* SBJsonStreamTokeniser.m */,
+				28E44B0C17E3C68A0084543B /* SBJsonStreamWriter.h */,
+				28E44B0D17E3C68A0084543B /* SBJsonStreamWriter.m */,
+				28E44B0E17E3C68A0084543B /* SBJsonStreamWriterAccumulator.h */,
+				28E44B0F17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m */,
+				28E44B1017E3C68A0084543B /* SBJsonStreamWriterState.h */,
+				28E44B1117E3C68A0084543B /* SBJsonStreamWriterState.m */,
+				28E44B1217E3C68A0084543B /* SBJsonWriter.h */,
+				28E44B1317E3C68A0084543B /* SBJsonWriter.m */,
 			);
 			path = SBJson;
-			sourceTree = "<group>";
-		};
-		7134036217CFFB0400BFE7F8 /* Connection handling */ = {
-			isa = PBXGroup;
-			children = (
-				71E12D6C17D0AB0300C46907 /* OSAPIManager.h */,
-				71E12D6D17D0AB0300C46907 /* OSAPIManager.m */,
-				7134036617CFFB2500BFE7F8 /* OSURLHelper.h */,
-				7134036717CFFB2500BFE7F8 /* OSURLHelper.m */,
-				7134036317CFFB1400BFE7F8 /* OSConnectionManager.h */,
-				7134036417CFFB1400BFE7F8 /* OSConnectionManager.m */,
-				7134036917CFFB6000BFE7F8 /* Constants.h */,
-			);
-			name = "Connection handling";
-			path = "connection handling";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		280A3E7017A7024B006A12D5 /* NTT Data Job Application App */ = {
+		28E44A9517E3C5510084543B /* NTT Data Job Application App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 280A3E9417A7024B006A12D5 /* Build configuration list for PBXNativeTarget "NTT Data Job Application App" */;
+			buildConfigurationList = 28E44ACE17E3C5510084543B /* Build configuration list for PBXNativeTarget "NTT Data Job Application App" */;
 			buildPhases = (
-				280A3E6D17A7024B006A12D5 /* Sources */,
-				280A3E6E17A7024B006A12D5 /* Frameworks */,
-				280A3E6F17A7024B006A12D5 /* Resources */,
+				28E44A9217E3C5510084543B /* Sources */,
+				28E44A9317E3C5510084543B /* Frameworks */,
+				28E44A9417E3C5510084543B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -347,79 +349,80 @@
 			);
 			name = "NTT Data Job Application App";
 			productName = "NTT Data Job Application App";
-			productReference = 280A3E7117A7024B006A12D5 /* NTT Data Job Application App.app */;
+			productReference = 28E44A9617E3C5510084543B /* NTT Data Job Application App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2876DE2D17D93D0D0053B4DB /* JobApplicationAppUnitTests */ = {
+		28E44ABB17E3C5510084543B /* NTT Data Job Application AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2876DE3F17D93D0D0053B4DB /* Build configuration list for PBXNativeTarget "JobApplicationAppUnitTests" */;
+			buildConfigurationList = 28E44AD117E3C5510084543B /* Build configuration list for PBXNativeTarget "NTT Data Job Application AppTests" */;
 			buildPhases = (
-				2876DE2917D93D0D0053B4DB /* Sources */,
-				2876DE2A17D93D0D0053B4DB /* Frameworks */,
-				2876DE2B17D93D0D0053B4DB /* Resources */,
-				2876DE2C17D93D0D0053B4DB /* ShellScript */,
+				28E44AB717E3C5510084543B /* Sources */,
+				28E44AB817E3C5510084543B /* Frameworks */,
+				28E44AB917E3C5510084543B /* Resources */,
+				28E44ABA17E3C5510084543B /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				28E44AC217E3C5510084543B /* PBXTargetDependency */,
 			);
-			name = JobApplicationAppUnitTests;
-			productName = JobApplicationAppUnitTests;
-			productReference = 2876DE2E17D93D0D0053B4DB /* JobApplicationAppUnitTests.octest */;
+			name = "NTT Data Job Application AppTests";
+			productName = "NTT Data Job Application AppTests";
+			productReference = 28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		280A3E6917A7024B006A12D5 /* Project object */ = {
+		28E44A8E17E3C5510084543B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "University of Mannheim - NTT Data Team Project";
 			};
-			buildConfigurationList = 280A3E6C17A7024B006A12D5 /* Build configuration list for PBXProject "NTT Data Job Application App" */;
+			buildConfigurationList = 28E44A9117E3C5510084543B /* Build configuration list for PBXProject "NTT Data Job Application App" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 280A3E6817A7024B006A12D5;
-			productRefGroup = 280A3E7217A7024B006A12D5 /* Products */;
+			mainGroup = 28E44A8D17E3C5510084543B;
+			productRefGroup = 28E44A9717E3C5510084543B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				280A3E7017A7024B006A12D5 /* NTT Data Job Application App */,
-				2876DE2D17D93D0D0053B4DB /* JobApplicationAppUnitTests */,
+				28E44A9517E3C5510084543B /* NTT Data Job Application App */,
+				28E44ABB17E3C5510084543B /* NTT Data Job Application AppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		280A3E6F17A7024B006A12D5 /* Resources */ = {
+		28E44A9417E3C5510084543B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				280A3E7F17A7024B006A12D5 /* InfoPlist.strings in Resources */,
-				280A3E8717A7024B006A12D5 /* Default.png in Resources */,
-				280A3E8917A7024B006A12D5 /* Default@2x.png in Resources */,
-				280A3E8B17A7024B006A12D5 /* Default-568h@2x.png in Resources */,
-				8006E9ED17D7BE0E0004A238 /* MainStoryboard.storyboard in Resources */,
+				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
+				28E44AAC17E3C5510084543B /* Default.png in Resources */,
+				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
+				28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */,
+				28E44B2E17E3C6D50084543B /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2876DE2B17D93D0D0053B4DB /* Resources */ = {
+		28E44AB917E3C5510084543B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2876DE3817D93D0D0053B4DB /* InfoPlist.strings in Resources */,
+				28E44AC817E3C5510084543B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2876DE2C17D93D0D0053B4DB /* ShellScript */ = {
+		28E44ABA17E3C5510084543B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -435,66 +438,74 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		280A3E6D17A7024B006A12D5 /* Sources */ = {
+		28E44A9217E3C5510084543B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				280A3E8117A7024B006A12D5 /* main.m in Sources */,
-				280A3E8517A7024B006A12D5 /* AppDelegate.m in Sources */,
-				280A3E9117A7024B006A12D5 /* FoundPositionsOverviewViewController.m in Sources */,
-				C3F491B717BE3EA000A2C879 /* JobSearchViewController.m in Sources */,
-				7134035817CFFACE00BFE7F8 /* SBJsonParser.m in Sources */,
-				7134035917CFFACE00BFE7F8 /* SBJsonStreamParser.m in Sources */,
-				7134035A17CFFACE00BFE7F8 /* SBJsonStreamParserAccumulator.m in Sources */,
-				7134035B17CFFACE00BFE7F8 /* SBJsonStreamParserAdapter.m in Sources */,
-				7134035C17CFFACE00BFE7F8 /* SBJsonStreamParserState.m in Sources */,
-				7134035D17CFFACE00BFE7F8 /* SBJsonStreamTokeniser.m in Sources */,
-				7134035E17CFFACE00BFE7F8 /* SBJsonStreamWriter.m in Sources */,
-				7134035F17CFFACE00BFE7F8 /* SBJsonStreamWriterAccumulator.m in Sources */,
-				7134036017CFFACE00BFE7F8 /* SBJsonStreamWriterState.m in Sources */,
-				7134036117CFFACE00BFE7F8 /* SBJsonWriter.m in Sources */,
-				7134036517CFFB1400BFE7F8 /* OSConnectionManager.m in Sources */,
-				7134036817CFFB2500BFE7F8 /* OSURLHelper.m in Sources */,
-				71E12D6E17D0AB0300C46907 /* OSAPIManager.m in Sources */,
-				71E12D7417D0BC6600C46907 /* FoundPositionDetailViewController.m in Sources */,
-				8006E9EC17D7BE0E0004A238 /* JobProposalViewController.m in Sources */,
-				282023D917DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld in Sources */,
-				282023DE17DB663700F86979 /* JobTitle.m in Sources */,
-				282023E117DB663700F86979 /* Experience.m in Sources */,
-				282023E417DB663700F86979 /* Topic.m in Sources */,
-				282023E717DB663700F86979 /* Location.m in Sources */,
-				282023EA17DB8A0B00F86979 /* JobTitle+Create.m in Sources */,
-				282023ED17DB8A2000F86979 /* Experience+Create.m in Sources */,
-				282023F017DB8A3200F86979 /* Topic+Create.m in Sources */,
-				282023F317DB8A4300F86979 /* Location+Create.m in Sources */,
-				282023F617DBB0E400F86979 /* NSManagedObjectContext+Shared.m in Sources */,
-				2820242517DE4C0A00F86979 /* UIManagedDocument+Shared.m in Sources */,
+				28E44AA617E3C5510084543B /* main.m in Sources */,
+				28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */,
+				28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */,
+				28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */,
+				28E44AF417E3C5DF0084543B /* Experience+Create.m in Sources */,
+				28E44AF517E3C5DF0084543B /* Experience.m in Sources */,
+				28E44AF617E3C5DF0084543B /* JobTitle+Create.m in Sources */,
+				28E44AF717E3C5DF0084543B /* JobTitle.m in Sources */,
+				28E44AF817E3C5DF0084543B /* Location+Create.m in Sources */,
+				28E44AF917E3C5DF0084543B /* Location.m in Sources */,
+				28E44AFA17E3C5DF0084543B /* NSManagedObjectContext+Shared.m in Sources */,
+				28E44AFB17E3C5DF0084543B /* NTTDataJobAppDatabase.xcdatamodeld in Sources */,
+				28E44AFC17E3C5DF0084543B /* Topic.m in Sources */,
+				28E44AFD17E3C5DF0084543B /* UIManagedDocument+Shared.m in Sources */,
+				28E44B1417E3C68A0084543B /* SBJsonParser.m in Sources */,
+				28E44B1517E3C68A0084543B /* SBJsonStreamParser.m in Sources */,
+				28E44B1617E3C68A0084543B /* SBJsonStreamParserAccumulator.m in Sources */,
+				28E44B1717E3C68A0084543B /* SBJsonStreamParserAdapter.m in Sources */,
+				28E44B1817E3C68A0084543B /* SBJsonStreamParserState.m in Sources */,
+				28E44B1917E3C68A0084543B /* SBJsonStreamTokeniser.m in Sources */,
+				28E44B1A17E3C68A0084543B /* SBJsonStreamWriter.m in Sources */,
+				28E44B1B17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m in Sources */,
+				28E44B1C17E3C68A0084543B /* SBJsonStreamWriterState.m in Sources */,
+				28E44B1D17E3C68A0084543B /* SBJsonWriter.m in Sources */,
+				28E44B2917E3C6CB0084543B /* FoundPositionDetailViewController.m in Sources */,
+				28E44B2A17E3C6CB0084543B /* FoundPositionsOverviewViewController.m in Sources */,
+				28E44B2B17E3C6CB0084543B /* JobProposalViewController.m in Sources */,
+				28E44B2C17E3C6CB0084543B /* JobSearchViewController.m in Sources */,
+				28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2876DE2917D93D0D0053B4DB /* Sources */ = {
+		28E44AB717E3C5510084543B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2876DE3B17D93D0D0053B4DB /* JobApplicationAppUnitTests.m in Sources */,
+				28E44ACB17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m in Sources */,
+				28E44B2017E3C6B30084543B /* Topic+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		28E44AC217E3C5510084543B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28E44A9517E3C5510084543B /* NTT Data Job Application App */;
+			targetProxy = 28E44AC117E3C5510084543B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		280A3E7D17A7024B006A12D5 /* InfoPlist.strings */ = {
+		28E44AA217E3C5510084543B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				280A3E7E17A7024B006A12D5 /* en */,
+				28E44AA317E3C5510084543B /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		2876DE3617D93D0D0053B4DB /* InfoPlist.strings */ = {
+		28E44AC617E3C5510084543B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2876DE3717D93D0D0053B4DB /* en */,
+				28E44AC717E3C5510084543B /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -502,7 +513,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		280A3E9217A7024B006A12D5 /* Debug */ = {
+		28E44ACC17E3C5510084543B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -533,7 +544,7 @@
 			};
 			name = Debug;
 		};
-		280A3E9317A7024B006A12D5 /* Release */ = {
+		28E44ACD17E3C5510084543B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -558,54 +569,58 @@
 			};
 			name = Release;
 		};
-		280A3E9517A7024B006A12D5 /* Debug */ = {
+		28E44ACF17E3C5510084543B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application AppApp-Prefix.pch";
-				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application AppApp-Info.plist";
+				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
+				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		280A3E9617A7024B006A12D5 /* Release */ = {
+		28E44AD017E3C5510084543B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application AppApp-Prefix.pch";
-				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application AppApp-Info.plist";
+				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
+				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
-		2876DE3D17D93D0D0053B4DB /* Debug */ = {
+		28E44AD217E3C5510084543B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NTT Data Job Application App.app/NTT Data Job Application App";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JobApplicationAppUnitTests/JobApplicationAppUnitTests-Prefix.pch";
-				INFOPLIST_FILE = "JobApplicationAppUnitTests/JobApplicationAppUnitTests-Info.plist";
+				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
+				INFOPLIST_FILE = "NTT Data Job Application AppTests/NTT Data Job Application AppTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
-		2876DE3E17D93D0D0053B4DB /* Release */ = {
+		28E44AD317E3C5510084543B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NTT Data Job Application App.app/NTT Data Job Application App";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JobApplicationAppUnitTests/JobApplicationAppUnitTests-Prefix.pch";
-				INFOPLIST_FILE = "JobApplicationAppUnitTests/JobApplicationAppUnitTests-Info.plist";
+				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
+				INFOPLIST_FILE = "NTT Data Job Application AppTests/NTT Data Job Application AppTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -613,48 +628,45 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		280A3E6C17A7024B006A12D5 /* Build configuration list for PBXProject "NTT Data Job Application App" */ = {
+		28E44A9117E3C5510084543B /* Build configuration list for PBXProject "NTT Data Job Application App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				280A3E9217A7024B006A12D5 /* Debug */,
-				280A3E9317A7024B006A12D5 /* Release */,
+				28E44ACC17E3C5510084543B /* Debug */,
+				28E44ACD17E3C5510084543B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		280A3E9417A7024B006A12D5 /* Build configuration list for PBXNativeTarget "NTT Data Job Application App" */ = {
+		28E44ACE17E3C5510084543B /* Build configuration list for PBXNativeTarget "NTT Data Job Application App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				280A3E9517A7024B006A12D5 /* Debug */,
-				280A3E9617A7024B006A12D5 /* Release */,
+				28E44ACF17E3C5510084543B /* Debug */,
+				28E44AD017E3C5510084543B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		2876DE3F17D93D0D0053B4DB /* Build configuration list for PBXNativeTarget "JobApplicationAppUnitTests" */ = {
+		28E44AD117E3C5510084543B /* Build configuration list for PBXNativeTarget "NTT Data Job Application AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2876DE3D17D93D0D0053B4DB /* Debug */,
-				2876DE3E17D93D0D0053B4DB /* Release */,
+				28E44AD217E3C5510084543B /* Debug */,
+				28E44AD317E3C5510084543B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		282023D717DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodeld */ = {
+		28E44AEE17E3C5DF0084543B /* NTTDataJobAppDatabase.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				282023D817DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodel */,
+				28E44AEF17E3C5DF0084543B /* NTTDataJobAppDatabase.xcdatamodel */,
 			);
-			currentVersion = 282023D817DA94EC00F86979 /* NTTDataJobAppDatabase.xcdatamodel */;
-			name = NTTDataJobAppDatabase.xcdatamodeld;
-			path = Model/NTTDataJobAppDatabase.xcdatamodeld;
+			currentVersion = 28E44AEF17E3C5DF0084543B /* NTTDataJobAppDatabase.xcdatamodel */;
+			path = NTTDataJobAppDatabase.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 280A3E6917A7024B006A12D5 /* Project object */;
+	rootObject = 28E44A8E17E3C5510084543B /* Project object */;
 }
