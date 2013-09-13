@@ -21,7 +21,8 @@
 @property (nonatomic, strong) SBJsonParser *parser;
 @property (weak, nonatomic) IBOutlet UITableView *optionsTable;
 @property (strong, nonatomic)  NSArray* resultArray;
-
+@property (nonatomic) BOOL locationOrderedAscending;
+@property (nonatomic) BOOL jobTitleOrderedAscending;
 @end
 
 @implementation FoundPositionsOverviewViewController
@@ -29,7 +30,7 @@
 @synthesize loader;
 @synthesize resultArray;
 @synthesize parser;
-
+#pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {  
 }
@@ -79,6 +80,7 @@
     [loaderView setHidden:NO];
 }
 
+#pragma mark - Connection handling
 -(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
 {
     NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
@@ -89,13 +91,7 @@
         self.resultArray = (NSArray*)jsonObject;
     else
         self.resultArray = jsonObject;
-    
-//    resultArray = [resultArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-//        return [obj1[@"position_name"] compare:obj2[@"position_name"]
-//                                       options:NSCaseInsensitiveSearch];
-//        [self. tableView reloadData];
-//    }];
-    
+        
     [self.tableView reloadData];
     [loaderView setHidden:YES];
     [loader setHidden:NO];
@@ -104,6 +100,7 @@
 - (void)connectionFailed:(OSConnectionType)connectionType
 {}
 
+#pragma mark - Sorting
 - (IBAction)byTitleSelected
 {
     [self sortByTitle];
@@ -113,8 +110,24 @@
 - (void)sortByTitle{
     NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2)
     {
-        return (NSComparisonResult)[[JobTitle getDisplayNameFromDatabaseName:[item1 objectForKey:@"job_title"]] compare:[JobTitle getDisplayNameFromDatabaseName:[item2 objectForKey:@"job_title"]] options:NSCaseInsensitiveSearch] ;
+        NSComparisonResult res = [[item1 objectForKey:@"position_name"] caseInsensitiveCompare: [item2 objectForKey:@"position_name"]];
+        
+        if (res == NSOrderedAscending) {
+            if (self.jobTitleOrderedAscending) 
+                return NSOrderedDescending;
+            else
+                return NSOrderedAscending;
+        } else if(res == NSOrderedDescending){
+            if (self.jobTitleOrderedAscending)
+                return NSOrderedAscending;
+             else
+                return NSOrderedDescending;
+            
+        }else
+            return res;
+        
     }];
+    self.jobTitleOrderedAscending = !self.jobTitleOrderedAscending;
     self.resultArray = sorted;
 }
 - (IBAction)byLocationSelected
@@ -126,21 +139,28 @@
 - (void)sortByLocation
 {
     NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
-        return (NSComparisonResult)[[Location getDisplayNameFromDatabaseName:[item1 objectForKey:@"location1"]] compare:[Location getDisplayNameFromDatabaseName:[item2 objectForKey:@"location1"]] options:NSCaseInsensitiveSearch] ;
+        NSComparisonResult res = [[Location getDisplayNameFromDatabaseName:[item1 objectForKey:@"location1"]] caseInsensitiveCompare:
+                                  [Location getDisplayNameFromDatabaseName:[item2 objectForKey:@"location1"]]];
+        
+        if (res == NSOrderedAscending) {
+            if (self.locationOrderedAscending)
+                return NSOrderedDescending;
+            else
+                return NSOrderedAscending;
+        } else if(res == NSOrderedDescending){
+            if (self.locationOrderedAscending)
+                return NSOrderedAscending;
+            else
+                return NSOrderedDescending;
+            
+        }else
+            return res;
     }];
+    self.locationOrderedAscending = !self.locationOrderedAscending;
     self.resultArray =sorted;
 }
 
-
-
-
-#pragma mark - UITableViewDataSource
-// lets the UITableView know how many rows it should display
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [resultArray count];
-}
-
+#pragma mark - Supplemental methods for row creation
 - (NSString *)titleForRow:(NSUInteger)row
 {
     NSDictionary* object = [resultArray objectAtIndex:row];
@@ -166,8 +186,14 @@
 }
 
 
-// loads up a table view cell with the search criteria at the given row in the Model
+#pragma mark - UITableViewDataSource
+// lets the UITableView know how many rows it should display
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [resultArray count];
+}
 
+// loads up a table view cell with the search criteria at the given row in the Model
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Position";
@@ -186,7 +212,6 @@
     
     return cell;
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
