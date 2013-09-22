@@ -28,7 +28,7 @@
 - (void)testExample
 {
     NSManagedObjectContext* con = [NSManagedObjectContext sharedManagedObjectContext];
-    STAssertNotNil(con, @"baba");
+    XCTAssertNotNil(con, @"baba");
 }
 
 @end
