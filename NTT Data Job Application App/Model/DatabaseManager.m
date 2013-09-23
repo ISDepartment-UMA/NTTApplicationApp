@@ -12,7 +12,7 @@
 {
     NSManagedObjectContext* _context;
     NSManagedObjectModel* _objectModel;
-    NSPersistentStoreCoordinator _coordinator;
+    NSPersistentStoreCoordinator* _coordinator;
 }
 @end
 
