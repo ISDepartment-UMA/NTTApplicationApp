@@ -8,16 +8,31 @@
 
 #import "FoundPositionsOverviewViewController.h"
 #import "QuartzCore/QuartzCore.h"
+#import "OSConnectionManager.h"
+#import "SBJson.h"
+#import "OSAPIManager.h"
+
+#import "JobTitle+Create.h"
+#import "Location+Create.h"
+
+@interface FoundPositionsOverviewViewController()
+@property(nonatomic,strong) UIView* loaderView;
+@property(nonatomic,strong)  UIActivityIndicatorView* loader;
+@property (nonatomic, strong) SBJsonParser *parser;
+@property (weak, nonatomic) IBOutlet UITableView *optionsTable;
+@property (strong, nonatomic)  NSArray* resultArray;
+@property (nonatomic) BOOL locationOrderedAscending;
+@property (nonatomic) BOOL jobTitleOrderedAscending;
+@end
 
 @implementation FoundPositionsOverviewViewController
 @synthesize loaderView;
 @synthesize loader;
 @synthesize resultArray;
 @synthesize parser;
-
+#pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
+{  
 }
 
 -(void)initLoader
@@ -52,6 +67,7 @@
 {
     [super viewDidLoad];
     self.resultArray = [[NSArray alloc] init];
+    
     parser = [[SBJsonParser alloc] init];
     [self initLoader];
 }
@@ -64,17 +80,18 @@
     [loaderView setHidden:NO];
 }
 
+#pragma mark - Connection handling
 -(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
 {
     NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     responseString = [responseString stringByReplacingOccurrencesOfString:@"null" withString:@"\"none\""];
     
     id jsonObject=  [parser objectWithString:responseString];
-    if (connectionType != OSCGetSearch) {
-        self.resultArray = [jsonObject objectForKey:@"items"];
-    }
+    if (connectionType != OSCGetSearch)
+        self.resultArray = (NSArray*)jsonObject;
     else
         self.resultArray = jsonObject;
+        
     [self.tableView reloadData];
     [loaderView setHidden:YES];
     [loader setHidden:NO];
@@ -83,42 +100,121 @@
 - (void)connectionFailed:(OSConnectionType)connectionType
 {}
 
-#pragma mark - UITableViewDataSource
-
-// lets the UITableView know how many rows it should display
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+#pragma mark - Sorting
+- (IBAction)byTitleSelected
 {
-    return [resultArray count];
+    [self sortByTitle];
+    [self.tableView reloadData];
 }
 
+- (void)sortByTitle{
+    NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2)
+    {
+        NSComparisonResult res = [[item1 objectForKey:@"position_name"] caseInsensitiveCompare: [item2 objectForKey:@"position_name"]];
+        
+        if (res == NSOrderedAscending) {
+            if (self.jobTitleOrderedAscending) 
+                return NSOrderedDescending;
+            else
+                return NSOrderedAscending;
+        } else if(res == NSOrderedDescending){
+            if (self.jobTitleOrderedAscending)
+                return NSOrderedAscending;
+             else
+                return NSOrderedDescending;
+            
+        }else
+            return res;
+        
+    }];
+    self.jobTitleOrderedAscending = !self.jobTitleOrderedAscending;
+    self.resultArray = sorted;
+}
+- (IBAction)byLocationSelected
+{
+    [self sortByLocation];
+    [self.tableView reloadData];
+}
+
+- (void)sortByLocation
+{
+    NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
+        NSComparisonResult res = [[Location getDisplayNameFromDatabaseName:[item1 objectForKey:@"location1"]] caseInsensitiveCompare:
+                                  [Location getDisplayNameFromDatabaseName:[item2 objectForKey:@"location1"]]];
+        
+        if (res == NSOrderedAscending) {
+            if (self.locationOrderedAscending)
+                return NSOrderedDescending;
+            else
+                return NSOrderedAscending;
+        } else if(res == NSOrderedDescending){
+            if (self.locationOrderedAscending)
+                return NSOrderedAscending;
+            else
+                return NSOrderedDescending;
+            
+        }else
+            return res;
+    }];
+    self.locationOrderedAscending = !self.locationOrderedAscending;
+    self.resultArray =sorted;
+}
+
+#pragma mark - Supplemental methods for row creation
 - (NSString *)titleForRow:(NSUInteger)row
 {
     NSDictionary* object = [resultArray objectAtIndex:row];
     return [object objectForKey:@"position_name"];
 }
 
-// loads up a table view cell with the search criteria at the given row in the Model
+- (NSString *)jobTitleForRow:(NSUInteger)row
+{
+    NSDictionary* object = [resultArray objectAtIndex:row];
+    return [JobTitle getDisplayNameFromDatabaseName:[object objectForKey:@"job_title"]];
+}
 
+- (NSString *)locationForRow:(NSUInteger)row
+{
+    NSDictionary* object = [resultArray objectAtIndex:row];
+    return [Location getDisplayNameFromDatabaseName:[object objectForKey:@"location1"]];
+}
+
+- (NSString *)refNoForRow:(NSUInteger)row
+{
+    NSDictionary* object = [resultArray objectAtIndex:row];
+    return [object objectForKey:@"ref_no"];
+}
+
+
+#pragma mark - UITableViewDataSource
+// lets the UITableView know how many rows it should display
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [resultArray count];
+}
+
+// loads up a table view cell with the search criteria at the given row in the Model
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Position";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.accessoryType=UITableViewCellAccessoryNone;
+    cell.accessoryType= UITableViewCellAccessoryNone;
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     cell.textLabel.text = [self titleForRow:indexPath.row];
+
+  
+    NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
+        
+    cell.detailTextLabel.numberOfLines = 3;
+    cell.detailTextLabel.text = subtitle;
     
     return cell;
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [OSAPIManager sharedManager].searchObject = [resultArray objectAtIndex:indexPath.row];
 }
-
-
-
 @end

@@ -1,6 +1,7 @@
 
 #import "OSURLHelper.h"
 #import <Foundation/Foundation.h>
+#import "Constants.h"
 /**
  *	Protocol for finishing connection with result
  */

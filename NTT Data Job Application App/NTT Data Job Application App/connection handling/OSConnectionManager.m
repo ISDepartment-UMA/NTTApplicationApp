@@ -43,6 +43,11 @@ static OSConnectionManager *sharedManager = nil;
 #pragma mark -
 #pragma mark Connection LifeCycle
 
+- (NSString*) preprocessString:(NSString*)input
+{
+    return ((input) ? [NSString stringWithFormat:@"\"%@\"",input] : @"null");
+}
+
 /**
  *	Start a connection for getting data from server api with post&get parameters
  *
@@ -56,25 +61,35 @@ static OSConnectionManager *sharedManager = nil;
     NSString* connectionTypeValue = [NSString stringWithFormat:@"%i",connectionType];
     NSURL* url = [[OSURLHelper sharedHelper] getUrl:connectionType];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    
     if (connectionType == OSCGetSearch)
     {
         NSDictionary* searchObject = [OSAPIManager sharedManager].flashObjects;
+        
         NSString* exp = [searchObject objectForKey:@"experience"];
+        exp = [self preprocessString:exp];
+        
         NSString* topic = [searchObject objectForKey:@"topics"];
-        NSString* jobtitle = [searchObject objectForKey:@"location"];
-        NSString* location = [searchObject objectForKey:@"jobtitles"];
+        topic = [self preprocessString:topic];
         
-        NSString* postString =[NSString stringWithFormat:@"jobtitle=%@&location=%@&topic=%@&exp=%@",jobtitle,location,topic,exp] ;
-        postString = [postString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        NSLog(@"parms are %@",postString);
-        [request setHTTPMethod:@"POST"];
-        [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
+        NSString* jobtitle = [searchObject objectForKey:@"jobtitles"];
+        jobtitle = [self preprocessString:jobtitle];
+    
+        NSString* location = [searchObject objectForKey:@"location"];
+        location = [self preprocessString:location];
         
+        NSString* postString =[NSString stringWithFormat:@"{\"jobtitle\":%@,\"location\":%@,\"topic\":%@,\"exp\":%@}", jobtitle, location, topic, exp];
+        NSData* requestdata = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        
+        [request setHTTPBody:requestdata];
     }
+
+    
     // start connection for requested url and set the connection type
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:request delegate:self];
-    
+
     // get object of hash key of object
     NSString* hashKey = [NSString stringWithFormat:@"%i",connection.hash];
     // open mutable Data object for this connection
@@ -172,7 +187,6 @@ static OSConnectionManager *sharedManager = nil;
     // remove connection from connections hashtable and connections data dictionary
     [connectionsHashTable removeObjectForKey:hashKey];
     [connectionsData removeObjectForKey:hashKey];
-    
 }
 
 

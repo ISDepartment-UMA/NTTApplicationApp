@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Experience" representedClassName="Experience" syncable="YES">
+        <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="JobTitle" representedClassName="JobTitle" syncable="YES">
+        <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Topic" representedClassName="Topic" syncable="YES">
+        <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Experience" positionX="160" positionY="192" width="128" height="73"/>
+        <element name="JobTitle" positionX="81" positionY="-45" width="128" height="73"/>
+        <element name="Location" positionX="-27" positionY="258" width="128" height="73"/>
+        <element name="Topic" positionX="-216" positionY="15" width="128" height="73"/>
+    </elements>
+</model>
