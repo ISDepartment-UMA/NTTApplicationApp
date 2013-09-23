@@ -43,17 +43,10 @@ import dao.JobsDao;
      public String returnExperienceChoice() {		 
 		 
     	 List<Experience> myExperience=new ArrayList<Experience>();
-    //	 List<Jobtitle> myJobtitle=new ArrayList<Jobtitle>();
-    //	 List<Locations> myLocations=new ArrayList<Locations>();
-    //	 List<Topics> myTopics=new ArrayList<Topics>();
+     
  		CriterionChoiceDao criterionChoiceDao=new CriterionChoiceDao();
  		 
- 		 myExperience=criterionChoiceDao.queryExperienceChoice();
- 	//   	 myJobtitle=criterionChoiceDao.queryJobtitleChoice();
- 	//	 myLocations=criterionChoiceDao.queryLocationsChoice();
- 	//	 myTopics=criterionChoiceDao.queryTopicsChoice();
- 		  		
- 		 
+ 		 myExperience=criterionChoiceDao.queryExperienceChoice(); 		 
  		 
  		ObjectMapper mapper=new ObjectMapper();
  		StringWriter sw =new StringWriter();
