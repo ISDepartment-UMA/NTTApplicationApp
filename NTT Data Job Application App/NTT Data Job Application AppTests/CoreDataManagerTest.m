@@ -34,4 +34,8 @@
     XCTAssertEqualObjects([DatabaseManager sharedInstance], [DatabaseManager sharedInstance], @"Shared Instances are not equal");
 }
 
+- (void) testExperienceCreation
+{
+    XCTAssertNotNil([[DatabaseManager sharedInstance] createExperience], @"Experience is nil");
+}
 @end

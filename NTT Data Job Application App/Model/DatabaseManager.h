@@ -15,7 +15,7 @@
 @interface DatabaseManager : NSObject
 + (DatabaseManager*)sharedInstance;
 
-//- (Experience*)createExperience;
+- (Experience*)createExperience;
 //- (NSArray*)allExperiences;
 //
 //- (JobTitle*)createJobTitle;

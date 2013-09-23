@@ -8,6 +8,14 @@
 
 #import "DatabaseManager.h"
 
+@interface DatabaseManager()
+{
+    NSManagedObjectContext* _context;
+    NSManagedObjectModel* _objectModel;
+    NSPersistentStoreCoordinator _coordinator;
+}
+@end
+
 @implementation DatabaseManager
 
 + (DatabaseManager*)sharedInstance
@@ -20,6 +28,29 @@
     });
     
     return sharedInstance;
+}
+
+- (Experience*)createExperience
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:@"Experience" inManagedObjectContext:nil];
+}
+
+
+#pragma mark - Core Data Methods
+
+- (NSPersistentStoreCoordinator*)persistentStoreCoordinator
+{
+    return _coordinator;
+}
+
+- (NSManagedObjectContext*) context
+{
+    if (_context) {
+        return _context;
+    }
+    
+    NSPersistentStoreCoordinator* coordinator = [self persistentStoreCoordinator];
+    
 }
 
 @end
