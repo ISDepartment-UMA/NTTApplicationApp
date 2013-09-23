@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "DatabaseManager.h"
 
 @interface CoreDataManagerTest : XCTestCase
 
@@ -26,9 +27,11 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void) testSharedDatabaseManager
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil([DatabaseManager sharedInstance], @"DatabaseManager is nill");
+    
+    XCTAssertEqualObjects([DatabaseManager sharedInstance], [DatabaseManager sharedInstance], @"Shared Instances are not equal");
 }
 
 @end
