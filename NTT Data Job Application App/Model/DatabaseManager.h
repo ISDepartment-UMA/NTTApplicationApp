@@ -16,14 +16,29 @@
 + (DatabaseManager*)sharedInstance;
 
 - (Experience*)createExperience;
-//- (NSArray*)allExperiences;
-//
-//- (JobTitle*)createJobTitle;
-//- (NSArray*)allJobTitles;
-//
-//- (Location*)createLocation;
-//- (NSArray*)allLocations;
-//
-//- (Topic*) createTopic;
-//- (NSArray*) allTopics;
+- (NSArray*)allExperiences;
+- (NSString*)getExperienceDisplayNameFromDatabaseName:(NSString*)databaseName;
+- (BOOL)createExperiencesFromJSON: (id)jsonResponse;
+
+- (JobTitle*)createJobTitle;
+- (NSArray*)allJobTitles;
+- (NSString*)getJobTitleDisplayNameFromDatabaseName:(NSString*)databaseName;
+- (BOOL)createJobTitlesFromJSON: (id)jsonResponse;
+
+- (Location*)createLocation;
+- (NSArray*)allLocations;
+- (NSString*)getLocationDisplayNameFromDatabaseName:(NSString*)databaseName;
+- (BOOL)createLocationsFromJSON: (id)jsonResponse;
+
+- (Topic*)createTopic;
+- (NSArray*)allTopics;
+- (NSString*)getTopicDisplayNameFromDatabaseName:(NSString*)databaseName;
+- (BOOL)createTopicsFromJSON: (id)jsonResponse;
+
+- (void)saveContext;
+
+- (void)clearLocations;
+- (void)clearExperiences;
+- (void)clearJobTitles;
+- (void)clearTopics;
 @end

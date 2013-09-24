@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <objc/runtime.h>
+#import <objc/message.h>
 #import "DatabaseManager.h"
 
 @interface CoreDataManagerTest : XCTestCase
@@ -18,7 +20,14 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here; it will be run once, before the first test case.
+
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken,^{
+        Method orig = class_getInstanceMethod([DatabaseManager class], @selector(context));
+        Method new = class_getInstanceMethod([self class], @selector(context));
+        method_exchangeImplementations(orig, new);
+    });
 }
 
 - (void)tearDown
@@ -37,5 +46,183 @@
 - (void) testExperienceCreation
 {
     XCTAssertNotNil([[DatabaseManager sharedInstance] createExperience], @"Experience is nil");
+}
+
+- (void)testAllExperiences
+{
+    Experience* ex1 = [[DatabaseManager sharedInstance]createExperience];
+    ex1.databasename = @"Test";
+    ex1.displayname = @"Testing";
+
+    
+    NSArray* experiences = [[DatabaseManager sharedInstance] allExperiences];
+    XCTAssertNotNil(experiences, @"Experiences is nil");
+    
+    XCTAssert([experiences count] == 1, @"Count should be 1");
+    
+    Experience* ex = [experiences lastObject];
+    
+    XCTAssert([ex.databasename isEqualToString:ex1.databasename], @"Databasenames differ");
+    XCTAssert([ex.displayname isEqualToString:ex1.displayname], @"Displaynames differ");
+}
+
+- (void) testJobTitleCreation
+{
+    XCTAssertNotNil([[DatabaseManager sharedInstance]createJobTitle], @"JobTitle is nil");
+}
+
+- (void) testAllJobTitles
+{
+    JobTitle* jobTitle = [[DatabaseManager sharedInstance]createJobTitle];
+    jobTitle.databasename = @"consultant";
+    jobTitle.displayname = @"Consultant";
+    
+    NSArray* jobTitles = [[DatabaseManager sharedInstance]allJobTitles];
+    
+    XCTAssertNotNil(jobTitles, @"All JobTitles returns nil");
+    XCTAssert([jobTitles count] == 1, @"Count of all jobTitles should be 1");
+    
+    JobTitle* jobTitleFromDB = [jobTitles lastObject];
+    XCTAssert([jobTitleFromDB.databasename isEqualToString:jobTitle.databasename], @"JobTitles are not equal");
+    XCTAssert([jobTitleFromDB.displayname isEqualToString:jobTitle.displayname], @"JobTitles are not equal");
+}
+
+- (void)testLocationCreation
+{
+    XCTAssertNotNil([[DatabaseManager sharedInstance] createLocation], @"Location should not be nil");
+}
+
+- (void)testAllLocations
+{
+    Location* loc = [[DatabaseManager sharedInstance]createLocation];
+    loc.displayname = @"Mannheim";
+    loc.databasename = @"mannheim";
+    
+    NSArray* locations = [[DatabaseManager sharedInstance]allLocations];
+    XCTAssertNotNil(locations, @"Locations Array should not be nil");
+    
+    XCTAssert([locations count] == 1, @"Array should contain one element");
+    
+    Location* locFromDB = [locations lastObject];
+    XCTAssert([loc.databasename isEqualToString:locFromDB.databasename], @"Location database names should be equal");
+    XCTAssert([loc.displayname isEqualToString:locFromDB.displayname], @"Location displaynames should be equal");
+}
+
+- (void)testTopicCreation
+{
+    XCTAssertNotNil([[DatabaseManager sharedInstance] createTopic], @"Topic should not be nil");
+}
+
+- (void)testAllTopics
+{
+    Topic* topic = [[DatabaseManager sharedInstance]createTopic];
+    topic.databasename = @"BI";
+    topic.displayname = @"Business Intelligence";
+    
+    NSArray* topics = [[DatabaseManager sharedInstance]allTopics];
+    XCTAssertNotNil(topics, @"Topics Array should not be nil");
+    XCTAssert([topics count]==1, @"Topics Array should contain 1 item");
+    
+    Topic* topicFromDB = [topics lastObject];
+    XCTAssert([topic.displayname isEqualToString:topicFromDB.displayname], @"Topic Displaynames should be equal");
+    XCTAssert([topicFromDB.databasename isEqualToString:topic.databasename], @"Topic database names should be equal");
+}
+
+- (void)testClearLocations
+{
+    Location* loc = [[DatabaseManager sharedInstance]createLocation];
+    loc.databasename = @"hockenheim";
+    loc.displayname = @"Hockenheim";
+    
+    NSArray* locations = [[DatabaseManager sharedInstance]allLocations];
+    XCTAssert([locations count] >= 1, @"At least one location in database");
+    
+    [[DatabaseManager sharedInstance]clearLocations];
+    locations = [[DatabaseManager sharedInstance]allLocations];
+    XCTAssert([locations count] == 0, @"Locations should be empty");
+}
+
+- (void)testClearExperiences
+{
+    Experience* exp = [[DatabaseManager sharedInstance]createExperience];
+    exp.databasename = @"student";
+    exp.displayname = @"Student";
+    
+    NSArray* experiences = [[DatabaseManager sharedInstance]allExperiences];
+    XCTAssert([experiences count] >= 1, @"Experiences should contain at least one entry");
+    
+    [[DatabaseManager sharedInstance]clearExperiences];
+    experiences = [[DatabaseManager sharedInstance]allExperiences];
+    XCTAssert([experiences count] == 0, @"Experiences should contain no entry");
+}
+
+- (void)testClearJobTitles
+{
+    JobTitle* title = [[DatabaseManager sharedInstance]createJobTitle];
+    title.databasename = @"project_manager";
+    title.displayname = @"Project Manager";
+    
+    NSArray* jobTitles = [[DatabaseManager sharedInstance]allJobTitles];
+    XCTAssert([jobTitles count] >= 1, @"JobTitles should contain at least one instance");
+    
+    [[DatabaseManager sharedInstance]clearJobTitles];
+    jobTitles = [[DatabaseManager sharedInstance]allJobTitles];
+    XCTAssert([jobTitles count] == 0, @"JobTitles should contain no instance");
+}
+
+- (void)testClearTopics
+{
+    Topic* topic = [[DatabaseManager sharedInstance]createTopic];
+    topic.databasename = @"process_management";
+    topic.displayname = @"Process Management";
+    
+    NSArray* topics = [[DatabaseManager sharedInstance]allTopics];
+    XCTAssert([topics count] >=1, @"Topics should contain at least one instance");
+    
+    [[DatabaseManager sharedInstance]clearTopics];
+    topics = [[DatabaseManager sharedInstance]allTopics];
+    XCTAssert([topics count] == 0, @"Topics should contain no instance");
+}
+
+- (void) testDisplayName
+{
+    Location* loc = [[DatabaseManager sharedInstance]createLocation];
+    loc.databasename = @"new_york";
+    loc.displayname = @"New York";
+    XCTAssert([[[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:@"new_york"]isEqualToString:@"New York"], @"Location displayname is wrong");
+    
+    
+    Experience* ex = [[DatabaseManager sharedInstance]createExperience];
+    ex.databasename = @"manager";
+    ex.displayname = @"Manager";
+    XCTAssert([[[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:@"manager"]isEqualToString:@"Manager"], @"Experience displayname is wrong");
+    
+    JobTitle* jobTitle = [[DatabaseManager sharedInstance]createJobTitle];
+    jobTitle.databasename = @"technical_consultant";
+    jobTitle.displayname = @"Technical Consultant";
+    XCTAssert([[[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:@"technical_consultant"] isEqualToString:@"Technical Consultant"], @"Job Title displayname is wrong");
+    
+    Topic* topic = [[DatabaseManager sharedInstance]createTopic];
+    topic.databasename = @"sap_consulting";
+    topic.displayname = @"SAP Consulting";
+    XCTAssert([[[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:@"sap_consulting"]isEqualToString:@"SAP Consulting"], @"Topic displayname is wrong");
+}
+
+#pragma mark - Helper Method for InMemory Database Creation
+- (NSManagedObjectContext*) context
+{
+    static NSManagedObjectContext* _context = nil;
+    
+    if (!_context)
+    {
+        _context = [[NSManagedObjectContext alloc]init];
+        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"NTTDataJobAppDatabase" withExtension:@"momd"];
+        NSManagedObjectModel* mod = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
+    
+        NSPersistentStoreCoordinator* coord = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:mod];
+        [coord addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:nil];
+        [_context setPersistentStoreCoordinator:coord];
+    }
+    return _context;
 }
 @end

@@ -8,19 +8,12 @@
 #import "FoundPositionDetailViewController.h"
 #import "OSAPIManager.h"
 #import "OSConnectionManager.h"
-#import "JobTitle+Create.h"
-#import "Location+Create.h"
-#import "Experience+Create.h"
-#import "Topic+Create.h"
 #import "MessageUI/MessageUI.h"
 #import "MessageUI/MFMailComposeViewController.h"
+#import "DatabaseManager.h"
 
 @interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
-
-
-
 @property (weak, nonatomic) IBOutlet UILabel *displaySelectedFilters;
-
 @property (weak, nonatomic) IBOutlet UILabel *reference;
 @property (weak, nonatomic) IBOutlet UILabel *position;
 @property (weak, nonatomic) IBOutlet UILabel *exp;
@@ -53,10 +46,10 @@
 - (void)loadSelectedFilters
 {
     
-    NSString *contentExperience = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
-    NSString *contentJobTitle = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
-    NSString *contentTopic = [Topic getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
-    NSString *contentLocation = [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
+    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
+    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
+    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
+    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
     
     if (!contentExperience) {
         contentExperience = @"";
@@ -94,8 +87,8 @@
 {
     self.reference.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"ref_no"];
     self.position.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"position_name"];
-    self.exp.text = [Experience getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"exp"]];
-    self.jobTitle.text = [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
+    self.exp.text = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName: [[OSAPIManager sharedManager].searchObject objectForKey:@"exp"]];
+    self.jobTitle.text = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName: [[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
     self.contact.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"contact_person"];
     self.email.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"email"];
 
