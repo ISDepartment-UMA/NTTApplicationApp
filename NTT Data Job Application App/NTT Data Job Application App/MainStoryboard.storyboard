@@ -191,12 +191,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-160" y="-70"/>
+            <point key="canvasLocation" x="-256" y="-118"/>
         </scene>
-        <!--View Controller - Free Text Search-->
+        <!--Free Text Search View Controller - Free Text Search-->
         <scene sceneID="8L0-Bv-NLb">
             <objects>
-                <viewController id="VLU-QZ-a2r" sceneMemberID="viewController">
+                <viewController id="VLU-QZ-a2r" customClass="FreeTextSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Ig-VS-off"/>
                         <viewControllerLayoutGuide type="bottom" id="f5z-1R-ICC"/>
@@ -218,6 +218,7 @@
                                 <rect key="frame" x="26" y="85" width="268" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -225,12 +226,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Free Text Search" id="KAD-Wz-zGY"/>
                     <connections>
-                        <segue destination="g5I-KU-xeh" kind="push" id="Ced-fo-CFH"/>
+                        <outlet property="freeTextSearchBar" destination="Fkv-cM-MRj" id="aLx-L5-l8Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcT-J6-2nO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="249"/>
+            <point key="canvasLocation" x="439" y="584"/>
         </scene>
         <!--Job Proposal View Controller - Job Proposal-->
         <scene sceneID="6gp-DC-hbC">
@@ -788,7 +789,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSv-qO-9U3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1494" y="-223"/>
+            <point key="canvasLocation" x="1638" y="-343"/>
         </scene>
         <!--Application View Controller - Application-->
         <scene sceneID="uj1-nu-0QV">
@@ -955,7 +956,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8I-pZ-9Xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962" y="-223"/>
+            <point key="canvasLocation" x="2106" y="-343"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gJx-Nk-xOJ">
@@ -973,7 +974,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WD2-Yy-0xZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-715" y="-70"/>
+            <point key="canvasLocation" x="-811" y="-118"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -982,6 +983,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ced-fo-CFH"/>
+        <segue reference="H9e-7p-BVX"/>
     </inferredMetricsTieBreakers>
 </document>
