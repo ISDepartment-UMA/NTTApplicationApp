@@ -227,6 +227,7 @@
                     <navigationItem key="navigationItem" title="Free Text Search" id="KAD-Wz-zGY"/>
                     <connections>
                         <outlet property="freeTextSearchBar" destination="Fkv-cM-MRj" id="aLx-L5-l8Q"/>
+                        <segue destination="g5I-KU-xeh" kind="push" identifier="connect" id="BTH-es-4BF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcT-J6-2nO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -983,6 +984,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="H9e-7p-BVX"/>
+        <segue reference="BTH-es-4BF"/>
     </inferredMetricsTieBreakers>
 </document>

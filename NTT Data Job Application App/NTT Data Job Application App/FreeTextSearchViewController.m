@@ -7,7 +7,7 @@
 //
 
 #import "FreeTextSearchViewController.h"
-
+#import "FoundPositionsOverviewViewController.h"
 @implementation FreeTextSearchViewController
 
 
@@ -15,6 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    freeTextSearchBar.delegate =self;
     
     freeTextSearchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
     freeTextSearchBar.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -32,7 +33,16 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
 
+   [self performSegueWithIdentifier:@"connect" sender:searchBar];
     
 }
+
+
+#pragma mark - View Controller Life Cycle
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+ 
+}
+
 
 @end
