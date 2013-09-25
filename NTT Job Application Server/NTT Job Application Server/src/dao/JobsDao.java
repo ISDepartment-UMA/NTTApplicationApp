@@ -36,6 +36,34 @@ public class JobsDao {
 	}
 
 	// now we write database actions
+	
+	
+	
+	public List<Jobs> jobsQueryByRefID(String ref_id) {
+		List<Jobs> jobs = null;
+		query = "SELECT * FROM " + dbTable + " WHERE ref_no='" + ref_id
+				+ "'";
+		
+		try {
+			jobs = run.query(query, h);
+			DbUtilHelper.log("jobsQueryByRefID success: " + query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("jobsQueryByRefID failed");
+
+		}
+
+		if (jobs.isEmpty()) {
+			DbUtilHelper.log("jobsQueryByRefID result is empty!");
+
+		}
+
+		return jobs.isEmpty() ? null : jobs;
+
+	}
+	
+	
+	
 	public Boolean checkJobTitleInput(String jobtitle) {
 		ResultSet rs=null;
 		Boolean test=null;
