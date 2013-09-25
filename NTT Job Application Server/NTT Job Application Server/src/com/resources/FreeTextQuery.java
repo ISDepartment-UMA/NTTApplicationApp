@@ -56,6 +56,12 @@ import dao.JobsDao;
  		JobsDao myJobsDao=new JobsDao(); 	
  		 
  		 /////DAO method
+ 		List<String> freetextList=new ArrayList<String>();
+ 		String freetextArray[]=new String[50];
+ 		freetextArray=freetext.split(" ");
+ 		for(int i=0;i<=freetextArray.length-1;i++){
+ 			freetextArray[i]=freetextArray[i].toLowerCase();
+ 		}
  		 
  		 
  		if(myjobs.isEmpty()||myjobs==null){
