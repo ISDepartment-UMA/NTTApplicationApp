@@ -241,6 +241,7 @@ import dao.JobsDao;
  
  		for(int i=0;i<=searchHitsList.size()-1;i++){				
  			 //put the jobs in searchHitsList into queryResultJobs
+ 			if(searchHitsList.get(i).getHits()>0)
  			queryResultJobs.add(myJobsDao.jobsQueryByRefID(searchHitsList.get(i).getRef_no()).get(0));  
  			//writing to console
  			System.out.println(searchHitsList.get(i).getRef_no()+" : "+searchHitsList.get(i).getHits());
