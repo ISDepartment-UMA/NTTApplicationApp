@@ -7,17 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		288C02D717E6072900347FA8 /* Experience+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02C217E6072900347FA8 /* Experience+Create.m */; };
-		288C02D817E6072900347FA8 /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02C417E6072900347FA8 /* Experience.m */; };
-		288C02D917E6072900347FA8 /* JobTitle+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02C617E6072900347FA8 /* JobTitle+Create.m */; };
-		288C02DA17E6072900347FA8 /* JobTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02C817E6072900347FA8 /* JobTitle.m */; };
-		288C02DB17E6072900347FA8 /* Location+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02CA17E6072900347FA8 /* Location+Create.m */; };
-		288C02DC17E6072900347FA8 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02CC17E6072900347FA8 /* Location.m */; };
-		288C02DD17E6072900347FA8 /* NSManagedObjectContext+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02CE17E6072900347FA8 /* NSManagedObjectContext+Shared.m */; };
-		288C02DE17E6072900347FA8 /* NTTDataJobAppDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 288C02CF17E6072900347FA8 /* NTTDataJobAppDatabase.xcdatamodeld */; };
-		288C02DF17E6072900347FA8 /* Topic+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02D217E6072900347FA8 /* Topic+Create.m */; };
-		288C02E017E6072900347FA8 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02D417E6072900347FA8 /* Topic.m */; };
-		288C02E117E6072900347FA8 /* UIManagedDocument+Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C02D617E6072900347FA8 /* UIManagedDocument+Shared.m */; };
+		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
+		284FAF9417F2F232006C9359 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9317F2F232006C9359 /* Location.m */; };
+		284FAF9717F2F232006C9359 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9617F2F232006C9359 /* Topic.m */; };
+		284FAF9A17F2F232006C9359 /* JobTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9917F2F232006C9359 /* JobTitle.m */; };
+		284FAF9D17F2F232006C9359 /* OpenPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9C17F2F232006C9359 /* OpenPosition.m */; };
+		284FAFA017F2F232006C9359 /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9F17F2F232006C9359 /* Experience.m */; };
+		28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */; };
 		28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
 		28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
 		28E44A9E17E3C5510084543B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9D17E3C5510084543B /* CoreGraphics.framework */; };
@@ -26,11 +22,9 @@
 		28E44AAC17E3C5510084543B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AAB17E3C5510084543B /* Default.png */; };
 		28E44AAE17E3C5510084543B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AAD17E3C5510084543B /* Default@2x.png */; };
 		28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AAF17E3C5510084543B /* Default-568h@2x.png */; };
-		28E44ABE17E3C5510084543B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44ABD17E3C5510084543B /* SenTestingKit.framework */; };
 		28E44ABF17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
 		28E44AC017E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
 		28E44AC817E3C5510084543B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AC617E3C5510084543B /* InfoPlist.strings */; };
-		28E44ACB17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44ACA17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m */; };
 		28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AD717E3C5810084543B /* OSAPIManager.m */; };
 		28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AD917E3C5810084543B /* OSConnectionManager.m */; };
 		28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44ADB17E3C5810084543B /* OSURLHelper.m */; };
@@ -53,7 +47,9 @@
 		28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B3117E3C7600084543B /* MessageUI.framework */; };
 		28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B3417E3C7A30084543B /* AppDelegate.m */; };
 		28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
+		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
+		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,27 +63,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		288C02C117E6072900347FA8 /* Experience+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Experience+Create.h"; sourceTree = "<group>"; };
-		288C02C217E6072900347FA8 /* Experience+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Experience+Create.m"; sourceTree = "<group>"; };
-		288C02C317E6072900347FA8 /* Experience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Experience.h; sourceTree = "<group>"; };
-		288C02C417E6072900347FA8 /* Experience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Experience.m; sourceTree = "<group>"; };
-		288C02C517E6072900347FA8 /* JobTitle+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JobTitle+Create.h"; sourceTree = "<group>"; };
-		288C02C617E6072900347FA8 /* JobTitle+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JobTitle+Create.m"; sourceTree = "<group>"; };
-		288C02C717E6072900347FA8 /* JobTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTitle.h; sourceTree = "<group>"; };
-		288C02C817E6072900347FA8 /* JobTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobTitle.m; sourceTree = "<group>"; };
-		288C02C917E6072900347FA8 /* Location+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+Create.h"; sourceTree = "<group>"; };
-		288C02CA17E6072900347FA8 /* Location+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+Create.m"; sourceTree = "<group>"; };
-		288C02CB17E6072900347FA8 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		288C02CC17E6072900347FA8 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		288C02CD17E6072900347FA8 /* NSManagedObjectContext+Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Shared.h"; sourceTree = "<group>"; };
-		288C02CE17E6072900347FA8 /* NSManagedObjectContext+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Shared.m"; sourceTree = "<group>"; };
-		288C02D017E6072900347FA8 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTTDataJobAppDatabase.xcdatamodel; sourceTree = "<group>"; };
-		288C02D117E6072900347FA8 /* Topic+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Topic+Create.h"; sourceTree = "<group>"; };
-		288C02D217E6072900347FA8 /* Topic+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Topic+Create.m"; sourceTree = "<group>"; };
-		288C02D317E6072900347FA8 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Topic.h; sourceTree = "<group>"; };
-		288C02D417E6072900347FA8 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Topic.m; sourceTree = "<group>"; };
-		288C02D517E6072900347FA8 /* UIManagedDocument+Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIManagedDocument+Shared.h"; sourceTree = "<group>"; };
-		288C02D617E6072900347FA8 /* UIManagedDocument+Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIManagedDocument+Shared.m"; sourceTree = "<group>"; };
+		284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = NTTDataJobAppDatabase.xcdatamodel; path = "NTT Data Job Application App/Model/NTTDataJobAppDatabase.xcdatamodel"; sourceTree = SOURCE_ROOT; };
+		284FAF9217F2F232006C9359 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = "NTT Data Job Application App/Model/Location.h"; sourceTree = SOURCE_ROOT; };
+		284FAF9317F2F232006C9359 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = "NTT Data Job Application App/Model/Location.m"; sourceTree = SOURCE_ROOT; };
+		284FAF9517F2F232006C9359 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = "NTT Data Job Application App/Model/Topic.h"; sourceTree = SOURCE_ROOT; };
+		284FAF9617F2F232006C9359 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = "NTT Data Job Application App/Model/Topic.m"; sourceTree = SOURCE_ROOT; };
+		284FAF9817F2F232006C9359 /* JobTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobTitle.h; path = "NTT Data Job Application App/Model/JobTitle.h"; sourceTree = SOURCE_ROOT; };
+		284FAF9917F2F232006C9359 /* JobTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobTitle.m; path = "NTT Data Job Application App/Model/JobTitle.m"; sourceTree = SOURCE_ROOT; };
+		284FAF9B17F2F232006C9359 /* OpenPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenPosition.h; path = "NTT Data Job Application App/Model/OpenPosition.h"; sourceTree = SOURCE_ROOT; };
+		284FAF9C17F2F232006C9359 /* OpenPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenPosition.m; path = "NTT Data Job Application App/Model/OpenPosition.m"; sourceTree = SOURCE_ROOT; };
+		284FAF9E17F2F232006C9359 /* Experience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Experience.h; path = "NTT Data Job Application App/Model/Experience.h"; sourceTree = SOURCE_ROOT; };
+		284FAF9F17F2F232006C9359 /* Experience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Experience.m; path = "NTT Data Job Application App/Model/Experience.m"; sourceTree = SOURCE_ROOT; };
+		28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerTest.m; sourceTree = "<group>"; };
 		28E44A9617E3C5510084543B /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E44A9917E3C5510084543B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28E44A9B17E3C5510084543B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,12 +86,9 @@
 		28E44AAB17E3C5510084543B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		28E44AAD17E3C5510084543B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		28E44AAF17E3C5510084543B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NTT Data Job Application AppTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		28E44ABD17E3C5510084543B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NTT Data Job Application AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E44AC517E3C5510084543B /* NTT Data Job Application AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application AppTests-Info.plist"; sourceTree = "<group>"; };
 		28E44AC717E3C5510084543B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		28E44AC917E3C5510084543B /* NTT_Data_Job_Application_AppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTT_Data_Job_Application_AppTests.h; sourceTree = "<group>"; };
-		28E44ACA17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTT_Data_Job_Application_AppTests.m; sourceTree = "<group>"; };
 		28E44AD517E3C5810084543B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		28E44AD617E3C5810084543B /* OSAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSAPIManager.h; sourceTree = "<group>"; };
 		28E44AD717E3C5810084543B /* OSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSAPIManager.m; sourceTree = "<group>"; };
@@ -146,8 +130,12 @@
 		28E44B3117E3C7600084543B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		28E44B3317E3C7A30084543B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		28E44B3417E3C7A30084543B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		28EAC94F17F2F0140089467C /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = "NTT Data Job Application App/Model/DatabaseManager.h"; sourceTree = SOURCE_ROOT; };
+		28EAC95017F2F0140089467C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "NTT Data Job Application App/Model/DatabaseManager.m"; sourceTree = SOURCE_ROOT; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
+		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
+		9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTextSearchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +156,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */,
-				28E44ABE17E3C5510084543B /* SenTestingKit.framework in Frameworks */,
 				28E44ABF17E3C5510084543B /* UIKit.framework in Frameworks */,
 				28E44AC017E3C5510084543B /* Foundation.framework in Frameworks */,
 			);
@@ -180,27 +167,19 @@
 		288C02C017E6072900347FA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				288C02C117E6072900347FA8 /* Experience+Create.h */,
-				288C02C217E6072900347FA8 /* Experience+Create.m */,
-				288C02C317E6072900347FA8 /* Experience.h */,
-				288C02C417E6072900347FA8 /* Experience.m */,
-				288C02C517E6072900347FA8 /* JobTitle+Create.h */,
-				288C02C617E6072900347FA8 /* JobTitle+Create.m */,
-				288C02C717E6072900347FA8 /* JobTitle.h */,
-				288C02C817E6072900347FA8 /* JobTitle.m */,
-				288C02C917E6072900347FA8 /* Location+Create.h */,
-				288C02CA17E6072900347FA8 /* Location+Create.m */,
-				288C02CB17E6072900347FA8 /* Location.h */,
-				288C02CC17E6072900347FA8 /* Location.m */,
-				288C02CD17E6072900347FA8 /* NSManagedObjectContext+Shared.h */,
-				288C02CE17E6072900347FA8 /* NSManagedObjectContext+Shared.m */,
-				288C02CF17E6072900347FA8 /* NTTDataJobAppDatabase.xcdatamodeld */,
-				288C02D117E6072900347FA8 /* Topic+Create.h */,
-				288C02D217E6072900347FA8 /* Topic+Create.m */,
-				288C02D317E6072900347FA8 /* Topic.h */,
-				288C02D417E6072900347FA8 /* Topic.m */,
-				288C02D517E6072900347FA8 /* UIManagedDocument+Shared.h */,
-				288C02D617E6072900347FA8 /* UIManagedDocument+Shared.m */,
+				28EAC94F17F2F0140089467C /* DatabaseManager.h */,
+				28EAC95017F2F0140089467C /* DatabaseManager.m */,
+				284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */,
+				284FAF9217F2F232006C9359 /* Location.h */,
+				284FAF9317F2F232006C9359 /* Location.m */,
+				284FAF9817F2F232006C9359 /* JobTitle.h */,
+				284FAF9917F2F232006C9359 /* JobTitle.m */,
+				284FAF9E17F2F232006C9359 /* Experience.h */,
+				284FAF9F17F2F232006C9359 /* Experience.m */,
+				284FAF9B17F2F232006C9359 /* OpenPosition.h */,
+				284FAF9C17F2F232006C9359 /* OpenPosition.m */,
+				284FAF9517F2F232006C9359 /* Topic.h */,
+				284FAF9617F2F232006C9359 /* Topic.m */,
 			);
 			name = Model;
 			path = ../Model;
@@ -220,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				28E44A9617E3C5510084543B /* NTT Data Job Application App.app */,
-				28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.octest */,
+				28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,7 +212,6 @@
 				28E44A9917E3C5510084543B /* UIKit.framework */,
 				28E44A9B17E3C5510084543B /* Foundation.framework */,
 				28E44A9D17E3C5510084543B /* CoreGraphics.framework */,
-				28E44ABD17E3C5510084543B /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,6 +228,8 @@
 				28E44B2717E3C6CB0084543B /* JobSearchViewController.h */,
 				28E44B2817E3C6CB0084543B /* JobSearchViewController.m */,
 				28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */,
+				9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */,
+				9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */,
 				80172A6D17EC949600538821 /* ApplicationViewController.h */,
 				80172A6E17EC949600538821 /* ApplicationViewController.m */,
 				288C02C017E6072900347FA8 /* Model */,
@@ -279,8 +259,7 @@
 		28E44AC317E3C5510084543B /* NTT Data Job Application AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				28E44AC917E3C5510084543B /* NTT_Data_Job_Application_AppTests.h */,
-				28E44ACA17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m */,
+				28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */,
 				28E44AC417E3C5510084543B /* Supporting Files */,
 			);
 			path = "NTT Data Job Application AppTests";
@@ -373,8 +352,8 @@
 			);
 			name = "NTT Data Job Application AppTests";
 			productName = "NTT Data Job Application AppTests";
-			productReference = 28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 28E44ABC17E3C5510084543B /* NTT Data Job Application AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -449,34 +428,31 @@
 			files = (
 				28E44AA617E3C5510084543B /* main.m in Sources */,
 				28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */,
+				284FAF9A17F2F232006C9359 /* JobTitle.m in Sources */,
+				28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */,
 				28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */,
 				28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */,
+				284FAF9717F2F232006C9359 /* Topic.m in Sources */,
 				28E44B1417E3C68A0084543B /* SBJsonParser.m in Sources */,
 				28E44B1517E3C68A0084543B /* SBJsonStreamParser.m in Sources */,
 				28E44B1617E3C68A0084543B /* SBJsonStreamParserAccumulator.m in Sources */,
 				28E44B1717E3C68A0084543B /* SBJsonStreamParserAdapter.m in Sources */,
 				28E44B1817E3C68A0084543B /* SBJsonStreamParserState.m in Sources */,
 				28E44B1917E3C68A0084543B /* SBJsonStreamTokeniser.m in Sources */,
+				9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */,
 				28E44B1A17E3C68A0084543B /* SBJsonStreamWriter.m in Sources */,
 				28E44B1B17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m in Sources */,
+				284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */,
 				28E44B1C17E3C68A0084543B /* SBJsonStreamWriterState.m in Sources */,
 				28E44B1D17E3C68A0084543B /* SBJsonWriter.m in Sources */,
+				284FAFA017F2F232006C9359 /* Experience.m in Sources */,
+				284FAF9D17F2F232006C9359 /* OpenPosition.m in Sources */,
 				28E44B2917E3C6CB0084543B /* FoundPositionDetailViewController.m in Sources */,
 				28E44B2A17E3C6CB0084543B /* FoundPositionsOverviewViewController.m in Sources */,
+				284FAF9417F2F232006C9359 /* Location.m in Sources */,
 				28E44B2B17E3C6CB0084543B /* JobProposalViewController.m in Sources */,
 				28E44B2C17E3C6CB0084543B /* JobSearchViewController.m in Sources */,
 				28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */,
-				288C02D717E6072900347FA8 /* Experience+Create.m in Sources */,
-				288C02D817E6072900347FA8 /* Experience.m in Sources */,
-				288C02D917E6072900347FA8 /* JobTitle+Create.m in Sources */,
-				288C02DA17E6072900347FA8 /* JobTitle.m in Sources */,
-				288C02DB17E6072900347FA8 /* Location+Create.m in Sources */,
-				288C02DC17E6072900347FA8 /* Location.m in Sources */,
-				288C02DD17E6072900347FA8 /* NSManagedObjectContext+Shared.m in Sources */,
-				288C02DE17E6072900347FA8 /* NTTDataJobAppDatabase.xcdatamodeld in Sources */,
-				288C02DF17E6072900347FA8 /* Topic+Create.m in Sources */,
-				288C02E017E6072900347FA8 /* Topic.m in Sources */,
-				288C02E117E6072900347FA8 /* UIManagedDocument+Shared.m in Sources */,
 				80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,7 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28E44ACB17E3C5510084543B /* NTT_Data_Job_Application_AppTests.m in Sources */,
+				28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +586,6 @@
 				INFOPLIST_FILE = "NTT Data Job Application AppTests/NTT Data Job Application AppTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -627,7 +602,6 @@
 				INFOPLIST_FILE = "NTT Data Job Application AppTests/NTT Data Job Application AppTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
@@ -662,19 +636,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		288C02CF17E6072900347FA8 /* NTTDataJobAppDatabase.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				288C02D017E6072900347FA8 /* NTTDataJobAppDatabase.xcdatamodel */,
-			);
-			currentVersion = 288C02D017E6072900347FA8 /* NTTDataJobAppDatabase.xcdatamodel */;
-			path = NTTDataJobAppDatabase.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 28E44A8E17E3C5510084543B /* Project object */;
 }

@@ -8,8 +8,7 @@
 
 #import "ApplicationViewController.h"
 #import "OSAPIManager.h"
-#import "JobTitle+Create.h"
-#import "Location+Create.h"
+#import "DatabaseManager.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
@@ -60,14 +59,12 @@
 
 - (NSString *)jobTitleForRow:(NSUInteger)row
 {
-   
-    return [JobTitle getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
+    return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
 }
 
 - (NSString *)locationForRow:(NSUInteger)row
 {
-  
-    return [Location getDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"location1"]];;
+    return [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"location1"]];;
 }
 
 - (NSString *)refNoForRow:(NSUInteger)row

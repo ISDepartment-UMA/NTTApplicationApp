@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Experience" representedClassName="Experience" syncable="YES">
+        <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="canOffer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OpenPosition" inverseName="requiresExperience" inverseEntity="OpenPosition" syncable="YES"/>
+    </entity>
+    <entity name="JobTitle" representedClassName="JobTitle" syncable="YES">
+        <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="isMatchedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OpenPosition" inverseName="jobTitleIs" inverseEntity="OpenPosition" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="canOffer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OpenPosition" inverseName="isLocatedAt" inverseEntity="OpenPosition" syncable="YES"/>
+    </entity>
+    <entity name="OpenPosition" representedClassName="OpenPosition" syncable="YES">
+        <attribute name="contact_person" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="job_description" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="job_requirements" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="main_tasks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="our_offer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="perspective" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ref_no" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dealsWith" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Topic" inverseName="topicMatchedBy" inverseEntity="Topic" syncable="YES"/>
+        <relationship name="isLocatedAt" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="canOffer" inverseEntity="Location" syncable="YES"/>
+        <relationship name="jobTitleIs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JobTitle" inverseName="isMatchedBy" inverseEntity="JobTitle" syncable="YES"/>
+        <relationship name="requiresExperience" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Experience" inverseName="canOffer" inverseEntity="Experience" syncable="YES"/>
+    </entity>
+    <entity name="Topic" representedClassName="Topic" syncable="YES">
+        <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="topicMatchedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OpenPosition" inverseName="dealsWith" inverseEntity="OpenPosition" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Experience" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="JobTitle" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="OpenPosition" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Topic" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

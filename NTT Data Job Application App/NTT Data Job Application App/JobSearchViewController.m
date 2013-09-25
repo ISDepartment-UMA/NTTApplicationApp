@@ -10,14 +10,11 @@
 #import "QuartzCore/QuartzCore.h"
 #import "OSAPIManager.h"
 #import "SBJson.h"
-#import "Topic+Create.h"
 #import "Topic.h"
-#import "Location+Create.h"
 #import "Location.h"
-#import "Experience+Create.h"
 #import "Experience.h"
-#import "JobTitle+Create.h"
 #import "JobTitle.h"
+#import "DatabaseManager.h"
 
 @interface JobSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -67,8 +64,6 @@
     [OSAPIManager sharedManager].flashObjects = searchObject;
     NSLog(@"search is %@",searchObject);
 }
-
-
 
 -(void)initLoader
 {
@@ -120,12 +115,10 @@
                                      target:self
                                      action:@selector(refreshButtonClicked:)];
     [self.navigationItem setRightBarButtonItem:refreshButton animated:YES];
-    
-
-
 }
 
-- (void)refreshButtonClicked:(id)sender {
+- (void)refreshButtonClicked:(id)sender
+{
    
     self.location.selected = NO;
     self.topics.selected = NO;
@@ -152,10 +145,6 @@
     
 }
 
-
-
-
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [OSConnectionManager sharedManager].delegate = self;
@@ -167,25 +156,25 @@
     searchObject= [[NSMutableDictionary alloc] init];
     parser = [[SBJsonParser alloc] init];
     
-    NSArray* topics = [Topic getAllTopics];
+    NSArray* topics = [[DatabaseManager sharedInstance]allTopics];
     if (!topics || ![topics count])
         [[OSConnectionManager sharedManager] StartConnection:OSCGetTopics];
     else
         self.topicsList = topics;
     
-    NSArray* locations = [Location getAllLocations];
+    NSArray* locations = [[DatabaseManager sharedInstance]allLocations];
     if (!locations || ![locations count])
         [[OSConnectionManager sharedManager] StartConnection:OSCGetLocation];
     else
         self.locationsList = locations;
     
-    NSArray* titles = [JobTitle getAllJobTitles];
+    NSArray* titles = [[DatabaseManager sharedInstance]allJobTitles];
     if (!titles ||![titles count])
         [[OSConnectionManager sharedManager] StartConnection:OSCGetJobTitle];
     else
         self.jobTitleList = titles;
     
-    NSArray* experiences = [Experience getAllExperiences];
+    NSArray* experiences = [[DatabaseManager sharedInstance]allExperiences];
     if (!experiences || ![experiences count])
         [[OSConnectionManager sharedManager] StartConnection:OSCGetExperience];
     else
@@ -205,25 +194,29 @@
     if (connectionType ==OSCGetLocation)
     {
         id jsonObject= [parser objectWithString:responseString];
-        NSArray* locations = [Location allLocationsIncludingJSON:jsonObject];
+        [[DatabaseManager sharedInstance]createLocationsFromJSON:jsonObject];
+        NSArray* locations = [[DatabaseManager sharedInstance]allLocations];
         self.locationsList = locations;
     }
     else if (connectionType ==OSCGetJobTitle)
     {
         id jsonObject=  [parser objectWithString:responseString];
-        NSArray* titles = [JobTitle allJobTitlesIncludingJSON:jsonObject];
+        [[DatabaseManager sharedInstance]createJobTitlesFromJSON:jsonObject];
+        NSArray* titles = [[DatabaseManager sharedInstance]allJobTitles];
         self.jobTitleList = titles;
     }
     else if (connectionType ==OSCGetExperience)
     {
         id jsonObject= [parser objectWithString:responseString];
-        NSArray* experiences = [Experience allExperiencesIncludingJSON:jsonObject];
+        [[DatabaseManager sharedInstance]createExperiencesFromJSON:jsonObject];
+        NSArray* experiences = [[DatabaseManager sharedInstance]allExperiences];
         self.experienceList = experiences;
     }
     else if (connectionType ==OSCGetTopics)
     {
         id jsonObject= [parser objectWithString:responseString];
-        NSArray* topics = [Topic allTopicsIncludingJSON:jsonObject];
+        [[DatabaseManager sharedInstance] createTopicsFromJSON:jsonObject];
+        NSArray* topics = [[DatabaseManager sharedInstance]allTopics];
         self.topicsList = topics;
     }
     else if(connectionType == OSCGetSearch)
@@ -267,9 +260,6 @@
     }
     
 }
- 
-
-
 
 - (IBAction)selectTitle:(UIButton *)sender {
     self.selected = self.jobTitleList;
@@ -279,10 +269,8 @@
     self.experience.selected = NO;
     self.contButton.enabled = YES;
     self.contButton.alpha = 1.0;
-    if (!sender.selected){
+    if (!sender.selected)
         self.selected = nil;
-        //[self.searchSelection reloadData];
-    }
     [self.searchSelection reloadData];
 
 }
@@ -296,10 +284,8 @@
     self.contButton.selected = NO;
     self.contButton.enabled = YES;
     self.contButton.alpha = 1.0;
-    if (!sender.selected){
+    if (!sender.selected)
         self.selected = nil;
-        //[self.searchSelection reloadData];
-    }
     [self.searchSelection reloadData];    
 }
 
@@ -311,11 +297,8 @@
     self.experience.selected = NO;
     self.contButton.enabled = YES;
     self.contButton.alpha = 1.0;
-
-    if (!sender.selected){
+    if (!sender.selected)
         self.selected = nil;
-        //[self.searchSelection reloadData];
-    }
     [self.searchSelection reloadData];
 }
 
@@ -327,24 +310,22 @@
     self.location.selected = NO;
     self.contButton.enabled = NO;
     self.contButton.alpha = 0.3;
-    if (!sender.selected){
+    if (!sender.selected)
         self.selected = nil;
-       // [self.searchSelection reloadData];
-    }
     [self.searchSelection reloadData];
-
 }
 
 - (IBAction)contSearch:(UIButton *)sender {
-    if(self.jobTitle.isSelected){
+    if(self.jobTitle.isSelected)
+    {
         self.jobTitle.selected = NO;
         self.topics.selected = YES;
         self.selected = self.topicsList;
         [self.searchSelection reloadData];
-        
     }
     
-    else if (self.topics.isSelected) {
+    else if (self.topics.isSelected)
+    {
         self.topics.selected = NO;
         self.location.selected = YES;
         self.selected = self.locationsList;
@@ -358,34 +339,33 @@
         [self.searchSelection reloadData];
         self.contButton.enabled = NO;
         self.contButton.alpha = 0.3;
-        
     }
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryCheckmark;
-    
     if (self.topics.selected)
     {
         Topic* topic = [self.topicsList objectAtIndex:indexPath.row];
         [searchObject setObject:topic.databasename forKey:@"topics"];
         self.topicsLabel.text = topic.displayname;
     }
+    
     if (self.experience.selected)
     {
         Experience* experience = [self.experienceList objectAtIndex:indexPath.row];
         [searchObject setObject:experience.databasename forKey:@"experience"];
         self.expLabel.text = experience.displayname;
     }
+    
     if (self.location.selected)
     {
         Location* location = [self.locationsList objectAtIndex:indexPath.row];
         [searchObject setObject:location.databasename forKey:@"location"];
         self.locationLabel.text = location.displayname;
     }
+    
     if (self.jobTitle.selected)
     {
         JobTitle* jobTitle = [self.jobTitleList objectAtIndex:indexPath.row];

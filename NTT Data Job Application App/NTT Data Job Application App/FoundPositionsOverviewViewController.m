@@ -11,9 +11,7 @@
 #import "OSConnectionManager.h"
 #import "SBJson.h"
 #import "OSAPIManager.h"
-
-#import "JobTitle+Create.h"
-#import "Location+Create.h"
+#import "DatabaseManager.h"
 
 @interface FoundPositionsOverviewViewController()
 @property(nonatomic,strong) UIView* loaderView;
@@ -52,7 +50,6 @@
     [loaderImage setAlpha:0.8];
     [loaderView addSubview:loaderImage];
     
-    
     [loader setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     loaderImage.layer.cornerRadius = 5.0;
     loaderView.layer.cornerRadius = 5.0;
@@ -61,8 +58,8 @@
     [loaderView addSubview:loader];
     [self.view addSubview:loaderView];
     [loaderView setHidden:YES];
-    
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -139,8 +136,8 @@
 - (void)sortByLocation
 {
     NSArray* sorted = [self.resultArray sortedArrayUsingComparator:(NSComparator)^(NSDictionary *item1, NSDictionary *item2) {
-        NSComparisonResult res = [[Location getDisplayNameFromDatabaseName:[item1 objectForKey:@"location1"]] caseInsensitiveCompare:
-                                  [Location getDisplayNameFromDatabaseName:[item2 objectForKey:@"location1"]]];
+        
+        NSComparisonResult res = [[[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[item1 objectForKey:@"location1"]] caseInsensitiveCompare:[[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[item2 objectForKey:@"location1"]]];
         
         if (res == NSOrderedAscending) {
             if (self.locationOrderedAscending)
@@ -170,13 +167,13 @@
 - (NSString *)jobTitleForRow:(NSUInteger)row
 {
     NSDictionary* object = [resultArray objectAtIndex:row];
-    return [JobTitle getDisplayNameFromDatabaseName:[object objectForKey:@"job_title"]];
+    return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[object objectForKey:@"job_title"]];
 }
 
 - (NSString *)locationForRow:(NSUInteger)row
 {
     NSDictionary* object = [resultArray objectAtIndex:row];
-    return [Location getDisplayNameFromDatabaseName:[object objectForKey:@"location1"]];
+    return [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[object objectForKey:@"location1"]];
 }
 
 - (NSString *)refNoForRow:(NSUInteger)row
