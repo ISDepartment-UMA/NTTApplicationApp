@@ -61,12 +61,56 @@ import dao.JobsDao;
  		List<String> freetextList=new ArrayList<String>();
  		String freetextelementsArray[]=new String[50];
  		freetextelementsArray=freetext.split(" ");
- 	/*	for(int i=0;i<=freetextelementsArray.length-1;i++){          // to make it lower case
+ 		for(int i=0;i<=freetextelementsArray.length-1;i++){          // to make user's input lower case
  			freetextelementsArray[i]=freetextelementsArray[i].toLowerCase();
  		}
- 	*/
+ 	
  		myjobs=myJobsDao.queryJobsByDefinedCriteria(null, null, null, null); //get all jobs
  		for(int i=0;i<=myjobs.size()-1;i++){          // iterate all the jobs
+ 			
+ 			///////////////////////////////////////////////////////////////////
+ 			//    to make the text in database into lower case to match with the user input
+ 			if(myjobs.get(i).getRef_no()!=null)
+ 			myjobs.get(i).setRef_no(myjobs.get(i).getRef_no().toLowerCase());
+ 			if(myjobs.get(i).getPosition_name()!=null)
+ 			myjobs.get(i).setPosition_name(myjobs.get(i).getPosition_name().toLowerCase());
+ 			if(myjobs.get(i).getExp()!=null)
+ 			myjobs.get(i).setExp(myjobs.get(i).getExp().toLowerCase());
+ 			if(myjobs.get(i).getLocation1()!=null)
+ 			myjobs.get(i).setLocation1(myjobs.get(i).getLocation1().toLowerCase());
+ 			if(myjobs.get(i).getLocation2()!=null)
+ 			myjobs.get(i).setLocation2(myjobs.get(i).getLocation2().toLowerCase());
+ 			if(myjobs.get(i).getLocation3()!=null)
+ 			myjobs.get(i).setLocation3(myjobs.get(i).getLocation3().toLowerCase());
+ 			if(myjobs.get(i).getLocation4()!=null)
+ 			myjobs.get(i).setLocation4(myjobs.get(i).getLocation4().toLowerCase());
+ 			if(myjobs.get(i).getJob_title()!=null)
+ 			myjobs.get(i).setJob_title(myjobs.get(i).getJob_title().toLowerCase());
+ 			if(myjobs.get(i).getTopic1()!=null)
+ 			myjobs.get(i).setTopic1(myjobs.get(i).getTopic1().toLowerCase());
+ 			if(myjobs.get(i).getTopic2()!=null)
+ 			myjobs.get(i).setTopic2(myjobs.get(i).getTopic2().toLowerCase());
+ 			if(myjobs.get(i).getTopic3()!=null)
+ 			myjobs.get(i).setTopic3(myjobs.get(i).getTopic3().toLowerCase());
+ 			if(myjobs.get(i).getTopic4()!=null)
+ 			myjobs.get(i).setTopic4(myjobs.get(i).getTopic4().toLowerCase());
+ 			if(myjobs.get(i).getContact_person()!=null)
+ 			myjobs.get(i).setContact_person(myjobs.get(i).getContact_person().toLowerCase());
+ 			if(myjobs.get(i).getPhone_no()!=null)
+ 			myjobs.get(i).setPhone_no(myjobs.get(i).getPhone_no().toLowerCase());
+ 			if(myjobs.get(i).getEmail()!=null)
+ 			myjobs.get(i).setEmail(myjobs.get(i).getEmail().toLowerCase());
+ 			if(myjobs.get(i).getJob_description()!=null)
+ 			myjobs.get(i).setJob_description(myjobs.get(i).getJob_description().toLowerCase());
+ 			if(myjobs.get(i).getMain_tasks()!=null)
+ 			myjobs.get(i).setMain_tasks(myjobs.get(i).getMain_tasks().toLowerCase());
+ 			if(myjobs.get(i).getJob_requirements()!=null)
+ 			myjobs.get(i).setJob_requirements(myjobs.get(i).getJob_requirements().toLowerCase());
+ 			if(myjobs.get(i).getPerspective()!=null)
+ 			myjobs.get(i).setPerspective(myjobs.get(i).getPerspective().toLowerCase());
+ 			if(myjobs.get(i).getOur_offer()!=null)
+ 			myjobs.get(i).setOur_offer(myjobs.get(i).getOur_offer().toLowerCase());
+ 			///////////////////////////////////////////////////////////////////
  			SearchHits searchHits=new SearchHits();            //create hit records for each job
  			searchHits.setRef_no(myjobs.get(i).getRef_no());
  			searchHits.setHits(0);
@@ -74,7 +118,7 @@ import dao.JobsDao;
  			for(int j=0;j<=freetextelementsArray.length-1;j++){       //iterate all the free text elements
  				if(myjobs.get(i).getRef_no()!=null&&myjobs.get(i).getRef_no().contains(freetextelementsArray[j])){    //ref_no hits
  				int hits=searchHits.getHits();
- 				hits++;
+ 				hits+=7;     // ref_no weights 7, because it's importance, and to make sure it ranked in the head
  				searchHits.setHits(hits);
  				}
  				
@@ -192,28 +236,34 @@ import dao.JobsDao;
  				
  			}
  		}
+ 		
+ 		List<Jobs> queryResultJobs=new ArrayList<Jobs>();
  
- 		for(int i=0;i<=searchHitsList.size()-1;i++){				//writing to console
+ 		for(int i=0;i<=searchHitsList.size()-1;i++){				
+ 			 //put the jobs in searchHitsList into queryResultJobs
+ 			queryResultJobs.add(myJobsDao.jobsQueryByRefID(searchHitsList.get(i).getRef_no()).get(0));  
+ 			//writing to console
  			System.out.println(searchHitsList.get(i).getRef_no()+" : "+searchHitsList.get(i).getHits());
  			
  		}
- 		if(myjobs.isEmpty()||myjobs==null){
+ 		
+ 		if(queryResultJobs.isEmpty()||queryResultJobs==null){
  			
  			System.out.println("{\"resultIsEmpty\":true}");
  			responseMessage= "{\"resultIsEmpty\":true}"; 			
  		}
  		
  		else{
- 		for(int i=0;i<=myjobs.size()-1;i++)
+ 		for(int i=0;i<=queryResultJobs.size()-1;i++)
 		{		 
-		System.out.println("search results:"+myjobs.get(i).getRef_no()+"/////location: "+myjobs.get(i).getLocation1()+","+myjobs.get(i).getLocation2()+","+myjobs.get(i).getLocation3()+","+myjobs.get(i).getLocation4()
-				+"/////jobtitle: "+myjobs.get(i).getJob_title()+"/////exp: "+myjobs.get(i).getExp()+"//////topics: "+myjobs.get(i).getTopic1()+","+myjobs.get(i).getTopic2()+","+myjobs.get(i).getTopic3()+","+myjobs.get(i).getTopic4());
+		System.out.println("search results:"+queryResultJobs.get(i).getRef_no()+"/////location: "+queryResultJobs.get(i).getLocation1()+","+queryResultJobs.get(i).getLocation2()+","+queryResultJobs.get(i).getLocation3()+","+queryResultJobs.get(i).getLocation4()
+				+"/////jobtitle: "+queryResultJobs.get(i).getJob_title()+"/////exp: "+queryResultJobs.get(i).getExp()+"//////topics: "+queryResultJobs.get(i).getTopic1()+","+queryResultJobs.get(i).getTopic2()+","+queryResultJobs.get(i).getTopic3()+","+queryResultJobs.get(i).getTopic4());
 		}
  		ObjectMapper mapper=new ObjectMapper();
  		StringWriter sw =new StringWriter();
  		
  		try {
-			mapper.writeValue(sw, myjobs);
+			mapper.writeValue(sw, queryResultJobs);
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
