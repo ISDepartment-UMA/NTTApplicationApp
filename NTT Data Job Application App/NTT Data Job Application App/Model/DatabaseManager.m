@@ -21,6 +21,7 @@
 #define JOBTITLE_TABLENAME @"JobTitle"
 #define LOCATION_TABLENAME @"Location"
 #define TOPIC_TABLENAME @"Topic"
+#define OPENPOSITION_TABLENAME @"OpenPosition"
 
 + (DatabaseManager*)sharedInstance
 {
@@ -34,6 +35,9 @@
     return sharedInstance;
 }
 
+#pragma mark -
+#pragma mark Experience
+#pragma mark - 
 - (Experience*)createExperience
 {
     return [NSEntityDescription insertNewObjectForEntityForName:EXPERIENCE_TABLENAME inManagedObjectContext:[self context]];
@@ -86,6 +90,9 @@
         [[self context]deleteObject:ex];
 }
 
+#pragma mark -
+#pragma mark JobTitle
+#pragma mark -
 - (JobTitle*)createJobTitle
 {
     return [NSEntityDescription insertNewObjectForEntityForName:JOBTITLE_TABLENAME inManagedObjectContext:[self context]];
@@ -138,6 +145,9 @@
          [[self context]deleteObject:jobTitle];
 }
 
+#pragma mark -
+#pragma mark Location
+#pragma mark -
 - (Location*)createLocation
 {
     return [NSEntityDescription insertNewObjectForEntityForName:LOCATION_TABLENAME inManagedObjectContext:[self context]];
@@ -192,6 +202,9 @@
         [[self context]deleteObject:loc];
 }
 
+#pragma mark -
+#pragma mark Topic
+#pragma mark -
 - (Topic*)createTopic
 {
     return [NSEntityDescription insertNewObjectForEntityForName:TOPIC_TABLENAME inManagedObjectContext:[self context]];
@@ -246,27 +259,201 @@
         [[self context]deleteObject:topic];
 }
 
-- (NSString*) getDisplayNameForDatabaseName:(NSString *)databaseName fromTable:(NSString *)tableName
+#pragma mark -
+#pragma mark OpenPosition
+#pragma mark -
+
+- (OpenPosition*)createOpenPosition
 {
-    NSArray* results = [self fetchAllResultsForEntity:tableName];
-    if (results && [results count])
-    {
-        for (id o in results)
-        {
-            if ([o respondsToSelector:@selector(databasename)] && [o respondsToSelector:@selector(displayname)])
-            {
-                NSString* dbName = [o performSelector:@selector(databasename)];
-                if ([dbName isEqualToString:databaseName])
-                {
-                    return [o performSelector:@selector(displayname)];
-                }
-            }
-        }
-    }
-    return @"";
+    return [NSEntityDescription insertNewObjectForEntityForName:OPENPOSITION_TABLENAME inManagedObjectContext:[self context]];
 }
 
-#pragma mark - Core Data Helper Methods
+- (BOOL)createOpenPositionFromJSON:(id)jsonResponse
+{
+    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    {
+        NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:OPENPOSITION_TABLENAME];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ref_no" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"ref_no = %@", [dict  objectForKey:@"ref_no"]];
+        
+        NSError* error = nil;
+        NSArray* results = [[self context] executeFetchRequest:request error:&error];
+        
+        if (!results || [results count] > 1)
+        {
+            NSLog(@"Error while creating OpenPosition: %@", error);
+            return false;
+        }
+        else if (![results count])
+        {
+            OpenPosition* position = [self createOpenPosition];
+            NSArray* locations = [self allLocations];
+            NSArray* experiences = [self allExperiences];
+            NSArray* topics = [self allTopics];
+            NSArray* jobTitles = [self allJobTitles];
+            
+            position.ref_no = [dict objectForKey:@"ref_no"];
+            position.contact_person = [dict objectForKey:@"contact_person"];
+            position.email = [dict objectForKey:@"email"];
+            position.job_description = [dict objectForKey:@"job_description"];
+            position.job_requirements = [dict objectForKey:@"job_requirements"];
+            position.main_tasks = [dict objectForKey:@"main_tasks"];
+            position.our_offer = [dict objectForKey:@"our_offer"];
+            position.perspective = [dict objectForKey:@"perspective"];
+            position.phone_no = [dict objectForKey:@"phone_no"];
+            position.position_name = [dict objectForKey:@"position_name"];
+            
+            if ([dict objectForKey:@"location1"])
+            {
+                for (Location* loc in locations) {
+                    if ([loc.databasename isEqualToString:[dict objectForKey:@"location1"]]) {
+                        if (![position.isLocatedAt containsObject:loc]) {
+                            [position addIsLocatedAtObject:loc];
+                        }
+                        break;
+                    }
+                }
+            }
+            if ([dict objectForKey:@"location2"])
+            {
+                for (Location* loc in locations) {
+                    if ([loc.databasename isEqualToString:[dict objectForKey:@"location2"]]) {
+                        if (![position.isLocatedAt containsObject:loc]) {
+                            [position addIsLocatedAtObject:loc];
+                        }
+                        break;
+                    }
+                }
+            }
+            if ([dict objectForKey:@"location3"])
+            {
+                for (Location* loc in locations) {
+                    if ([loc.databasename isEqualToString:[dict objectForKey:@"location3"]]) {
+                        if (![position.isLocatedAt containsObject:loc]) {
+                            [position addIsLocatedAtObject:loc];
+                        }
+                        break;
+                    }
+                }
+            }
+            if ([dict objectForKey:@"location4"])
+            {
+                for (Location* loc in locations) {
+                    if ([loc.databasename isEqualToString:[dict objectForKey:@"location4"]]) {
+                        if (![position.isLocatedAt containsObject:loc]) {
+                            [position addIsLocatedAtObject:loc];
+                        }
+                        break;
+                    }
+                }
+            }
+            if ([dict objectForKey:@"exp"])
+            {
+                for (Experience* ex in experiences) {
+                    if ([ex.databasename isEqualToString:[dict objectForKey:@"exp"]]) {
+                        position.requiresExperience = ex;
+                        break;
+                    }
+                }
+            }
+            
+            if ([dict objectForKey:@"topic1"])
+            {
+                for (Topic* topic in topics) {
+                    if ([topic.databasename isEqualToString:[dict objectForKey:@"topic1"]]) {
+                        if (![position.dealsWith containsObject:topic]) {
+                            [position addDealsWithObject:topic];
+                        }
+                        break;
+                    }
+                }
+            }
+            if ([dict objectForKey:@"topic2"])
+            {
+                for (Topic* topic in topics) {
+                    if ([topic.databasename isEqualToString:[dict objectForKey:@"topic2"]]) {
+                        if (![position.dealsWith containsObject:topic]) {
+                            [position addDealsWithObject:topic];
+                        }
+                        break;
+                    }
+                }
+            }
+            if ([dict objectForKey:@"topic3"])
+            {
+                for (Topic* topic in topics) {
+                    if ([topic.databasename isEqualToString:[dict objectForKey:@"topic3"]]) {
+                        if (![position.dealsWith containsObject:topic]) {
+                            [position addDealsWithObject:topic];
+                        }
+                        break;
+                    }
+                }
+            }
+            if ([dict objectForKey:@"topic4"])
+            {
+                for (Topic* topic in topics) {
+                    if ([topic.databasename isEqualToString:[dict objectForKey:@"topic4"]]) {
+                        if (![position.dealsWith containsObject:topic]) {
+                            [position addDealsWithObject:topic];
+                        }
+                        break;
+                    }
+                }
+            }
+
+            if ([dict objectForKey:@"job_title"])
+            {
+                for (JobTitle* jt in jobTitles) {
+                    if ([jt.databasename isEqualToString:[dict objectForKey:@"job_title"]])
+                    {
+                        position.jobTitleIs = jt;
+                        break;
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    [self saveContext];
+    return true;
+}
+
+- (NSArray*)allOpenPositions
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:OPENPOSITION_TABLENAME];
+    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"ref_no" ascending:YES]];
+    
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (!results)
+        NSLog(@"Error while fetching results from Database: %@", error );
+    return results;
+}
+
+- (void)clearOpenPositions
+{
+    NSArray* openPositions = [self allOpenPositions];
+    for (OpenPosition* pos in openPositions) 
+        [[self context]deleteObject:pos];
+}
+
+#pragma mark -
+#pragma mark Save
+#pragma mark -
+- (void) saveContext
+{
+    NSManagedObjectContext* con = [self context];
+    NSError* error = nil;
+    
+    if ([con hasChanges] && ![con save:&error]) {
+        NSLog(@"Error while saving context: %@", error);
+    }
+}
+
+#pragma mark - Private Helper Methods
 - (NSArray*) fetchAllResultsForEntity: (NSString*)entity
 {
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:entity];
@@ -317,7 +504,7 @@
     if (_objectModel)
         return _objectModel;
     
-    NSURL* modelURL = [[NSBundle mainBundle] URLForResource:@"NTTDataJobAppDatabase" withExtension:@"momd"];
+    NSURL* modelURL = [[NSBundle mainBundle] URLForResource:@"NTTDataJobAppDatabase" withExtension:@"mom"];
     
     _objectModel = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
     return _objectModel;
@@ -328,13 +515,23 @@
     return [[[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]lastObject];
 }
 
-- (void) saveContext
+- (NSString*) getDisplayNameForDatabaseName:(NSString *)databaseName fromTable:(NSString *)tableName
 {
-    NSManagedObjectContext* con = [self context];
-    NSError* error = nil;
-    
-    if ([con hasChanges] && ![con save:&error]) {
-        NSLog(@"Error while saving context: %@", error);
+    NSArray* results = [self fetchAllResultsForEntity:tableName];
+    if (results && [results count])
+    {
+        for (id o in results)
+        {
+            if ([o respondsToSelector:@selector(databasename)] && [o respondsToSelector:@selector(displayname)])
+            {
+                NSString* dbName = [o performSelector:@selector(databasename)];
+                if ([dbName isEqualToString:databaseName])
+                {
+                    return [o performSelector:@selector(displayname)];
+                }
+            }
+        }
     }
+    return @"";
 }
 @end

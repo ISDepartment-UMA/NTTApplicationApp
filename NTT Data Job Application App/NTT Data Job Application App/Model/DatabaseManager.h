@@ -11,6 +11,7 @@
 #import "JobTitle.h"
 #import "Location.h"
 #import "Topic.h"
+#import "OpenPosition.h"
 
 @interface DatabaseManager : NSObject
 + (DatabaseManager*)sharedInstance;
@@ -35,10 +36,16 @@
 - (NSString*)getTopicDisplayNameFromDatabaseName:(NSString*)databaseName;
 - (BOOL)createTopicsFromJSON: (id)jsonResponse;
 
+
+- (OpenPosition*)createOpenPosition;
+- (NSArray*)allOpenPositions;
+- (BOOL)createOpenPositionFromJSON:(id)jsonResponse;
+
 - (void)saveContext;
 
 - (void)clearLocations;
 - (void)clearExperiences;
 - (void)clearJobTitles;
 - (void)clearTopics;
+- (void)clearOpenPositions;
 @end

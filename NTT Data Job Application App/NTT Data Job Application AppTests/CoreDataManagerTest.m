@@ -12,10 +12,26 @@
 #import "DatabaseManager.h"
 
 @interface CoreDataManagerTest : XCTestCase
-
 @end
 
 @implementation CoreDataManagerTest
+#pragma mark - Helper Method for InMemory Database Creation
+- (NSManagedObjectContext*) context
+{
+    static NSManagedObjectContext* _context = nil;
+    
+    if (!_context)
+    {
+        _context = [[NSManagedObjectContext alloc]init];
+        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"NTTDataJobAppDatabase" withExtension:@"mom"];
+        NSManagedObjectModel* mod = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
+        
+        NSPersistentStoreCoordinator* coord = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:mod];
+        [coord addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:nil];
+        [_context setPersistentStoreCoordinator:coord];
+    }
+    return _context;
+}
 
 - (void)setUp
 {
@@ -191,7 +207,6 @@
     loc.displayname = @"New York";
     XCTAssert([[[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:@"new_york"]isEqualToString:@"New York"], @"Location displayname is wrong");
     
-    
     Experience* ex = [[DatabaseManager sharedInstance]createExperience];
     ex.databasename = @"manager";
     ex.displayname = @"Manager";
@@ -208,21 +223,33 @@
     XCTAssert([[[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:@"sap_consulting"]isEqualToString:@"SAP Consulting"], @"Topic displayname is wrong");
 }
 
-#pragma mark - Helper Method for InMemory Database Creation
-- (NSManagedObjectContext*) context
+
+- (void)testCreateOpenPosition
 {
-    static NSManagedObjectContext* _context = nil;
+    XCTAssertNotNil([[DatabaseManager sharedInstance]createOpenPosition], @"New open position should not be nil");
+}
+
+- (void)testAllOpenPositions
+{
+    OpenPosition* pos = [[DatabaseManager sharedInstance]createOpenPosition];
+    pos.ref_no = @"123";
     
-    if (!_context)
-    {
-        _context = [[NSManagedObjectContext alloc]init];
-        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"NTTDataJobAppDatabase" withExtension:@"momd"];
-        NSManagedObjectModel* mod = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
+    NSArray* openPositions = [[DatabaseManager sharedInstance]allOpenPositions];
+    XCTAssertNotNil(openPositions, @"All OpenPositions should not be nil");
     
-        NSPersistentStoreCoordinator* coord = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:mod];
-        [coord addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:nil];
-        [_context setPersistentStoreCoordinator:coord];
-    }
-    return _context;
+    XCTAssert([openPositions count] >= 1, @"Open Positions count should be at least 1");
+}
+
+- (void) testClearOpenPositions
+{
+    OpenPosition* position = [[DatabaseManager sharedInstance]createOpenPosition];
+    position.ref_no = @"890";
+    
+    NSArray* positions = [[DatabaseManager sharedInstance]allOpenPositions];
+    XCTAssert([positions count] >= 1, @"Open Positions should contain at least one element");
+    
+    [[DatabaseManager sharedInstance]clearOpenPositions];
+    positions = [[DatabaseManager sharedInstance]allOpenPositions];
+    XCTAssert([positions count] == 0, @"Positions count should be zero");
 }
 @end
