@@ -180,8 +180,23 @@ import dao.JobsDao;
  			
  		}
  		
- 		
- 		 
+ 		for(int i=0;i<searchHitsList.size()-1;i++){			//sorting the searchHItsList
+ 			for(int j=0;j<searchHitsList.size()-i-1;j++){
+ 				if(searchHitsList.get(j).getHits()<searchHitsList.get(j+1).getHits()){
+ 					SearchHits tempSearchHits=new SearchHits();
+ 					tempSearchHits=searchHitsList.get(j);
+ 					searchHitsList.set(j, searchHitsList.get(j+1));
+ 					searchHitsList.set(j+1, tempSearchHits);
+ 					
+ 				}
+ 				
+ 			}
+ 		}
+ 
+ 		for(int i=0;i<=searchHitsList.size()-1;i++){				//writing to console
+ 			System.out.println(searchHitsList.get(i).getRef_no()+" : "+searchHitsList.get(i).getHits());
+ 			
+ 		}
  		if(myjobs.isEmpty()||myjobs==null){
  			
  			System.out.println("{\"resultIsEmpty\":true}");
