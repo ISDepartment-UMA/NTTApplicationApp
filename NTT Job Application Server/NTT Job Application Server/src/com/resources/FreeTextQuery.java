@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import model.Jobs;
+import model.SearchHits;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -54,15 +55,132 @@ import dao.JobsDao;
 		 
     	 List<Jobs> myjobs=new ArrayList<Jobs>();
  		JobsDao myJobsDao=new JobsDao(); 	
+ 		List<SearchHits> searchHitsList=new ArrayList<SearchHits>();
  		 
  		 /////DAO method
  		List<String> freetextList=new ArrayList<String>();
- 		String freetextArray[]=new String[50];
- 		freetextArray=freetext.split(" ");
- 		for(int i=0;i<=freetextArray.length-1;i++){
- 			freetextArray[i]=freetextArray[i].toLowerCase();
+ 		String freetextelementsArray[]=new String[50];
+ 		freetextelementsArray=freetext.split(" ");
+ 	/*	for(int i=0;i<=freetextelementsArray.length-1;i++){          // to make it lower case
+ 			freetextelementsArray[i]=freetextelementsArray[i].toLowerCase();
  		}
- 		 
+ 	*/
+ 		myjobs=myJobsDao.queryJobsByDefinedCriteria(null, null, null, null); //get all jobs
+ 		for(int i=0;i<=myjobs.size()-1;i++){          // iterate all the jobs
+ 			SearchHits searchHits=new SearchHits();            //create hit records for each job
+ 			searchHits.setRef_no(myjobs.get(i).getRef_no());
+ 			searchHits.setHits(0);
+ 			searchHitsList.add(i, searchHits);
+ 			for(int j=0;j<=freetextelementsArray.length-1;j++){       //iterate all the free text elements
+ 				if(myjobs.get(i).getRef_no()!=null&&myjobs.get(i).getRef_no().contains(freetextelementsArray[j])){    //ref_no hits
+ 				int hits=searchHits.getHits();
+ 				hits++;
+ 				searchHits.setHits(hits);
+ 				}
+ 				
+ 				if(myjobs.get(i).getPosition_name()!=null&&myjobs.get(i).getPosition_name().contains(freetextelementsArray[j])){    //posotion_name hits
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getExp()!=null&&myjobs.get(i).getExp().contains(freetextelementsArray[j])){    //exp hits
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getLocation1()!=null&&myjobs.get(i).getLocation1().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getLocation2()!=null&&myjobs.get(i).getLocation2().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getLocation3()!=null&&myjobs.get(i).getLocation3().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getLocation4()!=null&&myjobs.get(i).getLocation4().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getJob_title()!=null&&myjobs.get(i).getJob_title().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getTopic1()!=null&&myjobs.get(i).getTopic1().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getTopic2()!=null&&myjobs.get(i).getTopic2().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getTopic3()!=null&&myjobs.get(i).getTopic3().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getTopic4()!=null&&myjobs.get(i).getTopic4().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				
+ 				if(myjobs.get(i).getContact_person()!=null&&myjobs.get(i).getContact_person().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getPhone_no()!=null&&myjobs.get(i).getPhone_no().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getEmail()!=null&&myjobs.get(i).getEmail().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getJob_description()!=null&&myjobs.get(i).getJob_description().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getMain_tasks()!=null&&myjobs.get(i).getMain_tasks().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getJob_requirements()!=null&&myjobs.get(i).getJob_requirements().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getPerspective()!=null&&myjobs.get(i).getPerspective().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				if(myjobs.get(i).getOur_offer()!=null&&myjobs.get(i).getOur_offer().contains(freetextelementsArray[j])){    
+ 	 				int hits=searchHits.getHits();
+ 	 				hits++;
+ 	 				searchHits.setHits(hits);
+ 	 				}
+ 				
+ 			}
+ 			
+ 			
+ 		}
+ 		
+ 		
  		 
  		if(myjobs.isEmpty()||myjobs==null){
  			
