@@ -77,6 +77,11 @@ static OSURLHelper *sharedHelper = nil;
             return [sharedHelper getSearch];
             break;
         }
+        case OSCGetFreeTextSearch:
+        {
+            return [sharedHelper getFreeTextSearch];
+            break;
+        }
     }
     return [NSURL URLWithString:@""];
 }
@@ -113,6 +118,13 @@ static OSURLHelper *sharedHelper = nil;
 -(NSURL*)getSearch
 {
     NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/fixedjobsquery"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+}
+
+-(NSURL*)getFreeTextSearch
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/freetextquery"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }

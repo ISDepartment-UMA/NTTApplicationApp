@@ -8,13 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FreeTextSearchViewController : UIViewController<UISearchBarDelegate> {
+@interface FreeTextSearchViewController : UIViewController
+
     
-IBOutlet UISearchBar *freeTextSearchBar;
-
-}
-
-@property (nonatomic, retain) UISearchBar *freeTextSearchBar;
 
 
 

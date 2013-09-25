@@ -16,6 +16,7 @@ typedef NS_ENUM (NSUInteger,OSConnectionType)
     OSCGetLocation = 34,
     OSCGetExperience = 36,
     OSCGetSearch = 72,
+    OSCGetFreeTextSearch = 73,
     OSCGetTitle = 74,
 };
 

@@ -7,13 +7,19 @@
 //
 
 #import "FreeTextSearchViewController.h"
-#import "FoundPositionsOverviewViewController.h"
+#import "OSAPIManager.h"
+#import "OSConnectionManager.h"
+
+@interface FreeTextSearchViewController ()<UISearchBarDelegate>
+@property (weak, nonatomic) IBOutlet UISearchBar *freeTextSearchBar;
+
+@end
+
 @implementation FreeTextSearchViewController
-
-
 @synthesize freeTextSearchBar;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     freeTextSearchBar.delegate =self;
     
@@ -41,7 +47,11 @@
 #pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
- 
+    if ([segue.identifier isEqualToString:@"connect"])
+    {
+        [[OSAPIManager sharedManager].searchObject setObject:freeTextSearchBar.text forKey:@"freeText"];
+        [[OSConnectionManager sharedManager] StartConnection:OSCGetFreeTextSearch];
+    }
 }
 
 

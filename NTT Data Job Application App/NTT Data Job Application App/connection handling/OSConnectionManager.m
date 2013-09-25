@@ -85,6 +85,19 @@ static OSConnectionManager *sharedManager = nil;
         
         [request setHTTPBody:requestdata];
     }
+    
+    if (connectionType == OSCGetFreeTextSearch)
+    {
+        NSDictionary* searchObject = [OSAPIManager sharedManager].searchObject;
+        
+        NSString* freeText = [searchObject objectForKey:@"freeText"];
+        freeText = [self preprocessString:freeText];
+        
+        NSString* postString =[NSString stringWithFormat:@"{\"jobtitle\":%@}", freeText];
+        NSData* requestdata = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        
+        [request setHTTPBody:requestdata];
+    }
 
     
     // start connection for requested url and set the connection type
