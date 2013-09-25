@@ -48,6 +48,7 @@
 		28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B3417E3C7A30084543B /* AppDelegate.m */; };
 		28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
+		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,8 @@
 		28E44B3417E3C7A30084543B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
+		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
+		9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTextSearchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,8 @@
 				28E44B2717E3C6CB0084543B /* JobSearchViewController.h */,
 				28E44B2817E3C6CB0084543B /* JobSearchViewController.m */,
 				28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */,
+				9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */,
+				9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */,
 				80172A6D17EC949600538821 /* ApplicationViewController.h */,
 				80172A6E17EC949600538821 /* ApplicationViewController.m */,
 				288C02C017E6072900347FA8 /* Model */,
@@ -426,6 +431,7 @@
 				28E44B1717E3C68A0084543B /* SBJsonStreamParserAdapter.m in Sources */,
 				28E44B1817E3C68A0084543B /* SBJsonStreamParserState.m in Sources */,
 				28E44B1917E3C68A0084543B /* SBJsonStreamTokeniser.m in Sources */,
+				9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */,
 				28E44B1A17E3C68A0084543B /* SBJsonStreamWriter.m in Sources */,
 				28E44B1B17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m in Sources */,
 				28E44B1C17E3C68A0084543B /* SBJsonStreamWriterState.m in Sources */,
