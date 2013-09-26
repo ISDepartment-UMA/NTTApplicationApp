@@ -40,6 +40,7 @@
     
     [self loadData];
     [self loadSelectedFilters];
+    
 }
 
                            
@@ -104,6 +105,7 @@
     {
         UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(phoneLabelClicked)];
         [self.phone setUserInteractionEnabled:YES];
+  
         [self.phone addGestureRecognizer:gesture];
     }
     
@@ -114,7 +116,9 @@
     self.requirementText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
     self.result.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"our_offer"];
     
-    [self.scrollView setContentSize:CGSizeMake(320, 950)];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height)];
+    [self.scrollView setScrollEnabled:YES];
+
 }
 
 #pragma mark - Phone and Mail capabilities
