@@ -52,35 +52,37 @@
     NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
     NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"location"]];
     
-    if (!contentExperience) {
-        contentExperience = @"";
-    } else {
-        contentExperience = [contentExperience stringByAppendingString:@", "];
+    NSString* content = [[NSString alloc]init];
+    if (contentExperience && contentExperience.length > 0)
+    {
+        content = [content stringByAppendingString:contentExperience];
     }
     
-    if (!contentJobTitle) {
-        contentJobTitle= @"";
-    } else {
-        contentJobTitle = [contentJobTitle stringByAppendingString:@", "];
+    if (contentJobTitle && contentJobTitle.length > 0)
+    {
+        if (content.length > 0)
+            content = [content stringByAppendingString:[NSString stringWithFormat:@", %@", contentJobTitle]];
+        else
+            content = [content stringByAppendingString:contentJobTitle];
     }
     
-    if (!contentLocation) {
-        contentLocation = @"";
-    }else {
-        contentLocation = [contentLocation stringByAppendingString:@", "];
+    if (contentLocation && contentLocation.length > 0)
+    {
+        if (content.length > 0)
+            content = [content stringByAppendingString:[NSString stringWithFormat:@", %@", contentLocation]];
+        else
+            content = [content stringByAppendingString:contentLocation];
     }
     
-    if (!contentTopic) {
-        contentTopic = @"";
-    }else {
-        contentTopic = [contentTopic stringByAppendingString:@", "];
+    if (contentTopic && contentTopic.length > 0)
+    {
+        if (content.length > 0)
+            content = [content stringByAppendingString:[NSString stringWithFormat:@", %@", contentTopic]];
+        else
+            content = [content stringByAppendingString:contentTopic];
     }
-    
-    NSString *content = [NSString stringWithFormat:@"%@%@\n%@%@",
-                         contentExperience, contentJobTitle, contentLocation, contentTopic];
     
     self.displaySelectedFilters.text = content;
-    self.displaySelectedFilters.numberOfLines=2;
 }
     
 
