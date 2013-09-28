@@ -12,12 +12,16 @@
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
-@property (weak, nonatomic) IBOutlet UITextView *firstName;
-@property (weak, nonatomic) IBOutlet UITextView *lastName;
-@property (weak, nonatomic) IBOutlet UITextView *address;
-@property (weak, nonatomic) IBOutlet UITextView *email;
-@property (weak, nonatomic) IBOutlet UITextView *phoneNumber;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
+@property (weak, nonatomic) IBOutlet UITextField *firstName;
+@property (weak, nonatomic) IBOutlet UITextField *lastName;
+@property (weak, nonatomic) IBOutlet UITextField *address;
+@property (weak, nonatomic) IBOutlet UITextField *email;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+
 
 @end
 
@@ -25,6 +29,14 @@
 
 - (IBAction)sendApplication:(UIButton *)sender {
     self.responseLabel.hidden = NO;
+    
+    if (((self.sendButton.enabled= YES) && [self.firstName.text isEqualToString:@""]) ||  ((self.sendButton.enabled= YES) && [self.lastName.text isEqualToString:@""])|| ((self.sendButton.enabled= YES) && [self.address.text isEqualToString:@""]) || ((self.sendButton.enabled= YES) && [self.email.text isEqualToString:@""]) || ((self.sendButton.enabled= YES) && [self.phoneNumber.text isEqualToString:@""]))
+    {
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
+        
+        self.responseLabel.hidden = YES;
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
