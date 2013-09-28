@@ -93,13 +93,12 @@ static OSConnectionManager *sharedManager = nil;
         NSString* freeText = [searchObject objectForKey:@"freeText"];
         freeText = [self preprocessString:freeText];
         
-        NSString* postString =[NSString stringWithFormat:@"{\"jobtitle\":%@}", freeText];
+        NSString* postString =[NSString stringWithFormat:@"{\"freetext\":%@}", freeText];
         NSData* requestdata = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         
         [request setHTTPBody:requestdata];
     }
 
-    
     // start connection for requested url and set the connection type
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:request delegate:self];
 

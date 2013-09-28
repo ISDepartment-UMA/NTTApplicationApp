@@ -72,9 +72,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [OSConnectionManager sharedManager].delegate = self;
-    [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
-    [loader startAnimating];
-    [loaderView setHidden:NO];
+
+   // [loader startAnimating];
+    [loaderView setHidden:YES];
 }
 
 #pragma mark - Connection handling

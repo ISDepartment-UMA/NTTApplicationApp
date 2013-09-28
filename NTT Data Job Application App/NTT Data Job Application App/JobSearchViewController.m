@@ -412,6 +412,11 @@
     
     return cell;
 }
+- (IBAction)sarchButtonPressed:(UIButton *)sender
+{
+    [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
+    [self performSegueWithIdentifier:@"showOpenPositionsOverview" sender:self];
+}
 
 
 @end

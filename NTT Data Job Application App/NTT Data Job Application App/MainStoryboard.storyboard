@@ -129,7 +129,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="g5I-KU-xeh" kind="push" id="M4b-4Q-m0D"/>
+                                    <action selector="sarchButtonPressed:" destination="2" eventType="touchUpInside" id="VHX-3y-RAx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWg-ct-zRs">
@@ -191,6 +191,7 @@
                         <outlet property="searchSelection" destination="kwc-Nx-WLi" id="9TA-zc-2ws"/>
                         <outlet property="topics" destination="dXA-Dm-eRJ" id="uCV-He-I4k"/>
                         <outlet property="topicsLabel" destination="D36-Dr-YAY" id="B3a-bW-zEC"/>
+                        <segue destination="g5I-KU-xeh" kind="push" identifier="showOpenPositionsOverview" id="mLm-ON-D5y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -370,7 +371,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoa-uB-RGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="-134"/>
+            <point key="canvasLocation" x="703" y="-148"/>
         </scene>
         <!--Found Position Detail View Controller - Job Description-->
         <scene sceneID="gkz-cV-mHx">
@@ -795,6 +796,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BTH-es-4BF"/>
+        <segue reference="mLm-ON-D5y"/>
     </inferredMetricsTieBreakers>
 </document>
