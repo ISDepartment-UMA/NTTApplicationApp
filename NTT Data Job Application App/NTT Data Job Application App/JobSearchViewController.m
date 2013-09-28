@@ -407,7 +407,7 @@
     
     // Configure the cell...
     cell.accessoryType=UITableViewCellAccessoryNone;
-    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    cell.textLabel.font = [UIFont systemFontOfSize:11];
     cell.textLabel.text = [self titleForRow:indexPath.row];
     
     return cell;
