@@ -124,7 +124,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsc-kf-6QG">
                                 <rect key="frame" x="118" y="443" width="182" height="30"/>
                                 <state key="normal" title="Search">
-                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -134,7 +134,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWg-ct-zRs">
                                 <rect key="frame" x="118" y="402" width="182" height="30"/>
                                 <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="contSearch:" destination="2" eventType="touchUpInside" id="zq2-XP-RKY"/>
@@ -143,7 +143,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRI-F7-igD">
                                 <rect key="frame" x="118" y="485" width="182" height="30"/>
                                 <state key="normal" title="Propose a Job">
-                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -154,7 +154,7 @@
                                 <rect key="frame" x="118" y="523" width="182" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Free Text Search">
-                                    <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -301,7 +301,7 @@
             </objects>
             <point key="canvasLocation" x="418" y="-891"/>
         </scene>
-        <!--Found Positions Overview View Controller - Open Positions-->
+        <!--Found Positions Overview View Controller-->
         <scene sceneID="StM-Id-3z2">
             <objects>
                 <tableViewController id="g5I-KU-xeh" customClass="FoundPositionsOverviewViewController" sceneMemberID="viewController">
@@ -359,7 +359,7 @@
                             <outlet property="delegate" destination="g5I-KU-xeh" id="s3F-vY-6Kq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Open Positions" id="yKp-0r-Nfp"/>
+                    <navigationItem key="navigationItem" id="yKp-0r-Nfp"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoa-uB-RGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -800,6 +800,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BTH-es-4BF"/>
+        <segue reference="M4b-4Q-m0D"/>
     </inferredMetricsTieBreakers>
 </document>

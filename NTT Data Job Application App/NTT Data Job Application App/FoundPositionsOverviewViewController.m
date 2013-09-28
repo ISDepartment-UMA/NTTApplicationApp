@@ -92,6 +92,14 @@
     [self.tableView reloadData];
     [loaderView setHidden:YES];
     [loader setHidden:NO];
+    if ([resultArray count] == 0) {
+        self.title = @"No Open Positions";
+    } else if ([resultArray count] == 1){
+        self.title = @"1 Open Position";
+    } else {
+        self.title = [NSString stringWithFormat:@"%d Open Positions", [resultArray count]];
+    }
+    
 }
 
 - (void)connectionFailed:(OSConnectionType)connectionType
