@@ -21,11 +21,21 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 
 @end
 
 @implementation ApplicationViewController
+
+- (IBAction)cancel:(UIButton *)sender {
+    self.firstName.text=@"";
+    self.lastName.text =@"";
+    self.address.text = @"";
+    self.email.text=@"";
+    self.phoneNumber.text =@"";
+    self.responseLabel.text = @"";
+}
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -91,6 +101,27 @@
         [errorMessage show];
         
         self.responseLabel.hidden = YES;
+    }
+    else{
+        if ([self.email.text rangeOfString:@"@"].location == NSNotFound){
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid email" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+            
+            self.responseLabel.hidden = YES;
+        }
+        else{
+            NSCharacterSet *notdigital = [[NSCharacterSet decimalDigitCharacterSet]invertedSet];
+            if ([self.phoneNumber.text rangeOfCharacterFromSet:notdigital].location !=NSNotFound){
+                
+                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [errorMessage show];
+                    
+                    self.responseLabel.hidden = YES;
+                
+            }
+            
+        }        
+
     }
 }
 - (void)viewDidLoad
