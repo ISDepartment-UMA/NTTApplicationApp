@@ -15,6 +15,7 @@
 #import "Experience.h"
 #import "JobTitle.h"
 #import "DatabaseManager.h"
+#import "FoundPositionsOverviewViewController.h"
 
 @interface JobSearchViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -59,11 +60,6 @@
 #define JSON_DATABASE_JOBTITLE_SELECTOR @"jobtitle"
 #define JSON_DATABASE_TOPIC_SELECTOR @"topic"
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    [OSAPIManager sharedManager].flashObjects = searchObject;
-    NSLog(@"search is %@",searchObject);
-}
 
 -(void)initLoader
 {
@@ -412,9 +408,22 @@
     
     return cell;
 }
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [OSAPIManager sharedManager].flashObjects = searchObject;
+    
+    if ([segue.identifier isEqualToString:@"showOpenPositionsOverview"])
+    {
+        FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;
+        [overviewVC startSearchWithType:OSCGetSearch];
+    }
+    NSLog(@"search is %@",searchObject);
+}
+
 - (IBAction)sarchButtonPressed:(UIButton *)sender
 {
-    [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
     [self performSegueWithIdentifier:@"showOpenPositionsOverview" sender:self];
 }
 

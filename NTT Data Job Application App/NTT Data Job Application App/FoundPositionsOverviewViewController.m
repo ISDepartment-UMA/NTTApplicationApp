@@ -78,7 +78,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [OSConnectionManager sharedManager].delegate = self;
+    //[OSConnectionManager sharedManager].delegate = self;
 
    // [loader startAnimating];
     [loaderView setHidden:YES];
@@ -91,22 +91,39 @@
     responseString = [responseString stringByReplacingOccurrencesOfString:@"null" withString:@"\"none\""];
     
     id jsonObject=  [parser objectWithString:responseString];
-    if (connectionType != OSCGetSearch)
-        self.resultArray = (NSArray*)jsonObject;
+    self.resultArray = (NSArray*)jsonObject;
+    
+    if (!resultArray)
+        resultArray = [[NSArray alloc]init];
     else
-        self.resultArray = jsonObject;
-        
+    {
+        if ([resultArray count] == 1)
+        {
+            NSArray* keys = [(NSDictionary*)resultArray allKeys];
+            if ([keys containsObject:@"resultIsEmpty"])
+            {
+                resultArray = [[NSArray alloc]init];
+            }
+            
+        }
+    }
+    
     [self.tableView reloadData];
     [loaderView setHidden:YES];
     [loader setHidden:NO];
-    if ([resultArray count] == 0) {
-        self.title = @"No Open Positions";
-    } else if ([resultArray count] == 1){
-        self.title = @"1 Open Position";
-    } else {
-        self.title = [NSString stringWithFormat:@"%d Open Positions", [resultArray count]];
-    }
     
+    if ([resultArray count] == 0)
+        self.title = @"No Open Positions";
+    else if ([resultArray count] == 1)
+        self.title = @"1 Open Position";
+    else
+        self.title = [NSString stringWithFormat:@"%d Open Positions", [resultArray count]];
+    
+    if ((connectionType == OSCGetFreeTextSearch) && [resultArray count] == 0)
+    {
+        
+     
+    }
 }
 
 
@@ -203,7 +220,14 @@
 // lets the UITableView know how many rows it should display
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [resultArray count];
+    NSInteger num = [resultArray count];
+    
+    if (num == 0)
+    {
+        num = 1;
+    }
+    
+    return num;
 }
 
 // loads up a table view cell with the search criteria at the given row in the Model
@@ -211,17 +235,28 @@
 {
     static NSString *CellIdentifier = @"Position";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    cell.accessoryType= UITableViewCellAccessoryNone;
-    cell.textLabel.font = [UIFont systemFontOfSize:12];
-    cell.textLabel.text = [self titleForRow:indexPath.row];
 
-  
-    NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
+    if ([resultArray count] > 0)
+    {
+        // Configure the cell...
+        cell.accessoryType= UITableViewCellAccessoryNone;
+        cell.textLabel.font = [UIFont systemFontOfSize:12];
+        cell.textLabel.text = [self titleForRow:indexPath.row];
         
-    cell.detailTextLabel.numberOfLines = 3;
-    cell.detailTextLabel.text = subtitle;
+        
+        NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
+        
+        cell.detailTextLabel.numberOfLines = 3;
+        cell.detailTextLabel.text = subtitle;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.textLabel.font = [UIFont systemFontOfSize:12];
+        cell.textLabel.text = @"No results found for your query";
+        NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Your query was \"%@\"", query];
+    }
     
     return cell;
 }
@@ -229,5 +264,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [OSAPIManager sharedManager].searchObject = [resultArray objectAtIndex:indexPath.row];
+}
+
+- (void)startSearchWithType: (OSConnectionType)type
+{
+    [OSConnectionManager sharedManager].delegate = self;
+    [[OSConnectionManager sharedManager] StartConnection:type];
 }
 @end

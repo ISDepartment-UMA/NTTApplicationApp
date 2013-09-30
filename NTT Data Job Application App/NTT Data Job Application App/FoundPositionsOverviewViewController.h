@@ -11,5 +11,5 @@
 
 @interface FoundPositionsOverviewViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,OSConnectionCompletionDelegate>
 @property NSString *freeText;
-
+- (void)startSearchWithType: (OSConnectionType)type;
 @end

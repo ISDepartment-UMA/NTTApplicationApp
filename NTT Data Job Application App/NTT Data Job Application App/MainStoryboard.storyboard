@@ -224,12 +224,12 @@
                     <navigationItem key="navigationItem" title="Free Text Search" id="KAD-Wz-zGY"/>
                     <connections>
                         <outlet property="freeTextSearchBar" destination="Fkv-cM-MRj" id="aLx-L5-l8Q"/>
-                        <segue destination="g5I-KU-xeh" kind="push" identifier="connect" id="BTH-es-4BF"/>
+                        <segue destination="g5I-KU-xeh" kind="push" identifier="connect" id="KXt-Vr-fCr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcT-J6-2nO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="584"/>
+            <point key="canvasLocation" x="274" y="573"/>
         </scene>
         <!--Job Proposal View Controller - Job Proposal-->
         <scene sceneID="6gp-DC-hbC">
