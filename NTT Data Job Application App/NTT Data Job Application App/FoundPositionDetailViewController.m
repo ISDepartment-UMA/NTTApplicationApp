@@ -40,13 +40,10 @@
     
     [self loadData];
     [self loadSelectedFilters];
-    
 }
 
-                           
 - (void)loadSelectedFilters
 {
-    
     NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"experience"]];
     NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"jobtitles"]];
     NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].flashObjects objectForKey:@"topics"]];
@@ -123,7 +120,6 @@
     
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width,1500)];
     [self.scrollView setScrollEnabled:YES];
-
 }
 
 
@@ -155,5 +151,4 @@
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
 }
-
 @end
