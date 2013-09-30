@@ -426,6 +426,4 @@
 {
     [self performSegueWithIdentifier:@"showOpenPositionsOverview" sender:self];
 }
-
-
 @end

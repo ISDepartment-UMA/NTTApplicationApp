@@ -37,7 +37,6 @@
         FoundPositionDetailViewController *fpdvc = (FoundPositionDetailViewController *)segue.destinationViewController;
         fpdvc.freeText = self.freeText;
     }
-
 }
 
 -(void)initLoader
@@ -78,9 +77,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    //[OSConnectionManager sharedManager].delegate = self;
-
-   // [loader startAnimating];
     [loaderView setHidden:YES];
 }
 
@@ -97,13 +93,11 @@
         resultArray = [[NSArray alloc]init];
     else
     {
-        if ([resultArray count] == 1)
+        if ([resultArray count] == 1 && connectionType == OSCGetFreeTextSearch)
         {
             NSArray* keys = [(NSDictionary*)resultArray allKeys];
             if ([keys containsObject:@"resultIsEmpty"])
-            {
                 resultArray = [[NSArray alloc]init];
-            }
             
         }
     }
@@ -118,12 +112,6 @@
         self.title = @"1 Open Position";
     else
         self.title = [NSString stringWithFormat:@"%d Open Positions", [resultArray count]];
-    
-    if ((connectionType == OSCGetFreeTextSearch) && [resultArray count] == 0)
-    {
-        
-     
-    }
 }
 
 
@@ -223,9 +211,7 @@
     NSInteger num = [resultArray count];
     
     if (num == 0)
-    {
         num = 1;
-    }
     
     return num;
 }
@@ -257,7 +243,6 @@
         NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Your query was \"%@\"", query];
     }
-    
     return cell;
 }
 

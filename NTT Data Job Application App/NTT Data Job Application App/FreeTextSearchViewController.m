@@ -38,10 +38,9 @@
     freeTextSearchBar.showsCancelButton = NO;
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
    [self performSegueWithIdentifier:@"connect" sender:searchBar];
-    
 }
 
 
@@ -51,8 +50,8 @@
     if ([segue.identifier isEqualToString:@"connect"])
     {
         [[OSAPIManager sharedManager].searchObject setObject:freeTextSearchBar.text forKey:@"freeText"];
-        //[[OSConnectionManager sharedManager] StartConnection:OSCGetFreeTextSearch];
-        if ([segue.destinationViewController isKindOfClass:[FoundPositionsOverviewViewController class]]) {
+        if ([segue.destinationViewController isKindOfClass:[FoundPositionsOverviewViewController class]])
+        {
             FoundPositionsOverviewViewController *fpovc = (FoundPositionsOverviewViewController *)segue.destinationViewController;
             fpovc.freeText = freeTextSearchBar.text;
             
