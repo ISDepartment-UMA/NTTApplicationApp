@@ -82,6 +82,10 @@
             content = [content stringByAppendingString:contentTopic];
     }
     
+    if (self.freeText != NULL) {
+        content = self.freeText;
+    }
+    
     self.displaySelectedFilters.text = content;
 }
     

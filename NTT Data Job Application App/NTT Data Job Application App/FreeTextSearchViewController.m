@@ -9,6 +9,7 @@
 #import "FreeTextSearchViewController.h"
 #import "OSAPIManager.h"
 #import "OSConnectionManager.h"
+#import "FoundPositionsOverviewViewController.h"
 
 @interface FreeTextSearchViewController ()<UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *freeTextSearchBar;
@@ -51,6 +52,10 @@
     {
         [[OSAPIManager sharedManager].searchObject setObject:freeTextSearchBar.text forKey:@"freeText"];
         [[OSConnectionManager sharedManager] StartConnection:OSCGetFreeTextSearch];
+        if ([segue.destinationViewController isKindOfClass:[FoundPositionsOverviewViewController class]]) {
+            FoundPositionsOverviewViewController *fpovc = (FoundPositionsOverviewViewController *)segue.destinationViewController;
+            fpovc.freeText = freeTextSearchBar.text;
+        }
     }
 }
 

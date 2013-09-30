@@ -7,6 +7,7 @@
 //
 
 #import "FoundPositionsOverviewViewController.h"
+#import "FoundPositionDetailViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "OSConnectionManager.h"
 #import "SBJson.h"
@@ -28,9 +29,15 @@
 @synthesize loader;
 @synthesize resultArray;
 @synthesize parser;
+
 #pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{  
+{
+    if ([segue.destinationViewController isKindOfClass:[FoundPositionDetailViewController class]]) {
+        FoundPositionDetailViewController *fpdvc = (FoundPositionDetailViewController *)segue.destinationViewController;
+        fpdvc.freeText = self.freeText;
+    }
+
 }
 
 -(void)initLoader
@@ -101,6 +108,7 @@
     }
     
 }
+
 
 - (void)connectionFailed:(OSConnectionType)connectionType
 {}

@@ -9,5 +9,6 @@
 #import "OSAPIManager.h"
 
 @interface FoundPositionDetailViewController : UIViewController
+@property NSString *freeText;
 
 @end

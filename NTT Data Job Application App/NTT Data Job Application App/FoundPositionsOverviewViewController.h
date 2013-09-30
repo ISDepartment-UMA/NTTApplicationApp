@@ -10,5 +10,6 @@
 #import "OSConnectionManager.h"
 
 @interface FoundPositionsOverviewViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,OSConnectionCompletionDelegate>
+@property NSString *freeText;
 
 @end
