@@ -239,9 +239,9 @@
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.textLabel.font = [UIFont systemFontOfSize:12];
-        cell.textLabel.text = @"No results found for your query";
+        cell.textLabel.text = @"No results found for your keyword";
         NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Your query was \"%@\"", query];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Your keyword was \"%@\"", query];
     }
     return cell;
 }
