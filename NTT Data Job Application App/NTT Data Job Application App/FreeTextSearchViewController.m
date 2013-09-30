@@ -31,7 +31,7 @@
 
 #pragma mark UISearchBarDelegate
 - (void) searchBarTextDidBeginEditing:(UISearchBar*) searchBar {
-    freeTextSearchBar.showsCancelButton = YES;
+    freeTextSearchBar.showsCancelButton = NO;
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
