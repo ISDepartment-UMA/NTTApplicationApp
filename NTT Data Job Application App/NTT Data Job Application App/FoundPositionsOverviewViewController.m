@@ -23,7 +23,7 @@
 @property (strong, nonatomic)  NSArray* resultArray;
 @property (nonatomic) BOOL locationOrderedAscending;
 @property (nonatomic) BOOL jobTitleOrderedAscending;
-@property (nonatomic)UIAlertView *errorMessage;
+
 
 @end
 
@@ -32,7 +32,7 @@
 @synthesize loader;
 @synthesize resultArray;
 @synthesize parser;
-@synthesize errorMessage;
+
 
 #pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -42,15 +42,7 @@
         fpdvc.freeText = self.freeText;
     }
 }
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(alertView == errorMessage)
-    { if(buttonIndex ==0)
-    { //FreeTextSearchViewController *ftsvc = [[FreeTextSearchViewController alloc]init];
-        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"FTSVC"] animated:YES];
-    }
-    }
-}
+
 
 -(void)initLoader
 {
@@ -112,12 +104,7 @@
             NSArray* keys = [(NSDictionary*)resultArray allKeys];
             if ([keys containsObject:@"resultIsEmpty"])
                 resultArray = [[NSArray alloc]init];
-            NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
-                               
-            self.errorMessage = [[UIAlertView alloc] initWithTitle:@"No jobs found" message:[NSString stringWithFormat:@"Your keyword was \"%@\"", query] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            errorMessage.delegate = self;
-            [errorMessage show];
-            
+       
         }
     }
     
@@ -229,8 +216,8 @@
 {
      NSInteger num = [resultArray count];
     
-    //if (num == 0)
-    //    num = 1;
+    if (num == 0)
+        num = 1;
     
     return num;
 }
@@ -244,6 +231,7 @@
     if ([resultArray count] > 0)
     {
         // Configure the cell...
+        cell.userInteractionEnabled = YES;
         cell.accessoryType= UITableViewCellAccessoryNone;
         cell.textLabel.font = [UIFont systemFontOfSize:12];
         cell.textLabel.text = [self titleForRow:indexPath.row];
@@ -256,11 +244,12 @@
     }
     else
     {
-     //   cell.accessoryType = UITableViewCellAccessoryNone;
-     //   cell.textLabel.font = [UIFont systemFontOfSize:12];
-      //  cell.textLabel.text = @"No results found for your keyword";
-      //  NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
-      //  cell.detailTextLabel.text = [NSString stringWithFormat:@"Your keyword was \"%@\"", query];
+        cell.userInteractionEnabled = NO;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.textLabel.font = [UIFont systemFontOfSize:12];
+        cell.textLabel.text = @"No results found for your keyword";
+        NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Your keyword was \"%@\"", query];
     }
     return cell;
 }

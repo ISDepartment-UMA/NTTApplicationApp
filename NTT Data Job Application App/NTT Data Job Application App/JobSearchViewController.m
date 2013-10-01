@@ -97,7 +97,7 @@
     self.locationsList =[[NSArray alloc] init];
     self.experienceList = [[NSArray alloc] init];
     self.selected = self.jobTitleList;
-    self.jobTitle.selected = YES;
+    //self.jobTitle.selected = YES;
     [self selectTitle:nil];
     
     self.searchSelection.dataSource = self;
