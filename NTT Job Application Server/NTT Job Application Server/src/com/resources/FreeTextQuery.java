@@ -44,7 +44,11 @@ import dao.JobsDao;
 		 
 		 try {
 			JSONObject jsonObject=new JSONObject(message);
-			freetext=jsonObject.getString("freetext");			 
+			if(jsonObject.has("freetext")){
+			freetext=jsonObject.getString("freetext");}
+			else{
+				errorMessage+=" freetext parameter is missing! ";
+			}
 			System.out.println("freetext: "+freetext);
 			 
 			
@@ -53,6 +57,7 @@ import dao.JobsDao;
 			e1.printStackTrace();
 		}
 		 
+		if(freetext!=null){
     	 List<Jobs> myjobs=new ArrayList<Jobs>();
  		JobsDao myJobsDao=new JobsDao(); 	
  		List<SearchHits> searchHitsList=new ArrayList<SearchHits>();
@@ -281,8 +286,12 @@ import dao.JobsDao;
  		//}
  		
  		responseMessage=sw.toString();
- 		}		 
+ 		}		
+		}
  		
+ 		if(!errorMessage.isEmpty()){
+ 			responseMessage=errorMessage;
+ 		}		
  		
  		return responseMessage;
      }
