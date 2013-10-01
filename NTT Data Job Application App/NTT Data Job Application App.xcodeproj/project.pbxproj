@@ -51,6 +51,8 @@
 		28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
+		9A187DFF17FB3BB40097650D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187DFE17FB3BB40097650D /* MyProfileViewController.m */; };
+		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +142,10 @@
 		28EAC95017F2F0140089467C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "NTT Data Job Application App/Model/DatabaseManager.m"; sourceTree = SOURCE_ROOT; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
+		9A187DFD17FB3BB40097650D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		9A187DFE17FB3BB40097650D /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
+		9A187E0017FB3C710097650D /* MyApplicationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplicationsViewController.h; sourceTree = "<group>"; };
+		9A187E0117FB3C710097650D /* MyApplicationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplicationsViewController.m; sourceTree = "<group>"; };
 		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
 		9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTextSearchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,8 +238,12 @@
 				28E44B2117E3C6CB0084543B /* FoundPositionDetailViewController.h */,
 				28E44B2217E3C6CB0084543B /* FoundPositionDetailViewController.m */,
 				28E44B2317E3C6CB0084543B /* FoundPositionsOverviewViewController.h */,
+				9A187E0017FB3C710097650D /* MyApplicationsViewController.h */,
+				9A187E0117FB3C710097650D /* MyApplicationsViewController.m */,
 				28E44B2417E3C6CB0084543B /* FoundPositionsOverviewViewController.m */,
 				28E44B2517E3C6CB0084543B /* JobProposalViewController.h */,
+				9A187DFD17FB3BB40097650D /* MyProfileViewController.h */,
+				9A187DFE17FB3BB40097650D /* MyProfileViewController.m */,
 				28E44B2617E3C6CB0084543B /* JobProposalViewController.m */,
 				28E44B2717E3C6CB0084543B /* JobSearchViewController.h */,
 				28E44B2817E3C6CB0084543B /* JobSearchViewController.m */,
@@ -464,6 +474,7 @@
 				28E44B2B17E3C6CB0084543B /* JobProposalViewController.m in Sources */,
 				283B7D4F17FB50C3005F40C7 /* JobTitle.m in Sources */,
 				28E44B2C17E3C6CB0084543B /* JobSearchViewController.m in Sources */,
+				9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */,
 				28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */,
 				80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */,
 			);
