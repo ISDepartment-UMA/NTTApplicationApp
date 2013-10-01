@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.List;
 
 import model.Experience;
+import model.Jobs;
 import model.Jobtitle;
 import model.Locations;
 import model.Topics;
@@ -35,8 +36,7 @@ public class ApplicationsDao {
 		 
 		public Boolean insertApplications(Applications application){
 			 
-			Boolean test=null;
-			query = "SELECT * FROM jobtitle WHERE jobtitle=''";
+			Boolean test=null;			 
 			String query = "insert into applications (device_id, job_ref_no, apply_time, application_status, email, first_name, last_name, address, phone_no ) VALUES (";
 			query += "\"" + application.getDevice_id() + "\"" + ",";
 			query += "\"" + application.getJob_ref_no() + "\"" + ",";
@@ -118,7 +118,75 @@ public class ApplicationsDao {
 
 
 		public Boolean deleteApplications(String device_id, String job_ref_no) {
-			// TODO Auto-generated method stub
-			return null;
+			Boolean test=null;
+			query = "DELETE FROM applications WHERE device_id='"+ device_id +"' and job_ref_no= '" + job_ref_no + "'";
+			 		
+			try{
+				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
+				int after_delete_num=stmt.executeUpdate(query);				 
+				DbUtilHelper.log("deleteApplications success: " + query);
+				 
+				if(after_delete_num>=0){
+					test=true;
+				}				
+					else{
+						test=false;
+				}			
+				DbUtilHelper.log("deleteApplications: " + test);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("deleteApplications failed");
+			}
+			 return test;
 		}
+		
+		public List<Applications> queryApplications(String device_id, String job_ref_no){
+			
+			
+			List<Applications> applications = null;
+			query = "SELECT * FROM applications WHERE device_id = '" + device_id
+					+ "' and job_ref_no = " + job_ref_no + "'";
+			
+			try {
+				applications = run.query(query, applicationsHandler);
+				DbUtilHelper.log("queryApplications success: " + query);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("queryApplications failed");
+
+			}
+
+			if (applications.isEmpty()) {
+				DbUtilHelper.log("queryApplications result is empty!");
+
+			}
+
+			return applications.isEmpty() ? null : applications;		
+		}
+		
+public List<Applications> queryApplications(String device_id){
+			
+			
+			List<Applications> applications = null;
+			query = "SELECT * FROM applications WHERE device_id = '" + device_id
+					+ "'";
+			
+			try {
+				applications = run.query(query, applicationsHandler);
+				DbUtilHelper.log("queryApplications success: " + query);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("queryApplications failed");
+
+			}
+
+			if (applications.isEmpty()) {
+				DbUtilHelper.log("queryApplications result is empty!");
+
+			}
+
+			return applications.isEmpty() ? null : applications;		
+		}
+		
+		
 }

@@ -77,7 +77,7 @@ import dao.ApplicationsDao;
  			isSuccessfulDeleted=appDao.deleteApplications(device_id,job_ref_no);
  			  
  					if(isSuccessfulDeleted==true)
- 					responseMessage= "{\"applyingJob_successful\":true}"; 	  		 
+ 					responseMessage= "{\"deleteapplication_successful\":true}"; 	  		 
  		} 		
  		
  		else{
