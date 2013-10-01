@@ -145,7 +145,7 @@ public class ApplicationsDao {
 			
 			List<Applications> applications = null;
 			query = "SELECT * FROM applications WHERE device_id = '" + device_id
-					+ "' and job_ref_no = " + job_ref_no + "'";
+					+ "' and job_ref_no ='" + job_ref_no + "'";
 			
 			try {
 				applications = run.query(query, applicationsHandler);
