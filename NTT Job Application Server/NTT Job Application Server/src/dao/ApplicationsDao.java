@@ -46,7 +46,7 @@ public class ApplicationsDao {
 			query += "\"" + application.getFirst_name() + "\"" + ",";
 			query += "\"" + application.getLast_name() + "\"" + ",";
 			query += "\"" + application.getAddress() + "\"" + ",";
-			query += "\"" + application.getPhone_no() + "\"" + ",";			 
+			query += "\"" + application.getPhone_no() + "\"";			 
 			query += ")";			
 			try{
 				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
@@ -89,5 +89,30 @@ public class ApplicationsDao {
 
 			}
 			 return test;			
+		}
+
+
+		public boolean checkRepeatApply(String job_ref_no, String device_id) {
+			Boolean test=null;
+			ResultSet rs=null;
+			query="select * from applications where job_ref_no ='"+ job_ref_no+"' and device_id = '"+ device_id + "'";
+			try{
+				Statement stmt=DbUtilHelper.getConnection().createStatement();
+				rs=stmt.executeQuery(query);
+				DbUtilHelper.log("checkRepeatApply success: " + query);
+				 
+				if(rs.next()){
+					test=true;
+				}				
+					else{
+						test=false;
+				}			
+				DbUtilHelper.log("checkRepeatApply: " + test);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("checkRepeatApply failed");
+
+			}
+			 return test;					 
 		}
 }
