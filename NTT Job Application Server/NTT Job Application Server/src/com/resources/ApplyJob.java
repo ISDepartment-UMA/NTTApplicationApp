@@ -157,10 +157,11 @@ import dao.JobsDao;
  		
  		else{
  			if(refNOIsValid==false){
- 				errorMessage+="the parameter : job_ref_no "+ job_ref_no  +" is wrong, please check again";
- 			} 			 
- 			responseMessage=errorMessage;		
+ 				errorMessage+="the parameter : job_ref_no "+ job_ref_no  +" is wrong, please check again";} 			  			
  			}		
+ 		if(!errorMessage.isEmpty()){
+ 			responseMessage=errorMessage;
+ 		}
  		return responseMessage;
      }
 	 
