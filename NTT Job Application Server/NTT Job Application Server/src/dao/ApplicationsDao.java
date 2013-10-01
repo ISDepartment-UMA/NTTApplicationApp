@@ -47,12 +47,7 @@ public class ApplicationsDao {
 			query += "\"" + application.getLast_name() + "\"" + ",";
 			query += "\"" + application.getAddress() + "\"" + ",";
 			query += "\"" + application.getPhone_no() + "\"" + ",";			 
-			query += ")";
-			
-			 
-			
-			 
-			
+			query += ")";			
 			try{
 				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
 				int after_insert_num=stmt.executeUpdate(query);				 
@@ -68,16 +63,31 @@ public class ApplicationsDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				DbUtilHelper.log("insertApplications failed");
-
 			}
-
 			 return test;
-			
-
 		}
 		
-		
-	 
-	
+		public Boolean checkRefNOInput(String job_ref_no){
+			Boolean test=null;
+			ResultSet rs=null;
+			query="select * from jobs where ref_no ='"+ job_ref_no+"'";
+			try{
+				Statement stmt=DbUtilHelper.getConnection().createStatement();
+				rs=stmt.executeQuery(query);
+				DbUtilHelper.log("checkRefNOInput success: " + query);
+				 
+				if(rs.next()){
+					test=true;
+				}				
+					else{
+						test=false;
+				}			
+				DbUtilHelper.log("checkRefNOInput: " + test);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("checkRefNOInput failed");
 
+			}
+			 return test;			
+		}
 }
