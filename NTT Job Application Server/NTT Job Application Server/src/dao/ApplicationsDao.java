@@ -115,4 +115,10 @@ public class ApplicationsDao {
 			}
 			 return test;					 
 		}
+
+
+		public Boolean deleteApplications(String device_id, String job_ref_no) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 }
