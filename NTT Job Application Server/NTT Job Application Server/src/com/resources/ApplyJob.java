@@ -57,16 +57,53 @@ import dao.JobsDao;
 		 
 		 try {
 			JSONObject jsonObject=new JSONObject(message);
-			device_id=jsonObject.getString("device_id");
-			job_ref_no=jsonObject.getString("job_ref_no");
-			apply_time=jsonObject.getString("apply_time");
-			application_status=jsonObject.getString("application_status");
-			email=jsonObject.getString("email");
-			first_name=jsonObject.getString("first_name");
-			last_name=jsonObject.getString("last_name");
-			address=jsonObject.getString("address");
-			phone_no=jsonObject.getString("phone_no");
 			 
+ 			if(jsonObject.has("device_id")){
+			device_id=jsonObject.getString("device_id");
+ 			}else{
+ 				errorMessage+=" the parameter : device_id is missing! ";
+ 			}
+ 			
+ 			if(jsonObject.has("job_ref_no")){
+			job_ref_no=jsonObject.getString("job_ref_no");
+ 			}else{
+			errorMessage+=" the parameter : job_ref_no is missing! ";
+			}
+ 			
+ 			if(jsonObject.has("apply_time")){
+			apply_time=jsonObject.getString("apply_time");}
+ 			else{ 		
+			errorMessage+=" the parameter : apply_time is missing! ";}
+ 			
+ 			if(jsonObject.has("application_status")){
+			application_status=jsonObject.getString("application_status");}
+ 			else{
+			errorMessage+=" the parameter : application_status is missing! ";}
+			
+ 			if(jsonObject.has("email")){
+			email=jsonObject.getString("email");}
+ 			else{
+			errorMessage+=" the parameter : email is missing! ";}
+ 			
+ 			if(jsonObject.has("first_name")){ 	 
+			first_name=jsonObject.getString("first_name");}
+ 			else{ 
+			errorMessage+=" the parameter : first_name is missing! ";}
+ 			
+ 			if(jsonObject.has("last_name")){
+			last_name=jsonObject.getString("last_name");}
+ 			else{
+			errorMessage+=" the parameter : last_name is missing! ";}
+ 			
+ 			if(jsonObject.has("address")){
+			address=jsonObject.getString("address");}
+ 			else{
+			errorMessage+=" the parameter : address is missing! ";}
+ 			
+ 			if(jsonObject.has("phone_no")){
+			phone_no=jsonObject.getString("phone_no");}
+ 			else{
+			errorMessage+=" the parameter : phone_no is missing! ";}
 			
 		} catch (JSONException e1) {
 			// TODO Auto-generated catch block
@@ -111,58 +148,19 @@ import dao.JobsDao;
  				isSuccessfulInserted=appDao.insertApplications(application);
  			  
  					if(isSuccessfulInserted==true)
- 					responseMessage= "{\"applyingJob_successful\":true}"; 	 
- 			  
- 			  
+ 					responseMessage= "{\"applyingJob_successful\":true}"; 	  			  
  				}
  				else{
  					responseMessage="the user already applyed this job, please don't apply again";
- 				}
- 		
- 		 
- 		
- 		 		
- 		 
+ 				} 		 
  		} 		
  		
  		else{
  			if(refNOIsValid==false){
  				errorMessage+="the parameter : job_ref_no "+ job_ref_no  +" is wrong, please check again";
- 			}
- 			if(device_id==null){
- 				errorMessage+="the parameter : device_id is missing!";
- 			}
- 			if(job_ref_no==null){
- 				errorMessage+="the parameter : job_ref_no is missing!";
- 			}
- 			if(apply_time==null){
- 				errorMessage+="the parameter : apply_time is missing!";
- 			}
- 			if(application_status==null){
- 				errorMessage+="the parameter : application_status is missing!";
- 			}
- 			if(email==null){
- 				errorMessage+="the parameter : email is missing!";
- 			}
- 			if(first_name==null){
- 				errorMessage+="the parameter : first_name is missing!";
- 			}
- 			if(last_name==null){
- 				errorMessage+="the parameter : last_name is missing!";
- 			}
- 			if(address==null){
- 				errorMessage+="the parameter : address is missing!";
- 			}
- 			if(phone_no==null){
- 				errorMessage+="the parameter : phone_no is missing!";
- 			}
- 			
- 			 
- 			responseMessage=errorMessage;
- 			
- 		}
- 		
- 		
+ 			} 			 
+ 			responseMessage=errorMessage;		
+ 			}		
  		return responseMessage;
      }
 	 
