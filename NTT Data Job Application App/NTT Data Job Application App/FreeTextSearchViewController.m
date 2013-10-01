@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     freeTextSearchBar.delegate =self;
     
     freeTextSearchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;

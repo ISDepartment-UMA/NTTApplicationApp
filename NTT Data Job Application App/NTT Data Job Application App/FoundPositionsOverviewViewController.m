@@ -13,8 +13,9 @@
 #import "SBJson.h"
 #import "OSAPIManager.h"
 #import "DatabaseManager.h"
+#import "FreeTextSearchViewController.h"
 
-@interface FoundPositionsOverviewViewController()
+@interface FoundPositionsOverviewViewController()<UIAlertViewDelegate>
 @property(nonatomic,strong) UIView* loaderView;
 @property(nonatomic,strong)  UIActivityIndicatorView* loader;
 @property (nonatomic, strong) SBJsonParser *parser;
@@ -22,6 +23,8 @@
 @property (strong, nonatomic)  NSArray* resultArray;
 @property (nonatomic) BOOL locationOrderedAscending;
 @property (nonatomic) BOOL jobTitleOrderedAscending;
+@property (nonatomic)UIAlertView *errorMessage;
+
 @end
 
 @implementation FoundPositionsOverviewViewController
@@ -29,6 +32,7 @@
 @synthesize loader;
 @synthesize resultArray;
 @synthesize parser;
+@synthesize errorMessage;
 
 #pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -36,6 +40,15 @@
     if ([segue.destinationViewController isKindOfClass:[FoundPositionDetailViewController class]]) {
         FoundPositionDetailViewController *fpdvc = (FoundPositionDetailViewController *)segue.destinationViewController;
         fpdvc.freeText = self.freeText;
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView == errorMessage)
+    { if(buttonIndex ==0)
+    { //FreeTextSearchViewController *ftsvc = [[FreeTextSearchViewController alloc]init];
+        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"FTSVC"] animated:YES];
+    }
     }
 }
 
@@ -80,6 +93,7 @@
     [loaderView setHidden:YES];
 }
 
+
 #pragma mark - Connection handling
 -(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
 {
@@ -98,6 +112,11 @@
             NSArray* keys = [(NSDictionary*)resultArray allKeys];
             if ([keys containsObject:@"resultIsEmpty"])
                 resultArray = [[NSArray alloc]init];
+            NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
+                               
+            self.errorMessage = [[UIAlertView alloc] initWithTitle:@"No jobs found" message:[NSString stringWithFormat:@"Your keyword was \"%@\"", query] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            errorMessage.delegate = self;
+            [errorMessage show];
             
         }
     }
@@ -208,10 +227,10 @@
 // lets the UITableView know how many rows it should display
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger num = [resultArray count];
+     NSInteger num = [resultArray count];
     
-    if (num == 0)
-        num = 1;
+    //if (num == 0)
+    //    num = 1;
     
     return num;
 }
@@ -237,11 +256,11 @@
     }
     else
     {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.font = [UIFont systemFontOfSize:12];
-        cell.textLabel.text = @"No results found for your keyword";
-        NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Your keyword was \"%@\"", query];
+     //   cell.accessoryType = UITableViewCellAccessoryNone;
+     //   cell.textLabel.font = [UIFont systemFontOfSize:12];
+      //  cell.textLabel.text = @"No results found for your keyword";
+      //  NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
+      //  cell.detailTextLabel.text = [NSString stringWithFormat:@"Your keyword was \"%@\"", query];
     }
     return cell;
 }

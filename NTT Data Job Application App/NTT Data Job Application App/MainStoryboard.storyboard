@@ -197,7 +197,7 @@
         <!--Free Text Search View Controller - Free Text Search-->
         <scene sceneID="8L0-Bv-NLb">
             <objects>
-                <viewController id="VLU-QZ-a2r" customClass="FreeTextSearchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FTSVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VLU-QZ-a2r" customClass="FreeTextSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OLo-L9-CZ0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
