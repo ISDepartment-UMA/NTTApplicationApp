@@ -51,9 +51,16 @@ import dao.ApplicationsDao;
 		 
 		 try {
 			JSONObject jsonObject=new JSONObject(message);
-			device_id=jsonObject.getString("device_id");
-			job_ref_no=jsonObject.getString("job_ref_no");
-		 
+			
+			if(jsonObject.has("device_id")){
+			device_id=jsonObject.getString("device_id");}
+			else{
+			errorMessage+=" the parameter : device_id is missing! ";}
+			
+			if(jsonObject.has("job_ref_no")){
+			job_ref_no=jsonObject.getString("job_ref_no");}
+		 	else{
+		 	errorMessage+=" the parameter : job_ref_no is missing! ";}	 
 			 
 			
 		} catch (JSONException e1) {
@@ -73,23 +80,24 @@ import dao.ApplicationsDao;
  				job_ref_no!=null		 		
  				)
  		{		 
+ 			if(appDao.queryApplications(device_id, job_ref_no) != null){
  			 
  			isSuccessfulDeleted=appDao.deleteApplications(device_id,job_ref_no);
  			  
  					if(isSuccessfulDeleted==true)
- 					responseMessage= "{\"deleteapplication_successful\":true}"; 	  		 
+ 					responseMessage= "{\"deleteapplication_successful\":true}"; 	  
+ 			}else{
+ 				errorMessage+=" the target application doesn't exist! ";
+ 			}
  		} 		
  		
  		else{
  			if(refNOIsValid==false){
- 				errorMessage+="the parameter : job_ref_no "+ job_ref_no  +" is wrong, please check again";
- 			}
- 			if(device_id==null){
- 				errorMessage+="the parameter : device_id is missing!";
- 			}
- 			 
+ 				errorMessage+=" the parameter : job_ref_no "+ job_ref_no  +" is wrong, please check again ";
+ 			}		 			
+ 		}
+ 		if(!errorMessage.isEmpty()){
  			responseMessage=errorMessage;
- 			
  		}
  		
  		
