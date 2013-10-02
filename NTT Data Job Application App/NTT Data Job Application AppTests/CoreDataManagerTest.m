@@ -252,4 +252,50 @@
     positions = [[DatabaseManager sharedInstance]allOpenPositions];
     XCTAssert([positions count] == 0, @"Positions count should be zero");
 }
+
+- (void) testCreateApplication
+{
+    XCTAssertNotNil([[DatabaseManager sharedInstance]createApplication], @"Created Application should not be nil");
+}
+
+- (void)testPrefilledFields
+{
+    Application* application = [[DatabaseManager sharedInstance]createApplication];
+    
+    XCTAssertNotNil(application.dateApplied, @"Date applied should be not nil");
+    
+    XCTAssertNotNil(application.deviceID, @"DevideID should be filled");
+}
+
+- (void) testGetAllApplications
+{
+    [[DatabaseManager sharedInstance]createApplication];
+    XCTAssert([[[DatabaseManager sharedInstance]getAllApplications]count] > 0, @"There should exist at least one application");
+}
+
+- (void) testClearApplications
+{
+    [[DatabaseManager sharedInstance]createApplication];
+        XCTAssert([[[DatabaseManager sharedInstance]getAllApplications]count] > 0, @"There should exist at least one application");
+    [[DatabaseManager sharedInstance]clearApplications];
+        XCTAssert([[[DatabaseManager sharedInstance]getAllApplications]count] == 0, @"There should be no application in the database");
+}
+
+- (void) testClearProfiles
+{
+    [[DatabaseManager sharedInstance]getMyProfile];
+    
+    XCTAssertNoThrow([[DatabaseManager sharedInstance]clearMyProfile], @"There should be no error during profile deletion");
+}
+
+- (void) testGetProfile
+{
+    MyProfile* myProfile = [[DatabaseManager sharedInstance]getMyProfile];
+    XCTAssertNotNil(myProfile, @"MyProfile should not be nil");
+    
+    MyProfile* secondProfile = [[DatabaseManager sharedInstance]getMyProfile];
+    XCTAssertEqual(myProfile, secondProfile, @"There should be only one profile in the database");
+    
+    XCTAssertNotNil(myProfile.deviceID, @"Device ID should be set");
+}
 @end

@@ -12,6 +12,8 @@
 #import "Location.h"
 #import "Topic.h"
 #import "OpenPosition.h"
+#import "Application.h"
+#import "MyProfile.h"
 
 @interface DatabaseManager : NSObject
 + (DatabaseManager*)sharedInstance;
@@ -48,4 +50,10 @@
 - (void)clearJobTitles;
 - (void)clearTopics;
 - (void)clearOpenPositions;
+
+- (Application*)createApplication;
+- (NSArray*)getAllApplications;
+- (MyProfile*)getMyProfile;
+- (void)clearApplications;
+- (void)clearMyProfile;
 @end
