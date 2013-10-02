@@ -1,6 +1,8 @@
 package dao;
 
+import model.FAQ;
 import model.Jobs;
+import model.Jobtitle;
 import utility.DbUtilHelper;
 
 import java.sql.DriverManager;
@@ -25,6 +27,7 @@ public class JobsDao {
 	// the properties of dao
 	private QueryRunner run;
 	private ResultSetHandler<List<Jobs>> h;
+	private ResultSetHandler<List<FAQ>> faqhandler;
 	private String dbTable = "jobs";
 	private String query;
 	
@@ -259,5 +262,21 @@ public class JobsDao {
 
 	}
 
+	public List<FAQ> queryFAQ(){
+		List<FAQ> faq = null;
+		query = "SELECT * FROM faq";
+		
+		try {
+			faq = run.query(query, faqhandler);
+			DbUtilHelper.log("queryFAQ success: " + query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("queryFAQ failed");
+		}
+		if (faq.isEmpty()) {
+			DbUtilHelper.log("queryFAQ result is empty!");
+		}
+		return faq.isEmpty() ? null : faq;
+	}
 }
 
