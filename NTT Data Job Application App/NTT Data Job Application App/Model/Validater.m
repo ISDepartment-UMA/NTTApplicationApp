@@ -24,12 +24,12 @@
     return ([matches count] >= 1);
 }
 
-- (BOOL) checkIfPhoneNoIsValid:(NSString *)phoneNo
+- (BOOL)checkIfPhoneNoIsValid:(NSString *)phoneNo
 {
     NSError* error = nil;
     NSDataDetector* detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypePhoneNumber error:&error];
     NSUInteger matches = [detector numberOfMatchesInString:phoneNo options:NSMatchingReportCompletion range:NSMakeRange(0, [phoneNo length])];
     
-    return (matches != 0);
+    return (matches > 0);
 }
 @end

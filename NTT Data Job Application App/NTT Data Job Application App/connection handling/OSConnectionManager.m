@@ -98,6 +98,26 @@ static OSConnectionManager *sharedManager = nil;
         
         [request setHTTPBody:requestdata];
     }
+    
+    if (connectionType == OSCSendApplication)
+    {
+        
+    }
+    
+    if (connectionType == OSCSendWithdrawApplication)
+    {
+        
+    }
+    
+    if (connectionType == OSCGetApplicationsByDeviceAndReference)
+    {
+        
+    }
+    
+    if (connectionType == OSCGetApplicationsByDevice)
+    {
+        
+    }
 
     // start connection for requested url and set the connection type
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:request delegate:self];

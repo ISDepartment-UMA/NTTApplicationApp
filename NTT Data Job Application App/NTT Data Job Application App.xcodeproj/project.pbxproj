@@ -286,8 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */,
-				28E44AC417E3C5510084543B /* Supporting Files */,
 				283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */,
+				28E44AC417E3C5510084543B /* Supporting Files */,
 			);
 			path = "NTT Data Job Application AppTests";
 			sourceTree = "<group>";
