@@ -66,7 +66,7 @@ static OSConnectionManager *sharedManager = nil;
     
     if (connectionType == OSCGetSearch)
     {
-        NSDictionary* searchObject = [OSAPIManager sharedManager].flashObjects;
+        NSDictionary* searchObject = [OSAPIManager sharedManager].searchObject;
         
         NSString* exp = [searchObject objectForKey:@"experience"];
         exp = [self preprocessString:exp];
@@ -97,6 +97,26 @@ static OSConnectionManager *sharedManager = nil;
         NSData* requestdata = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         
         [request setHTTPBody:requestdata];
+    }
+    
+    if (connectionType == OSCSendApplication)
+    {
+        
+    }
+    
+    if (connectionType == OSCSendWithdrawApplication)
+    {
+        
+    }
+    
+    if (connectionType == OSCGetApplicationsByDeviceAndReference)
+    {
+        
+    }
+    
+    if (connectionType == OSCGetApplicationsByDevice)
+    {
+        
     }
 
     // start connection for requested url and set the connection type

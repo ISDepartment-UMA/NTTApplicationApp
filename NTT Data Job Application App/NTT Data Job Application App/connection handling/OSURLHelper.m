@@ -82,6 +82,26 @@ static OSURLHelper *sharedHelper = nil;
             return [sharedHelper getFreeTextSearch];
             break;
         }
+        case OSCGetApplicationsByDevice:
+        {
+            return [sharedHelper getApplications];
+            break;
+        }
+        case OSCGetApplicationsByDeviceAndReference:
+        {
+            return [sharedHelper getApplications];
+            break;
+        }
+        case OSCSendApplication:
+        {
+            return [sharedHelper sendApplication];
+            break;
+        }
+        case OSCSendWithdrawApplication:
+        {
+            return [sharedHelper sendWithdrawApplication];
+            break;
+        }
     }
     return [NSURL URLWithString:@""];
 }
@@ -125,6 +145,26 @@ static OSURLHelper *sharedHelper = nil;
 -(NSURL*)getFreeTextSearch
 {
     NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/freetextquery"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+}
+-(NSURL*)getApplications
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/queryapplication"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+}
+
+-(NSURL*)sendApplication
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/applyjob"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+}
+
+-(NSURL*)sendWithdrawApplication
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/withdrawapplication"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }

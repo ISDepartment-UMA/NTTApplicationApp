@@ -18,6 +18,10 @@ typedef NS_ENUM (NSUInteger,OSConnectionType)
     OSCGetSearch = 72,
     OSCGetFreeTextSearch = 73,
     OSCGetTitle = 74,
+    OSCGetApplicationsByDevice = 80,
+    OSCGetApplicationsByDeviceAndReference = 81,
+    OSCSendApplication = 90,
+    OSCSendWithdrawApplication = 95
 };
 
 #endif
