@@ -4,7 +4,7 @@ public class Applications {
 	private String device_id;
 	private String job_ref_no;
 	private String apply_time;
-	private String applicaton_status;
+	private String application_status;
 	private String email;
 	private String first_name;
 	private String last_name;
@@ -28,11 +28,11 @@ public class Applications {
 	public void setApply_time(String apply_time) {
 		this.apply_time = apply_time;
 	}
-	public String getApplicaton_status() {
-		return applicaton_status;
+	public String getApplication_status() {
+		return application_status;
 	}
-	public void setApplicaton_status(String applicaton_status) {
-		this.applicaton_status = applicaton_status;
+	public void setApplication_status(String application_status) {
+		this.application_status = application_status;
 	}
 	public String getEmail() {
 		return email;
