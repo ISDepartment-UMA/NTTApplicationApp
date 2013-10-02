@@ -22,6 +22,8 @@
 #define LOCATION_TABLENAME @"Location"
 #define TOPIC_TABLENAME @"Topic"
 #define OPENPOSITION_TABLENAME @"OpenPosition"
+#define APPLICATION_TABLENAME @"Application"
+#define MYPROFILE_TABLENAME @"MyProfile"
 
 + (DatabaseManager*)sharedInstance
 {
@@ -440,6 +442,79 @@
         [[self context]deleteObject:pos];
 }
 
+
+- (Application*)createApplication
+{
+    Application* currentApplication =  [NSEntityDescription insertNewObjectForEntityForName:APPLICATION_TABLENAME inManagedObjectContext:[self context]];
+    currentApplication.dateApplied = [NSDate date];
+    currentApplication.deviceID = [self getDeviceID];
+    
+    return currentApplication;
+}
+
+- (NSArray*)getAllApplications
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:APPLICATION_TABLENAME];
+    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
+    
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (!results)
+        NSLog(@"Error while fetching results from Database: %@", error );
+    return results;
+}
+
+- (MyProfile*)getMyProfile
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
+    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
+    
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (!results)
+        NSLog(@"Error while fetching results from Database: %@", error );
+    
+    MyProfile* profile = nil;
+    if ([results count] == 0)
+    {
+        profile = [NSEntityDescription insertNewObjectForEntityForName:MYPROFILE_TABLENAME inManagedObjectContext:[self context]];
+    }else if([results count] == 1)
+    {
+        profile = [results lastObject];
+    }else
+    {
+        [self clearMyProfile];
+        profile = [NSEntityDescription insertNewObjectForEntityForName:MYPROFILE_TABLENAME inManagedObjectContext:[self context]];
+    }
+    
+    profile.deviceID = [self getDeviceID];
+    return profile;
+}
+
+- (void)clearApplications
+{
+    for (Application* application in [self getAllApplications])
+        [[self context]deleteObject:application];
+}
+
+- (void)clearMyProfile
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
+    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
+    
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (!results)
+        NSLog(@"Error while fetching results from Database: %@", error );
+   
+    for (MyProfile* profile in results)
+        [[self context]deleteObject:profile];
+}
+
+
 #pragma mark -
 #pragma mark Save
 #pragma mark -
@@ -533,5 +608,11 @@
         }
     }
     return @"";
+}
+
+- (NSString*)getDeviceID
+{
+    UIDevice* currentDevice = [UIDevice currentDevice];
+    return [currentDevice.identifierForVendor description];
 }
 @end

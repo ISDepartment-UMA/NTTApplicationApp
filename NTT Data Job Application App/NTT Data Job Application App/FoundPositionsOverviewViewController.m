@@ -15,7 +15,7 @@
 #import "DatabaseManager.h"
 #import "FreeTextSearchViewController.h"
 
-@interface FoundPositionsOverviewViewController()<UIAlertViewDelegate>
+@interface FoundPositionsOverviewViewController()
 @property(nonatomic,strong) UIView* loaderView;
 @property(nonatomic,strong)  UIActivityIndicatorView* loader;
 @property (nonatomic, strong) SBJsonParser *parser;
@@ -23,7 +23,6 @@
 @property (strong, nonatomic)  NSArray* resultArray;
 @property (nonatomic) BOOL locationOrderedAscending;
 @property (nonatomic) BOOL jobTitleOrderedAscending;
-
 
 @end
 
@@ -42,7 +41,6 @@
         fpdvc.freeText = self.freeText;
     }
 }
-
 
 -(void)initLoader
 {
@@ -104,7 +102,6 @@
             NSArray* keys = [(NSDictionary*)resultArray allKeys];
             if ([keys containsObject:@"resultIsEmpty"])
                 resultArray = [[NSArray alloc]init];
-       
         }
     }
     
@@ -119,7 +116,6 @@
     else
         self.title = [NSString stringWithFormat:@"%d Open Positions", [resultArray count]];
 }
-
 
 - (void)connectionFailed:(OSConnectionType)connectionType
 {}
@@ -209,7 +205,6 @@
     return [object objectForKey:@"ref_no"];
 }
 
-
 #pragma mark - UITableViewDataSource
 // lets the UITableView know how many rows it should display
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -227,15 +222,14 @@
 {
     static NSString *CellIdentifier = @"Position";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.accessoryType= UITableViewCellAccessoryNone;
+    cell.textLabel.font = [UIFont systemFontOfSize:12];
 
     if ([resultArray count] > 0)
     {
         // Configure the cell...
         cell.userInteractionEnabled = YES;
-        cell.accessoryType= UITableViewCellAccessoryNone;
-        cell.textLabel.font = [UIFont systemFontOfSize:12];
         cell.textLabel.text = [self titleForRow:indexPath.row];
-        
         
         NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
         
@@ -245,8 +239,6 @@
     else
     {
         cell.userInteractionEnabled = NO;
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.font = [UIFont systemFontOfSize:12];
         cell.textLabel.text = @"No results found for your keyword";
         NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Your keyword was \"%@\"", query];
