@@ -41,7 +41,7 @@ public class ApplicationsDao {
 			query += "\"" + application.getDevice_id() + "\"" + ",";
 			query += "\"" + application.getJob_ref_no() + "\"" + ",";
 			query += "\"" + application.getApply_time() + "\"" + ",";
-			query += "\"" + application.getApplicaton_status() + "\"" + ",";
+			query += "\"" + application.getApplication_status() + "\"" + ",";
 			query += "\"" + application.getEmail() + "\"" + ",";
 			query += "\"" + application.getFirst_name() + "\"" + ",";
 			query += "\"" + application.getLast_name() + "\"" + ",";
@@ -119,8 +119,8 @@ public class ApplicationsDao {
 
 		public Boolean deleteApplications(String device_id, String job_ref_no) {
 			Boolean test=null;
-			query = "DELETE FROM applications WHERE device_id='"+ device_id +"' and job_ref_no= '" + job_ref_no + "'";
-			 		
+			//query = "DELETE FROM applications WHERE device_id='"+ device_id +"' and job_ref_no= '" + job_ref_no + "'";
+			 query = "UPDATE applications SET application_status= 'withdrawn' where device_id= '"+device_id+"' and job_ref_no='"+job_ref_no+"'";		
 			try{
 				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
 				int after_delete_num=stmt.executeUpdate(query);				 
