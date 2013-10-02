@@ -14,6 +14,8 @@
 		283B7D5217FB50C3005F40C7 /* OpenPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5117FB50C3005F40C7 /* OpenPosition.m */; };
 		283B7D5517FB50C3005F40C7 /* MyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5417FB50C3005F40C7 /* MyProfile.m */; };
 		283B7D5817FB8563005F40C7 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5717FB8563005F40C7 /* Application.m */; };
+		283B7D5B17FC1A91005F40C7 /* Validater.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5A17FC1A91005F40C7 /* Validater.m */; };
+		283B7D5D17FC1AD5005F40C7 /* ValidaterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */; };
 		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
 		28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */; };
 		28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
@@ -80,6 +82,9 @@
 		283B7D5417FB50C3005F40C7 /* MyProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfile.m; path = "NTT Data Job Application App/Model/MyProfile.m"; sourceTree = SOURCE_ROOT; };
 		283B7D5617FB8563005F40C7 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = "NTT Data Job Application App/Model/Application.h"; sourceTree = SOURCE_ROOT; };
 		283B7D5717FB8563005F40C7 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = "NTT Data Job Application App/Model/Application.m"; sourceTree = SOURCE_ROOT; };
+		283B7D5917FC1A91005F40C7 /* Validater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Validater.h; path = "NTT Data Job Application App/Model/Validater.h"; sourceTree = SOURCE_ROOT; };
+		283B7D5A17FC1A91005F40C7 /* Validater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Validater.m; path = "NTT Data Job Application App/Model/Validater.m"; sourceTree = SOURCE_ROOT; };
+		283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidaterTest.m; sourceTree = "<group>"; };
 		284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = NTTDataJobAppDatabase.xcdatamodel; path = "NTT Data Job Application App/Model/NTTDataJobAppDatabase.xcdatamodel"; sourceTree = SOURCE_ROOT; };
 		28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerTest.m; sourceTree = "<group>"; };
 		28E44A9617E3C5510084543B /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +200,8 @@
 				283B7D4517FB50C3005F40C7 /* Topic.m */,
 				283B7D4117FB50C2005F40C7 /* Location.h */,
 				283B7D4217FB50C2005F40C7 /* Location.m */,
+				283B7D5917FC1A91005F40C7 /* Validater.h */,
+				283B7D5A17FC1A91005F40C7 /* Validater.m */,
 			);
 			name = Model;
 			path = ../Model;
@@ -280,6 +287,7 @@
 			children = (
 				28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */,
 				28E44AC417E3C5510084543B /* Supporting Files */,
+				283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */,
 			);
 			path = "NTT Data Job Application AppTests";
 			sourceTree = "<group>";
@@ -447,6 +455,7 @@
 			files = (
 				28E44AA617E3C5510084543B /* main.m in Sources */,
 				28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */,
+				283B7D5B17FC1A91005F40C7 /* Validater.m in Sources */,
 				28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */,
 				28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */,
 				283B7D4617FB50C3005F40C7 /* Topic.m in Sources */,
@@ -483,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283B7D5D17FC1AD5005F40C7 /* ValidaterTest.m in Sources */,
 				28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
