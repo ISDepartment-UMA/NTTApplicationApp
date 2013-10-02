@@ -368,8 +368,6 @@
         [searchObject setObject:jobTitle.databasename forKey:@"jobtitles"];
         self.jobTitleLabel.text = jobTitle.displayname;
     }
-
-    [OSAPIManager sharedManager].flashObjects = searchObject;
     [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
 }
 
@@ -412,8 +410,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [OSAPIManager sharedManager].flashObjects = searchObject;
-    
     if ([segue.identifier isEqualToString:@"showOpenPositionsOverview"])
     {
         FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;

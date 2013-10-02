@@ -1,15 +1,12 @@
 
 #import "OSAPIManager.h"
 
-@interface OSAPIManager ()
-
-@end
 
 @implementation OSAPIManager
 
 static OSAPIManager *sharedManager = nil;
-@synthesize flashObjects;
 @synthesize searchObject;
+
 #pragma mark -
 #pragma mark INIT
 // alloce shared API singelton
@@ -38,7 +35,6 @@ static OSAPIManager *sharedManager = nil;
 {
 	if ((self=[super init]))
     {
-        flashObjects = [[NSMutableDictionary alloc] init];
         searchObject = [[NSMutableDictionary alloc] init];
     }
 	return self;

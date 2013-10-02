@@ -66,7 +66,7 @@ static OSConnectionManager *sharedManager = nil;
     
     if (connectionType == OSCGetSearch)
     {
-        NSDictionary* searchObject = [OSAPIManager sharedManager].flashObjects;
+        NSDictionary* searchObject = [OSAPIManager sharedManager].searchObject;
         
         NSString* exp = [searchObject objectForKey:@"experience"];
         exp = [self preprocessString:exp];
