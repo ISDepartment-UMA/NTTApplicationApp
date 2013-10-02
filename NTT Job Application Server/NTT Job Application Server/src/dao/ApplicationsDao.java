@@ -117,14 +117,14 @@ public class ApplicationsDao {
 		}
 
 
-		public Boolean deleteApplications(String device_id, String job_ref_no) {
+		public Boolean withdrawApplications(String device_id, String job_ref_no) {
 			Boolean test=null;
 			//query = "DELETE FROM applications WHERE device_id='"+ device_id +"' and job_ref_no= '" + job_ref_no + "'";
 			 query = "UPDATE applications SET application_status= 'withdrawn' where device_id= '"+device_id+"' and job_ref_no='"+job_ref_no+"'";		
 			try{
 				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
 				int after_delete_num=stmt.executeUpdate(query);				 
-				DbUtilHelper.log("deleteApplications success: " + query);
+				DbUtilHelper.log("withdrawApplications success: " + query);
 				 
 				if(after_delete_num>=0){
 					test=true;
@@ -132,10 +132,10 @@ public class ApplicationsDao {
 					else{
 						test=false;
 				}			
-				DbUtilHelper.log("deleteApplications: " + test);
+				DbUtilHelper.log("withdrawApplications: " + test);
 			} catch (SQLException e) {
 				e.printStackTrace();
-				DbUtilHelper.log("deleteApplications failed");
+				DbUtilHelper.log("withdrawApplications failed");
 			}
 			 return test;
 		}
