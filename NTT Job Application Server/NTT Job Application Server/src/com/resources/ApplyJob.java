@@ -138,7 +138,7 @@ import dao.JobsDao;
  				application.setDevice_id(device_id);
  				application.setJob_ref_no(job_ref_no);
  				application.setApply_time(apply_time);
- 				application.setApplicaton_status(application_status);
+ 				application.setApplication_status(application_status);
  				application.setEmail(email);
  				application.setFirst_name(first_name);
  				application.setLast_name(last_name);

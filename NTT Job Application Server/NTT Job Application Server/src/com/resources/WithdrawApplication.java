@@ -29,8 +29,8 @@ import dao.ApplicationsDao;
 
  
  
- @Path("/deleteapplication")
- public class DeleteApplication {
+ @Path("/withdrawapplication")
+ public class WithdrawApplication {
 	 
 	 
 	 @POST      
@@ -75,17 +75,26 @@ import dao.ApplicationsDao;
  		refNOIsValid=appDao.checkRefNOInput(job_ref_no);
  	 
  		 
- 		if(refNOIsValid==true&&
- 				device_id!=null&&
- 				job_ref_no!=null		 		
- 				)
+ 		if(refNOIsValid==true&&device_id!=null&&job_ref_no!=null)
  		{		 
  			if(appDao.queryApplications(device_id, job_ref_no) != null){
- 			 
- 			isSuccessfulDeleted=appDao.deleteApplications(device_id,job_ref_no);
- 			  
+ 				List<Applications> deleteApplications=new ArrayList<Applications>();
+ 				deleteApplications=appDao.queryApplications(device_id, job_ref_no);
+ 				if(!deleteApplications.get(0).getApplication_status().equalsIgnoreCase("withdrawn")){
+ 					isSuccessfulDeleted=appDao.withdrawApplications(device_id,job_ref_no);
+ 					
  					if(isSuccessfulDeleted==true)
- 					responseMessage= "{\"deleteapplication_successful\":true}"; 	  
+ 		 				responseMessage= "{\"withdrawapplication_successful\":true}";  				
+ 				}
+ 				else{
+ 					errorMessage+=" the target application is already withdrawn! ";
+ 				
+ 				}
+ 			  
+ 				
+ 					
+ 					
+ 					
  			}else{
  				errorMessage+=" the target application doesn't exist! ";
  			}
