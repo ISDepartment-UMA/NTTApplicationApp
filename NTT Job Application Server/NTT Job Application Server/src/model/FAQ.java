@@ -1,14 +1,14 @@
 package model;
 
 public class FAQ {
-	private String num;
+	private String number;
 	private String question;
 	private String answer;
-	public String getNum() {
-		return num;
+	public String getNumber() {
+		return number;
 	}
-	public void setNum(String num) {
-		this.num = num;
+	public void setNumber(String number) {
+		this.number = number;
 	}
 	public String getQuestion() {
 		return question;
@@ -22,6 +22,7 @@ public class FAQ {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+	 
 	
 
 }

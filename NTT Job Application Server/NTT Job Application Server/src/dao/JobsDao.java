@@ -35,6 +35,8 @@ public class JobsDao {
 	public JobsDao() {
 		run = DbUtilHelper.getQueryRunner();
 		h = new BeanListHandler<Jobs>(Jobs.class);
+		faqhandler= new BeanListHandler<FAQ>(FAQ.class);
+		
 		
 	}
 
