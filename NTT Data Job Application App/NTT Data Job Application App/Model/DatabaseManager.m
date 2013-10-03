@@ -514,6 +514,53 @@
         [[self context]deleteObject:profile];
 }
 
+- (BOOL)createApplicationsFromJSON:(id)jsonResponse
+{ 
+    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    {
+        NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
+        request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"deviceID = %@ && ref_No == %@", [dict objectForKey:@"device_id"], [dict objectForKey:@"job_ref_no"]];
+        
+        Application* application = nil;
+        NSError* error = nil;
+        NSArray* results = [[self context]executeFetchRequest:request error:&error];
+        
+        if (!results || [results count] > 1)
+        {
+            //Error!
+        }else if ([results count] == 0)
+        {
+            application = [self createApplication];
+            application.deviceID = [dict objectForKey:@"device_id"];
+            application.ref_No = [dict objectForKey:@"job_ref_no"];
+            application.dateApplied = [dict objectForKey:@"apply_time"];
+            application.status = [dict objectForKey:@"application_status"];
+            application.email = [dict objectForKey:@"email"];
+            application.firstName = [dict objectForKey:@"first_name"];
+            application.lastName = [dict objectForKey:@"last_name"];
+            application.address = [dict objectForKey:@"address"];
+            application.phoneNo = [dict objectForKey:@"phone_no"];
+            
+        }else
+        {
+            application = [results lastObject];
+            application.dateApplied = [dict objectForKey:@"apply_time"];
+            application.status = [dict objectForKey:@"application_status"];
+            application.email = [dict objectForKey:@"email"];
+            application.firstName = [dict objectForKey:@"first_name"];
+            application.lastName = [dict objectForKey:@"last_name"];
+            application.address = [dict objectForKey:@"address"];
+            application.phoneNo = [dict objectForKey:@"phone_no"];
+        }
+        
+    }
+
+    [self saveContext];
+    return true;
+}
+
+
 
 #pragma mark -
 #pragma mark Save

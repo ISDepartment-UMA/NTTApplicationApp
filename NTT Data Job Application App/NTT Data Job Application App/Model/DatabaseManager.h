@@ -56,4 +56,5 @@
 - (MyProfile*)getMyProfile;
 - (void)clearApplications;
 - (void)clearMyProfile;
+- (BOOL)createApplicationsFromJSON: (id)jsonResponse;
 @end
