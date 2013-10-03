@@ -7,6 +7,7 @@
 //
 
 #import "DatabaseManager.h"
+#import "Helper.h"
 
 @interface DatabaseManager()
 {
@@ -447,7 +448,7 @@
 {
     Application* currentApplication =  [NSEntityDescription insertNewObjectForEntityForName:APPLICATION_TABLENAME inManagedObjectContext:[self context]];
     currentApplication.dateApplied = [NSDate date];
-    currentApplication.deviceID = [self getDeviceID];
+    currentApplication.deviceID = [[[Helper alloc]init]getDeviceID];
     
     return currentApplication;
 }
@@ -489,7 +490,7 @@
         profile = [NSEntityDescription insertNewObjectForEntityForName:MYPROFILE_TABLENAME inManagedObjectContext:[self context]];
     }
     
-    profile.deviceID = [self getDeviceID];
+    profile.deviceID = [[[Helper alloc]init]getDeviceID];
     return profile;
 }
 
@@ -657,9 +658,4 @@
     return @"";
 }
 
-- (NSString*)getDeviceID
-{
-    UIDevice* currentDevice = [UIDevice currentDevice];
-    return [currentDevice.identifierForVendor description];
-}
 @end
