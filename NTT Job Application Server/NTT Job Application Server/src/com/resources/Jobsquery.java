@@ -73,17 +73,16 @@ import dao.JobsDao;
  		jobtitleIsValid=myJobsDao.checkJobTitleInput(jobtitle);
  		expIsValid=myJobsDao.checkExpInput(exp);
  		 
- 		if(locationIsValid==true&&
- 				topicIsValid==true&&
- 				jobtitleIsValid==true&&
- 				expIsValid==true){
- 		myjobs=myJobsDao.queryJobsByDefinedCriteria(jobtitle, location, topic, exp);
+ 		if(locationIsValid==true&&topicIsValid==true&&jobtitleIsValid==true&&expIsValid==true){
  		
- 		if(myjobs.isEmpty()||myjobs==null){
+ 			myjobs=myJobsDao.queryJobsByDefinedCriteria(jobtitle, location, topic, exp);
+ 		
+ 		
+ 			if(myjobs==null){
  			
  			System.out.println("{\"resultIsEmpty\":true}");
  			responseMessage= "{\"resultIsEmpty\":true}"; 			
- 		}
+ 			}
  		
  		else{
  		for(int i=0;i<=myjobs.size()-1;i++)
