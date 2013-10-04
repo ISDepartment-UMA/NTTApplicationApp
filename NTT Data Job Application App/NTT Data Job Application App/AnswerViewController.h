@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AnswerViewController : UIViewController
-
+{
+    UITextView *answerText;
+    NSString* text;
+}
+@property (strong, nonatomic) IBOutlet UITextView *answerText;
+@property (strong, nonatomic)    NSString* text;
 @end
