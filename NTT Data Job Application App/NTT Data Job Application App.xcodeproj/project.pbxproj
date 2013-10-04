@@ -54,7 +54,10 @@
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
+		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
+		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
+		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,11 +150,15 @@
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
 		9A187DFD17FB3BB40097650D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
-		9A187DFE17FB3BB40097650D /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		9A187E0017FB3C710097650D /* MyApplicationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplicationsViewController.h; sourceTree = "<group>"; };
 		9A187E0117FB3C710097650D /* MyApplicationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplicationsViewController.m; sourceTree = "<group>"; };
+		9A514A3617FCD4460039553D /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
 		9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTextSearchViewController.m; sourceTree = "<group>"; };
+		9A911EC817FCDE4B004DFBD0 /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
+		9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
+		9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
+		9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,16 +251,20 @@
 				28E44B2117E3C6CB0084543B /* FoundPositionDetailViewController.h */,
 				28E44B2217E3C6CB0084543B /* FoundPositionDetailViewController.m */,
 				28E44B2317E3C6CB0084543B /* FoundPositionsOverviewViewController.h */,
+				28E44B2417E3C6CB0084543B /* FoundPositionsOverviewViewController.m */,
 				9A187E0017FB3C710097650D /* MyApplicationsViewController.h */,
 				9A187E0117FB3C710097650D /* MyApplicationsViewController.m */,
-				28E44B2417E3C6CB0084543B /* FoundPositionsOverviewViewController.m */,
 				28E44B2517E3C6CB0084543B /* JobProposalViewController.h */,
 				9A187DFD17FB3BB40097650D /* MyProfileViewController.h */,
-				9A187DFE17FB3BB40097650D /* MyProfileViewController.m */,
+				9A514A3617FCD4460039553D /* MyProfileViewController.m */,
 				28E44B2617E3C6CB0084543B /* JobProposalViewController.m */,
 				28E44B2717E3C6CB0084543B /* JobSearchViewController.h */,
 				28E44B2817E3C6CB0084543B /* JobSearchViewController.m */,
 				28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */,
+				9A911EC817FCDE4B004DFBD0 /* FAQViewController.h */,
+				9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */,
+				9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */,
+				9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */,
 				9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */,
 				9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */,
 				80172A6D17EC949600538821 /* ApplicationViewController.h */,
@@ -469,7 +480,9 @@
 				283B7D5517FB50C3005F40C7 /* MyProfile.m in Sources */,
 				9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */,
 				28E44B1A17E3C68A0084543B /* SBJsonStreamWriter.m in Sources */,
+				9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */,
 				283B7D5817FB8563005F40C7 /* Application.m in Sources */,
+				9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */,
 				28E44B1B17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m in Sources */,
 				284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */,
 				283B7D5217FB50C3005F40C7 /* OpenPosition.m in Sources */,
@@ -484,6 +497,7 @@
 				28E44B2C17E3C6CB0084543B /* JobSearchViewController.m in Sources */,
 				9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */,
 				28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */,
+				9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */,
 				80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

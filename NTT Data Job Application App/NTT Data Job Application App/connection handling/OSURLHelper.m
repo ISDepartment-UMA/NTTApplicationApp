@@ -102,6 +102,11 @@ static OSURLHelper *sharedHelper = nil;
             return [sharedHelper sendWithdrawApplication];
             break;
         }
+        case OSCGetFaq:
+        {
+            return [sharedHelper getFaq];
+            break;
+        }
     }
     return [NSURL URLWithString:@""];
 }
@@ -167,5 +172,12 @@ static OSURLHelper *sharedHelper = nil;
     NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/withdrawapplication"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
+}
+- (NSURL*)getFaq
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/faqquery"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+
 }
 @end
