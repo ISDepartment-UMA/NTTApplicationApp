@@ -160,10 +160,11 @@
     }
     else
     {
-        [cell.textLabel setText:[filteredStrings objectAtIndex:indexPath.row] ];
+        [cell.textLabel setText:[filteredStrings objectAtIndex:indexPath.row]];
     }
     // Configure the cell...
-    
+    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    cell.textLabel.numberOfLines = 2;
     return cell;
 }
 
