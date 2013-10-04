@@ -10,7 +10,10 @@
 #import "OSConnectionManager.h"
 #import "SBJson.h"
 #import "AnswerViewController.h"
-@interface FAQViewController : UITableViewController<OSConnectionCompletionDelegate, UISearchBarDelegate, UITableViewDataSource ,UITableViewDelegate>
+#import "MessageUI/MFMailComposeViewController.h"
+#import "MessageUI/MessageUI.h"
+
+@interface FAQViewController : UITableViewController<OSConnectionCompletionDelegate, UISearchBarDelegate, UITableViewDataSource ,UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
     NSArray* faq;
     NSInteger selected;
