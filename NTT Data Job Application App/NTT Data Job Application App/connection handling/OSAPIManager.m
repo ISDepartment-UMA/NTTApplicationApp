@@ -10,9 +10,8 @@
 // Init shared API singelton
 + (OSAPIManager*)sharedManager
 {
-    
     static OSAPIManager* sharedManager = nil;
-    dispatch_once_t token;
+    static dispatch_once_t token;
     
     dispatch_once(&token, ^{
         sharedManager = [[OSAPIManager alloc]init];
