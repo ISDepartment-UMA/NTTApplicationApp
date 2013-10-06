@@ -5,11 +5,10 @@
 //  Created by Hilal Yavuz on 10/2/13.
 //  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
-
 #import "FAQViewController.h"
 #import "SBJson.h"
 #import "QuartzCore/QuartzCore.h"
-#import "MessageUI/MFMailComposeViewController.h"
+
 
 
 
@@ -39,13 +38,15 @@
 
 -(void)initLoader
 {
+   
     float width = 100;
     float hight = 100;
     loader =[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, width, hight)];
     loaderView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 -width/2, self.view.frame.size.height/2 - hight/2, width, hight)];
-    
     [loaderView setBackgroundColor:[UIColor clearColor]];
     UIImageView* loaderImage = [[UIImageView alloc] initWithFrame:loaderView.frame];
+    
+    
     CGRect frame = loaderView.frame;
     frame.origin.x = 0;
     frame.origin.y= 0;
@@ -76,7 +77,7 @@
     
     [self initLoader];
     [[OSConnectionManager sharedManager] StartConnection:OSCGetFaq];
-    //[OSConnectionManager sharedManager].delegate = self;
+    [OSConnectionManager sharedManager].delegate = self;
     [loader startAnimating];
     [loaderView setHidden:NO];
     
@@ -92,7 +93,8 @@
     else{
         isFiltered =YES;
         filteredStrings = [[NSMutableArray alloc] init];
-        for (NSString *str in totalStrings) {
+        for (NSDictionary *obj in faq) {
+            NSString* str = [obj objectForKey:@"question"];
             NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
             if(stringRange.location != NSNotFound)
             {
@@ -107,10 +109,18 @@
     NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     parser= [[SBJsonParser alloc] init];
     id jsonObject= [parser objectWithString:responseString];
-    faq = [jsonObject objectForKey:@"items"];
+    faq = jsonObject ;
     [self.tableView reloadData];
     [loader stopAnimating];
     [loaderView setHidden:YES];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(mailLabelClicked:)];
+    [self.navigationController.navigationItem setRightBarButtonItem:button animated:YES];
+    [super viewDidAppear:animated];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -145,14 +155,15 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if(!isFiltered){
-        [cell.textLabel setText:[[faq objectAtIndex:indexPath.row] objectForKey:@"quest"]];
+        [cell.textLabel setText:[[faq objectAtIndex:indexPath.row] objectForKey:@"question"]];
     }
     else
     {
-        [cell.textLabel setText:[filteredStrings objectAtIndex:indexPath.row] ];
+        [cell.textLabel setText:[filteredStrings objectAtIndex:indexPath.row]];
     }
     // Configure the cell...
-    
+    cell.textLabel.font = [UIFont systemFontOfSize:12];
+    cell.textLabel.numberOfLines = 2;
     return cell;
 }
 
@@ -166,6 +177,20 @@
 }
 
 
+- (IBAction)mailLabelClicked:(id)sender
+{
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController* mailViewController = [[MFMailComposeViewController alloc]init];
+        mailViewController.mailComposeDelegate = self;
+        [self presentViewController:mailViewController animated:YES completion:NULL];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 @end
