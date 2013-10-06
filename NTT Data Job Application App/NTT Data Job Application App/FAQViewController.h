@@ -24,7 +24,7 @@
     
 }
 
-@property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
+@property (nonatomic, strong) IBOutlet UISearchBar *mySearchBar;
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 @property(nonatomic)    NSInteger selected;
 @property(nonatomic,strong)    NSArray* faq;

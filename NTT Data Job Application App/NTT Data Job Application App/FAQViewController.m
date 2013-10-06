@@ -38,8 +38,7 @@
 
 -(void)initLoader
 {
-    [self.navigationController setNavigationBarHidden:YES];
-    
+   
     float width = 100;
     float hight = 100;
     loader =[[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0, 0, width, hight)];
