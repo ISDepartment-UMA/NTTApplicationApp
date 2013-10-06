@@ -6,43 +6,24 @@
 @synthesize connectionsData;
 @synthesize connectionsHashTable;
 @synthesize delegate;
-static OSConnectionManager *sharedManager = nil;
 
 #pragma mark -
 #pragma mark singilton init methods
-// alloce shared API singelton
-+ (id)alloc
-{
-	@synchronized(self)
-    {
-		NSAssert(sharedManager == nil, @"Attempted to allocate a second instance of a singleton.");
-		return [super alloc];
-	}
-	return nil;
-}
 // Init shared API singelton
 + (OSConnectionManager*)sharedManager
 {
-	@synchronized(self)
-    {
-		if (!sharedManager)
-			sharedManager = [[OSConnectionManager alloc] init];
-	}
-	return sharedManager;
+    static OSConnectionManager* sharedManager;
+    static dispatch_once_t token;
+    dispatch_once(&token, ^{
+        sharedManager = [[OSConnectionManager alloc]init];
+        sharedManager.connectionsHashTable = [[NSMutableDictionary alloc] init];
+        sharedManager.connectionsData = [[NSMutableDictionary alloc] init];
+    });
+    return sharedManager;
 }
 
-- (id) init
-{
-	if ((self=[super init]))
-    {
-        self.connectionsHashTable = [[NSMutableDictionary alloc] init];
-        self.connectionsData = [[NSMutableDictionary alloc] init];
-	}
-	return self;
-}
 #pragma mark -
 #pragma mark Connection LifeCycle
-
 - (NSString*) preprocessString:(NSString*)input
 {
     return ((input) ? [NSString stringWithFormat:@"\"%@\"",input] : @"null");
@@ -85,8 +66,7 @@ static OSConnectionManager *sharedManager = nil;
         
         [request setHTTPBody:requestdata];
     }
-    
-    if (connectionType == OSCGetFreeTextSearch)
+    else if (connectionType == OSCGetFreeTextSearch)
     {
         NSDictionary* searchObject = [OSAPIManager sharedManager].searchObject;
         
@@ -98,23 +78,19 @@ static OSConnectionManager *sharedManager = nil;
         
         [request setHTTPBody:requestdata];
     }
-    
-    if (connectionType == OSCSendApplication)
+    else if (connectionType == OSCSendApplication)
     {
         
     }
-    
-    if (connectionType == OSCSendWithdrawApplication)
+    else if (connectionType == OSCSendWithdrawApplication)
     {
         
     }
-    
-    if (connectionType == OSCGetApplicationsByDeviceAndReference)
+    else if (connectionType == OSCGetApplicationsByDeviceAndReference)
     {
         
     }
-    
-    if (connectionType == OSCGetApplicationsByDevice)
+    else if (connectionType == OSCGetApplicationsByDevice)
     {
         
     }
@@ -126,8 +102,8 @@ static OSConnectionManager *sharedManager = nil;
     NSString* hashKey = [NSString stringWithFormat:@"%i",connection.hash];
     // open mutable Data object for this connection
     NSMutableData* connectionData = [[NSMutableData alloc] init];
-    [[sharedManager connectionsData] setObject:connectionData forKey:hashKey];
-    [[sharedManager connectionsHashTable] setObject:connectionTypeValue forKey:hashKey];
+    [self.connectionsData setObject:connectionData forKey:hashKey];
+    [self.connectionsHashTable setObject:connectionTypeValue forKey:hashKey];
     return YES;// connection started
 }
 
@@ -146,7 +122,7 @@ static OSConnectionManager *sharedManager = nil;
     NSHTTPURLResponse * httpResponse;
     httpResponse = (NSHTTPURLResponse *)response;
     NSString* hashKey = [NSString stringWithFormat:@"%i",theConnection.hash];
-    NSString* connectionType = [[sharedManager connectionsHashTable] objectForKey:hashKey];
+    NSString* connectionType = [self.connectionsHashTable objectForKey:hashKey];
     // connection status get error response
     NSLog(@"response is %i",httpResponse.statusCode);
     if ((httpResponse.statusCode / 100) != 2)// response of not success
@@ -172,7 +148,7 @@ static OSConnectionManager *sharedManager = nil;
 - (void)connection:(NSURLConnection *)theConnection didFailWithError:(NSError *)error
 {
     NSString* hashKey = [NSString stringWithFormat:@"%i",theConnection.hash];
-    NSString* connectionType = [[sharedManager connectionsHashTable] objectForKey:hashKey];
+    NSString* connectionType = [self.connectionsHashTable objectForKey:hashKey];
     // send faild delegate function to parent control
     [delegate connectionFailed:[connectionType intValue]];
     // remove connection from connections hashtable and connections data dictionary

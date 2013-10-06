@@ -368,6 +368,7 @@
         [searchObject setObject:jobTitle.databasename forKey:@"jobtitles"];
         self.jobTitleLabel.text = jobTitle.displayname;
     }
+    [OSAPIManager sharedManager].searchObject = [self.searchObject copy];
     [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
 }
 
