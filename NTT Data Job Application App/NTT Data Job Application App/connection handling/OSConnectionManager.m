@@ -1,11 +1,24 @@
 
 
 #import "OSConnectionManager.h"
+#import "SBJson.h"
+
+@interface OSConnectionManager ()
+{
+    // dicitonay for saving mutable data for each connection
+    NSMutableDictionary* connectionsData;
+    // dictinay for saving connection type of each connection
+    NSMutableDictionary* connectionsHashTable;
+    __weak id<OSConnectionCompletionDelegate> delegate;
+}
+@end
+
 @implementation OSConnectionManager
 
 @synthesize connectionsData;
 @synthesize connectionsHashTable;
 @synthesize delegate;
+@synthesize searchObject;
 
 #pragma mark -
 #pragma mark singilton init methods
@@ -18,6 +31,7 @@
         sharedManager = [[OSConnectionManager alloc]init];
         sharedManager.connectionsHashTable = [[NSMutableDictionary alloc] init];
         sharedManager.connectionsData = [[NSMutableDictionary alloc] init];
+        sharedManager.searchObject = [[NSMutableDictionary alloc]init];
     });
     return sharedManager;
 }
@@ -47,8 +61,6 @@
     
     if (connectionType == OSCGetSearch)
     {
-        NSDictionary* searchObject = [OSAPIManager sharedManager].searchObject;
-        
         NSString* exp = [searchObject objectForKey:@"experience"];
         exp = [self preprocessString:exp];
         
@@ -68,8 +80,6 @@
     }
     else if (connectionType == OSCGetFreeTextSearch)
     {
-        NSDictionary* searchObject = [OSAPIManager sharedManager].searchObject;
-        
         NSString* freeText = [searchObject objectForKey:@"freeText"];
         freeText = [self preprocessString:freeText];
         

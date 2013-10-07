@@ -8,7 +8,6 @@
 
 #import "JobSearchViewController.h"
 #import "QuartzCore/QuartzCore.h"
-#import "OSAPIManager.h"
 #import "SBJson.h"
 #import "Topic.h"
 #import "Location.h"
@@ -368,7 +367,7 @@
         [searchObject setObject:jobTitle.databasename forKey:@"jobtitles"];
         self.jobTitleLabel.text = jobTitle.displayname;
     }
-    [OSAPIManager sharedManager].searchObject = [self.searchObject copy];
+    [OSConnectionManager sharedManager].searchObject = [self.searchObject copy];
     [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
 }
 

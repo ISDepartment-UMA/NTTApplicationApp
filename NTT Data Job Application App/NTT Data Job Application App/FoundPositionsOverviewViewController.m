@@ -11,7 +11,6 @@
 #import "QuartzCore/QuartzCore.h"
 #import "OSConnectionManager.h"
 #import "SBJson.h"
-#import "OSAPIManager.h"
 #import "DatabaseManager.h"
 #import "FreeTextSearchViewController.h"
 
@@ -240,7 +239,7 @@
     {
         cell.userInteractionEnabled = NO;
         cell.textLabel.text = @"No results found for your keyword";
-        NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
+        NSString* query = [[OSConnectionManager sharedManager].searchObject objectForKey:@"freeText"];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Your keyword was \"%@\"", query];
     }
     return cell;
@@ -248,7 +247,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [OSAPIManager sharedManager].searchObject = [resultArray objectAtIndex:indexPath.row];
+    [OSConnectionManager sharedManager].searchObject = [resultArray objectAtIndex:indexPath.row];
 }
 
 - (void)startSearchWithType: (OSConnectionType)type

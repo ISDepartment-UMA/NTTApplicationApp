@@ -30,7 +30,6 @@
 		28E44ABF17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
 		28E44AC017E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
 		28E44AC817E3C5510084543B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AC617E3C5510084543B /* InfoPlist.strings */; };
-		28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AD717E3C5810084543B /* OSAPIManager.m */; };
 		28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AD917E3C5810084543B /* OSConnectionManager.m */; };
 		28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44ADB17E3C5810084543B /* OSURLHelper.m */; };
 		28E44B1417E3C68A0084543B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0117E3C68A0084543B /* SBJsonParser.m */; };
@@ -108,8 +107,6 @@
 		28E44AC517E3C5510084543B /* NTT Data Job Application AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application AppTests-Info.plist"; sourceTree = "<group>"; };
 		28E44AC717E3C5510084543B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		28E44AD517E3C5810084543B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		28E44AD617E3C5810084543B /* OSAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSAPIManager.h; sourceTree = "<group>"; };
-		28E44AD717E3C5810084543B /* OSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSAPIManager.m; sourceTree = "<group>"; };
 		28E44AD817E3C5810084543B /* OSConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSConnectionManager.h; sourceTree = "<group>"; };
 		28E44AD917E3C5810084543B /* OSConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSConnectionManager.m; sourceTree = "<group>"; };
 		28E44ADA17E3C5810084543B /* OSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSURLHelper.h; sourceTree = "<group>"; };
@@ -321,8 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				28E44AD517E3C5810084543B /* Constants.h */,
-				28E44AD617E3C5810084543B /* OSAPIManager.h */,
-				28E44AD717E3C5810084543B /* OSAPIManager.m */,
 				28E44AD817E3C5810084543B /* OSConnectionManager.h */,
 				28E44AD917E3C5810084543B /* OSConnectionManager.m */,
 				28E44ADA17E3C5810084543B /* OSURLHelper.h */,
@@ -470,7 +465,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E44AA617E3C5510084543B /* main.m in Sources */,
-				28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */,
 				283B7D5B17FC1A91005F40C7 /* Validater.m in Sources */,
 				28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */,
 				28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */,

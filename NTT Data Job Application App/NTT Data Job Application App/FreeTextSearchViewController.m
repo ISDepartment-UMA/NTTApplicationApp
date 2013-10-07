@@ -7,7 +7,6 @@
 //
 
 #import "FreeTextSearchViewController.h"
-#import "OSAPIManager.h"
 #import "OSConnectionManager.h"
 #import "FoundPositionsOverviewViewController.h"
 
@@ -50,7 +49,7 @@
 {
     if ([segue.identifier isEqualToString:@"connect"])
     {
-        [[OSAPIManager sharedManager].searchObject setObject:freeTextSearchBar.text forKey:@"freeText"];
+        [[OSConnectionManager sharedManager].searchObject setObject:freeTextSearchBar.text forKey:@"freeText"];
         if ([segue.destinationViewController isKindOfClass:[FoundPositionsOverviewViewController class]])
         {
             FoundPositionsOverviewViewController *fpovc = (FoundPositionsOverviewViewController *)segue.destinationViewController;
