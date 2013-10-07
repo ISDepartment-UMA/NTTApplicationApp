@@ -611,7 +611,6 @@
             faq.question = [dict objectForKey:@"question"];
             faq.answer = [dict objectForKey:@"answer"];
         }
-
     }
     
     [self saveContext];
