@@ -16,6 +16,10 @@
         <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="canOffer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OpenPosition" inverseName="requiresExperience" inverseEntity="OpenPosition" syncable="YES"/>
     </entity>
+    <entity name="Faq" representedClassName="Faq" syncable="YES">
+        <attribute name="answer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="JobTitle" representedClassName="JobTitle" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
@@ -56,12 +60,13 @@
         <relationship name="topicMatchedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OpenPosition" inverseName="dealsWith" inverseEntity="OpenPosition" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Application" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Experience" positionX="0" positionY="0" width="0" height="0"/>
         <element name="JobTitle" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MyProfile" positionX="0" positionY="0" width="0" height="0"/>
         <element name="OpenPosition" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Topic" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="MyProfile" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Application" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Faq" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
