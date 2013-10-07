@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Validater : NSObject
+@interface ProfileValidater : NSObject
 - (BOOL)checkIfMailAddressIsValid: (NSString*)emailAddress;
 - (BOOL)checkIfPhoneNoIsValid: (NSString*)phoneNo;
 @end

@@ -6,35 +6,49 @@
 //  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
 #import "FAQViewController.h"
-#import "SBJson.h"
 #import "QuartzCore/QuartzCore.h"
+#import "DatabaseManager.h"
+#import "OSConnectionManager.h"
+#import "AnswerViewController.h"
+#import "MessageUI/MFMailComposeViewController.h"
+#import "MessageUI/MessageUI.h"
 
 
-
+@interface FAQViewController ()<OSConnectionCompletionDelegate, UISearchBarDelegate, UITableViewDataSource ,UITableViewDelegate, MFMailComposeViewControllerDelegate>
+{
+    NSMutableArray *filteredFaqs;
+    BOOL isFiltered;
+}
+    @property (nonatomic, strong) IBOutlet UISearchBar *mySearchBar;
+    @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+    @property(nonatomic)    NSInteger selected;
+    @property(nonatomic,strong)    NSArray* faqArray;
+    @property(nonatomic,strong) UIView* loaderView;
+    @property(nonatomic,strong)  UIActivityIndicatorView* loader;
+@end
 
 @implementation FAQViewController
-@synthesize faq;
+@synthesize faqArray;
 @synthesize loaderView;
 @synthesize loader;
-@synthesize parser;
-@synthesize answer;
 @synthesize selected;
-
-
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    AnswerViewController* dest = (AnswerViewController*)segue.destinationViewController;
-    self.answer =dest;
-    NSString* ans=[[faq objectAtIndex:selected] objectForKey:@"answer"];
-    answer.text = ans;
+    if ([segue.identifier isEqualToString:@"openAnswer"])
+    {
+        AnswerViewController* dest = (AnswerViewController*)segue.destinationViewController;
+        Faq* faq = nil;
+        
+        if (isFiltered)
+            faq = [filteredFaqs objectAtIndex:selected];
+        else
+            faq = [faqArray objectAtIndex:selected];
+        
+        dest.text = faq.answer;
+    }
 }
--(void)connectionFailed:(OSConnectionType)connectionType;
-{
-    // to be filled ...
-}
-
 
 -(void)initLoader
 {
@@ -69,50 +83,14 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     self.mySearchBar.delegate = self;
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
     
     [self initLoader];
-    [[OSConnectionManager sharedManager] StartConnection:OSCGetFaq];
     [OSConnectionManager sharedManager].delegate = self;
-    [loader startAnimating];
-    [loaderView setHidden:NO];
-    
-}
-
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    if(searchText.length ==0)
-    {
-        isFiltered = NO;
-    }
-    else{
-        isFiltered =YES;
-        filteredStrings = [[NSMutableArray alloc] init];
-        for (NSDictionary *obj in faq) {
-            NSString* str = [obj objectForKey:@"question"];
-            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
-            if(stringRange.location != NSNotFound)
-            {
-                [filteredStrings addObject:str];
-            }
-        }
-    }
-    [self.myTableView reloadData];
-}
--(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
-{
-    NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    parser= [[SBJsonParser alloc] init];
-    id jsonObject= [parser objectWithString:responseString];
-    faq = jsonObject ;
-    [self.tableView reloadData];
-    [loader stopAnimating];
-    [loaderView setHidden:YES];
+    [self loadFaqData];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -120,17 +98,64 @@
     UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(mailLabelClicked:)];
     [self.navigationController.navigationItem setRightBarButtonItem:button animated:YES];
     [super viewDidAppear:animated];
-    
 }
 
-- (void)didReceiveMemoryWarning
+- (void) loadFaqData
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSArray* faqFromDatabase = [[DatabaseManager sharedInstance]getAllFaqs];
+    
+    if (!faqFromDatabase || [faqFromDatabase count] == 0)
+    {
+        [[OSConnectionManager sharedManager] StartConnection:OSCGetFaq];
+        [loader startAnimating];
+        [loaderView setHidden:NO];
+    }else
+    {
+        faqArray = faqFromDatabase;
+    }
 }
 
-#pragma mark - Table view data source
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if(searchText.length ==0)
+    {
+        isFiltered = NO;
+    }
+    else
+    {
+        isFiltered =YES;
+        filteredFaqs = [[NSMutableArray alloc] init];
+        
+        for (Faq *obj in faqArray)
+        {
+            NSString* str = obj.question;
+            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if(stringRange.location != NSNotFound)
+            {
+                [filteredFaqs addObject:obj];
+            }
+        }
+    }
+    [self.myTableView reloadData];
+}
 
+#pragma mark - Connection delegate
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
+{
+    [[DatabaseManager sharedInstance]createFaqsFromJSON:array];
+    faqArray = [[DatabaseManager sharedInstance]getAllFaqs];
+    
+    [self.tableView reloadData];
+    [loader stopAnimating];
+    [loaderView setHidden:YES];
+}
+
+-(void)connectionFailed:(OSConnectionType)connectionType;
+{
+    // to be filled ...
+}
+
+#pragma mark - Table view
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -143,10 +168,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if(isFiltered){
-        return [filteredStrings count];
+    if(isFiltered)
+    {
+        return [filteredFaqs count];
     }
-    return [faq count];
+    return [faqArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,12 +180,15 @@
     static NSString *CellIdentifier = @"FAQCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if(!isFiltered){
-        [cell.textLabel setText:[[faq objectAtIndex:indexPath.row] objectForKey:@"question"]];
+    if(!isFiltered)
+    {
+        Faq* question = [faqArray objectAtIndex:indexPath.row];
+        [cell.textLabel setText:question.question];
     }
     else
     {
-        [cell.textLabel setText:[filteredStrings objectAtIndex:indexPath.row]];
+        Faq* question = [filteredFaqs objectAtIndex:indexPath.row];
+        [cell.textLabel setText:question.question];
     }
     // Configure the cell...
     cell.textLabel.font = [UIFont systemFontOfSize:12];
@@ -167,16 +196,13 @@
     return cell;
 }
 
-
-
-#pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    selected =indexPath.row;
+    selected = indexPath.row;
+    [self performSegueWithIdentifier:@"openAnswer" sender:self];
 }
 
-
+#pragma mark - Mail delegate
 - (IBAction)mailLabelClicked:(id)sender
 {
     if ([MFMailComposeViewController canSendMail])
@@ -191,6 +217,4 @@
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
 }
-
-
 @end

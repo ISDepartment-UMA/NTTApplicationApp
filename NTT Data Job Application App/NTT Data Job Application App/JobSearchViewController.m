@@ -8,8 +8,6 @@
 
 #import "JobSearchViewController.h"
 #import "QuartzCore/QuartzCore.h"
-#import "OSAPIManager.h"
-#import "SBJson.h"
 #import "Topic.h"
 #import "Location.h"
 #import "Experience.h"
@@ -36,7 +34,6 @@
 
 @property(nonatomic,strong) UIView* loaderView;
 @property(nonatomic,strong)  UIActivityIndicatorView* loader;
-@property (nonatomic, strong) SBJsonParser *parser;
 @property (weak, nonatomic) IBOutlet UITableView *optionsTable;
 @property (weak, nonatomic) IBOutlet UILabel *jobTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *topicsLabel;
@@ -51,15 +48,7 @@
 @implementation JobSearchViewController
 @synthesize loaderView;
 @synthesize loader;
-@synthesize parser;
 @synthesize searchObject;
-
-#define JSON_SELECTOR @"display_name"
-#define JSON_DATABASE_LOCATION_SELECTOR @"location"
-#define JSON_DATABASE_EXPERIENCE_SELECTOR @"experience"
-#define JSON_DATABASE_JOBTITLE_SELECTOR @"jobtitle"
-#define JSON_DATABASE_TOPIC_SELECTOR @"topic"
-
 
 -(void)initLoader
 {
@@ -150,7 +139,6 @@
 -(void)loadAllData
 {
     searchObject= [[NSMutableDictionary alloc] init];
-    parser = [[SBJsonParser alloc] init];
     
     NSArray* topics = [[DatabaseManager sharedInstance]allTopics];
     if (!topics || ![topics count])
@@ -183,43 +171,37 @@
     }
 }
 
--(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     
     if (connectionType ==OSCGetLocation)
     {
-        id jsonObject= [parser objectWithString:responseString];
-        [[DatabaseManager sharedInstance]createLocationsFromJSON:jsonObject];
+        [[DatabaseManager sharedInstance]createLocationsFromJSON:array];
         NSArray* locations = [[DatabaseManager sharedInstance]allLocations];
         self.locationsList = locations;
     }
     else if (connectionType ==OSCGetJobTitle)
     {
-        id jsonObject=  [parser objectWithString:responseString];
-        [[DatabaseManager sharedInstance]createJobTitlesFromJSON:jsonObject];
+        [[DatabaseManager sharedInstance]createJobTitlesFromJSON:array];
         NSArray* titles = [[DatabaseManager sharedInstance]allJobTitles];
         self.jobTitleList = titles;
     }
     else if (connectionType ==OSCGetExperience)
     {
-        id jsonObject= [parser objectWithString:responseString];
-        [[DatabaseManager sharedInstance]createExperiencesFromJSON:jsonObject];
+        [[DatabaseManager sharedInstance]createExperiencesFromJSON:array];
         NSArray* experiences = [[DatabaseManager sharedInstance]allExperiences];
         self.experienceList = experiences;
     }
     else if (connectionType ==OSCGetTopics)
     {
-        id jsonObject= [parser objectWithString:responseString];
-        [[DatabaseManager sharedInstance] createTopicsFromJSON:jsonObject];
+        [[DatabaseManager sharedInstance] createTopicsFromJSON:array];
         NSArray* topics = [[DatabaseManager sharedInstance]allTopics];
         self.topicsList = topics;
     }
     else if(connectionType == OSCGetSearch)
     {
         self.searchCountLabel.text = @"";
-        id jsonObject = [parser objectWithString:responseString];
-        NSArray* results = (NSArray*)jsonObject;
+        NSArray* results = array;
         
         if ([results count] >= 1)
         {
@@ -368,6 +350,7 @@
         [searchObject setObject:jobTitle.databasename forKey:@"jobtitles"];
         self.jobTitleLabel.text = jobTitle.displayname;
     }
+    [OSConnectionManager sharedManager].searchObject = [self.searchObject copy];
     [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
 }
 

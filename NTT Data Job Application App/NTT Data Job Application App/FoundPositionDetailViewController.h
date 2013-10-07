@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OSAPIManager.h"
 
 @interface FoundPositionDetailViewController : UIViewController
 @property NSString *freeText;

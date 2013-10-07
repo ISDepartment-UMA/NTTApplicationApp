@@ -298,4 +298,31 @@
     
     XCTAssertNotNil(myProfile.deviceID, @"Device ID should be set");
 }
+
+- (void)testCreateFaq
+{
+    Faq* faq = [[DatabaseManager sharedInstance]createFaq];
+    XCTAssertNotNil(faq, @"created Faq should not be nil");
+}
+
+- (void)testGetAllFaqs
+{
+    [[DatabaseManager sharedInstance]createFaq];
+    NSArray* faqArray = [[DatabaseManager sharedInstance]getAllFaqs];
+    XCTAssertNotNil(faqArray, @"Array of faqs should not be nil");
+    
+    XCTAssert([faqArray count]>0, @"Array should contain elements");
+}
+
+- (void)testClearFaqs
+{
+    [[DatabaseManager sharedInstance]createFaq];
+    NSArray* faqArray = [[DatabaseManager sharedInstance]getAllFaqs];
+
+    XCTAssert([faqArray count]>0, @"Array should contain elements");
+    [[DatabaseManager sharedInstance]clearFaqs];
+    faqArray = [[DatabaseManager sharedInstance]getAllFaqs];
+    XCTAssertNotNil(faqArray, @"Array of faqs should not be nil");
+    XCTAssert([faqArray count]==0, @"Array should contain no elements");
+}
 @end

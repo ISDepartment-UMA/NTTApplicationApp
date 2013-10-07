@@ -7,6 +7,8 @@
 //
 
 #import "MyProfileViewController.h"
+#import "DatabaseManager.h"
+#import "ProfileValidater.h"
 
 @interface MyProfileViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
@@ -78,6 +80,16 @@
     
 }
 
+- (void)loadProfileData
+{
+    MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
+    self.firstName.text = profile.firstName;
+    self.lastName.text = profile.lastName;
+    self.email.text = profile.email;
+    self.phoneNumber.text = profile.phoneNo;
+    self.address.text = profile.address;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -87,6 +99,8 @@
     self.email.delegate = self;
     self.address.delegate = self;
     self.phoneNumber.delegate = self;
+    
+    [self loadProfileData];
     
     [self.firstName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
@@ -98,6 +112,36 @@
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenKeyboard)];
     gesture.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:gesture];
+}
+- (IBAction)phoneNumberEditingFinished:(UITextField *)sender
+{
+    ProfileValidater* validater = [[ProfileValidater alloc]init];
+    if ([validater checkIfPhoneNoIsValid:sender.text])
+    {
+        
+    }
+}
+
+- (IBAction)emailEditingFinished:(UITextField *)sender
+{
+    ProfileValidater* validater = [[ProfileValidater alloc]init];
+    if ([validater checkIfMailAddressIsValid:sender.text])
+    {
+        
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
+    profile.firstName = self.firstName.text;
+    profile.lastName = self.lastName.text;
+    profile.address = self.address.text;
+    profile.email = self.email.text;
+    profile.phoneNo = self.phoneNumber.text;
+    [[DatabaseManager sharedInstance]saveContext];
+    
+    [super viewWillDisappear:animated];
 }
 
 @end

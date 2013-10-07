@@ -10,28 +10,22 @@
 #import "FoundPositionDetailViewController.h"
 #import "QuartzCore/QuartzCore.h"
 #import "OSConnectionManager.h"
-#import "SBJson.h"
-#import "OSAPIManager.h"
 #import "DatabaseManager.h"
 #import "FreeTextSearchViewController.h"
 
 @interface FoundPositionsOverviewViewController()
 @property(nonatomic,strong) UIView* loaderView;
 @property(nonatomic,strong)  UIActivityIndicatorView* loader;
-@property (nonatomic, strong) SBJsonParser *parser;
 @property (weak, nonatomic) IBOutlet UITableView *optionsTable;
 @property (strong, nonatomic)  NSArray* resultArray;
 @property (nonatomic) BOOL locationOrderedAscending;
 @property (nonatomic) BOOL jobTitleOrderedAscending;
-
 @end
 
 @implementation FoundPositionsOverviewViewController
 @synthesize loaderView;
 @synthesize loader;
 @synthesize resultArray;
-@synthesize parser;
-
 
 #pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -74,7 +68,6 @@
     [super viewDidLoad];
     self.resultArray = [[NSArray alloc] init];
     
-    parser = [[SBJsonParser alloc] init];
     [self initLoader];
 }
 
@@ -85,13 +78,9 @@
 
 
 #pragma mark - Connection handling
--(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    responseString = [responseString stringByReplacingOccurrencesOfString:@"null" withString:@"\"none\""];
-    
-    id jsonObject=  [parser objectWithString:responseString];
-    self.resultArray = (NSArray*)jsonObject;
+    self.resultArray = array;
     
     if (!resultArray)
         resultArray = [[NSArray alloc]init];
@@ -240,7 +229,7 @@
     {
         cell.userInteractionEnabled = NO;
         cell.textLabel.text = @"No results found for your keyword";
-        NSString* query = [[OSAPIManager sharedManager].searchObject objectForKey:@"freeText"];
+        NSString* query = [[OSConnectionManager sharedManager].searchObject objectForKey:@"freeText"];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Your keyword was \"%@\"", query];
     }
     return cell;
@@ -248,7 +237,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [OSAPIManager sharedManager].searchObject = [resultArray objectAtIndex:indexPath.row];
+    [OSConnectionManager sharedManager].searchObject = [resultArray objectAtIndex:indexPath.row];
 }
 
 - (void)startSearchWithType: (OSConnectionType)type

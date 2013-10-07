@@ -14,9 +14,11 @@
 		283B7D5217FB50C3005F40C7 /* OpenPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5117FB50C3005F40C7 /* OpenPosition.m */; };
 		283B7D5517FB50C3005F40C7 /* MyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5417FB50C3005F40C7 /* MyProfile.m */; };
 		283B7D5817FB8563005F40C7 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5717FB8563005F40C7 /* Application.m */; };
-		283B7D5B17FC1A91005F40C7 /* Validater.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5A17FC1A91005F40C7 /* Validater.m */; };
+		283B7D5B17FC1A91005F40C7 /* ProfileValidater.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5A17FC1A91005F40C7 /* ProfileValidater.m */; };
 		283B7D5D17FC1AD5005F40C7 /* ValidaterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */; };
+		283B7D6017FDD36B005F40C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5F17FDD36B005F40C7 /* Helper.m */; };
 		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
+		287A9E681802AB1E00F72EDE /* Faq.m in Sources */ = {isa = PBXBuildFile; fileRef = 287A9E671802AB1E00F72EDE /* Faq.m */; };
 		28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */; };
 		28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
 		28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
@@ -29,7 +31,6 @@
 		28E44ABF17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
 		28E44AC017E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
 		28E44AC817E3C5510084543B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28E44AC617E3C5510084543B /* InfoPlist.strings */; };
-		28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AD717E3C5810084543B /* OSAPIManager.m */; };
 		28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44AD917E3C5810084543B /* OSConnectionManager.m */; };
 		28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44ADB17E3C5810084543B /* OSURLHelper.m */; };
 		28E44B1417E3C68A0084543B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B0117E3C68A0084543B /* SBJsonParser.m */; };
@@ -85,10 +86,14 @@
 		283B7D5417FB50C3005F40C7 /* MyProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfile.m; path = "NTT Data Job Application App/Model/MyProfile.m"; sourceTree = SOURCE_ROOT; };
 		283B7D5617FB8563005F40C7 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = "NTT Data Job Application App/Model/Application.h"; sourceTree = SOURCE_ROOT; };
 		283B7D5717FB8563005F40C7 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = "NTT Data Job Application App/Model/Application.m"; sourceTree = SOURCE_ROOT; };
-		283B7D5917FC1A91005F40C7 /* Validater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Validater.h; path = "NTT Data Job Application App/Model/Validater.h"; sourceTree = SOURCE_ROOT; };
-		283B7D5A17FC1A91005F40C7 /* Validater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Validater.m; path = "NTT Data Job Application App/Model/Validater.m"; sourceTree = SOURCE_ROOT; };
+		283B7D5917FC1A91005F40C7 /* ProfileValidater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileValidater.h; path = "NTT Data Job Application App/Model/ProfileValidater.h"; sourceTree = SOURCE_ROOT; };
+		283B7D5A17FC1A91005F40C7 /* ProfileValidater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileValidater.m; path = "NTT Data Job Application App/Model/ProfileValidater.m"; sourceTree = SOURCE_ROOT; };
 		283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidaterTest.m; sourceTree = "<group>"; };
+		283B7D5E17FDD36B005F40C7 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Helper.h; path = "NTT Data Job Application App/Model/Helper.h"; sourceTree = SOURCE_ROOT; };
+		283B7D5F17FDD36B005F40C7 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "NTT Data Job Application App/Model/Helper.m"; sourceTree = SOURCE_ROOT; };
 		284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = NTTDataJobAppDatabase.xcdatamodel; path = "NTT Data Job Application App/Model/NTTDataJobAppDatabase.xcdatamodel"; sourceTree = SOURCE_ROOT; };
+		287A9E661802AB1E00F72EDE /* Faq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Faq.h; path = "NTT Data Job Application App/Model/Faq.h"; sourceTree = SOURCE_ROOT; };
+		287A9E671802AB1E00F72EDE /* Faq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Faq.m; path = "NTT Data Job Application App/Model/Faq.m"; sourceTree = SOURCE_ROOT; };
 		28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerTest.m; sourceTree = "<group>"; };
 		28E44A9617E3C5510084543B /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E44A9917E3C5510084543B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -105,8 +110,6 @@
 		28E44AC517E3C5510084543B /* NTT Data Job Application AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTT Data Job Application AppTests-Info.plist"; sourceTree = "<group>"; };
 		28E44AC717E3C5510084543B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		28E44AD517E3C5810084543B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		28E44AD617E3C5810084543B /* OSAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSAPIManager.h; sourceTree = "<group>"; };
-		28E44AD717E3C5810084543B /* OSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSAPIManager.m; sourceTree = "<group>"; };
 		28E44AD817E3C5810084543B /* OSConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSConnectionManager.h; sourceTree = "<group>"; };
 		28E44AD917E3C5810084543B /* OSConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSConnectionManager.m; sourceTree = "<group>"; };
 		28E44ADA17E3C5810084543B /* OSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSURLHelper.h; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				28EAC94F17F2F0140089467C /* DatabaseManager.h */,
 				28EAC95017F2F0140089467C /* DatabaseManager.m */,
 				284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */,
+				287A9E661802AB1E00F72EDE /* Faq.h */,
+				287A9E671802AB1E00F72EDE /* Faq.m */,
 				283B7D5617FB8563005F40C7 /* Application.h */,
 				283B7D5717FB8563005F40C7 /* Application.m */,
 				283B7D5317FB50C3005F40C7 /* MyProfile.h */,
@@ -207,8 +212,10 @@
 				283B7D4517FB50C3005F40C7 /* Topic.m */,
 				283B7D4117FB50C2005F40C7 /* Location.h */,
 				283B7D4217FB50C2005F40C7 /* Location.m */,
-				283B7D5917FC1A91005F40C7 /* Validater.h */,
-				283B7D5A17FC1A91005F40C7 /* Validater.m */,
+				283B7D5917FC1A91005F40C7 /* ProfileValidater.h */,
+				283B7D5A17FC1A91005F40C7 /* ProfileValidater.m */,
+				283B7D5E17FDD36B005F40C7 /* Helper.h */,
+				283B7D5F17FDD36B005F40C7 /* Helper.m */,
 			);
 			name = Model;
 			path = ../Model;
@@ -316,8 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				28E44AD517E3C5810084543B /* Constants.h */,
-				28E44AD617E3C5810084543B /* OSAPIManager.h */,
-				28E44AD717E3C5810084543B /* OSAPIManager.m */,
 				28E44AD817E3C5810084543B /* OSConnectionManager.h */,
 				28E44AD917E3C5810084543B /* OSConnectionManager.m */,
 				28E44ADA17E3C5810084543B /* OSURLHelper.h */,
@@ -465,8 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E44AA617E3C5510084543B /* main.m in Sources */,
-				28E44ADC17E3C5810084543B /* OSAPIManager.m in Sources */,
-				283B7D5B17FC1A91005F40C7 /* Validater.m in Sources */,
+				283B7D5B17FC1A91005F40C7 /* ProfileValidater.m in Sources */,
 				28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */,
 				28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */,
 				283B7D4617FB50C3005F40C7 /* Topic.m in Sources */,
@@ -477,6 +481,7 @@
 				28E44B1717E3C68A0084543B /* SBJsonStreamParserAdapter.m in Sources */,
 				28E44B1817E3C68A0084543B /* SBJsonStreamParserState.m in Sources */,
 				28E44B1917E3C68A0084543B /* SBJsonStreamTokeniser.m in Sources */,
+				287A9E681802AB1E00F72EDE /* Faq.m in Sources */,
 				283B7D5517FB50C3005F40C7 /* MyProfile.m in Sources */,
 				9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */,
 				28E44B1A17E3C68A0084543B /* SBJsonStreamWriter.m in Sources */,
@@ -485,6 +490,7 @@
 				9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */,
 				28E44B1B17E3C68A0084543B /* SBJsonStreamWriterAccumulator.m in Sources */,
 				284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */,
+				283B7D6017FDD36B005F40C7 /* Helper.m in Sources */,
 				283B7D5217FB50C3005F40C7 /* OpenPosition.m in Sources */,
 				28E44B1C17E3C68A0084543B /* SBJsonStreamWriterState.m in Sources */,
 				28E44B1D17E3C68A0084543B /* SBJsonWriter.m in Sources */,

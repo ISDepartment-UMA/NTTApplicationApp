@@ -7,12 +7,11 @@
 //
 
 #import "ApplicationViewController.h"
-#import "OSAPIManager.h"
 #import "DatabaseManager.h"
+#import "OSConnectionManager.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
@@ -22,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-
-
 @end
 
 @implementation ApplicationViewController
@@ -179,23 +176,23 @@
 #pragma mark - Supplemental methods for row creation
 - (NSString *)titleForRow:(NSUInteger)row
 {
-    return [[OSAPIManager sharedManager].searchObject objectForKey:@"position_name"];;
+    return [[OSConnectionManager sharedManager].searchObject objectForKey:@"position_name"];;
 }
 
 - (NSString *)jobTitleForRow:(NSUInteger)row
 {
-    return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
+    return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"job_title"]];
 }
 
 - (NSString *)locationForRow:(NSUInteger)row
 {
-    return [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"location1"]];;
+    return [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location1"]];;
 }
 
 - (NSString *)refNoForRow:(NSUInteger)row
 {
     
-    return [[OSAPIManager sharedManager].searchObject objectForKey:@"ref_no"];
+    return [[OSConnectionManager sharedManager].searchObject objectForKey:@"ref_no"];
 }
 
 

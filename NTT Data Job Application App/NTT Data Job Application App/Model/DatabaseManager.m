@@ -7,6 +7,7 @@
 //
 
 #import "DatabaseManager.h"
+#import "Helper.h"
 
 @interface DatabaseManager()
 {
@@ -24,6 +25,7 @@
 #define OPENPOSITION_TABLENAME @"OpenPosition"
 #define APPLICATION_TABLENAME @"Application"
 #define MYPROFILE_TABLENAME @"MyProfile"
+#define FAQ_TABLENAME @"Faq"
 
 + (DatabaseManager*)sharedInstance
 {
@@ -442,14 +444,22 @@
         [[self context]deleteObject:pos];
 }
 
-
+#pragma mark -
+#pragma mark Applications
+#pragma mark -
 - (Application*)createApplication
 {
     Application* currentApplication =  [NSEntityDescription insertNewObjectForEntityForName:APPLICATION_TABLENAME inManagedObjectContext:[self context]];
     currentApplication.dateApplied = [NSDate date];
-    currentApplication.deviceID = [self getDeviceID];
+    currentApplication.deviceID = [[[Helper alloc]init]getDeviceID];
     
     return currentApplication;
+}
+
+- (void)clearApplications
+{
+    for (Application* application in [self getAllApplications])
+        [[self context]deleteObject:application];
 }
 
 - (NSArray*)getAllApplications
@@ -465,6 +475,55 @@
     return results;
 }
 
+- (BOOL)createApplicationsFromJSON:(id)jsonResponse
+{
+    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    {
+        NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
+        request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"deviceID = %@ && ref_No == %@", [dict objectForKey:@"device_id"], [dict objectForKey:@"job_ref_no"]];
+        
+        Application* application = nil;
+        NSError* error = nil;
+        NSArray* results = [[self context]executeFetchRequest:request error:&error];
+        
+        if (!results || [results count] > 1)
+        {
+            //Error!
+        }else if ([results count] == 0)
+        {
+            application = [self createApplication];
+            application.deviceID = [dict objectForKey:@"device_id"];
+            application.ref_No = [dict objectForKey:@"job_ref_no"];
+            application.dateApplied = [dict objectForKey:@"apply_time"];
+            application.status = [dict objectForKey:@"application_status"];
+            application.email = [dict objectForKey:@"email"];
+            application.firstName = [dict objectForKey:@"first_name"];
+            application.lastName = [dict objectForKey:@"last_name"];
+            application.address = [dict objectForKey:@"address"];
+            application.phoneNo = [dict objectForKey:@"phone_no"];
+            
+        }else
+        {
+            application = [results lastObject];
+            application.dateApplied = [dict objectForKey:@"apply_time"];
+            application.status = [dict objectForKey:@"application_status"];
+            application.email = [dict objectForKey:@"email"];
+            application.firstName = [dict objectForKey:@"first_name"];
+            application.lastName = [dict objectForKey:@"last_name"];
+            application.address = [dict objectForKey:@"address"];
+            application.phoneNo = [dict objectForKey:@"phone_no"];
+        }
+        
+    }
+    
+    [self saveContext];
+    return true;
+}
+
+#pragma mark -
+#pragma mark Profile
+#pragma mark -
 - (MyProfile*)getMyProfile
 {
     NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
@@ -489,14 +548,8 @@
         profile = [NSEntityDescription insertNewObjectForEntityForName:MYPROFILE_TABLENAME inManagedObjectContext:[self context]];
     }
     
-    profile.deviceID = [self getDeviceID];
+    profile.deviceID = [[[Helper alloc]init]getDeviceID];
     return profile;
-}
-
-- (void)clearApplications
-{
-    for (Application* application in [self getAllApplications])
-        [[self context]deleteObject:application];
 }
 
 - (void)clearMyProfile
@@ -514,6 +567,55 @@
         [[self context]deleteObject:profile];
 }
 
+#pragma mark -
+#pragma mark FAQ
+#pragma mark -
+
+- (Faq*)createFaq
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:FAQ_TABLENAME inManagedObjectContext:[self context]];
+}
+
+- (NSArray*)getAllFaqs
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:FAQ_TABLENAME];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES]];
+    NSError* error = nil;
+    
+    return [[self context]executeFetchRequest:request error:&error];
+}
+
+- (void)clearFaqs
+{
+    for (Faq* faq in [self getAllFaqs])
+        [[self context]deleteObject:faq];
+}
+
+- (BOOL)createFaqsFromJSON:(id)jsonResponse
+{
+    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    {
+        NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:FAQ_TABLENAME];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"answer" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"question == %@ && answer == %@", [dict objectForKey:@"question"], [dict objectForKey:@"answer"]];
+        
+        NSError* error = nil;
+        NSArray* results = [[self context]executeFetchRequest:request error:&error];
+        if (!results || [results count] > 1)
+        {
+            //error...
+        }
+        else if ([results count] == 0)
+        {
+            Faq* faq = [self createFaq];
+            faq.question = [dict objectForKey:@"question"];
+            faq.answer = [dict objectForKey:@"answer"];
+        }
+    }
+    
+    [self saveContext];
+    return true;
+}
 
 #pragma mark -
 #pragma mark Save
@@ -610,9 +712,4 @@
     return @"";
 }
 
-- (NSString*)getDeviceID
-{
-    UIDevice* currentDevice = [UIDevice currentDevice];
-    return [currentDevice.identifierForVendor description];
-}
 @end
