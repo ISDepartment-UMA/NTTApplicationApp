@@ -25,6 +25,7 @@
 #define OPENPOSITION_TABLENAME @"OpenPosition"
 #define APPLICATION_TABLENAME @"Application"
 #define MYPROFILE_TABLENAME @"MyProfile"
+#define FAQ_TABLENAME @"Faq"
 
 + (DatabaseManager*)sharedInstance
 {
@@ -443,7 +444,9 @@
         [[self context]deleteObject:pos];
 }
 
-
+#pragma mark -
+#pragma mark Applications
+#pragma mark -
 - (Application*)createApplication
 {
     Application* currentApplication =  [NSEntityDescription insertNewObjectForEntityForName:APPLICATION_TABLENAME inManagedObjectContext:[self context]];
@@ -451,6 +454,12 @@
     currentApplication.deviceID = [[[Helper alloc]init]getDeviceID];
     
     return currentApplication;
+}
+
+- (void)clearApplications
+{
+    for (Application* application in [self getAllApplications])
+        [[self context]deleteObject:application];
 }
 
 - (NSArray*)getAllApplications
@@ -466,57 +475,8 @@
     return results;
 }
 
-- (MyProfile*)getMyProfile
-{
-    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
-    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
-    
-    NSError* error = nil;
-    NSArray* results = [[self context]executeFetchRequest:request error:&error];
-    
-    if (!results)
-        NSLog(@"Error while fetching results from Database: %@", error );
-    
-    MyProfile* profile = nil;
-    if ([results count] == 0)
-    {
-        profile = [NSEntityDescription insertNewObjectForEntityForName:MYPROFILE_TABLENAME inManagedObjectContext:[self context]];
-    }else if([results count] == 1)
-    {
-        profile = [results lastObject];
-    }else
-    {
-        [self clearMyProfile];
-        profile = [NSEntityDescription insertNewObjectForEntityForName:MYPROFILE_TABLENAME inManagedObjectContext:[self context]];
-    }
-    
-    profile.deviceID = [[[Helper alloc]init]getDeviceID];
-    return profile;
-}
-
-- (void)clearApplications
-{
-    for (Application* application in [self getAllApplications])
-        [[self context]deleteObject:application];
-}
-
-- (void)clearMyProfile
-{
-    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
-    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
-    
-    NSError* error = nil;
-    NSArray* results = [[self context]executeFetchRequest:request error:&error];
-    
-    if (!results)
-        NSLog(@"Error while fetching results from Database: %@", error );
-   
-    for (MyProfile* profile in results)
-        [[self context]deleteObject:profile];
-}
-
 - (BOOL)createApplicationsFromJSON:(id)jsonResponse
-{ 
+{
     for (NSDictionary* dict in (NSArray*)jsonResponse)
     {
         NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
@@ -556,12 +516,79 @@
         }
         
     }
-
+    
     [self saveContext];
     return true;
 }
 
+#pragma mark -
+#pragma mark Profile
+#pragma mark -
+- (MyProfile*)getMyProfile
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
+    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
+    
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (!results)
+        NSLog(@"Error while fetching results from Database: %@", error );
+    
+    MyProfile* profile = nil;
+    if ([results count] == 0)
+    {
+        profile = [NSEntityDescription insertNewObjectForEntityForName:MYPROFILE_TABLENAME inManagedObjectContext:[self context]];
+    }else if([results count] == 1)
+    {
+        profile = [results lastObject];
+    }else
+    {
+        [self clearMyProfile];
+        profile = [NSEntityDescription insertNewObjectForEntityForName:MYPROFILE_TABLENAME inManagedObjectContext:[self context]];
+    }
+    
+    profile.deviceID = [[[Helper alloc]init]getDeviceID];
+    return profile;
+}
 
+- (void)clearMyProfile
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:MYPROFILE_TABLENAME];
+    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
+    
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (!results)
+        NSLog(@"Error while fetching results from Database: %@", error );
+   
+    for (MyProfile* profile in results)
+        [[self context]deleteObject:profile];
+}
+
+#pragma mark -
+#pragma mark FAQ
+#pragma mark -
+
+- (Faq*)createFaq
+{
+    return nil;
+}
+
+- (NSArray*)getAllFaqs
+{
+    return nil;
+}
+
+- (void)clearFaqs
+{
+}
+
+- (BOOL)createFaqsFromJSON:(id)jsonResponse
+{
+    return false;
+}
 
 #pragma mark -
 #pragma mark Save
