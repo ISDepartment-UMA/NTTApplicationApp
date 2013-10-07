@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
 
-#import "Validater.h"
+#import "ProfileValidater.h"
 
-@implementation Validater
+@implementation ProfileValidater
 - (BOOL)checkIfMailAddressIsValid:(NSString *)emailAddress
 {
     BOOL stricterFilter = YES;

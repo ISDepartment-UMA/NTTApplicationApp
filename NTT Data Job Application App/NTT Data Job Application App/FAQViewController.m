@@ -36,9 +36,18 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    AnswerViewController* dest = (AnswerViewController*)segue.destinationViewController;
-    Faq* faq = [faqArray objectAtIndex:selected];
-    dest.text = [faq.answer copy];
+    if ([segue.identifier isEqualToString:@"openAnswer"])
+    {
+        AnswerViewController* dest = (AnswerViewController*)segue.destinationViewController;
+        Faq* faq = nil;
+        
+        if (isFiltered)
+            faq = [filteredFaqs objectAtIndex:selected];
+        else
+            faq = [faqArray objectAtIndex:selected];
+        
+        dest.text = faq.answer;
+    }
 }
 
 -(void)initLoader
@@ -190,6 +199,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     selected = indexPath.row;
+    [self performSegueWithIdentifier:@"openAnswer" sender:self];
 }
 
 #pragma mark - Mail delegate

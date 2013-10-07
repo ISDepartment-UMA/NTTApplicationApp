@@ -14,7 +14,7 @@
 		283B7D5217FB50C3005F40C7 /* OpenPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5117FB50C3005F40C7 /* OpenPosition.m */; };
 		283B7D5517FB50C3005F40C7 /* MyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5417FB50C3005F40C7 /* MyProfile.m */; };
 		283B7D5817FB8563005F40C7 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5717FB8563005F40C7 /* Application.m */; };
-		283B7D5B17FC1A91005F40C7 /* Validater.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5A17FC1A91005F40C7 /* Validater.m */; };
+		283B7D5B17FC1A91005F40C7 /* ProfileValidater.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5A17FC1A91005F40C7 /* ProfileValidater.m */; };
 		283B7D5D17FC1AD5005F40C7 /* ValidaterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */; };
 		283B7D6017FDD36B005F40C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5F17FDD36B005F40C7 /* Helper.m */; };
 		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
@@ -86,8 +86,8 @@
 		283B7D5417FB50C3005F40C7 /* MyProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProfile.m; path = "NTT Data Job Application App/Model/MyProfile.m"; sourceTree = SOURCE_ROOT; };
 		283B7D5617FB8563005F40C7 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = "NTT Data Job Application App/Model/Application.h"; sourceTree = SOURCE_ROOT; };
 		283B7D5717FB8563005F40C7 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = "NTT Data Job Application App/Model/Application.m"; sourceTree = SOURCE_ROOT; };
-		283B7D5917FC1A91005F40C7 /* Validater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Validater.h; path = "NTT Data Job Application App/Model/Validater.h"; sourceTree = SOURCE_ROOT; };
-		283B7D5A17FC1A91005F40C7 /* Validater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Validater.m; path = "NTT Data Job Application App/Model/Validater.m"; sourceTree = SOURCE_ROOT; };
+		283B7D5917FC1A91005F40C7 /* ProfileValidater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileValidater.h; path = "NTT Data Job Application App/Model/ProfileValidater.h"; sourceTree = SOURCE_ROOT; };
+		283B7D5A17FC1A91005F40C7 /* ProfileValidater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileValidater.m; path = "NTT Data Job Application App/Model/ProfileValidater.m"; sourceTree = SOURCE_ROOT; };
 		283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidaterTest.m; sourceTree = "<group>"; };
 		283B7D5E17FDD36B005F40C7 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Helper.h; path = "NTT Data Job Application App/Model/Helper.h"; sourceTree = SOURCE_ROOT; };
 		283B7D5F17FDD36B005F40C7 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "NTT Data Job Application App/Model/Helper.m"; sourceTree = SOURCE_ROOT; };
@@ -212,8 +212,8 @@
 				283B7D4517FB50C3005F40C7 /* Topic.m */,
 				283B7D4117FB50C2005F40C7 /* Location.h */,
 				283B7D4217FB50C2005F40C7 /* Location.m */,
-				283B7D5917FC1A91005F40C7 /* Validater.h */,
-				283B7D5A17FC1A91005F40C7 /* Validater.m */,
+				283B7D5917FC1A91005F40C7 /* ProfileValidater.h */,
+				283B7D5A17FC1A91005F40C7 /* ProfileValidater.m */,
 				283B7D5E17FDD36B005F40C7 /* Helper.h */,
 				283B7D5F17FDD36B005F40C7 /* Helper.m */,
 			);
@@ -470,7 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E44AA617E3C5510084543B /* main.m in Sources */,
-				283B7D5B17FC1A91005F40C7 /* Validater.m in Sources */,
+				283B7D5B17FC1A91005F40C7 /* ProfileValidater.m in Sources */,
 				28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */,
 				28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */,
 				283B7D4617FB50C3005F40C7 /* Topic.m in Sources */,
