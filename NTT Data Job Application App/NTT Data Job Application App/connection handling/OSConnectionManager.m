@@ -197,15 +197,15 @@
     // get connection type
     NSString* hashKey = [NSString stringWithFormat:@"%i",connection.hash];
     NSString* connectionType = [connectionsHashTable objectForKey:hashKey];
+    SBJsonParser* parser = [[SBJsonParser alloc]init];
     // get data of connection
     NSMutableData* connectionData = [[NSMutableData alloc]init];
     [connectionData appendData:[connectionsData objectForKey:hashKey]];
+    NSArray* data = [parser objectWithData:[connectionData copy]];
     // save data of connection on cashing manager
-    [delegate connectionSuccess:[connectionType intValue] withData:connectionData];
+    [delegate connectionSuccess:[connectionType intValue] withDataInArray:data];
     // remove connection from connections hashtable and connections data dictionary
     [connectionsHashTable removeObjectForKey:hashKey];
     [connectionsData removeObjectForKey:hashKey];
 }
-
-
 @end

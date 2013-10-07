@@ -6,11 +6,7 @@
 //  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
 #import "FAQViewController.h"
-#import "SBJson.h"
 #import "QuartzCore/QuartzCore.h"
-
-
-
 
 @implementation FAQViewController
 @synthesize faq;
@@ -19,8 +15,6 @@
 @synthesize parser;
 @synthesize answer;
 @synthesize selected;
-
-
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -104,12 +98,11 @@
     }
     [self.myTableView reloadData];
 }
--(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData *)data
+
+
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    NSString* responseString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    parser= [[SBJsonParser alloc] init];
-    id jsonObject= [parser objectWithString:responseString];
-    faq = jsonObject ;
+    faq = array;
     [self.tableView reloadData];
     [loader stopAnimating];
     [loaderView setHidden:YES];
@@ -123,14 +116,7 @@
     
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -170,12 +156,10 @@
 
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     selected =indexPath.row;
 }
-
 
 - (IBAction)mailLabelClicked:(id)sender
 {
@@ -191,6 +175,4 @@
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
 }
-
-
 @end

@@ -18,7 +18,7 @@
  *	@param	connectionType	the type of completed connection
  *	@param	data	the data of connection response
  */
--(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData*)data;
+//-(void)connectionSuccess:(OSConnectionType)connectionType withData:(NSData*)data;
 -(void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray*)array;
 @end
 
