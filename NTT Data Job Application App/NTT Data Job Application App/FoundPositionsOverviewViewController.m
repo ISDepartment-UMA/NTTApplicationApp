@@ -11,7 +11,6 @@
 #import "QuartzCore/QuartzCore.h"
 #import "OSConnectionManager.h"
 #import "DatabaseManager.h"
-#import "FreeTextSearchViewController.h"
 
 @interface FoundPositionsOverviewViewController()
 @property(nonatomic,strong) UIView* loaderView;
@@ -20,19 +19,26 @@
 @property (strong, nonatomic)  NSArray* resultArray;
 @property (nonatomic) BOOL locationOrderedAscending;
 @property (nonatomic) BOOL jobTitleOrderedAscending;
+@property (nonatomic) NSInteger selectedJob;
 @end
 
 @implementation FoundPositionsOverviewViewController
 @synthesize loaderView;
 @synthesize loader;
 @synthesize resultArray;
+@synthesize selectedJob;
 
 #pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.destinationViewController isKindOfClass:[FoundPositionDetailViewController class]]) {
-        FoundPositionDetailViewController *fpdvc = (FoundPositionDetailViewController *)segue.destinationViewController;
-        fpdvc.freeText = self.freeText;
+    if ([segue.identifier isEqualToString:@"showPositionsDetails"])
+    {
+        NSDictionary* position = [[resultArray objectAtIndex:selectedJob] copy];
+        if ([segue.destinationViewController respondsToSelector:@selector(setOpenPosition:)])
+            [segue.destinationViewController performSelector:@selector(setOpenPosition:) withObject:position];
+        if ([segue.destinationViewController respondsToSelector:@selector(setFreeText:)]) {
+            [segue.destinationViewController performSelector:@selector(setFreeText:) withObject:self.freeText];
+        }
     }
 }
 
@@ -237,7 +243,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [OSConnectionManager sharedManager].searchObject = [resultArray objectAtIndex:indexPath.row];
+    self.selectedJob = indexPath.row;
+    [self performSegueWithIdentifier:@"showPositionsDetails" sender:self];
 }
 
 - (void)startSearchWithType: (OSConnectionType)type

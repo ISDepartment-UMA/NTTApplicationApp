@@ -9,5 +9,5 @@
 
 @interface FoundPositionDetailViewController : UIViewController
 @property NSString *freeText;
-
+@property NSDictionary* openPosition;
 @end

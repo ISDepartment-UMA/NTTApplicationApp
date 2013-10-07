@@ -201,7 +201,8 @@
     // get data of connection
     NSMutableData* connectionData = [[NSMutableData alloc]init];
     [connectionData appendData:[connectionsData objectForKey:hashKey]];
-    NSArray* data = [parser objectWithData:[connectionData copy]];
+
+    NSArray* data = (NSArray*)[parser objectWithData:[connectionData copy]];
     // save data of connection on cashing manager
     [delegate connectionSuccess:[connectionType intValue] withDataInArray:data];
     // remove connection from connections hashtable and connections data dictionary

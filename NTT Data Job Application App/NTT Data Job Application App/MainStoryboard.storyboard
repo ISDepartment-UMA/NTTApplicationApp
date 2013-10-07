@@ -586,9 +586,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Gyy-ut-UNb" kind="push" id="rx1-SS-fMv"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -597,6 +594,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="yKp-0r-Nfp"/>
+                    <connections>
+                        <segue destination="Gyy-ut-UNb" kind="push" identifier="showPositionsDetails" id="hHz-wA-EYz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoa-uB-RGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
