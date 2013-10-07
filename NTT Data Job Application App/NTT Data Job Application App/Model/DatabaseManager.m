@@ -573,21 +573,49 @@
 
 - (Faq*)createFaq
 {
-    return nil;
+    return [NSEntityDescription insertNewObjectForEntityForName:FAQ_TABLENAME inManagedObjectContext:[self context]];
 }
 
 - (NSArray*)getAllFaqs
 {
-    return nil;
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:FAQ_TABLENAME];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES]];
+    NSError* error = nil;
+    
+    return [[self context]executeFetchRequest:request error:&error];
 }
 
 - (void)clearFaqs
 {
+    for (Faq* faq in [self getAllFaqs])
+        [[self context]deleteObject:faq];
 }
 
 - (BOOL)createFaqsFromJSON:(id)jsonResponse
 {
-    return false;
+    for (NSDictionary* dict in (NSArray*)jsonResponse)
+    {
+        NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:FAQ_TABLENAME];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"question" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"answer" ascending:YES]];
+        request.predicate = [NSPredicate predicateWithFormat:@"question == %@ && answer == %@", [dict objectForKey:@"question"], [dict objectForKey:@"answer"]];
+        
+        NSError* error = nil;
+        NSArray* results = [[self context]executeFetchRequest:request error:&error];
+        if (!results || [results count] > 1)
+        {
+            //error...
+        }
+        else if ([results count] == 0)
+        {
+            Faq* faq = [self createFaq];
+            faq.question = [dict objectForKey:@"question"];
+            faq.answer = [dict objectForKey:@"answer"];
+        }
+
+    }
+    
+    [self saveContext];
+    return true;
 }
 
 #pragma mark -
