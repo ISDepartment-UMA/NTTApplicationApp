@@ -14,7 +14,7 @@
 #import "MessageUI/MessageUI.h"
 
 
-@interface FAQViewController ()<OSConnectionCompletionDelegate, UISearchBarDelegate, UITableViewDataSource ,UITableViewDelegate, MFMailComposeViewControllerDelegate>
+@interface FAQViewController ()<OSConnectionCompletionDelegate, UISearchBarDelegate, UITableViewDataSource ,UITableViewDelegate, UIScrollViewDelegate, MFMailComposeViewControllerDelegate>
 {
     NSMutableArray *filteredFaqs;
     BOOL isFiltered;
@@ -81,6 +81,17 @@
     
 }
 
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.mySearchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.mySearchBar resignFirstResponder];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -91,7 +102,10 @@
     [self initLoader];
     [OSConnectionManager sharedManager].delegate = self;
     [self loadFaqData];
+   
 }
+
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -161,10 +175,7 @@
     // Return the number of sections.
     return 1;
 }
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [self.mySearchBar resignFirstResponder];
-}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
