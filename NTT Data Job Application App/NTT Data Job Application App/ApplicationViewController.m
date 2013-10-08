@@ -24,6 +24,7 @@
 @end
 
 @implementation ApplicationViewController
+@synthesize openPosition;
 
 - (IBAction)cancel:(UIButton *)sender {
     self.firstName.text=@"";
@@ -144,55 +145,62 @@
     
     
     [self.firstName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-      [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.lastName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-      [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.address addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.phoneNumber addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenKeyboard)];
     gesture.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:gesture];
+    
+    [self setupProfile];
 }
 
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void) viewWillDisappear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
+    profile.firstName = self.firstName.text;
+    profile.lastName = self.lastName.text;
+    profile.email = self.email.text;
+    profile.address = self.address.text;
+    profile.phoneNo = self.phoneNumber.text;
+    [[DatabaseManager sharedInstance]saveContext];
+    
+    [super viewWillDisappear:animated];
 }
 
-
-- (void)didReceiveMemoryWarning
+- (void) setupProfile
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
+    self.firstName.text = profile.firstName;
+    self.lastName.text = profile.lastName;
+    self.email.text = profile.email;
+    self.phoneNumber.text = profile.phoneNo;
+    self.address.text = profile.address;
 }
 
 #pragma mark - Supplemental methods for row creation
 - (NSString *)titleForRow:(NSUInteger)row
 {
-    return [[OSConnectionManager sharedManager].searchObject objectForKey:@"position_name"];;
+    return [self.openPosition objectForKey:@"position_name"];;
 }
 
 - (NSString *)jobTitleForRow:(NSUInteger)row
 {
-    return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"job_title"]];
+    return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"job_title"]];
 }
 
 - (NSString *)locationForRow:(NSUInteger)row
 {
-    return [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location1"]];;
+    return [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"location1"]];;
 }
 
 - (NSString *)refNoForRow:(NSUInteger)row
 {
     
-    return [[OSConnectionManager sharedManager].searchObject objectForKey:@"ref_no"];
+    return [self.openPosition objectForKey:@"ref_no"];
 }
 
 

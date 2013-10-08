@@ -121,6 +121,19 @@
     [self.scrollView setScrollEnabled:YES];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"apply"])
+        if ([segue.destinationViewController respondsToSelector:@selector(setOpenPosition:)])
+            [segue.destinationViewController performSelector:@selector(setOpenPosition:) withObject:self.openPosition];
+        
+    
+}
+
+- (IBAction)apply:(id)sender
+{
+    [self performSegueWithIdentifier:@"apply" sender:self];
+}
 
 #pragma mark - Phone and Mail capabilities
 - (void) phoneLabelClicked

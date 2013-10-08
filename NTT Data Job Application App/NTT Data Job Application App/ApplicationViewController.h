@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ApplicationViewController : UIViewController
-
+@property (strong, nonatomic)NSDictionary* openPosition;
 @end
