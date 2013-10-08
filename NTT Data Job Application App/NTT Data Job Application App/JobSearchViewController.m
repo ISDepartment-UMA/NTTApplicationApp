@@ -42,13 +42,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *searchCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIButton *proposeJobButton;
-@property (strong, nonatomic) NSMutableDictionary* searchObject;
 @end
 
 @implementation JobSearchViewController
 @synthesize loaderView;
 @synthesize loader;
-@synthesize searchObject;
 
 -(void)initLoader
 {
@@ -138,8 +136,6 @@
 
 -(void)loadAllData
 {
-    searchObject= [[NSMutableDictionary alloc] init];
-    
     NSArray* topics = [[DatabaseManager sharedInstance]allTopics];
     if (!topics || ![topics count])
         [[OSConnectionManager sharedManager] StartConnection:OSCGetTopics];
@@ -326,31 +322,31 @@
     if (self.topics.selected)
     {
         Topic* topic = [self.topicsList objectAtIndex:indexPath.row];
-        [searchObject setObject:topic.databasename forKey:@"topics"];
+        [[OSConnectionManager sharedManager].searchObject setObject:topic.databasename forKey:@"topics"];
         self.topicsLabel.text = topic.displayname;
     }
     
     if (self.experience.selected)
     {
         Experience* experience = [self.experienceList objectAtIndex:indexPath.row];
-        [searchObject setObject:experience.databasename forKey:@"experience"];
+        [[OSConnectionManager sharedManager].searchObject setObject:experience.databasename forKey:@"experience"];
         self.expLabel.text = experience.displayname;
     }
     
     if (self.location.selected)
     {
         Location* location = [self.locationsList objectAtIndex:indexPath.row];
-        [searchObject setObject:location.databasename forKey:@"location"];
+        [[OSConnectionManager sharedManager].searchObject setObject:location.databasename forKey:@"location"];
         self.locationLabel.text = location.displayname;
     }
     
     if (self.jobTitle.selected)
     {
         JobTitle* jobTitle = [self.jobTitleList objectAtIndex:indexPath.row];
-        [searchObject setObject:jobTitle.databasename forKey:@"jobtitles"];
+        [[OSConnectionManager sharedManager].searchObject setObject:jobTitle.databasename forKey:@"jobtitles"];
         self.jobTitleLabel.text = jobTitle.displayname;
     }
-    [OSConnectionManager sharedManager].searchObject = [self.searchObject copy];
+    [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
 }
 
@@ -398,7 +394,7 @@
         FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;
         [overviewVC startSearchWithType:OSCGetSearch];
     }
-    NSLog(@"search is %@",searchObject);
+    NSLog(@"search is %@", [OSConnectionManager sharedManager].searchObject);
 }
 
 - (IBAction)sarchButtonPressed:(UIButton *)sender

@@ -521,6 +521,26 @@
     return true;
 }
 
+- (Application*)getApplicationForRefNo: (NSString*)refNo
+{
+    Helper* deviceIdHelper = [[Helper alloc]init];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:APPLICATION_TABLENAME];
+    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"deviceID" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"deviceID = %@ && ref_No == %@", [deviceIdHelper getDeviceID], refNo];
+    
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (!results || [results count] > 1)
+    {
+        return nil;;
+    }
+    else if([results count] == 1)
+        return [results lastObject];
+    else
+        return nil;
+}
+
 #pragma mark -
 #pragma mark Profile
 #pragma mark -

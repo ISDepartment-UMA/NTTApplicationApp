@@ -860,7 +860,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendApplication:" destination="le8-wz-XJp" eventType="touchUpInside" id="W4a-iR-fH4"/>
+                                    <action selector="sendApplication:" destination="le8-wz-XJp" eventType="touchUpInside" id="rcf-So-Vqb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="umj-4W-TBE">

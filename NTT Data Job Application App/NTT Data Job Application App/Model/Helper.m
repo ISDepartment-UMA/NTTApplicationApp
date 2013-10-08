@@ -13,6 +13,6 @@
 - (NSString*)getDeviceID
 {
     UIDevice* currentDevice = [UIDevice currentDevice];
-    return [currentDevice.identifierForVendor description];
+    return [currentDevice.identifierForVendor UUIDString];
 }
 @end

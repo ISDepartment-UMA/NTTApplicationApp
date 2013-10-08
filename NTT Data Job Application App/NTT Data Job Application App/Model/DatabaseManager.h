@@ -54,10 +54,12 @@
 
 - (Application*)createApplication;
 - (NSArray*)getAllApplications;
-- (MyProfile*)getMyProfile;
-- (void)clearApplications;
-- (void)clearMyProfile;
 - (BOOL)createApplicationsFromJSON: (id)jsonResponse;
+- (void)clearApplications;
+- (Application*)getApplicationForRefNo: (NSString*)refNo;
+
+- (MyProfile*)getMyProfile;
+- (void)clearMyProfile;
 
 - (Faq*)createFaq;
 - (NSArray*)getAllFaqs;

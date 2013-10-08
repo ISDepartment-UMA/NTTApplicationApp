@@ -2,6 +2,8 @@
 
 #import "OSConnectionManager.h"
 #import "SBJson.h"
+#import "Application.h"
+#import "DatabaseManager.h"
 
 @interface OSConnectionManager ()
 {
@@ -90,7 +92,16 @@
     }
     else if (connectionType == OSCSendApplication)
     {
+        NSString* refNo = [searchObject objectForKey:@"ref_no"];
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:refNo];
         
+        if (!application) {
+            return NO;
+        }
+        
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\"}",application.deviceID, application.ref_No, application.dateApplied, application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo];
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
     }
     else if (connectionType == OSCSendWithdrawApplication)
     {
@@ -201,8 +212,12 @@
     // get data of connection
     NSMutableData* connectionData = [[NSMutableData alloc]init];
     [connectionData appendData:[connectionsData objectForKey:hashKey]];
+
     NSString* conString = [[NSString alloc]initWithData:connectionData encoding:NSUTF8StringEncoding];
-    conString = [conString stringByReplacingOccurrencesOfString:@"null" withString:@"\"none\""];
+    if ([connectionType intValue] == OSCGetSearch || [connectionType intValue] == OSCGetFreeTextSearch || [connectionType intValue] == OSCGetApplicationsByDevice || [connectionType intValue] == OSCGetApplicationsByDeviceAndReference)
+    {
+        conString = [conString stringByReplacingOccurrencesOfString:@"null" withString:@"\"none\""];
+    }
     
     NSArray* data = (NSArray*)[parser objectWithString:conString];
     // save data of connection on cashing manager
