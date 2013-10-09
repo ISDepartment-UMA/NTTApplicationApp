@@ -4,6 +4,7 @@
 #import "SBJson.h"
 #import "Application.h"
 #import "DatabaseManager.h"
+#import "Helper.h"
 
 @interface OSConnectionManager ()
 {
@@ -103,17 +104,25 @@
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
-    else if (connectionType == OSCSendWithdrawApplication)
+    else if (connectionType == OSCSendWithdrawApplication || connectionType == OSCGetApplicationsByDeviceAndReference)
     {
+        NSString* refNo = [searchObject objectForKey:@"ref_no"];
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:refNo];
         
-    }
-    else if (connectionType == OSCGetApplicationsByDeviceAndReference)
-    {
+        if (!application) {
+            return NO;
+        }
         
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\"}", application.deviceID, application.ref_No];
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
     }
     else if (connectionType == OSCGetApplicationsByDevice)
     {
-        
+        NSString* devideID = [[[Helper alloc]init]getDeviceID];
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\"}", devideID];
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
     }
 
     // start connection for requested url and set the connection type
