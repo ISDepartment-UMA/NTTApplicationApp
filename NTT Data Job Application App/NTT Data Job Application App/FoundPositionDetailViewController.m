@@ -90,6 +90,7 @@
 {
     self.reference.text = [self.openPosition objectForKey:@"ref_no"];
     self.position.text = [self.openPosition objectForKey:@"position_name"];
+    self.position.numberOfLines = 3;
     self.exp.text = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName: [self.openPosition objectForKey:@"exp"]];
     self.jobTitle.text = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName: [self.openPosition objectForKey:@"job_title"]];
     self.contact.text = [self.openPosition objectForKey:@"contact_person"];
