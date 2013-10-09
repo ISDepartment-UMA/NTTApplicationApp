@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Validater.h"
+#import "ProfileValidater.h"
 
 @interface ValidaterTest : XCTestCase
 
@@ -31,7 +31,7 @@
 {
     NSString* validEmail = @"matthias.rabus@uni-mannheim.de";
     NSString* unvalidEmail = @"test..@address.";
-    Validater* tester = [[Validater alloc]init];
+    ProfileValidater* tester = [[ProfileValidater alloc]init];
     
     XCTAssertTrue([tester checkIfMailAddressIsValid:validEmail], @"Email address should be valid");
     
@@ -42,7 +42,7 @@
 {
     NSString* validPhoneNo = @"0231/9020-0";
     NSString* unvalidPhoneNo = @"0231/abc";
-    Validater* tester = [[Validater alloc]init];
+    ProfileValidater* tester = [[ProfileValidater alloc]init];
     
     XCTAssertTrue([tester checkIfPhoneNoIsValid:validPhoneNo], @"Phone No should be valid!");
     XCTAssertTrue(![tester checkIfPhoneNoIsValid:unvalidPhoneNo], @"Phone No should not be valid");

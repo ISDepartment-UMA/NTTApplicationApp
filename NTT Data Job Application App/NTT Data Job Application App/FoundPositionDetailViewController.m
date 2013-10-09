@@ -6,7 +6,6 @@
 //
 
 #import "FoundPositionDetailViewController.h"
-#import "OSAPIManager.h"
 #import "OSConnectionManager.h"
 #import "MessageUI/MessageUI.h"
 #import "MessageUI/MFMailComposeViewController.h"
@@ -34,20 +33,20 @@
 @end
 
 @implementation FoundPositionDetailViewController
+@synthesize openPosition;
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
     [self loadData];
     [self loadSelectedFilters];
 }
 
 - (void)loadSelectedFilters
 {
-    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"experience"]];
-    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"jobtitles"]];
-    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"topics"]];
-    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"location"]];
+    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"experience"]];
+    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"jobtitles"]];
+    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"topics"]];
+    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"location"]];
     
     NSString* content = [[NSString alloc]init];
     if (contentExperience && contentExperience.length > 0)
@@ -89,12 +88,13 @@
 
 -(void)loadData
 {
-    self.reference.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"ref_no"];
-    self.position.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"position_name"];
-    self.exp.text = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName: [[OSAPIManager sharedManager].searchObject objectForKey:@"exp"]];
-    self.jobTitle.text = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName: [[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
-    self.contact.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"contact_person"];
-    self.email.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"email"];
+    self.reference.text = [self.openPosition objectForKey:@"ref_no"];
+    self.position.text = [self.openPosition objectForKey:@"position_name"];
+    self.position.numberOfLines = 3;
+    self.exp.text = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName: [self.openPosition objectForKey:@"exp"]];
+    self.jobTitle.text = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName: [self.openPosition objectForKey:@"job_title"]];
+    self.contact.text = [self.openPosition objectForKey:@"contact_person"];
+    self.email.text = [self.openPosition objectForKey:@"email"];
 
     if (self.email.text && ![self.email.text isEqualToString:@"none"])
     {
@@ -103,7 +103,7 @@
         [self.email addGestureRecognizer:recognizer];
     }
     
-    self.phone.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"phone_no"];
+    self.phone.text = [self.openPosition objectForKey:@"phone_no"];
     if (self.phone.text && ![self.phone.text isEqualToString:@"none"])
     {
         UITapGestureRecognizer* gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(phoneLabelClicked)];
@@ -113,15 +113,28 @@
     }
     
 
-    self.descriptionText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_description"];
-    self.mainTaskText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"main_tasks"];
-    self.perspectiveText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"perspective"];
-    self.requirementText.text = [[OSAPIManager sharedManager].searchObject objectForKey:@"job_requirements"];
+    self.descriptionText.text = [self.openPosition objectForKey:@"job_description"];
+    self.mainTaskText.text = [self.openPosition objectForKey:@"main_tasks"];
+    self.perspectiveText.text = [self.openPosition objectForKey:@"perspective"];
+    self.requirementText.text = [self.openPosition objectForKey:@"job_requirements"];
     
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width,1500)];
     [self.scrollView setScrollEnabled:YES];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"apply"])
+        if ([segue.destinationViewController respondsToSelector:@selector(setOpenPosition:)])
+            [segue.destinationViewController performSelector:@selector(setOpenPosition:) withObject:self.openPosition];
+        
+    
+}
+
+- (IBAction)apply:(id)sender
+{
+    [self performSegueWithIdentifier:@"apply" sender:self];
+}
 
 #pragma mark - Phone and Mail capabilities
 - (void) phoneLabelClicked

@@ -10,4 +10,5 @@
 
 @interface AnswerViewController : UIViewController
 
+@property (strong, nonatomic)    NSString* text;
 @end

@@ -7,7 +7,18 @@
 //
 
 #import "AnswerViewController.h"
+@interface AnswerViewController()
+@property (strong, nonatomic) IBOutlet UITextView *answerText;
+
+@end
 
 @implementation AnswerViewController
+@synthesize answerText;
+@synthesize text;
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.answerText.text =text;
+}
 
 @end

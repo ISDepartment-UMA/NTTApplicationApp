@@ -14,6 +14,7 @@
 #import "OpenPosition.h"
 #import "Application.h"
 #import "MyProfile.h"
+#import "Faq.h"
 
 @interface DatabaseManager : NSObject
 + (DatabaseManager*)sharedInstance;
@@ -53,7 +54,15 @@
 
 - (Application*)createApplication;
 - (NSArray*)getAllApplications;
-- (MyProfile*)getMyProfile;
+- (BOOL)createApplicationsFromJSON: (id)jsonResponse;
 - (void)clearApplications;
+- (Application*)getApplicationForRefNo: (NSString*)refNo;
+
+- (MyProfile*)getMyProfile;
 - (void)clearMyProfile;
+
+- (Faq*)createFaq;
+- (NSArray*)getAllFaqs;
+- (BOOL)createFaqsFromJSON: (id)jsonResponse;
+- (void)clearFaqs;
 @end

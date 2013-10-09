@@ -7,12 +7,13 @@
 //
 
 #import "ApplicationViewController.h"
-#import "OSAPIManager.h"
 #import "DatabaseManager.h"
+#import "OSConnectionManager.h"
+#import "Helper.h"
+#import "ProfileValidater.h"
 
-@interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
+@interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
@@ -22,11 +23,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-
-
 @end
 
 @implementation ApplicationViewController
+@synthesize openPosition;
 
 - (IBAction)cancel:(UIButton *)sender {
     self.firstName.text=@"";
@@ -36,7 +36,6 @@
     self.phoneNumber.text =@"";
     self.responseLabel.text = @"";
 }
-
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     NSTimeInterval animationDuration=0.30f;
@@ -89,40 +88,68 @@
     else if (sender == self.phoneNumber){
         [self hidenKeyboard];
     }
-    
 }
-
-- (IBAction)sendApplication:(UIButton *)sender {
+- (IBAction)sendApplication:(UIButton *)sender
+{
+    BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
-    
-    if (((self.sendButton.enabled= YES) && [self.firstName.text isEqualToString:@""]) ||  ((self.sendButton.enabled= YES) && [self.lastName.text isEqualToString:@""])|| ((self.sendButton.enabled= YES) && [self.address.text isEqualToString:@""]) || ((self.sendButton.enabled= YES) && [self.email.text isEqualToString:@""]) || ((self.sendButton.enabled= YES) && [self.phoneNumber.text isEqualToString:@""]))
+    if ((self.sendButton.enabled==YES)&&([self.firstName.text isEqualToString:@""]||[self.lastName.text isEqualToString:@""]||[self.address.text isEqualToString:@""]||[self.email.text isEqualToString:@""]||[self.phoneNumber.text isEqualToString:@""]))
     {
         UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [errorMessage show];
-        
         self.responseLabel.hidden = YES;
+        applicationCanBeSent = NO;
     }
-    else{
-        if ([self.email.text rangeOfString:@"@"].location == NSNotFound){
+    else
+    {
+        ProfileValidater* validater = [[ProfileValidater alloc]init];
+        if (![validater checkIfMailAddressIsValid:self.email.text])
+        {
             UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid email" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [errorMessage show];
-            
             self.responseLabel.hidden = YES;
+            applicationCanBeSent = NO;
         }
-        else{
-            NSCharacterSet *notdigital = [[NSCharacterSet decimalDigitCharacterSet]invertedSet];
-            if ([self.phoneNumber.text rangeOfCharacterFromSet:notdigital].location !=NSNotFound){
-                
-                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                    [errorMessage show];
-                    
-                    self.responseLabel.hidden = YES;
-                
+        else
+        {
+            if (![validater checkIfPhoneNoIsValid:self.phoneNumber.text])
+            {
+                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [errorMessage show];
+                self.responseLabel.hidden = YES;
+                applicationCanBeSent = NO;
             }
-            
-        }        
-
+        }
     }
+    if (applicationCanBeSent)
+    {
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
+        if (!application)
+        {
+            application = [[DatabaseManager sharedInstance]createApplication];
+            application.ref_No =[openPosition objectForKey:@"ref_no"];
+            application.firstName = self.firstName.text;
+            application.lastName = self.lastName.text;
+            application.address = self.address.text;
+            application.email = self.email.text;
+            application.phoneNo = self.phoneNumber.text;
+            application.status = @"to_be_processed"; //to_be_processed,withdrawn
+            [[DatabaseManager sharedInstance]saveContext];
+            
+            [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
+            [[OSConnectionManager sharedManager]StartConnection:OSCSendApplication];
+        }
+    }
+}
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
+{
+    if (connectionType == OSCSendApplication)
+    {
+        NSLog(@"%@", array);
+    }
+}
+- (void)connectionFailed:(OSConnectionType)connectionType
+{
 }
 - (void)viewDidLoad
 {
@@ -138,7 +165,8 @@
     self.email.delegate = self;
     self.address.delegate = self;
     self.phoneNumber.delegate = self;
-   
+    [OSConnectionManager sharedManager].delegate = self;
+    
     self.firstName.returnKeyType = UIReturnKeyNext;
     self.lastName.returnKeyType = UIReturnKeyNext;
     self.email.returnKeyType = UIReturnKeyNext;
@@ -147,55 +175,59 @@
     
     
     [self.firstName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-      [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.lastName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-      [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.address addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.phoneNumber addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenKeyboard)];
     gesture.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:gesture];
+    
+    [self setupProfile];
 }
-
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void) viewWillDisappear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
+    profile.firstName = self.firstName.text;
+    profile.lastName = self.lastName.text;
+    profile.email = self.email.text;
+    profile.address = self.address.text;
+    profile.phoneNo = self.phoneNumber.text;
+    [[DatabaseManager sharedInstance]saveContext];
+    
+    [super viewWillDisappear:animated];
 }
-
-
-- (void)didReceiveMemoryWarning
+- (void) setupProfile
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
+    self.firstName.text = profile.firstName;
+    self.lastName.text = profile.lastName;
+    self.email.text = profile.email;
+    self.phoneNumber.text = profile.phoneNo;
+    self.address.text = profile.address;
 }
 
 #pragma mark - Supplemental methods for row creation
 - (NSString *)titleForRow:(NSUInteger)row
 {
-    return [[OSAPIManager sharedManager].searchObject objectForKey:@"position_name"];;
+    return [self.openPosition objectForKey:@"position_name"];;
 }
 
 - (NSString *)jobTitleForRow:(NSUInteger)row
 {
-    return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"job_title"]];
+    return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"job_title"]];
 }
 
 - (NSString *)locationForRow:(NSUInteger)row
 {
-    return [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSAPIManager sharedManager].searchObject objectForKey:@"location1"]];;
+    return [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"location1"]];;
 }
 
 - (NSString *)refNoForRow:(NSUInteger)row
 {
-    
-    return [[OSAPIManager sharedManager].searchObject objectForKey:@"ref_no"];
+    return [self.openPosition objectForKey:@"ref_no"];
 }
 
 
