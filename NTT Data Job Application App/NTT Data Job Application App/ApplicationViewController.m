@@ -94,7 +94,7 @@
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
     
-    if (((self.sendButton.enabled= YES) && [self.firstName.text isEqualToString:@""]) ||  ((self.sendButton.enabled= YES) && [self.lastName.text isEqualToString:@""])|| ((self.sendButton.enabled= YES) && [self.address.text isEqualToString:@""]) || ((self.sendButton.enabled= YES) && [self.email.text isEqualToString:@""]) || ((self.sendButton.enabled= YES) && [self.phoneNumber.text isEqualToString:@""]))
+    if (((self.sendButton.enabled==YES) && [self.firstName.text isEqualToString:@""]) ||  ((self.sendButton.enabled==YES) && [self.lastName.text isEqualToString:@""])|| ((self.sendButton.enabled==YES) && [self.address.text isEqualToString:@""]) || ((self.sendButton.enabled==YES) && [self.email.text isEqualToString:@""]) || ((self.sendButton.enabled==YES) && [self.phoneNumber.text isEqualToString:@""]))
     {
         UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [errorMessage show];
@@ -117,7 +117,7 @@
             if (![validater checkIfPhoneNoIsValid:self.phoneNumber.text])
             {
                 UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                [errorMessage show];                
+                [errorMessage show];
                 self.responseLabel.hidden = YES;
                 applicationCanBeSent = NO;
             }
