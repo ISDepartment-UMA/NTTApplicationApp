@@ -148,7 +148,7 @@ import dao.JobsDao;
  				isSuccessfulInserted=appDao.insertApplications(application);
  			  
  					if(isSuccessfulInserted==true)
- 					responseMessage= "{\"applyingJob_successful\":true}"; 	  			  
+ 					responseMessage= "{\"applyingJob_successful\":\"true\",\"device_id\":\""+device_id+"\",\"job_ref_no\":\""+job_ref_no+"\"}"; 	  			  
  				}
  				else{
  					responseMessage="the user already applyed this job, please don't apply again";
