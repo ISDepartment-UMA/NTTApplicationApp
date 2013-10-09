@@ -148,7 +148,7 @@ import dao.JobsDao;
  				isSuccessfulInserted=appDao.insertApplications(application);
  			  
  					if(isSuccessfulInserted==true)
- 					responseMessage= "{\"applyingJob_successful\":true}"; 	  			  
+ 					responseMessage= "{\"applyingJob_successful\":\"true\",\"device_id\":\""+device_id+"\",\"job_ref_no\":\""+job_ref_no+"\"}"; 	  			  
  				}
  				else{
  					responseMessage="the user already applyed this job, please don't apply again";
@@ -156,9 +156,38 @@ import dao.JobsDao;
  		} 		
  		
  		else{
- 			if(refNOIsValid==false){
- 				errorMessage+="the parameter : job_ref_no "+ job_ref_no  +" is wrong, please check again";} 			  			
- 			}		
+ 			if(refNOIsValid==false)
+ 				errorMessage+="the parameter : job_ref_no "+ job_ref_no  +" is wrong, please check again";
+ 			
+ 			if(device_id==null)
+ 				errorMessage+=" the parameter device_id can not be null! ";
+ 			
+ 			if(job_ref_no==null)
+				errorMessage+=" the parameter job_ref_no can not be null! ";
+
+ 			if(apply_time==null)
+				errorMessage+=" the parameter apply_time can not be null! ";
+
+ 			if(application_status==null)
+				errorMessage+=" the parameter application_status can not be null! ";
+
+ 			if(email==null)
+				errorMessage+=" the parameter email can not be null! ";
+
+ 			if(first_name==null)
+				errorMessage+=" the parameter first_name can not be null! ";
+
+ 			if(last_name==null)
+				errorMessage+=" the parameter last_name can not be null! ";
+
+ 			if(address==null)
+				errorMessage+=" the parameter address can not be null! ";
+
+ 			if(phone_no==null)
+				errorMessage+=" the parameter phone_no can not be null! ";
+ 			}
+				 			
+ 		
  		if(!errorMessage.isEmpty()){
  			responseMessage=errorMessage;
  		}

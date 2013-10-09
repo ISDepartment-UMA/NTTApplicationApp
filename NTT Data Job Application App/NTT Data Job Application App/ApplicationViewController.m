@@ -10,6 +10,7 @@
 #import "DatabaseManager.h"
 #import "OSConnectionManager.h"
 #import "Helper.h"
+#import "ProfileValidater.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
@@ -35,7 +36,6 @@
     self.phoneNumber.text =@"";
     self.responseLabel.text = @"";
 }
-
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     NSTimeInterval animationDuration=0.30f;
@@ -88,48 +88,39 @@
     else if (sender == self.phoneNumber){
         [self hidenKeyboard];
     }
-    
 }
-
 - (IBAction)sendApplication:(UIButton *)sender
 {
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
-    
-    if (((self.sendButton.enabled= YES) && [self.firstName.text isEqualToString:@""]) ||  ((self.sendButton.enabled= YES) && [self.lastName.text isEqualToString:@""])|| ((self.sendButton.enabled= YES) && [self.address.text isEqualToString:@""]) || ((self.sendButton.enabled= YES) && [self.email.text isEqualToString:@""]) || ((self.sendButton.enabled= YES) && [self.phoneNumber.text isEqualToString:@""]))
+    if ((self.sendButton.enabled==YES)&&([self.firstName.text isEqualToString:@""]||[self.lastName.text isEqualToString:@""]||[self.address.text isEqualToString:@""]||[self.email.text isEqualToString:@""]||[self.phoneNumber.text isEqualToString:@""]))
     {
         UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [errorMessage show];
-        
         self.responseLabel.hidden = YES;
         applicationCanBeSent = NO;
     }
     else
     {
-//        if ([self.email.text rangeOfString:@"@"].location == NSNotFound){
-//            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid email" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//            [errorMessage show];
-//            
-//            self.responseLabel.hidden = YES;
-//            applicationCanBeSent = NO;
-//        }
-//        else
-//        {
-//            NSCharacterSet *notdigital = [[NSCharacterSet decimalDigitCharacterSet]invertedSet];
-//            if ([self.phoneNumber.text rangeOfCharacterFromSet:notdigital].location !=NSNotFound)
-//            {
-//                
-//                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//                    [errorMessage show];
-//                    
-//                    self.responseLabel.hidden = YES;
-//                applicationCanBeSent = NO;
-//            }
-//            
-//        }        
-
+        ProfileValidater* validater = [[ProfileValidater alloc]init];
+        if (![validater checkIfMailAddressIsValid:self.email.text])
+        {
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid email" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+            self.responseLabel.hidden = YES;
+            applicationCanBeSent = NO;
+        }
+        else
+        {
+            if (![validater checkIfPhoneNoIsValid:self.phoneNumber.text])
+            {
+                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [errorMessage show];
+                self.responseLabel.hidden = YES;
+                applicationCanBeSent = NO;
+            }
+        }
     }
-    
     if (applicationCanBeSent)
     {
         Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
@@ -150,7 +141,6 @@
         }
     }
 }
-
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
     if (connectionType == OSCSendApplication)
@@ -158,10 +148,9 @@
         NSLog(@"%@", array);
     }
 }
-
 - (void)connectionFailed:(OSConnectionType)connectionType
-{}
-
+{
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -177,7 +166,7 @@
     self.address.delegate = self;
     self.phoneNumber.delegate = self;
     [OSConnectionManager sharedManager].delegate = self;
-   
+    
     self.firstName.returnKeyType = UIReturnKeyNext;
     self.lastName.returnKeyType = UIReturnKeyNext;
     self.email.returnKeyType = UIReturnKeyNext;
@@ -198,7 +187,6 @@
     
     [self setupProfile];
 }
-
 - (void) viewWillDisappear:(BOOL)animated
 {
     MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
@@ -211,8 +199,6 @@
     
     [super viewWillDisappear:animated];
 }
-
-
 - (void) setupProfile
 {
     MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
@@ -241,7 +227,6 @@
 
 - (NSString *)refNoForRow:(NSUInteger)row
 {
-    
     return [self.openPosition objectForKey:@"ref_no"];
 }
 
