@@ -48,6 +48,17 @@
     cell.userInteractionEnabled = YES;
     cell.textLabel.text = application.ref_No;
     
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:application.dateApplied
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    NSString *statusString = [application.status capitalizedString];
+    
+    NSString *subtitle = [NSString stringWithFormat:@"Date: %@, Status: %@", dateString,statusString];
+    
+    cell.detailTextLabel.numberOfLines = 1;
+    cell.detailTextLabel.text = subtitle;
+
+    
     return cell;
 }
 
