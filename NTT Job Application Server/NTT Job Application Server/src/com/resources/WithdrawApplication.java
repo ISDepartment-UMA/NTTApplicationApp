@@ -84,7 +84,7 @@ import dao.ApplicationsDao;
  					isSuccessfulDeleted=appDao.withdrawApplications(device_id,job_ref_no);
  					
  					if(isSuccessfulDeleted==true)
- 		 				responseMessage= "{\"withdrawapplication_successful\":true}";  				
+ 		 				responseMessage= "{\"withdrawapplication_successful\":\"true\",\"device_id\":\""+device_id+"\",\"job_ref_no\":\""+job_ref_no+"\"}";  				
  				}
  				else{
  					errorMessage+=" the target application is already withdrawn! ";
