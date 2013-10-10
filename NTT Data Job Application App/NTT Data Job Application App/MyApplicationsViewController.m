@@ -42,11 +42,12 @@
     cell.accessoryType= UITableViewCellAccessoryNone;
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     
+    
     Application* application = [self.data objectAtIndex:indexPath.row];
     
     // Configure the cell...
     cell.userInteractionEnabled = YES;
-    cell.textLabel.text = application.ref_No;
+    cell.textLabel.text = [[DatabaseManager sharedInstance]getOpenPositionForRefNo:application.ref_No].position_name;
     
     NSString *dateString = [NSDateFormatter localizedStringFromDate:application.dateApplied
                                                           dateStyle:NSDateFormatterShortStyle
@@ -56,6 +57,7 @@
     NSString *subtitle = [NSString stringWithFormat:@"Date: %@, Status: %@", dateString,statusString];
     
     cell.detailTextLabel.numberOfLines = 1;
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
     cell.detailTextLabel.text = subtitle;
 
     

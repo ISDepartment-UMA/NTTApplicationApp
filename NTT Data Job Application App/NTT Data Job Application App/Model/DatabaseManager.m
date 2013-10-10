@@ -437,6 +437,24 @@
         NSLog(@"Error while fetching results from Database: %@", error );
     return results;
 }
+- (OpenPosition*)getOpenPositionForRefNo: (NSString*)refNo
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:OPENPOSITION_TABLENAME];
+    request.sortDescriptors =  @[[NSSortDescriptor sortDescriptorWithKey:@"ref_no" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"ref_no == %@", refNo];
+    
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (!results || [results count] > 1)
+    {
+        return nil;;
+    }
+    else if([results count] == 1)
+        return [results lastObject];
+    else
+        return nil;
+}
 
 - (void)clearOpenPositions
 {
