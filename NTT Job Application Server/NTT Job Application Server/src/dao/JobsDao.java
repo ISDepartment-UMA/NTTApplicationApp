@@ -280,5 +280,31 @@ public class JobsDao {
 		}
 		return faq.isEmpty() ? null : faq;
 	}
+	
+	public Boolean updateFAQAverageRates(String average_rates, String faq_no){
+		List<FAQ> faq = null;
+		Boolean test = null;
+		query = "UPDATE faq SET average_rates='"+average_rates+"' where number='"+faq_no+"'";
+		
+		try{
+			Statement stmt=DbUtilHelper.getConnection().createStatement();		 
+			int after_update_num=stmt.executeUpdate(query);				 
+			DbUtilHelper.log("updateFAQAverageRates success: " + query);
+			 
+			if(after_update_num>=0){
+				test=true;
+			}				
+				else{
+					test=false;
+			}			
+			DbUtilHelper.log("updateFAQAverageRates: " + test);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("updateFAQAverageRates failed");
+		}
+		 return test;
+	}
+	
+	
 }
 

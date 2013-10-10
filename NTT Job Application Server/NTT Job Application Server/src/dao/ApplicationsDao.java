@@ -63,6 +63,31 @@ public class ApplicationsDao {
 			}
 			 return test;
 		}
+		
+		public List<FAQrates> queryFAQrates(String faq_no){
+			
+			
+			List<FAQrates> faqrates = null;
+			query = "SELECT * FROM faqrates WHERE faq_no = '" + faq_no
+					+ "'";
+			
+			try {
+				faqrates = run.query(query, faqratesHandler);
+				DbUtilHelper.log("queryFAQrates success: " + query);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("queryFAQrates failed");
+
+			}
+
+			if (faqrates.isEmpty()) {
+				DbUtilHelper.log("queryFAQrates result is empty!");
+
+			}
+
+			return faqrates.isEmpty() ? null : faqrates;		
+		}
+
 		 
 		public Boolean insertApplications(Applications application){
 			 
