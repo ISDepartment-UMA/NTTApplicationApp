@@ -19,12 +19,13 @@
     NSMutableArray *filteredFaqs;
     BOOL isFiltered;
 }
-    @property (nonatomic, strong) IBOutlet UISearchBar *mySearchBar;
-    @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+@property (nonatomic, strong) IBOutlet UISearchBar *mySearchBar;
+@property (strong, nonatomic) IBOutlet UITableView *myTableView;
     @property(nonatomic)    NSInteger selected;
     @property(nonatomic,strong)    NSArray* faqArray;
     @property(nonatomic,strong) UIView* loaderView;
     @property(nonatomic,strong)  UIActivityIndicatorView* loader;
+@property (nonatomic,strong) NSString* question;
 @end
 
 @implementation FAQViewController
@@ -42,11 +43,17 @@
         Faq* faq = nil;
         
         if (isFiltered)
-            faq = [filteredFaqs objectAtIndex:selected];
+        {faq = [filteredFaqs objectAtIndex:selected];
+            self.question = faq.question;}
         else
-            faq = [faqArray objectAtIndex:selected];
-        
+        { faq = [faqArray objectAtIndex:selected];
+            self.question = faq.question;
+        }
         dest.text = faq.answer;
+        if ([segue.destinationViewController respondsToSelector:@selector(setQuestion:)] )
+        {
+            [ segue.destinationViewController performSelector:@selector(setQuestion:) withObject:self.question];
+        }
     }
 }
 
@@ -195,11 +202,15 @@
     {
         Faq* question = [faqArray objectAtIndex:indexPath.row];
         [cell.textLabel setText:question.question];
+        
+        
     }
     else
     {
         Faq* question = [filteredFaqs objectAtIndex:indexPath.row];
         [cell.textLabel setText:question.question];
+        
+        
     }
     // Configure the cell...
     cell.textLabel.font = [UIFont systemFontOfSize:12];
@@ -211,6 +222,7 @@
 {
     selected = indexPath.row;
     [self performSegueWithIdentifier:@"openAnswer" sender:self];
+    
 }
 
 #pragma mark - Mail delegate
@@ -220,6 +232,10 @@
     {
         MFMailComposeViewController* mailViewController = [[MFMailComposeViewController alloc]init];
         mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:[NSString stringWithFormat:@"Your Question: "]];
+        
+        NSString *trimmed = [NSString stringWithFormat:@"NTTFAQteam@NTT.cm "];
+        [mailViewController setToRecipients:@[trimmed]];
         [self presentViewController:mailViewController animated:YES completion:NULL];
     }
 }

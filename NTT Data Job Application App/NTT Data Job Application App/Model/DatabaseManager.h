@@ -42,6 +42,7 @@
 
 - (OpenPosition*)createOpenPosition;
 - (NSArray*)allOpenPositions;
+- (OpenPosition*)getOpenPositionForRefNo: (NSString*)refNo;
 - (BOOL)createOpenPositionFromJSON:(id)jsonResponse;
 
 - (void)saveContext;

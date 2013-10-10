@@ -42,11 +42,24 @@
     cell.accessoryType= UITableViewCellAccessoryNone;
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     
+    
     Application* application = [self.data objectAtIndex:indexPath.row];
     
     // Configure the cell...
     cell.userInteractionEnabled = YES;
-    cell.textLabel.text = application.ref_No;
+    cell.textLabel.text = [[DatabaseManager sharedInstance]getOpenPositionForRefNo:application.ref_No].position_name;
+    
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:application.dateApplied
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterNoStyle];
+    NSString *statusString = [application.status capitalizedString];
+    
+    NSString *subtitle = [NSString stringWithFormat:@"Date: %@, Status: %@", dateString,statusString];
+    
+    cell.detailTextLabel.numberOfLines = 1;
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
+    cell.detailTextLabel.text = subtitle;
+
     
     return cell;
 }
@@ -56,7 +69,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         Application* application = [self.data objectAtIndex:indexPath.row];
-        application.status = @"withdrawn";
+        application.status = @"withdraw sent";
+        application.statusConfirmed = [NSNumber numberWithBool:NO];
         [[DatabaseManager sharedInstance]saveContext];
         
         [[OSConnectionManager sharedManager].searchObject setObject:application.ref_No forKey:@"ref_no"];
@@ -89,6 +103,25 @@
     }
     else if(connectionType == OSCSendWithdrawApplication)
     {
+        if (array)
+        {
+            if ([array isKindOfClass:[NSDictionary class]])
+            {
+                NSDictionary* dict = (NSDictionary*)array;
+                if ([dict objectForKey:@"withdrawapplication_successful"])
+                {
+                    Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[dict objectForKey:@"job_ref_no"]];
+                    application.status = @"withdrawn";
+
+                    application.statusConfirmed = [NSNumber numberWithBool:YES];
+                    [[DatabaseManager sharedInstance]saveContext];
+                    [self.tableView reloadData];
+                    
+                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Application has been successfully withdrawn" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [errorMessage show];
+                }
+            }
+        }
     }
 }
 

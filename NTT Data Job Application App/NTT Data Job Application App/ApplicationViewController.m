@@ -114,9 +114,14 @@
     }
     if (applicationCanBeSent)
     {
+        
         Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
         if (!application)
         {
+            OpenPosition* openPosition1 = [[DatabaseManager sharedInstance]createOpenPosition];
+            openPosition1.ref_no = [openPosition objectForKey:@"ref_no"];
+            openPosition1.position_name =[openPosition objectForKey:@"position_name"];
+            [[DatabaseManager sharedInstance] saveContext];
             application = [[DatabaseManager sharedInstance]createApplication];
             application.ref_No =[openPosition objectForKey:@"ref_no"];
             application.firstName = self.firstName.text;
@@ -132,7 +137,8 @@
             [[OSConnectionManager sharedManager]StartConnection:OSCSendApplication];
         }else
         {
-        
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
         }
         [self updateProfile];
         
