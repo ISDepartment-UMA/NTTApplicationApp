@@ -137,7 +137,8 @@
             [[OSConnectionManager sharedManager]StartConnection:OSCSendApplication];
         }else
         {
-        
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
         }
         [self updateProfile];
         
