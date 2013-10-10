@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Application" representedClassName="Application" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateApplied" optional="YES" attributeType="Date" syncable="YES"/>
@@ -10,6 +10,7 @@
         <attribute name="phoneNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ref_No" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="statusConfirmed" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <entity name="Experience" representedClassName="Experience" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
@@ -62,11 +63,11 @@
     <elements>
         <element name="Application" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Experience" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Faq" positionX="0" positionY="0" width="0" height="0"/>
         <element name="JobTitle" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MyProfile" positionX="0" positionY="0" width="0" height="0"/>
         <element name="OpenPosition" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Topic" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Faq" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

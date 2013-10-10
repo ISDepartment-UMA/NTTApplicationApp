@@ -7,21 +7,31 @@
 //
 
 #import "MyApplicationsViewController.h"
+#import "OSConnectionManager.h"
+#import "DatabaseManager.h"
 
-@interface MyApplicationsViewController()
-@property NSMutableArray *data;
+@interface MyApplicationsViewController() <OSConnectionCompletionDelegate>
+@property NSArray *data;
 
 @end
+
 @implementation MyApplicationsViewController
 
--(void)viewDidLoad{
-    self.data = [[NSMutableArray alloc] initWithObjects:@"Application 1",@" Application 2", @" Application 3", nil];
+-(void)viewDidLoad
+{
+    self.data = [[NSArray alloc]init];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [OSConnectionManager sharedManager].delegate = self;
+    [[OSConnectionManager sharedManager]StartConnection:OSCGetApplicationsByDevice];
+    
+    [super viewDidAppear:animated];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
- 
     return [self.data count];
 }
 
@@ -32,28 +42,57 @@
     cell.accessoryType= UITableViewCellAccessoryNone;
     cell.textLabel.font = [UIFont systemFontOfSize:12];
     
- 
-        // Configure the cell...
-        cell.userInteractionEnabled = YES;
-        cell.textLabel.text = self.data [indexPath.row];
-        
+    Application* application = [self.data objectAtIndex:indexPath.row];
     
-  
+    // Configure the cell...
+    cell.userInteractionEnabled = YES;
+    cell.textLabel.text = application.ref_No;
+    
     return cell;
 }
 
-
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.data removeObjectAtIndex:indexPath.row];
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Application* application = [self.data objectAtIndex:indexPath.row];
+        application.status = @"withdrawn";
+        [[DatabaseManager sharedInstance]saveContext];
+        
+        [[OSConnectionManager sharedManager].searchObject setObject:application.ref_No forKey:@"ref_no"];
+        [[OSConnectionManager sharedManager] StartConnection:OSCSendWithdrawApplication];
+        
         [self.tableView reloadData];
     }
-    
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Application* application = [self.data objectAtIndex:indexPath.row];
+    return ![application.status isEqualToString:@"withdrawn"];
+}
+
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
+{
+    if (connectionType == OSCGetApplicationsByDevice)
+    {
+        for (id dict in array)
+        {
+            if ([dict isKindOfClass:[NSString class]])
+                if ([dict isEqualToString:@"resultIsEmpty"])
+                    return;
+        }
+        
+        [[DatabaseManager sharedInstance]createApplicationsFromJSON:array];
+        self.data = [[DatabaseManager sharedInstance]getAllApplicationsForMyDevice];
+        [self.tableView reloadData];
+    }
+    else if(connectionType == OSCSendWithdrawApplication)
+    {
+    }
+}
+
+- (void)connectionFailed:(OSConnectionType)connectionType
+{
+}
 @end

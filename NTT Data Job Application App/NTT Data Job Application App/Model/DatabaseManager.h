@@ -39,7 +39,6 @@
 - (NSString*)getTopicDisplayNameFromDatabaseName:(NSString*)databaseName;
 - (BOOL)createTopicsFromJSON: (id)jsonResponse;
 
-
 - (OpenPosition*)createOpenPosition;
 - (NSArray*)allOpenPositions;
 - (BOOL)createOpenPositionFromJSON:(id)jsonResponse;
@@ -54,6 +53,7 @@
 
 - (Application*)createApplication;
 - (NSArray*)getAllApplications;
+- (NSArray*)getAllApplicationsForMyDevice;
 - (BOOL)createApplicationsFromJSON: (id)jsonResponse;
 - (void)clearApplications;
 - (Application*)getApplicationForRefNo: (NSString*)refNo;

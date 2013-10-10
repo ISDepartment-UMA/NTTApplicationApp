@@ -4,7 +4,7 @@
 #import "SBJson.h"
 #import "Application.h"
 #import "DatabaseManager.h"
-#import "Helper.h"
+#import "MyProfile.h"
 
 @interface OSConnectionManager ()
 {
@@ -122,8 +122,7 @@
     }
     else if (connectionType == OSCGetApplicationsByDevice)
     {
-        NSString* devideID = [[[Helper alloc]init]getDeviceID];
-        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\"}", devideID];
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\"}", [[DatabaseManager sharedInstance]getMyProfile].deviceID];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
