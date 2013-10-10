@@ -232,6 +232,10 @@
     {
         MFMailComposeViewController* mailViewController = [[MFMailComposeViewController alloc]init];
         mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:[NSString stringWithFormat:@"Your Question: "]];
+        
+        NSString *trimmed = [NSString stringWithFormat:@"NTTFAQteam@NTT.cm "];
+        [mailViewController setToRecipients:@[trimmed]];
         [self presentViewController:mailViewController animated:YES completion:NULL];
     }
 }
