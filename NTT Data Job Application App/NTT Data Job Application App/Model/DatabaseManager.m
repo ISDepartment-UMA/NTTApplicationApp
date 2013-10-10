@@ -26,6 +26,7 @@
 #define APPLICATION_TABLENAME @"Application"
 #define MYPROFILE_TABLENAME @"MyProfile"
 #define FAQ_TABLENAME @"Faq"
+#define RATING_TABLENAME @"Rating"
 
 + (DatabaseManager*)sharedInstance
 {
@@ -644,6 +645,59 @@
     
     [self saveContext];
     return true;
+}
+
+#pragma mark -
+#pragma mark Rating
+#pragma mark -
+
+#define RATING_UPPER_BOUND 10
+#define RATING_LOWER_BOUND 1
+- (Rating*)createRatingForFaq:(Faq*)faq withValue: (NSNumber*)value
+{
+    Rating* rating = [self getRatingForFaq:faq];
+    if (!rating)
+    {
+        rating = [NSEntityDescription insertNewObjectForEntityForName:RATING_TABLENAME inManagedObjectContext:[self context]];
+        rating.rates = faq;
+
+        MyProfile* profile = [self getMyProfile];
+        rating.deviceID = profile.deviceID;
+        
+        int valueAsInt = [value intValue];
+        if (valueAsInt > RATING_UPPER_BOUND)
+            rating.rating = [NSNumber numberWithInt:RATING_UPPER_BOUND];
+        else if(valueAsInt < RATING_LOWER_BOUND)
+            rating.rating = [NSNumber numberWithInt:RATING_LOWER_BOUND];
+        else
+            rating.rating = value;
+        
+        [self saveContext];
+    }
+    return rating;
+}
+
+- (Rating*)getRatingForFaq: (Faq*)faq
+{
+    MyProfile* profile = [self getMyProfile];
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:RATING_TABLENAME];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"rates" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"devicdeID = %@ && rates = %@", profile.deviceID, faq];
+    NSError* error = nil;
+    NSArray* results = [[self context]executeFetchRequest:request error:&error];
+    
+    if (results && [results count]==1)
+        return [results lastObject];
+    else
+        return  nil;
+}
+
+- (void)clearRatings
+{
+    NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:RATING_TABLENAME];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"rates" ascending:YES]];
+    for (Rating* r in [[self context]executeFetchRequest:request error:NULL])
+        [[self context]deleteObject:r];
 }
 
 #pragma mark -
