@@ -24,6 +24,7 @@ public class ApplicationsDao {
 	// the properties of dao
 		private QueryRunner run;
 		private ResultSetHandler<List<Applications>> applicationsHandler;
+		private ResultSetHandler<List<FAQrates>> faqratesHandler;
 		 
 		
 		private String query;
@@ -31,7 +32,8 @@ public class ApplicationsDao {
 
 		public ApplicationsDao() {
 			run = DbUtilHelper.getQueryRunner();
-			applicationsHandler = new BeanListHandler<Applications>(Applications.class);			 
+			applicationsHandler = new BeanListHandler<Applications>(Applications.class);	
+			faqratesHandler = new BeanListHandler<FAQrates>(FAQrates.class);
 		}
 		
 		public Boolean insertFAQRates(FAQrates faqrates){
@@ -41,6 +43,7 @@ public class ApplicationsDao {
 			query += "\"" + faqrates.getFaq_no() + "\"" + ",";
 			query += "\"" + faqrates.getDevice_id() + "\"" + ",";
 			query += "\"" + faqrates.getScore() + "\"";
+			query += ")";	
 			 		
 			try{
 				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
