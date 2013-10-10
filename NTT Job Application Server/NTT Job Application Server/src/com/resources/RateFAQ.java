@@ -2,6 +2,7 @@ package com.resources;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +78,7 @@ import dao.JobsDao;
 		 
     	  	 	
  		ApplicationsDao appDao=new ApplicationsDao();
+ 		JobsDao jobsDao=new JobsDao();
  		 
  		
  		 
@@ -86,9 +88,9 @@ import dao.JobsDao;
  		{
  				if(appDao.checkRepeatRating(device_id,faq_no)==false)
  				
- 				{   //means the user hasn't applied for this job
+ 				{   //means the user hasn't rated this FAQ question
  			
- 			    Applications application =new Applications();
+ 			     
  			    FAQrates faqrates =new FAQrates();
  			    faqrates.setDevice_id(device_id);
  			    faqrates.setFaq_no(faq_no);
@@ -97,12 +99,27 @@ import dao.JobsDao;
  			 
  				isSuccessfulInserted=appDao.insertFAQRates(faqrates);
  			  
- 					if(isSuccessfulInserted==true)
- 					responseMessage= "{\"faqrates_successful\":\"true\",\"device_id\":\""+device_id+"\",\"faq_no\":\""+faq_no+"\"}"; 	  			  
+ 					if(isSuccessfulInserted==true){
+ 						List<FAQrates> faqratesList=new ArrayList<FAQrates>();
+ 						faqratesList=appDao.queryFAQrates(faq_no);
+ 						double sum_rates = 0;
+ 						double average_rates; 						
+ 						for(int i=0;i<=faqratesList.size()-1;i++){
+ 							sum_rates+=Double.parseDouble(faqratesList.get(i).getScore()); 									
+ 						}
+ 						average_rates=sum_rates/faqratesList.size();
+ 					 
+ 						DecimalFormat df = new DecimalFormat("#.#");
+ 						String dx=df.format(average_rates);
+ 						average_rates=Double.valueOf(dx);
+ 						jobsDao.updateFAQAverageRates(String.valueOf(average_rates), faq_no);
+ 					
+ 						responseMessage= "{\"faqrates_successful\":\"true\",\"device_id\":\""+device_id+"\",\"faq_no\":\""+faq_no+"\"}"; 	  	
+ 					}
  				}
  				else{
  					responseMessage="the user already rated this question, please don't rate again";
- 				} 		 
+ 					} 		 
  		} 		
  		
  		else{			 
