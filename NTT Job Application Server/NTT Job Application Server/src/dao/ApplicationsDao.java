@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.List;
 
 import model.Experience;
+import model.FAQrates;
 import model.Jobs;
 import model.Jobtitle;
 import model.Locations;
@@ -32,7 +33,33 @@ public class ApplicationsDao {
 			run = DbUtilHelper.getQueryRunner();
 			applicationsHandler = new BeanListHandler<Applications>(Applications.class);			 
 		}
-
+		
+		public Boolean insertFAQRates(FAQrates faqrates){
+			 
+			Boolean test=null;			 
+			String query = "insert into faqrates (faq_no,device_id, score) VALUES (";
+			query += "\"" + faqrates.getFaq_no() + "\"" + ",";
+			query += "\"" + faqrates.getDevice_id() + "\"" + ",";
+			query += "\"" + faqrates.getScore() + "\"";
+			 		
+			try{
+				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
+				int after_insert_num=stmt.executeUpdate(query);				 
+				DbUtilHelper.log("insertFAQRates success: " + query);
+				 
+				if(after_insert_num>=0){
+					test=true;
+				}				
+					else{
+						test=false;
+				}			
+				DbUtilHelper.log("insertFAQRates: " + test);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("insertFAQRates failed");
+			}
+			 return test;
+		}
 		 
 		public Boolean insertApplications(Applications application){
 			 
@@ -187,6 +214,31 @@ public List<Applications> queryApplications(String device_id){
 
 			return applications.isEmpty() ? null : applications;		
 		}
+
+
+public boolean checkRepeatRating(String device_id, String faq_no) {
+	Boolean test=null;
+	ResultSet rs=null;
+	query="select * from faqrates where faq_no ='"+ faq_no +"' and device_id = '"+ device_id + "'";
+	try{
+		Statement stmt=DbUtilHelper.getConnection().createStatement();
+		rs=stmt.executeQuery(query);
+		DbUtilHelper.log("checkRepeatRating success: " + query);
+		 
+		if(rs.next()){
+			test=true;
+		}				
+			else{
+				test=false;
+		}			
+		DbUtilHelper.log("checkRepeatRating: " + test);
+	} catch (SQLException e) {
+		e.printStackTrace();
+		DbUtilHelper.log("checkRepeatRating failed");
+
+	}
+	 return test;					 
+}
 		
 		
 }
