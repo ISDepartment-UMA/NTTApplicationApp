@@ -121,18 +121,20 @@
 - (IBAction)phoneNumberEditingFinished:(UITextField *)sender
 {
     ProfileValidater* validater = [[ProfileValidater alloc]init];
-    if ([validater checkIfPhoneNoIsValid:sender.text])
+    if (![validater checkIfPhoneNoIsValid:sender.text])
     {
-        
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
     }
 }
 
 - (IBAction)emailEditingFinished:(UITextField *)sender
 {
     ProfileValidater* validater = [[ProfileValidater alloc]init];
-    if ([validater checkIfMailAddressIsValid:sender.text])
+    if (![validater checkIfMailAddressIsValid:sender.text])
     {
-        
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid email" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
     }
 }
 
