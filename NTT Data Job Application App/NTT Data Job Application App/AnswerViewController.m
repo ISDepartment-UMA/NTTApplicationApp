@@ -10,15 +10,27 @@
 @interface AnswerViewController()
 @property (strong, nonatomic) IBOutlet UITextView *answerText;
 
+
 @end
 
 @implementation AnswerViewController
 @synthesize answerText;
 @synthesize text;
 
+@synthesize question;
+
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.answerText.text =text;
+    
+
+    NSString *q = [NSString stringWithFormat:@"%@\n\n",self.question];
+    self.answerText.text = [q stringByAppendingString:text];
+    
+    // self.questionLabel.text = self.question;
+    
+    
 }
+
+
 
 @end
