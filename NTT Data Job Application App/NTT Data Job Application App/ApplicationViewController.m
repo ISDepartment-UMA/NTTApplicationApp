@@ -9,7 +9,6 @@
 #import "ApplicationViewController.h"
 #import "DatabaseManager.h"
 #import "OSConnectionManager.h"
-#import "Helper.h"
 #import "ProfileValidater.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
@@ -28,14 +27,6 @@
 @implementation ApplicationViewController
 @synthesize openPosition;
 
-- (IBAction)cancel:(UIButton *)sender {
-    self.firstName.text=@"";
-    self.lastName.text =@"";
-    self.address.text = @"";
-    self.email.text=@"";
-    self.phoneNumber.text =@"";
-    self.responseLabel.text = @"";
-}
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     NSTimeInterval animationDuration=0.30f;
@@ -134,11 +125,17 @@
             application.email = self.email.text;
             application.phoneNo = self.phoneNumber.text;
             application.status = @"to_be_processed"; //to_be_processed,withdrawn
+            application.statusConfirmed = [NSNumber numberWithBool:NO];
             [[DatabaseManager sharedInstance]saveContext];
             
             [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
             [[OSConnectionManager sharedManager]StartConnection:OSCSendApplication];
+        }else
+        {
+        
         }
+        [self updateProfile];
+        
     }
 }
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
@@ -146,11 +143,24 @@
     if (connectionType == OSCSendApplication)
     {
         NSLog(@"%@", array);
+        
+        NSDictionary* dict = (NSDictionary*)array;
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo: [dict objectForKey:@"job_ref_no"]];
+        if ([application.deviceID isEqualToString:[dict objectForKey:@"device_id"]] && [dict objectForKey:@"applyingJob_successful"])
+        {
+            application.statusConfirmed = [NSNumber numberWithBool:YES];
+            [[DatabaseManager sharedInstance]saveContext];
+            
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Application has been successfully sent to NTT Data" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+        }
     }
 }
+
 - (void)connectionFailed:(OSConnectionType)connectionType
 {
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -189,13 +199,7 @@
 }
 - (void) viewWillDisappear:(BOOL)animated
 {
-    MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
-    profile.firstName = self.firstName.text;
-    profile.lastName = self.lastName.text;
-    profile.email = self.email.text;
-    profile.address = self.address.text;
-    profile.phoneNo = self.phoneNumber.text;
-    [[DatabaseManager sharedInstance]saveContext];
+    [self updateProfile];
     
     [super viewWillDisappear:animated];
 }
@@ -207,6 +211,17 @@
     self.email.text = profile.email;
     self.phoneNumber.text = profile.phoneNo;
     self.address.text = profile.address;
+}
+
+- (void)updateProfile
+{
+    MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
+    profile.firstName = self.firstName.text;
+    profile.lastName = self.lastName.text;
+    profile.email = self.email.text;
+    profile.address = self.address.text;
+    profile.phoneNo = self.phoneNumber.text;
+    [[DatabaseManager sharedInstance]saveContext];
 }
 
 #pragma mark - Supplemental methods for row creation

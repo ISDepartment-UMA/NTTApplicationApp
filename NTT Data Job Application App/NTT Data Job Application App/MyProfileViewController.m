@@ -100,8 +100,6 @@
     self.address.delegate = self;
     self.phoneNumber.delegate = self;
     
-    [self loadProfileData];
-    
     [self.firstName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.lastName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
@@ -113,6 +111,13 @@
     gesture.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:gesture];
 }
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self loadProfileData];
+    [super viewWillAppear:animated];
+}
+
 - (IBAction)phoneNumberEditingFinished:(UITextField *)sender
 {
     ProfileValidater* validater = [[ProfileValidater alloc]init];

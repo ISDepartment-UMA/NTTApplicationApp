@@ -4,6 +4,7 @@
 #import "SBJson.h"
 #import "Application.h"
 #import "DatabaseManager.h"
+#import "MyProfile.h"
 
 @interface OSConnectionManager ()
 {
@@ -99,21 +100,31 @@
             return NO;
         }
         
-        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\"}",application.deviceID, application.ref_No, application.dateApplied, application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo];
+        NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
-    else if (connectionType == OSCSendWithdrawApplication)
+    else if (connectionType == OSCSendWithdrawApplication || connectionType == OSCGetApplicationsByDeviceAndReference)
     {
+        NSString* refNo = [searchObject objectForKey:@"ref_no"];
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:refNo];
         
-    }
-    else if (connectionType == OSCGetApplicationsByDeviceAndReference)
-    {
+        if (!application) {
+            return NO;
+        }
         
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\"}", application.deviceID, application.ref_No];
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
     }
     else if (connectionType == OSCGetApplicationsByDevice)
     {
-        
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\"}", [[DatabaseManager sharedInstance]getMyProfile].deviceID];
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
     }
 
     // start connection for requested url and set the connection type

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Application" representedClassName="Application" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateApplied" optional="YES" attributeType="Date" syncable="YES"/>
@@ -10,6 +10,7 @@
         <attribute name="phoneNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ref_No" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="statusConfirmed" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <entity name="Experience" representedClassName="Experience" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,6 +20,7 @@
     <entity name="Faq" representedClassName="Faq" syncable="YES">
         <attribute name="answer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="isRatedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rating" inverseName="rates" inverseEntity="Rating" syncable="YES"/>
     </entity>
     <entity name="JobTitle" representedClassName="JobTitle" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
@@ -54,19 +56,25 @@
         <relationship name="jobTitleIs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JobTitle" inverseName="isMatchedBy" inverseEntity="JobTitle" syncable="YES"/>
         <relationship name="requiresExperience" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Experience" inverseName="canOffer" inverseEntity="Experience" syncable="YES"/>
     </entity>
+    <entity name="Rating" representedClassName="Rating" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="rates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faq" inverseName="isRatedBy" inverseEntity="Faq" syncable="YES"/>
+    </entity>
     <entity name="Topic" representedClassName="Topic" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="topicMatchedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OpenPosition" inverseName="dealsWith" inverseEntity="OpenPosition" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Application" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Experience" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="JobTitle" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="MyProfile" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="OpenPosition" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Topic" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Faq" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Application" positionX="-567" positionY="-168" width="128" height="195"/>
+        <element name="Experience" positionX="-362" positionY="306" width="128" height="90"/>
+        <element name="Faq" positionX="160" positionY="-81" width="128" height="88"/>
+        <element name="JobTitle" positionX="-18" positionY="261" width="128" height="90"/>
+        <element name="Location" positionX="-128" positionY="-279" width="128" height="90"/>
+        <element name="MyProfile" positionX="-414" positionY="-306" width="128" height="135"/>
+        <element name="OpenPosition" positionX="-306" positionY="-36" width="128" height="255"/>
+        <element name="Topic" positionX="97" positionY="-243" width="128" height="90"/>
+        <element name="Rating" positionX="-0" positionY="54" width="128" height="88"/>
     </elements>
 </model>

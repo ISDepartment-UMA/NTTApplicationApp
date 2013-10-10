@@ -15,6 +15,7 @@
 #import "Application.h"
 #import "MyProfile.h"
 #import "Faq.h"
+#import "Rating.h"
 
 @interface DatabaseManager : NSObject
 + (DatabaseManager*)sharedInstance;
@@ -39,7 +40,6 @@
 - (NSString*)getTopicDisplayNameFromDatabaseName:(NSString*)databaseName;
 - (BOOL)createTopicsFromJSON: (id)jsonResponse;
 
-
 - (OpenPosition*)createOpenPosition;
 - (NSArray*)allOpenPositions;
 - (BOOL)createOpenPositionFromJSON:(id)jsonResponse;
@@ -54,6 +54,7 @@
 
 - (Application*)createApplication;
 - (NSArray*)getAllApplications;
+- (NSArray*)getAllApplicationsForMyDevice;
 - (BOOL)createApplicationsFromJSON: (id)jsonResponse;
 - (void)clearApplications;
 - (Application*)getApplicationForRefNo: (NSString*)refNo;
@@ -65,4 +66,8 @@
 - (NSArray*)getAllFaqs;
 - (BOOL)createFaqsFromJSON: (id)jsonResponse;
 - (void)clearFaqs;
+
+- (Rating*)createRatingForFaq:(Faq*)faq withValue: (NSNumber*)value;
+- (Rating*)getRatingForFaq: (Faq*)faq;
+- (void)clearRatings;
 @end
