@@ -56,11 +56,22 @@
     if([statusString isEqualToString:@"To_Be_Processed"])
     
     {NSString *subtitle = [NSString stringWithFormat:@"Date: %@, Status: to be processed", dateString];
-        cell.detailTextLabel.text = subtitle;
+        
+        NSMutableAttributedString *attributedSubtitle = [[NSMutableAttributedString alloc]initWithString:subtitle];
+        int length = [subtitle length];
+        [attributedSubtitle addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, length)];
+        cell.detailTextLabel.attributedText = attributedSubtitle;
+        
     }
-    else{
+    else if([statusString isEqualToString:@"Withdrawn"]){
         NSString *subtitle = [NSString stringWithFormat:@"Date: %@, Status: %@", dateString,statusString];
-        cell.detailTextLabel.text = subtitle;
+        int length = [subtitle length];
+        NSMutableAttributedString *attributedSubtitle = [[NSMutableAttributedString alloc]initWithString:subtitle];
+        [attributedSubtitle addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, length)];
+        cell.detailTextLabel.attributedText = attributedSubtitle;
+    }
+    else {
+        cell.detailTextLabel.text =[NSString stringWithFormat:@"Date: %@, Status: %@", dateString,statusString];
     }
     
     cell.detailTextLabel.numberOfLines = 1;
