@@ -53,13 +53,19 @@
                                                           dateStyle:NSDateFormatterShortStyle
                                                           timeStyle:NSDateFormatterNoStyle];
     NSString *statusString = [application.status capitalizedString];
+    if([statusString isEqualToString:@"To_Be_Processed"])
     
-    NSString *subtitle = [NSString stringWithFormat:@"Date: %@, Status: %@", dateString,statusString];
+    {NSString *subtitle = [NSString stringWithFormat:@"Date: %@, Status: to be processed", dateString];
+        cell.detailTextLabel.text = subtitle;
+    }
+    else{
+        NSString *subtitle = [NSString stringWithFormat:@"Date: %@, Status: %@", dateString,statusString];
+        cell.detailTextLabel.text = subtitle;
+    }
     
     cell.detailTextLabel.numberOfLines = 1;
     cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
-    cell.detailTextLabel.text = subtitle;
-
+    
     
     return cell;
 }
