@@ -11,6 +11,8 @@
 #import "OSConnectionManager.h"
 #import "ProfileValidater.h"
 
+
+
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
 
@@ -202,7 +204,17 @@
     [self.view addGestureRecognizer:gesture];
     
     [self setupProfile];
+    
+    
 }
+//establish dropbox link
+- (void)didPressLink {
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] link];
+    }
+}
+
+
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self updateProfile];
