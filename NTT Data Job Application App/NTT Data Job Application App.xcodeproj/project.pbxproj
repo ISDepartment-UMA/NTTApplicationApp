@@ -55,6 +55,8 @@
 		28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
 		3291990618111B65000FBAE3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990518111B65000FBAE3 /* Security.framework */; };
+		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
+		329703C018115F770095799F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 329703BF18115F770095799F /* DropboxSDK.framework */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
@@ -155,6 +157,8 @@
 		28EAC94F17F2F0140089467C /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = "NTT Data Job Application App/Model/DatabaseManager.h"; sourceTree = SOURCE_ROOT; };
 		28EAC95017F2F0140089467C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "NTT Data Job Application App/Model/DatabaseManager.m"; sourceTree = SOURCE_ROOT; };
 		3291990518111B65000FBAE3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		329703BA181151770095799F /* DBLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DBLogo.png; sourceTree = "<group>"; };
+		329703BF18115F770095799F /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
 		9A187DFD17FB3BB40097650D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 			files = (
 				3291990618111B65000FBAE3 /* Security.framework in Frameworks */,
 				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
+				329703C018115F770095799F /* DropboxSDK.framework in Frameworks */,
 				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
 				28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */,
 				28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */,
@@ -251,6 +256,7 @@
 		28E44A9817E3C5510084543B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				329703BF18115F770095799F /* DropboxSDK.framework */,
 				3291990518111B65000FBAE3 /* Security.framework */,
 				28E44B3117E3C7600084543B /* MessageUI.framework */,
 				28E44B2F17E3C75A0084543B /* CoreData.framework */,
@@ -302,6 +308,7 @@
 				28E44AA217E3C5510084543B /* InfoPlist.strings */,
 				28E44AA517E3C5510084543B /* main.m */,
 				28E44AA717E3C5510084543B /* NTT Data Job Application App-Prefix.pch */,
+				329703BA181151770095799F /* DBLogo.png */,
 				28E44AAB17E3C5510084543B /* Default.png */,
 				28E44AAD17E3C5510084543B /* Default@2x.png */,
 				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
@@ -439,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329703BB181151770095799F /* DBLogo.png in Resources */,
 				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
@@ -619,6 +627,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/yunhancheng/Downloads/dropbox-ios-sdk-1.1",
+					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
@@ -634,6 +644,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/yunhancheng/Downloads/dropbox-ios-sdk-1.1",
+					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";

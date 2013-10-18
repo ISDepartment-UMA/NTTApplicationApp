@@ -8,13 +8,28 @@
 
 #import "AppDelegate.h"
 
-
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"App linked successfully!");
+            // At this point you can start making API calls
+        }
+        return YES;
+    }
+    // Add whatever other url handling code your app requires here
+    return NO;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    //user key and user secret
+    DBSession* dbSession =
+    [[DBSession alloc]
+      initWithAppKey:@"8pptn1m3kun48pp"
+      appSecret:@"4t2abq4k2lr5g5n"
+      root:kDBRootDropbox] // either kDBRootAppFolder or kDBRootDropbox
+     ;
+    [DBSession setSharedSession:dbSession];
 
     return YES;
 }

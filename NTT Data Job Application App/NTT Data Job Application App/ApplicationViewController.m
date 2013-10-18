@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
 
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
+@property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
 @property (weak, nonatomic) IBOutlet UITextField *address;
@@ -28,6 +29,16 @@
 
 @implementation ApplicationViewController
 @synthesize openPosition;
+
+//establish the link
+- (void)didPressLink {
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession]link];
+    }
+}
+- (IBAction)dropBoxButtonClick:(UIButton *)sender {
+    [self didPressLink];
+}
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
