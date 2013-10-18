@@ -61,10 +61,11 @@
 		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
-		9A8930581811B8FD005B03DC /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3240C07018118247008EB26E /* DropboxSDK.framework */; };
 		9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8930591811BA01005B03DC /* QuartzCore.framework */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
+		C60C02511811DBA20055951E /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3240C07018118247008EB26E /* DropboxSDK.framework */; };
+		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,8 @@
 		9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
 		9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
+		C60C024F1811DAFC0055951E /* DropboxSDK */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = DropboxSDK; path = DropboxSDK.framework/DropboxSDK; sourceTree = "<group>"; };
+		C60C02521811E0C80055951E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +186,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60C02531811E0C80055951E /* Social.framework in Frameworks */,
+				C60C02511811DBA20055951E /* DropboxSDK.framework in Frameworks */,
 				9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */,
-				9A8930581811B8FD005B03DC /* DropboxSDK.framework in Frameworks */,
 				3291990618111B65000FBAE3 /* Security.framework in Frameworks */,
 				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
 				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
@@ -262,6 +266,8 @@
 		28E44A9817E3C5510084543B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C60C02521811E0C80055951E /* Social.framework */,
+				C60C024F1811DAFC0055951E /* DropboxSDK */,
 				9A8930591811BA01005B03DC /* QuartzCore.framework */,
 				3240C07018118247008EB26E /* DropboxSDK.framework */,
 				3291990518111B65000FBAE3 /* Security.framework */,
@@ -648,6 +654,7 @@
 					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
 					"/Users/matthiasr/Development/Team\\ Project/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 					"/Users/hilal/Desktop/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/karimmakhlouf/Documents/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
@@ -670,6 +677,7 @@
 					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
 					"/Users/matthiasr/Development/Team\\ Project/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 					"/Users/hilal/Desktop/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/karimmakhlouf/Documents/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";

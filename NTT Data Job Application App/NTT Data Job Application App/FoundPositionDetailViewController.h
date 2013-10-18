@@ -6,8 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Social/Social.h>
 
-@interface FoundPositionDetailViewController : UIViewController
+@interface FoundPositionDetailViewController : UIViewController <UIActionSheetDelegate>
+- (IBAction)social:(id)sender;
 @property NSString *freeText;
 @property NSDictionary* openPosition;
 @end
