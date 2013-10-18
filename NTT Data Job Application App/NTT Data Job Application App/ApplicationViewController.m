@@ -207,12 +207,7 @@
     
     
 }
-//establish dropbox link
-- (void)didPressLink {
-    if (![[DBSession sharedSession] isLinked]) {
-        [[DBSession sharedSession] link];
-    }
-}
+
 
 
 - (void) viewWillDisappear:(BOOL)animated

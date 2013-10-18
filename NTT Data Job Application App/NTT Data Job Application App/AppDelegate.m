@@ -12,8 +12,10 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{ DBSession * dbSession = [[DBSession alloc]initWithAppKey:@"8pptn1m3kun48pp" appSecret:@"4t2abq4k2lr5g5n" root:kDBRootDropbox];//user key and user secret
-  [DBSession setSharedSession:dbSession];
+{
+    
+    //user key and user secret
+
     return YES;
 }
 							
@@ -42,17 +44,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    if ([[DBSession sharedSession] handleOpenURL:url]) {
-        if ([[DBSession sharedSession] isLinked]) {
-            NSLog(@"App linked successfully!");
-            // At this point you can start making API calls
-        }
-        return YES;
-    }
-    // Add whatever other url handling code your app requires here
-    return NO;
 }
 
 @end

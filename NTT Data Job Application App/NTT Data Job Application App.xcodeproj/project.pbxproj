@@ -54,7 +54,6 @@
 		28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B3417E3C7A30084543B /* AppDelegate.m */; };
 		28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
-		3291990418111979000FBAE3 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990318111979000FBAE3 /* DropboxSDK.framework */; };
 		3291990618111B65000FBAE3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990518111B65000FBAE3 /* Security.framework */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
@@ -155,7 +154,6 @@
 		28E44B3417E3C7A30084543B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		28EAC94F17F2F0140089467C /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = "NTT Data Job Application App/Model/DatabaseManager.h"; sourceTree = SOURCE_ROOT; };
 		28EAC95017F2F0140089467C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "NTT Data Job Application App/Model/DatabaseManager.m"; sourceTree = SOURCE_ROOT; };
-		3291990318111979000FBAE3 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = "../../../Downloads/dropbox-ios-sdk-1.1/DropboxSDK.framework"; sourceTree = "<group>"; };
 		3291990518111B65000FBAE3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3291990618111B65000FBAE3 /* Security.framework in Frameworks */,
-				3291990418111979000FBAE3 /* DropboxSDK.framework in Frameworks */,
 				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
 				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
 				28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */,
@@ -255,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				3291990518111B65000FBAE3 /* Security.framework */,
-				3291990318111979000FBAE3 /* DropboxSDK.framework */,
 				28E44B3117E3C7600084543B /* MessageUI.framework */,
 				28E44B2F17E3C75A0084543B /* CoreData.framework */,
 				28E44A9917E3C5510084543B /* UIKit.framework */,
