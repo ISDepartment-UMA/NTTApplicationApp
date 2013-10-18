@@ -1008,7 +1008,7 @@
                                 </state>
                                 <connections>
                                     <action selector="dropBoxButtonClick:" destination="le8-wz-XJp" eventType="touchUpInside" id="NdH-0E-aMg"/>
-                                    <segue destination="FXv-Bb-Ns0" kind="push" id="60T-PB-tyg"/>
+                                    <segue destination="FXv-Bb-Ns0" kind="push" id="ii0-zH-vT1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1031,10 +1031,10 @@
             </objects>
             <point key="canvasLocation" x="3302" y="-460"/>
         </scene>
-        <!--Login Controller - Dropbox-->
+        <!--Drop Box View Controller - Dropbox-->
         <scene sceneID="rdK-9G-Idc">
             <objects>
-                <viewController id="FXv-Bb-Ns0" customClass="DBLoginController" sceneMemberID="viewController">
+                <viewController id="FXv-Bb-Ns0" customClass="DropBoxViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gml-dy-ahe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
