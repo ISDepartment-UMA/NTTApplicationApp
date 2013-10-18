@@ -12,7 +12,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{ DBSession * dbSession = [[DBSession alloc]initWithAppKey:@"8pptn1m3kun48pp" appSecret:@"4t2abq4k2lr5g5n" root:kDBRootDropbox];
+{ DBSession * dbSession = [[DBSession alloc]initWithAppKey:@"8pptn1m3kun48pp" appSecret:@"4t2abq4k2lr5g5n" root:kDBRootDropbox];//user key and user secret
   [DBSession setSharedSession:dbSession];
     return YES;
 }
