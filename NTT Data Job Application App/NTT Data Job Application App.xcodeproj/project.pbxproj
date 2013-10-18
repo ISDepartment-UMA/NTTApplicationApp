@@ -188,7 +188,6 @@
 				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
 				3240C07118118247008EB26E /* DropboxSDK.framework in Frameworks */,
 				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
-				329703C718116DE80095799F /* DropboxSDK.framework in Frameworks */,
 				28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */,
 				28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */,
 				28E44A9E17E3C5510084543B /* CoreGraphics.framework in Frameworks */,
@@ -431,6 +430,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "University of Mannheim - NTT Data Team Project";
+				TargetAttributes = {
+					28E44A9517E3C5510084543B = {
+						DevelopmentTeam = 2ZT7XP3AR4;
+					};
+				};
 			};
 			buildConfigurationList = 28E44A9117E3C5510084543B /* Build configuration list for PBXProject "NTT Data Job Application App" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -634,6 +638,8 @@
 		28E44ACF17E3C5510084543B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/yunhancheng/Downloads/dropbox-ios-sdk-1.1",
@@ -645,6 +651,7 @@
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
 				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -652,6 +659,8 @@
 		28E44AD017E3C5510084543B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/yunhancheng/Downloads/dropbox-ios-sdk-1.1",
@@ -663,6 +672,7 @@
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
 				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
