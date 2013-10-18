@@ -11,7 +11,6 @@
     BOOL thumbnailExists;
     long long totalBytes;
     NSDate* lastModifiedDate;
-    NSDate *clientMtime; // file's mtime for display purposes only
     NSString* path;
     BOOL isDirectory;
     NSArray* contents;
@@ -31,7 +30,6 @@
 @property (nonatomic, readonly) BOOL thumbnailExists;
 @property (nonatomic, readonly) long long totalBytes;
 @property (nonatomic, readonly) NSDate* lastModifiedDate;
-@property (nonatomic, readonly) NSDate* clientMtime;
 @property (nonatomic, readonly) NSString* path;
 @property (nonatomic, readonly) BOOL isDirectory;
 @property (nonatomic, readonly) NSArray* contents;

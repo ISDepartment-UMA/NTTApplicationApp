@@ -15,7 +15,6 @@
     DBQuota* quota;
     NSString* userId;
     NSString* referralLink;
-    NSDictionary* original;
 }
 
 - (id)initWithDictionary:(NSDictionary*)dict;
