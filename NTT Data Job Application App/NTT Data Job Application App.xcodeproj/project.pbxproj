@@ -20,6 +20,7 @@
 		283B7D5D17FC1AD5005F40C7 /* ValidaterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */; };
 		283B7D6017FDD36B005F40C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5F17FDD36B005F40C7 /* Helper.m */; };
 		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
+		288B36301811710D00B0D120 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288B362F1811710D00B0D120 /* QuartzCore.framework */; };
 		28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */; };
 		28BDF247180357C500132948 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF234180357C500132948 /* SBJsonParser.m */; };
 		28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF236180357C500132948 /* SBJsonStreamParser.m */; };
@@ -101,6 +102,7 @@
 		283B7D5E17FDD36B005F40C7 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Helper.h; path = "NTT Data Job Application App/Model/Helper.h"; sourceTree = SOURCE_ROOT; };
 		283B7D5F17FDD36B005F40C7 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "NTT Data Job Application App/Model/Helper.m"; sourceTree = SOURCE_ROOT; };
 		284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = NTTDataJobAppDatabase.xcdatamodel; path = "NTT Data Job Application App/Model/NTTDataJobAppDatabase.xcdatamodel"; sourceTree = SOURCE_ROOT; };
+		288B362F1811710D00B0D120 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerTest.m; sourceTree = "<group>"; };
 		28BDF232180357C500132948 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
 		28BDF233180357C500132948 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
@@ -181,10 +183,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288B36301811710D00B0D120 /* QuartzCore.framework in Frameworks */,
 				3291990618111B65000FBAE3 /* Security.framework in Frameworks */,
 				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
 				3240C07118118247008EB26E /* DropboxSDK.framework in Frameworks */,
 				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
+				329703C718116DE80095799F /* DropboxSDK.framework in Frameworks */,
 				28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */,
 				28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */,
 				28E44A9E17E3C5510084543B /* CoreGraphics.framework in Frameworks */,
@@ -635,6 +639,7 @@
 					"/Users/yunhancheng/Downloads/dropbox-ios-sdk-1.1",
 					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/matthiasr/Development/Team\\ Project/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
@@ -652,6 +657,7 @@
 					"/Users/yunhancheng/Downloads/dropbox-ios-sdk-1.1",
 					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/matthiasr/Development/Team\\ Project/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";

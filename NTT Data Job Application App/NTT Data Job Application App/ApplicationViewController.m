@@ -33,7 +33,8 @@
 //establish the link
 - (void)didPressLink {
     if (![[DBSession sharedSession] isLinked]) {
-        [[DBSession sharedSession]link];
+        
+        //[[DBSession sharedSession]link];
     }
 }
 - (IBAction)dropBoxButtonClick:(UIButton *)sender {
