@@ -28,8 +28,18 @@
 
 @implementation ApplicationViewController
 @synthesize openPosition;
+@synthesize restClient;
 
 //establish the link
+- (DBRestClient *)restClient {
+    if (!restClient) {
+        restClient =
+        [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        restClient.delegate = self;
+    }
+    return restClient;
+}
+
 - (void)didPressLink {
     if (![[DBSession sharedSession] isLinked]) {
         
@@ -38,6 +48,30 @@
 }
 - (IBAction)dropBoxButtonClick:(UIButton *)sender {
     [self didPressLink];
+    if ([[DBSession sharedSession] isLinked])
+    {
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"" message:@"You have already logged in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [errorMessage show];
+      
+    }
+}
+
+
+
+-(void)restClient:(DBRestClient *)restClient loadedSharableLink:(NSString *)link forFile:(NSString *)path
+{
+    NSLog(@"sharable link %@",link);
+    NSLog(@"file path %@",path);
+   
+    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Your Resume Link:" message:[NSString stringWithFormat:@"%@",link] delegate:self cancelButtonTitle:@"Don't forget to click 'send' to submitt your application" otherButtonTitles:nil];
+    [errorMessage show];
+}
+
+-(void)restClient:(DBRestClient*)restClient loadSharableLinkFailedWithError:(NSError*)error
+{
+    NSLog(@"Error sharing file: %@", error);
+    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please make sure your 'MyResume' folder is shared" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [errorMessage show];
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -95,6 +129,9 @@
 }
 - (IBAction)sendApplication:(UIButton *)sender
 {
+    
+    [[self restClient]loadSharableLinkForFile:@"/MyResume"];
+
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
     if ((self.sendButton.enabled==YES)&&([self.firstName.text isEqualToString:@""]||[self.lastName.text isEqualToString:@""]||[self.address.text isEqualToString:@""]||[self.email.text isEqualToString:@""]||[self.phoneNumber.text isEqualToString:@""]))
