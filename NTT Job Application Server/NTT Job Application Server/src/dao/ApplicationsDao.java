@@ -92,7 +92,7 @@ public class ApplicationsDao {
 		public Boolean insertApplications(Applications application){
 			 
 			Boolean test=null;			 
-			String query = "insert into applications (device_id, job_ref_no, apply_time, application_status, email, first_name, last_name, address, phone_no ) VALUES (";
+			String query = "insert into applications (device_id, job_ref_no, apply_time, application_status, email, first_name, last_name, address, phone_no, resume_dropbox_url ) VALUES (";
 			query += "\"" + application.getDevice_id() + "\"" + ",";
 			query += "\"" + application.getJob_ref_no() + "\"" + ",";
 			query += "\"" + application.getApply_time() + "\"" + ",";
@@ -101,7 +101,8 @@ public class ApplicationsDao {
 			query += "\"" + application.getFirst_name() + "\"" + ",";
 			query += "\"" + application.getLast_name() + "\"" + ",";
 			query += "\"" + application.getAddress() + "\"" + ",";
-			query += "\"" + application.getPhone_no() + "\"";			 
+			query += "\"" + application.getPhone_no() + "\"";
+			query += "\"" + application.getResume_dropbox_url() + "\"";
 			query += ")";			
 			try{
 				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
