@@ -10,6 +10,13 @@ public class Applications {
 	private String last_name;
 	private String address;
 	private String phone_no;
+	private String resume_dropbox_url;
+	public String getResume_dropbox_url() {
+		return resume_dropbox_url;
+	}
+	public void setResume_dropbox_url(String resume_dropbox_url) {
+		this.resume_dropbox_url = resume_dropbox_url;
+	}
 	public String getDevice_id() {
 		return device_id;
 	}
