@@ -10,6 +10,7 @@
 @interface AnswerViewController()
 @property (strong, nonatomic) IBOutlet UITextView *answerText;
 
+@property (weak, nonatomic) IBOutlet UILabel *answerQuestion;
 
 @end
 
@@ -21,14 +22,9 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
-
-    NSString *q = [NSString stringWithFormat:@"%@\n\n",self.question];
-    self.answerText.text = [q stringByAppendingString:text];
-    
-    // self.questionLabel.text = self.question;
-    
-    
+    self.answerQuestion.text = self.question;
+    self.answerQuestion.numberOfLines = 3;
+    self.answerText.text = self.text;
 }
 
 

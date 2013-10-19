@@ -54,12 +54,19 @@
 		28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B3417E3C7A30084543B /* AppDelegate.m */; };
 		28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
+		3291990618111B65000FBAE3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990518111B65000FBAE3 /* Security.framework */; };
+		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
+		329703C31811680E0095799F /* DropBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329703C21811680E0095799F /* DropBoxViewController.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
+		9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8930591811BA01005B03DC /* QuartzCore.framework */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
+		9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD746F418128F350020C2E4 /* facebook-twitter.png */; };
+		C60C02511811DBA20055951E /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3240C07018118247008EB26E /* DropboxSDK.framework */; };
+		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +160,11 @@
 		28E44B3417E3C7A30084543B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		28EAC94F17F2F0140089467C /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = "NTT Data Job Application App/Model/DatabaseManager.h"; sourceTree = SOURCE_ROOT; };
 		28EAC95017F2F0140089467C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "NTT Data Job Application App/Model/DatabaseManager.m"; sourceTree = SOURCE_ROOT; };
+		3240C07018118247008EB26E /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		3291990518111B65000FBAE3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		329703BA181151770095799F /* DBLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DBLogo.png; sourceTree = "<group>"; };
+		329703C11811680E0095799F /* DropBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBoxViewController.h; sourceTree = "<group>"; };
+		329703C21811680E0095799F /* DropBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBoxViewController.m; sourceTree = "<group>"; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
 		9A187DFD17FB3BB40097650D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
@@ -161,10 +173,14 @@
 		9A514A3617FCD4460039553D /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
 		9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTextSearchViewController.m; sourceTree = "<group>"; };
+		9A8930591811BA01005B03DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9A911EC817FCDE4B004DFBD0 /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
 		9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
 		9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
+		9AD746F418128F350020C2E4 /* facebook-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-twitter.png"; sourceTree = "<group>"; };
+		C60C024F1811DAFC0055951E /* DropboxSDK */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = DropboxSDK; path = DropboxSDK.framework/DropboxSDK; sourceTree = "<group>"; };
+		C60C02521811E0C80055951E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +188,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60C02531811E0C80055951E /* Social.framework in Frameworks */,
+				C60C02511811DBA20055951E /* DropboxSDK.framework in Frameworks */,
+				9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */,
+				3291990618111B65000FBAE3 /* Security.framework in Frameworks */,
 				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
 				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
 				28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */,
@@ -248,6 +268,11 @@
 		28E44A9817E3C5510084543B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C60C02521811E0C80055951E /* Social.framework */,
+				C60C024F1811DAFC0055951E /* DropboxSDK */,
+				9A8930591811BA01005B03DC /* QuartzCore.framework */,
+				3240C07018118247008EB26E /* DropboxSDK.framework */,
+				3291990518111B65000FBAE3 /* Security.framework */,
 				28E44B3117E3C7600084543B /* MessageUI.framework */,
 				28E44B2F17E3C75A0084543B /* CoreData.framework */,
 				28E44A9917E3C5510084543B /* UIKit.framework */,
@@ -273,6 +298,8 @@
 				28E44B2717E3C6CB0084543B /* JobSearchViewController.h */,
 				28E44B2817E3C6CB0084543B /* JobSearchViewController.m */,
 				28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */,
+				329703C11811680E0095799F /* DropBoxViewController.h */,
+				329703C21811680E0095799F /* DropBoxViewController.m */,
 				9A911EC817FCDE4B004DFBD0 /* FAQViewController.h */,
 				9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */,
 				9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */,
@@ -292,12 +319,14 @@
 		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9AD746F418128F350020C2E4 /* facebook-twitter.png */,
 				28E44AA117E3C5510084543B /* NTT Data Job Application App-Info.plist */,
 				28E44B3317E3C7A30084543B /* AppDelegate.h */,
 				28E44B3417E3C7A30084543B /* AppDelegate.m */,
 				28E44AA217E3C5510084543B /* InfoPlist.strings */,
 				28E44AA517E3C5510084543B /* main.m */,
 				28E44AA717E3C5510084543B /* NTT Data Job Application App-Prefix.pch */,
+				329703BA181151770095799F /* DBLogo.png */,
 				28E44AAB17E3C5510084543B /* Default.png */,
 				28E44AAD17E3C5510084543B /* Default@2x.png */,
 				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
@@ -411,6 +440,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "University of Mannheim - NTT Data Team Project";
+				TargetAttributes = {
+					28E44A9517E3C5510084543B = {
+						DevelopmentTeam = 2ZT7XP3AR4;
+					};
+				};
 			};
 			buildConfigurationList = 28E44A9117E3C5510084543B /* Build configuration list for PBXProject "NTT Data Job Application App" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -435,6 +469,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */,
+				329703BB181151770095799F /* DBLogo.png in Resources */,
 				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
@@ -507,6 +543,7 @@
 				9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */,
 				281724951806B3E800F2D250 /* Faq.m in Sources */,
 				28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */,
+				329703C31811680E0095799F /* DropBoxViewController.m in Sources */,
 				28BDF247180357C500132948 /* SBJsonParser.m in Sources */,
 				9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */,
 				28BDF24D180357C500132948 /* SBJsonStreamWriter.m in Sources */,
@@ -612,10 +649,22 @@
 		28E44ACF17E3C5510084543B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/yunhancheng/Downloads/dropbox-ios-sdk-1.1",
+					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/matthiasr/Development/Team\\ Project/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/hilal/Desktop/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/karimmakhlouf/Documents/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
 				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -623,10 +672,22 @@
 		28E44AD017E3C5510084543B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/yunhancheng/Downloads/dropbox-ios-sdk-1.1",
+					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/matthiasr/Development/Team\\ Project/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/hilal/Desktop/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+					"/Users/karimmakhlouf/Documents/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
 				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

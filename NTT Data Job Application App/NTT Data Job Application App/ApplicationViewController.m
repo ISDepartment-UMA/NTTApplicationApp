@@ -11,21 +11,34 @@
 #import "OSConnectionManager.h"
 #import "ProfileValidater.h"
 
+
+
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
 
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
+@property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
 @property (weak, nonatomic) IBOutlet UITextField *address;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @end
 
 @implementation ApplicationViewController
 @synthesize openPosition;
+
+//establish the link
+- (void)didPressLink {
+    if (![[DBSession sharedSession] isLinked]) {
+        
+        [[DBSession sharedSession]link];
+    }
+}
+- (IBAction)dropBoxButtonClick:(UIButton *)sender {
+    [self didPressLink];
+}
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -202,7 +215,12 @@
     [self.view addGestureRecognizer:gesture];
     
     [self setupProfile];
+    
+    
 }
+
+
+
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self updateProfile];

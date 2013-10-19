@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <DropboxSDK/DropboxSDK.h>
 
-@interface ApplicationViewController : UIViewController
+
+
+@interface ApplicationViewController : UIViewController<DBRestClientDelegate>
+
+
 @property (strong, nonatomic)NSDictionary* openPosition;
+
 @end

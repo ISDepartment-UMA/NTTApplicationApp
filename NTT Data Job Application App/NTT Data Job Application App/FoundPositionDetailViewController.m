@@ -164,4 +164,54 @@
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
 }
+#pragma mark - posting on social media 
+
+- (IBAction)social:(id)sender
+{
+    UIActionSheet *share = [[UIActionSheet alloc]initWithTitle:@"Position Sharing" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter it!",@"Facebook it!", nil];
+    [share showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
+            SLComposeViewController *twittersheet = [[SLComposeViewController alloc] init];
+            
+            twittersheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            
+            [twittersheet setInitialText:[NSString stringWithFormat:@"#NTT_DATA #open_position %@",[self.openPosition objectForKey:@"position_name"]]];
+            [self presentViewController:twittersheet animated:YES completion:nil];
+            
+            
+        }else
+        {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Twitter service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            [alertView show];
+        }
+        
+        
+    }else if (buttonIndex == 1)
+     {
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+            SLComposeViewController *facebooksheet = [[SLComposeViewController alloc] init];
+            
+            facebooksheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            
+            [facebooksheet setInitialText:[NSString stringWithFormat:@"%@",[self.openPosition objectForKey:@"position_name"]]];
+            [self presentViewController:facebooksheet animated:YES completion:nil];
+            
+            
+        }	else
+        {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Facebook service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            [alertView show];
+        }
+    }
+}
 @end
+
+
+
+
+
+
+
+
