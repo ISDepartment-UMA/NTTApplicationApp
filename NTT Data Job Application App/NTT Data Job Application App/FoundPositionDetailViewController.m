@@ -168,36 +168,40 @@
 
 - (IBAction)social:(id)sender
 {
-    UIActionSheet *share = [[UIActionSheet alloc]initWithTitle:@"sharing" delegate:self cancelButtonTitle:@"ok" destructiveButtonTitle:nil otherButtonTitles:@"Facebook it!",@"Twiter it!", nil];
+    UIActionSheet *share = [[UIActionSheet alloc]initWithTitle:@"sharing" delegate:self cancelButtonTitle:@"ok" destructiveButtonTitle:nil otherButtonTitles:@"Twitter it!",@"Facebook it!", nil];
     [share showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (actionSheet.tag == 0) {
-        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
-            SLComposeViewController *tweetsheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    if (buttonIndex == 0) {
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
+            SLComposeViewController *twittersheet = [[SLComposeViewController alloc] init];
             
-            [tweetsheet setInitialText:[NSString stringWithFormat:@"%@",[self.openPosition objectForKey:@"position_name"]]];
-            [self presentViewController:tweetsheet animated:YES completion:nil];
+            twittersheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            
+            [twittersheet setInitialText:[NSString stringWithFormat:@"%@",[self.openPosition objectForKey:@"position_name"]]];
+            [self presentViewController:twittersheet animated:YES completion:nil];
             
             
         }else
-        {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Facebook service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Twitter service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
             [alertView show];
         }
         
         
-    }else if (actionSheet.tag == 1)
+    }else if (buttonIndex == 1)
      {
-        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
-            SLComposeViewController *facebooksheet = [SLComposeViewController  composeViewControllerForServiceType:SLServiceTypeTwitter];
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+            SLComposeViewController *facebooksheet = [[SLComposeViewController alloc] init];
+            
+            facebooksheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
             
             [facebooksheet setInitialText:[NSString stringWithFormat:@"#NTT_DATA #open_position %@",[self.openPosition objectForKey:@"position_name"]]];
             [self presentViewController:facebooksheet animated:YES completion:nil];
             
             
         }	else
-        {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Twiter service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Facebook service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
             [alertView show];
         }
     }

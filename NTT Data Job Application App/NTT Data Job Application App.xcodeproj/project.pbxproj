@@ -66,6 +66,7 @@
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
 		C60C02511811DBA20055951E /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3240C07018118247008EB26E /* DropboxSDK.framework */; };
 		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
+		C60C025718120C5C0055951E /* facebook-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = C60C025618120C5C0055951E /* facebook-twitter.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,7 @@
 		9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 		C60C024F1811DAFC0055951E /* DropboxSDK */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = DropboxSDK; path = DropboxSDK.framework/DropboxSDK; sourceTree = "<group>"; };
 		C60C02521811E0C80055951E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		C60C025618120C5C0055951E /* facebook-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-twitter.png"; path = "../../../../Desktop/facebook-twitter.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C60C025618120C5C0055951E /* facebook-twitter.png */,
 				28E44AA117E3C5510084543B /* NTT Data Job Application App-Info.plist */,
 				28E44B3317E3C7A30084543B /* AppDelegate.h */,
 				28E44B3417E3C7A30084543B /* AppDelegate.m */,
@@ -466,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60C025718120C5C0055951E /* facebook-twitter.png in Resources */,
 				329703BB181151770095799F /* DBLogo.png in Resources */,
 				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
