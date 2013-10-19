@@ -101,7 +101,7 @@ public class ApplicationsDao {
 			query += "\"" + application.getFirst_name() + "\"" + ",";
 			query += "\"" + application.getLast_name() + "\"" + ",";
 			query += "\"" + application.getAddress() + "\"" + ",";
-			query += "\"" + application.getPhone_no() + "\"";
+			query += "\"" + application.getPhone_no() + "\""+ ",";
 			query += "\"" + application.getResume_dropbox_url() + "\"";
 			query += ")";			
 			try{
