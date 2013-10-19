@@ -168,7 +168,7 @@
 
 - (IBAction)social:(id)sender
 {
-    UIActionSheet *share = [[UIActionSheet alloc]initWithTitle:@"sharing" delegate:self cancelButtonTitle:@"ok" destructiveButtonTitle:nil otherButtonTitles:@"Twitter it!",@"Facebook it!", nil];
+    UIActionSheet *share = [[UIActionSheet alloc]initWithTitle:@"Position Sharing" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter it!",@"Facebook it!", nil];
     [share showInView:self.view];
 }
 
