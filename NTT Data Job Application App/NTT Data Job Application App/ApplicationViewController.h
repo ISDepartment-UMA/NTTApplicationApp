@@ -15,5 +15,5 @@
 
 
 @property (strong, nonatomic)NSDictionary* openPosition;
-
+@property (strong,nonatomic)DBRestClient* restClient;
 @end
