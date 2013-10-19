@@ -179,7 +179,7 @@
             
             twittersheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
             
-            [twittersheet setInitialText:[NSString stringWithFormat:@"%@",[self.openPosition objectForKey:@"position_name"]]];
+            [twittersheet setInitialText:[NSString stringWithFormat:@"#NTT_DATA #open_position %@",[self.openPosition objectForKey:@"position_name"]]];
             [self presentViewController:twittersheet animated:YES completion:nil];
             
             
@@ -196,7 +196,7 @@
             
             facebooksheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
             
-            [facebooksheet setInitialText:[NSString stringWithFormat:@"#NTT_DATA #open_position %@",[self.openPosition objectForKey:@"position_name"]]];
+            [facebooksheet setInitialText:[NSString stringWithFormat:@"%@",[self.openPosition objectForKey:@"position_name"]]];
             [self presentViewController:facebooksheet animated:YES completion:nil];
             
             
