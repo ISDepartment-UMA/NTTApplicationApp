@@ -45,6 +45,7 @@ import dao.JobsDao;
 		 String last_name=null;
 		 String address=null;
 		 String phone_no=null;
+		 String resume_dropbox_url=null;
 				 
 		 Boolean refNOIsValid=null;
 		 Boolean isSuccessfulInserted=null;
@@ -104,6 +105,11 @@ import dao.JobsDao;
 			phone_no=jsonObject.getString("phone_no");}
  			else{
 			errorMessage+=" the parameter : phone_no is missing! ";}
+ 			
+ 			if(jsonObject.has("resume_dropbox_url")){
+ 				resume_dropbox_url=jsonObject.getString("resume_dropbox_url");}
+ 	 			else{
+ 				errorMessage+=" the parameter : resume_dropbox_url is missing! ";}
 			
 		} catch (JSONException e1) {
 			// TODO Auto-generated catch block
@@ -126,7 +132,8 @@ import dao.JobsDao;
  				first_name!=null&&
  				last_name!=null&&
  				address!=null&&
- 				phone_no!=null 				
+ 				phone_no!=null&&
+ 				resume_dropbox_url!=null
  				)
  		{
  				if(appDao.checkRepeatApply(job_ref_no,device_id)==false)
@@ -144,6 +151,7 @@ import dao.JobsDao;
  				application.setLast_name(last_name);
  				application.setAddress(address);
  				application.setPhone_no(phone_no);
+ 				application.setResume_dropbox_url(resume_dropbox_url);
  			 
  				isSuccessfulInserted=appDao.insertApplications(application);
  			  
@@ -184,8 +192,11 @@ import dao.JobsDao;
 				errorMessage+=" the parameter address can not be null! ";
 
  			if(phone_no==null)
-				errorMessage+=" the parameter phone_no can not be null! ";
- 			}
+				errorMessage+=" the parameter phone_no can not be null! "; 			
+ 		
+ 			if(resume_dropbox_url==null)
+			errorMessage+=" the parameter phone_no can not be null! ";
+			}
 				 			
  		
  		if(!errorMessage.isEmpty()){
