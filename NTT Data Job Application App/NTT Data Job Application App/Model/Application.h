@@ -22,5 +22,6 @@
 @property (nonatomic, retain) NSString * ref_No;
 @property (nonatomic, retain) NSString * status;
 @property (nonatomic, retain) NSNumber * statusConfirmed;
+@property (nonatomic,retain) NSString *sharedLink;
 
 @end

@@ -531,6 +531,7 @@
             application.lastName = [dict objectForKey:@"last_name"];
             application.address = [dict objectForKey:@"address"];
             application.phoneNo = [dict objectForKey:@"phone_no"];
+            application.sharedLink = [dict objectForKey:@"resume_dropbox_url"];
             
         }else
         {
@@ -542,6 +543,7 @@
             application.lastName = [dict objectForKey:@"last_name"];
             application.address = [dict objectForKey:@"address"];
             application.phoneNo = [dict objectForKey:@"phone_no"];
+            application.sharedLink = [dict objectForKey:@"resume_dropbox_url"];
         }
     }
     
