@@ -16,4 +16,5 @@
 
 @property (strong, nonatomic)NSDictionary* openPosition;
 @property (strong,nonatomic)DBRestClient* restClient;
+@property (nonatomic,retain) NSString *sharedLink;
 @end

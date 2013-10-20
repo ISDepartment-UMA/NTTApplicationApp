@@ -14,7 +14,9 @@
 
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
+@property (weak, nonatomic) IBOutlet UILabel *URLLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
@@ -24,11 +26,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
+
+
 @end
 
 @implementation ApplicationViewController
 @synthesize openPosition;
 @synthesize restClient;
+@synthesize sharedLink;
+
 
 //establish the link
 - (DBRestClient *)restClient {
@@ -44,16 +50,14 @@
     if (![[DBSession sharedSession] isLinked]) {
         
         [[DBSession sharedSession]link];
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"" message:@"Click again to retrieve your application file" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [errorMessage show];
+        
     }
+    else [[self restClient]loadSharableLinkForFile:@"/MyResume"];
 }
 - (IBAction)dropBoxButtonClick:(UIButton *)sender {
     [self didPressLink];
-    if ([[DBSession sharedSession] isLinked])
-    {
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"" message:@"You have already logged in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [errorMessage show];
-      
-    }
 }
 
 
@@ -62,8 +66,9 @@
 {
     NSLog(@"sharable link %@",link);
     NSLog(@"file path %@",path);
-   
-    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Your Resume Link:" message:[NSString stringWithFormat:@"%@",link] delegate:self cancelButtonTitle:@"Don't forget to click 'send' to submitt your application" otherButtonTitles:nil];
+    self.sharedLink = link;
+    self.URLLabel.text = link;
+    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Your Resume Link:" message:[NSString stringWithFormat:@"%@",self.sharedLink] delegate:self cancelButtonTitle:@"Don't forget to click 'send' to submitt your application" otherButtonTitles:nil];
     [errorMessage show];
 }
 
@@ -129,9 +134,7 @@
 }
 - (IBAction)sendApplication:(UIButton *)sender
 {
-    
-    [[self restClient]loadSharableLinkForFile:@"/MyResume"];
-
+    NSLog(@"%@",self.sharedLink);
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
     if ((self.sendButton.enabled==YES)&&([self.firstName.text isEqualToString:@""]||[self.lastName.text isEqualToString:@""]||[self.address.text isEqualToString:@""]||[self.email.text isEqualToString:@""]||[self.phoneNumber.text isEqualToString:@""]))
@@ -223,7 +226,8 @@
     self.responseLabel.hidden = YES;
     self.jobInfo.dataSource = self;
     self.jobInfo.delegate = self;
-	// Do any additional setup after loading the view.
+    self.sharedLink = [[NSString alloc]init];
+   	// Do any additional setup after loading the view.
     [super viewDidLoad];
     
     self.firstName.delegate=self;
