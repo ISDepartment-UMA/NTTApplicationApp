@@ -21,5 +21,5 @@
 @dynamic ref_No;
 @dynamic status;
 @dynamic statusConfirmed;
-
+@dynamic sharedLink;
 @end

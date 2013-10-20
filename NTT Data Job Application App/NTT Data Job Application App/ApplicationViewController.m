@@ -162,6 +162,10 @@
                 [errorMessage show];
                 self.responseLabel.hidden = YES;
                 applicationCanBeSent = NO;
+            }else if ([self.sharedLink isEqualToString:@""]){
+                self.responseLabel.hidden = YES;
+                applicationCanBeSent= NO;
+                self.URLLabel.text = @"click dropbox to get file";
             }
         }
     }
@@ -184,6 +188,7 @@
             application.phoneNo = self.phoneNumber.text;
             application.status = @"to_be_processed"; //to_be_processed,withdrawn
             application.statusConfirmed = [NSNumber numberWithBool:NO];
+            application.sharedLink = self.sharedLink;
             [[DatabaseManager sharedInstance]saveContext];
             
             [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
