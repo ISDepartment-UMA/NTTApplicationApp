@@ -43,10 +43,10 @@
 
 - (void)loadSelectedFilters
 {
-    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"experience"]];
-    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"jobtitles"]];
-    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"topics"]];
-    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"location"]];
+    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"exp"]];
+    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"job_title"]];
+    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"topic1"]];
+    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[self.openPosition objectForKey:@"location1"]];
     
     NSString* content = [[NSString alloc]init];
     if (contentExperience && contentExperience.length > 0)
@@ -81,7 +81,7 @@
     if (self.freeText != NULL) {
         content = self.freeText;
     }
-    
+    self.displaySelectedFilters.numberOfLines =2;
     self.displaySelectedFilters.text = content;
 }
     
