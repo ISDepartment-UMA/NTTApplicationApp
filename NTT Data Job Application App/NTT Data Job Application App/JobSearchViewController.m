@@ -211,16 +211,19 @@
         }
         else if([results count] == 1)
         {
-            NSArray* keys = [(NSDictionary*)results allKeys];
-            if ([keys containsObject:@"resultIsEmpty"])
-            {
-                self.searchCountLabel.text = @"No Jobs";
-                if (self.searchButton.enabled != NO)
+            if ([results isKindOfClass:[NSDictionary class]]) {
+                NSArray* keys = [(NSDictionary*)results allKeys];
+                if ([keys containsObject:@"resultIsEmpty"])
                 {
-                    self.searchButton.enabled = NO;
-                    self.searchButton.alpha = 0.3;
+                    self.searchCountLabel.text = @"No Jobs";
+                    if (self.searchButton.enabled != NO)
+                    {
+                        self.searchButton.enabled = NO;
+                        self.searchButton.alpha = 0.3;
+                    }
                 }
-            }else
+            }
+            else
             {
                 self.searchCountLabel.text = [NSString stringWithFormat:@"%d Jobs", [results count]];
                 if (self.searchButton.enabled != YES)
