@@ -10,7 +10,6 @@
 		2817248F18061E1C00F2D250 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 2817248E18061E1C00F2D250 /* Application.m */; };
 		281724921806B3E700F2D250 /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = 281724911806B3E700F2D250 /* Rating.m */; };
 		281724951806B3E800F2D250 /* Faq.m in Sources */ = {isa = PBXBuildFile; fileRef = 281724941806B3E800F2D250 /* Faq.m */; };
-		281F00221816A66B00F681FC /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281F00211816A66B00F681FC /* DropboxSDK.framework */; };
 		283B7D4317FB50C2005F40C7 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D4217FB50C2005F40C7 /* Location.m */; };
 		283B7D4617FB50C3005F40C7 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D4517FB50C3005F40C7 /* Topic.m */; };
 		283B7D4917FB50C3005F40C7 /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D4817FB50C3005F40C7 /* Experience.m */; };
@@ -21,6 +20,7 @@
 		283B7D5D17FC1AD5005F40C7 /* ValidaterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */; };
 		283B7D6017FDD36B005F40C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5F17FDD36B005F40C7 /* Helper.m */; };
 		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
+		288FE3211816CCBB0067286D /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288FE3201816CCBB0067286D /* DropboxSDK.framework */; };
 		28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */; };
 		28BDF247180357C500132948 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF234180357C500132948 /* SBJsonParser.m */; };
 		28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF236180357C500132948 /* SBJsonStreamParser.m */; };
@@ -86,7 +86,6 @@
 		281724911806B3E700F2D250 /* Rating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rating.m; path = "NTT Data Job Application App/Model/Rating.m"; sourceTree = SOURCE_ROOT; };
 		281724931806B3E800F2D250 /* Faq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Faq.h; path = "NTT Data Job Application App/Model/Faq.h"; sourceTree = SOURCE_ROOT; };
 		281724941806B3E800F2D250 /* Faq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Faq.m; path = "NTT Data Job Application App/Model/Faq.m"; sourceTree = SOURCE_ROOT; };
-		281F00211816A66B00F681FC /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = "NTT Data Job Application App/DropboxSDK.framework"; sourceTree = "<group>"; };
 		283B7D4117FB50C2005F40C7 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = "NTT Data Job Application App/Model/Location.h"; sourceTree = SOURCE_ROOT; };
 		283B7D4217FB50C2005F40C7 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = "NTT Data Job Application App/Model/Location.m"; sourceTree = SOURCE_ROOT; };
 		283B7D4417FB50C3005F40C7 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = "NTT Data Job Application App/Model/Topic.h"; sourceTree = SOURCE_ROOT; };
@@ -105,6 +104,7 @@
 		283B7D5E17FDD36B005F40C7 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Helper.h; path = "NTT Data Job Application App/Model/Helper.h"; sourceTree = SOURCE_ROOT; };
 		283B7D5F17FDD36B005F40C7 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "NTT Data Job Application App/Model/Helper.m"; sourceTree = SOURCE_ROOT; };
 		284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = NTTDataJobAppDatabase.xcdatamodel; path = "NTT Data Job Application App/Model/NTTDataJobAppDatabase.xcdatamodel"; sourceTree = SOURCE_ROOT; };
+		288FE3201816CCBB0067286D /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = "NTT Data Job Application App/DropboxSDK.framework"; sourceTree = "<group>"; };
 		28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerTest.m; sourceTree = "<group>"; };
 		28BDF232180357C500132948 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
 		28BDF233180357C500132948 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
@@ -187,10 +187,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				281F00221816A66B00F681FC /* DropboxSDK.framework in Frameworks */,
 				C60C02531811E0C80055951E /* Social.framework in Frameworks */,
 				9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */,
 				3291990618111B65000FBAE3 /* Security.framework in Frameworks */,
+				288FE3211816CCBB0067286D /* DropboxSDK.framework in Frameworks */,
 				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
 				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
 				28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */,
@@ -267,7 +267,7 @@
 		28E44A9817E3C5510084543B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				281F00211816A66B00F681FC /* DropboxSDK.framework */,
+				288FE3201816CCBB0067286D /* DropboxSDK.framework */,
 				C60C02521811E0C80055951E /* Social.framework */,
 				9A8930591811BA01005B03DC /* QuartzCore.framework */,
 				3291990518111B65000FBAE3 /* Security.framework */,
