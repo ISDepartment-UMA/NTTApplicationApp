@@ -81,7 +81,7 @@
     if (self.freeText)
         content = self.freeText;
     
-    self.displaySelectedFilters.numberOfLines =2;
+    self.displaySelectedFilters.numberOfLines =3;
     self.displaySelectedFilters.text = content;
 }
     
