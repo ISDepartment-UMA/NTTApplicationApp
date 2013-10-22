@@ -78,9 +78,9 @@
             content = [content stringByAppendingString:contentTopic];
     }
     
-    if (self.freeText != NULL) {
+    if (self.freeText)
         content = self.freeText;
-    }
+    
     self.displaySelectedFilters.numberOfLines =2;
     self.displaySelectedFilters.text = content;
 }

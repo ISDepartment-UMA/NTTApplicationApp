@@ -92,7 +92,7 @@
         resultArray = [[NSArray alloc]init];
     else
     {
-        if ([resultArray count] == 1 && connectionType == OSCGetFreeTextSearch)
+        if ([resultArray count] == 1)// && connectionType == OSCGetFreeTextSearch)
         {
             NSArray* keys = [(NSDictionary*)resultArray allKeys];
             if ([keys containsObject:@"resultIsEmpty"])

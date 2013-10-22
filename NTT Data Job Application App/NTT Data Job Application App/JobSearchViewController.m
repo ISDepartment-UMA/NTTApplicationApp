@@ -102,7 +102,8 @@
 
 - (void)refreshButtonClicked:(id)sender
 {
-   
+    [OSConnectionManager sharedManager].searchObject = [[NSMutableDictionary alloc]init];
+    
     self.location.selected = NO;
     self.topics.selected = NO;
     self.experience.selected = NO;
@@ -199,7 +200,7 @@
         self.searchCountLabel.text = @"";
         NSArray* results = array;
         
-        if ([results count] >= 1)
+        if ([results count] > 1)
         {
             self.searchCountLabel.text = [NSString stringWithFormat:@"%d Jobs", [results count]];
             if (self.searchButton.enabled != YES)
@@ -207,6 +208,28 @@
                 self.searchButton.enabled = YES;
                 self.searchButton.alpha = 1.0;
             }
+        }
+        else if([results count] == 1)
+        {
+            NSArray* keys = [(NSDictionary*)results allKeys];
+            if ([keys containsObject:@"resultIsEmpty"])
+            {
+                self.searchCountLabel.text = @"No Jobs";
+                if (self.searchButton.enabled != NO)
+                {
+                    self.searchButton.enabled = NO;
+                    self.searchButton.alpha = 0.3;
+                }
+            }else
+            {
+                self.searchCountLabel.text = [NSString stringWithFormat:@"%d Jobs", [results count]];
+                if (self.searchButton.enabled != YES)
+                {
+                    self.searchButton.enabled = YES;
+                    self.searchButton.alpha = 1.0;
+                }
+            }
+                
         }
         
     }
