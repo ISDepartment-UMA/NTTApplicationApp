@@ -226,6 +226,16 @@
 }
 
 #pragma mark - Mail delegate
+- (IBAction)phoneLableClicked:(id)sender
+{
+   
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        {
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString: [NSString stringWithFormat:@"+4917684365597"]]];
+        }
+    
+}
+
 - (IBAction)mailLabelClicked:(id)sender
 {
     if ([MFMailComposeViewController canSendMail])

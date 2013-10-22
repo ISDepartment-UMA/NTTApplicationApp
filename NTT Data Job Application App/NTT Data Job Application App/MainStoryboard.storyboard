@@ -260,7 +260,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="FAQ" id="kao-zG-x1R">
-                        <barButtonItem key="rightBarButtonItem" title="Ask Question" id="zUf-ro-Cnq">
+                        <barButtonItem key="leftBarButtonItem" title="📞 " id="G74-FD-8sq">
+                            <connections>
+                                <action selector="phoneLableClicked:" destination="fP7-2G-sSa" id="2cM-PF-gWD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title=" ✉" id="zUf-ro-Cnq">
                             <connections>
                                 <action selector="mailLabelClicked:" destination="fP7-2G-sSa" id="r37-am-kgM"/>
                             </connections>
