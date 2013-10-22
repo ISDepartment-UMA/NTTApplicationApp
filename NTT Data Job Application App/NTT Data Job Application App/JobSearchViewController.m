@@ -42,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *searchCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIButton *proposeJobButton;
+@property (weak, nonatomic) IBOutlet UIButton *freeTextButton;
 @end
 
 @implementation JobSearchViewController
@@ -79,6 +80,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Make Buttons gradient
+    NSArray *buttonArray;
+    buttonArray = [NSArray arrayWithObjects:self.jobTitle, self.topics, self.location, self.experience, nil];
+    for (UIButton *button in buttonArray) {
+        CAGradientLayer *btnGradient = [CAGradientLayer layer];
+        btnGradient.frame = button.bounds;
+        btnGradient.colors = [NSArray arrayWithObjects:
+                              (id)[[UIColor colorWithRed:128.0f / 255.0f green:128.0f / 255.0f blue:255.0f / 255.0f alpha:1.0f] CGColor],
+                              (id)[[UIColor colorWithRed:90.0f / 255.0f green:90.0f / 255.0f blue:255.0f / 255.0f alpha:1.0f] CGColor],
+                              nil];
+        [button.layer insertSublayer:btnGradient atIndex:0];
+    }
+    
     self.jobTitleList = [[NSArray alloc] init];
     self.topicsList = [[NSArray alloc] init];
     self.locationsList =[[NSArray alloc] init];
