@@ -68,7 +68,7 @@
     NSLog(@"file path %@",path);
     self.sharedLink = link;
     self.URLLabel.text = link;
-    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Your Resume Link:" message:[NSString stringWithFormat:@"%@",self.sharedLink] delegate:self cancelButtonTitle:@"Don't forget to click 'send' to submitt your application" otherButtonTitles:nil];
+    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Don't forget to click 'Send' to submitt your application" message:[NSString stringWithFormat:@"Your Resume Link: \n%@",self.sharedLink] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorMessage show];
 }
 
