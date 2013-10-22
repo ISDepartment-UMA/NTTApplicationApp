@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UILabel *errorDisplay;
 
 
 @end
@@ -69,6 +70,7 @@
     self.sharedLink = link;
     self.URLLabel.text = link;
     UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Don't forget to click 'Send' to submitt your application" message:[NSString stringWithFormat:@"Your Resume Link: \n%@",self.sharedLink] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+
     [errorMessage show];
 }
 
@@ -137,11 +139,11 @@
     NSLog(@"%@",self.sharedLink);
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
+    self.errorDisplay.hidden = YES;
     if ((self.sendButton.enabled==YES)&&([self.firstName.text isEqualToString:@""]||[self.lastName.text isEqualToString:@""]||[self.address.text isEqualToString:@""]||[self.email.text isEqualToString:@""]||[self.phoneNumber.text isEqualToString:@""]))
     {
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [errorMessage show];
         self.responseLabel.hidden = YES;
+        self.errorDisplay.hidden = NO;
         applicationCanBeSent = NO;
     }
     else
@@ -149,21 +151,20 @@
         ProfileValidater* validater = [[ProfileValidater alloc]init];
         if (![validater checkIfMailAddressIsValid:self.email.text])
         {
-            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid email" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [errorMessage show];
             self.responseLabel.hidden = YES;
+            self.errorDisplay.hidden = NO;
             applicationCanBeSent = NO;
         }
         else
         {
             if (![validater checkIfPhoneNoIsValid:self.phoneNumber.text])
             {
-                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                [errorMessage show];
                 self.responseLabel.hidden = YES;
+                self.errorDisplay.hidden = NO;
                 applicationCanBeSent = NO;
             }else if ([self.sharedLink isEqualToString:@""]){
                 self.responseLabel.hidden = YES;
+                self.errorDisplay.hidden = YES;
                 applicationCanBeSent= NO;
                 self.URLLabel.text = @"click dropbox to get file";
             }
@@ -229,6 +230,7 @@
 {
     [super viewDidLoad];
     self.responseLabel.hidden = YES;
+    self.errorDisplay.hidden = YES;
     self.jobInfo.dataSource = self;
     self.jobInfo.delegate = self;
     self.sharedLink = [[NSString alloc]init];

@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7LZ-Gn-sZT">
-                                <rect key="frame" x="0.0" y="64" width="105" height="112"/>
+                                <rect key="frame" x="0.0" y="63.999999999999993" width="105" height="112"/>
                                 <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <state key="normal" title="Job Title">
@@ -909,7 +909,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fNb-7H-bJ1">
-                                <rect key="frame" x="230" y="477" width="70" height="30"/>
+                                <rect key="frame" x="230" y="474" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Send">
@@ -957,7 +957,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thank you for your application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jSG-3B-g7C">
-                                <rect key="frame" x="20" y="456" width="280" height="21"/>
+                                <rect key="frame" x="20" y="460" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1058,6 +1058,13 @@
                                     <action selector="dropBoxButtonClick:" destination="le8-wz-XJp" eventType="touchUpInside" id="NdH-0E-aMg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill in all fields" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yrs-uw-9yM">
+                                <rect key="frame" x="10" y="449" width="300" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1067,6 +1074,7 @@
                         <outlet property="address" destination="F2d-8X-Byh" id="RjG-C2-0gR"/>
                         <outlet property="dropBoxButton" destination="uLc-Y4-I1l" id="Z1X-lp-Har"/>
                         <outlet property="email" destination="iCW-2c-uZR" id="kiZ-Dw-v1s"/>
+                        <outlet property="errorDisplay" destination="yrs-uw-9yM" id="bGT-1Y-NXW"/>
                         <outlet property="firstName" destination="IFf-jm-CRD" id="5vU-Ih-LkA"/>
                         <outlet property="jobInfo" destination="drb-6a-uEW" id="KGt-o5-JeM"/>
                         <outlet property="lastName" destination="Op8-Zj-tRg" id="gCE-HF-Brd"/>
