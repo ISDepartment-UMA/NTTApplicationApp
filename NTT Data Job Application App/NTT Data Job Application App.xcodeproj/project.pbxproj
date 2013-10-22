@@ -57,7 +57,6 @@
 		3291990618111B65000FBAE3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990518111B65000FBAE3 /* Security.framework */; };
 		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
 		329703C31811680E0095799F /* DropBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329703C21811680E0095799F /* DropBoxViewController.m */; };
-		329C9E001816DB0400CCCAA2 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 329C9DFF1816DB0400CCCAA2 /* DropboxSDK.framework */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
@@ -164,7 +163,6 @@
 		329703BA181151770095799F /* DBLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DBLogo.png; sourceTree = "<group>"; };
 		329703C11811680E0095799F /* DropBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBoxViewController.h; sourceTree = "<group>"; };
 		329703C21811680E0095799F /* DropBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBoxViewController.m; sourceTree = "<group>"; };
-		329C9DFF1816DB0400CCCAA2 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
 		9A187DFD17FB3BB40097650D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				C60C02531811E0C80055951E /* Social.framework in Frameworks */,
 				9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */,
 				3291990618111B65000FBAE3 /* Security.framework in Frameworks */,
-				329C9E001816DB0400CCCAA2 /* DropboxSDK.framework in Frameworks */,
 				28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */,
 				28E44B3017E3C75A0084543B /* CoreData.framework in Frameworks */,
 				28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */,
@@ -267,7 +264,6 @@
 		28E44A9817E3C5510084543B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				329C9DFF1816DB0400CCCAA2 /* DropboxSDK.framework */,
 				C60C02521811E0C80055951E /* Social.framework */,
 				9A8930591811BA01005B03DC /* QuartzCore.framework */,
 				3291990518111B65000FBAE3 /* Security.framework */,
@@ -651,12 +647,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					/Library/Frameworks,
-					"/Users/matthiasr/Development/Team\\ Project/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
-					/Users/matthiasr/Downloads,
-					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
-				);
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
 				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
@@ -672,12 +663,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					/Library/Frameworks,
-					"/Users/matthiasr/Development/Team\\ Project/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
-					/Users/matthiasr/Downloads,
-					"/Users/yunhancheng/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App",
-				);
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
 				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
