@@ -1085,9 +1085,7 @@
         <scene sceneID="fv3-1i-njV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jpv-mU-CS0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="FAQ" id="Via-ex-UNk">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="FAQ" image="question.png" id="Via-ex-UNk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BqS-20-kha">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1106,9 +1104,7 @@
         <scene sceneID="EKA-bX-BiP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b0G-nJ-AMe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="7Nr-OA-EEs">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="7Nr-OA-EEs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y0a-5g-jsy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1127,9 +1123,7 @@
         <scene sceneID="8Af-wD-2uM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GOH-VM-1BY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Profile" id="VZO-63-cMn">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="phone-book.png" id="VZO-63-cMn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sxu-H3-RPr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1148,6 +1142,9 @@
     <resources>
         <image name="DBLogo.png" width="72" height="68"/>
         <image name="facebook-twitter.png" width="480" height="271"/>
+        <image name="phone-book.png" width="30" height="30"/>
+        <image name="question.png" width="30" height="30"/>
+        <image name="search.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
