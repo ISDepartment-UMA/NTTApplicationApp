@@ -59,6 +59,9 @@
 		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
 		329703C31811680E0095799F /* DropBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329703C21811680E0095799F /* DropBoxViewController.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
+		80E16671181712D40091BC92 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16670181712D40091BC92 /* search.png */; };
+		80E16673181714EA0091BC92 /* phone-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16672181714EA0091BC92 /* phone-book.png */; };
+		80E166751817154A0091BC92 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E166741817154A0091BC92 /* question.png */; };
 		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
@@ -167,6 +170,9 @@
 		329703C21811680E0095799F /* DropBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBoxViewController.m; sourceTree = "<group>"; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
+		80E16670181712D40091BC92 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		80E16672181714EA0091BC92 /* phone-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-book.png"; sourceTree = "<group>"; };
+		80E166741817154A0091BC92 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		9A187DFD17FB3BB40097650D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		9A187E0017FB3C710097650D /* MyApplicationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplicationsViewController.h; sourceTree = "<group>"; };
 		9A187E0117FB3C710097650D /* MyApplicationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplicationsViewController.m; sourceTree = "<group>"; };
@@ -318,6 +324,8 @@
 			isa = PBXGroup;
 			children = (
 				9AD746F418128F350020C2E4 /* facebook-twitter.png */,
+				80E166741817154A0091BC92 /* question.png */,
+				80E16672181714EA0091BC92 /* phone-book.png */,
 				28E44AA117E3C5510084543B /* NTT Data Job Application App-Info.plist */,
 				28E44B3317E3C7A30084543B /* AppDelegate.h */,
 				28E44B3417E3C7A30084543B /* AppDelegate.m */,
@@ -326,6 +334,7 @@
 				28E44AA717E3C5510084543B /* NTT Data Job Application App-Prefix.pch */,
 				329703BA181151770095799F /* DBLogo.png */,
 				28E44AAB17E3C5510084543B /* Default.png */,
+				80E16670181712D40091BC92 /* search.png */,
 				28E44AAD17E3C5510084543B /* Default@2x.png */,
 				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
 			);
@@ -469,7 +478,10 @@
 			files = (
 				9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */,
 				329703BB181151770095799F /* DBLogo.png in Resources */,
+				80E16673181714EA0091BC92 /* phone-book.png in Resources */,
 				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
+				80E16671181712D40091BC92 /* search.png in Resources */,
+				80E166751817154A0091BC92 /* question.png in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
 				28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */,
