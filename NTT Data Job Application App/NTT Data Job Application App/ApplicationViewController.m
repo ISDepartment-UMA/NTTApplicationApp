@@ -50,7 +50,7 @@
 - (void)didPressLink {
     if (![[DBSession sharedSession] isLinked]) {
         
-        [[DBSession sharedSession]link];
+        [[DBSession sharedSession]linkFromController:self];
         UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"" message:@"Click again to retrieve your application file" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [errorMessage show];
         

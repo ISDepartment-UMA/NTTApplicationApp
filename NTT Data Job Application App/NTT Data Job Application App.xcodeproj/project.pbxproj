@@ -19,7 +19,6 @@
 		283B7D5B17FC1A91005F40C7 /* ProfileValidater.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5A17FC1A91005F40C7 /* ProfileValidater.m */; };
 		283B7D5D17FC1AD5005F40C7 /* ValidaterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */; };
 		283B7D6017FDD36B005F40C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5F17FDD36B005F40C7 /* Helper.m */; };
-		283FFE271816DD95006539B8 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283FFE261816DD95006539B8 /* DropboxSDK.framework */; };
 		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
 		28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */; };
 		28BDF247180357C500132948 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF234180357C500132948 /* SBJsonParser.m */; };
@@ -32,6 +31,7 @@
 		28BDF24E180357C500132948 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF242180357C500132948 /* SBJsonStreamWriterAccumulator.m */; };
 		28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF244180357C500132948 /* SBJsonStreamWriterState.m */; };
 		28BDF250180357C500132948 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF246180357C500132948 /* SBJsonWriter.m */; };
+		28D8117118187C7B00DC5145 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D8117018187C7B00DC5145 /* DropboxSDK.framework */; };
 		28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
 		28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
 		28E44A9E17E3C5510084543B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9D17E3C5510084543B /* CoreGraphics.framework */; };
@@ -106,7 +106,6 @@
 		283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidaterTest.m; sourceTree = "<group>"; };
 		283B7D5E17FDD36B005F40C7 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Helper.h; path = "NTT Data Job Application App/Model/Helper.h"; sourceTree = SOURCE_ROOT; };
 		283B7D5F17FDD36B005F40C7 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "NTT Data Job Application App/Model/Helper.m"; sourceTree = SOURCE_ROOT; };
-		283FFE261816DD95006539B8 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = "NTT Data Job Application App/DropboxSDK.framework"; sourceTree = "<group>"; };
 		284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = NTTDataJobAppDatabase.xcdatamodel; path = "NTT Data Job Application App/Model/NTTDataJobAppDatabase.xcdatamodel"; sourceTree = SOURCE_ROOT; };
 		28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerTest.m; sourceTree = "<group>"; };
 		28BDF232180357C500132948 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		28BDF244180357C500132948 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		28BDF245180357C500132948 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		28BDF246180357C500132948 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		28D8117018187C7B00DC5145 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = "NTT Data Job Application App/DropboxSDK.framework"; sourceTree = "<group>"; };
 		28E44A9617E3C5510084543B /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E44A9917E3C5510084543B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28E44A9B17E3C5510084543B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -193,7 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283FFE271816DD95006539B8 /* DropboxSDK.framework in Frameworks */,
+				28D8117118187C7B00DC5145 /* DropboxSDK.framework in Frameworks */,
 				C60C02531811E0C80055951E /* Social.framework in Frameworks */,
 				9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */,
 				3291990618111B65000FBAE3 /* Security.framework in Frameworks */,
@@ -273,7 +273,7 @@
 		28E44A9817E3C5510084543B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				283FFE261816DD95006539B8 /* DropboxSDK.framework */,
+				28D8117018187C7B00DC5145 /* DropboxSDK.framework */,
 				C60C02521811E0C80055951E /* Social.framework */,
 				9A8930591811BA01005B03DC /* QuartzCore.framework */,
 				3291990518111B65000FBAE3 /* Security.framework */,
@@ -665,7 +665,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"./NTT Data Job Application App\"",
+					"./NTT\\ Data\\ Job\\ Application\\ App",
 					/Library/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -684,7 +684,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"./NTT Data Job Application App\"",
+					"./NTT\\ Data\\ Job\\ Application\\ App",
 					/Library/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
