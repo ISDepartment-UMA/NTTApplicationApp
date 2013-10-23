@@ -231,7 +231,7 @@
    
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         {
-            [[UIApplication sharedApplication]openURL:[NSURL URLWithString: [NSString stringWithFormat:@"+4917684365597"]]];
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel:4917684365597"]];
         }
     
 }
