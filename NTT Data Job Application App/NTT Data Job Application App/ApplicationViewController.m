@@ -333,14 +333,15 @@
     
     // Configure the cell...
     cell.accessoryType= UITableViewCellAccessoryNone;
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:12];
+    cell.textLabel.textColor = [UIColor orangeColor];
+    cell.textLabel.numberOfLines = 3;
     cell.textLabel.text = [self titleForRow:indexPath.row];
     
     
     NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
-    cell.detailTextLabel.numberOfLines = 2;
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
+    cell.detailTextLabel.numberOfLines = 3;
     cell.detailTextLabel.text = subtitle;
     
     return cell;
