@@ -16,7 +16,7 @@
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
-@property (weak, nonatomic) IBOutlet UILabel *URLLabel;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
@@ -35,6 +35,14 @@
 @synthesize openPosition;
 @synthesize restClient;
 @synthesize sharedLink;
+@synthesize dropBoxFile;
+
+- (IBAction)passDataFromDB:(UIStoryboardSegue*)unwindSegue
+{
+    
+}
+
+
 
 
 //establish the link
@@ -47,39 +55,58 @@
     return restClient;
 }
 
+
+
+- (void)restClient:(DBRestClient *)client loadedMetadata:(DBMetadata *)metadata {
+    if (metadata.isDirectory) {
+        self.dropBoxFile = [metadata.contents valueForKeyPath:@"filename"];
+        NSLog(@"Folder '%@' contains:", self.dropBoxFile);
+        for (DBMetadata *file in metadata.contents) {
+            //NSLog(@"%@", file.filename);
+            
+            
+        }
+    }
+}
+
+- (void)restClient:(DBRestClient *)client
+loadMetadataFailedWithError:(NSError *)error {
+    
+    NSLog(@"Error loading metadata: %@", error);
+}
+
 - (void)didPressLink {
     if (![[DBSession sharedSession] isLinked]) {
         
         [[DBSession sharedSession]linkFromController:self];
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"" message:@"Click again to retrieve your application file" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [errorMessage show];
+        
         
     }
-    else [[self restClient]loadSharableLinkForFile:@"/MyResume"];
+    
+    else {self.responseLabel.hidden = NO;
+        self. responseLabel.text = @"logged on successfully";}
+    
 }
 - (IBAction)dropBoxButtonClick:(UIButton *)sender {
     [self didPressLink];
+    [[self restClient] loadMetadata:@"/"];
 }
 
 
-
--(void)restClient:(DBRestClient *)restClient loadedSharableLink:(NSString *)link forFile:(NSString *)path
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"sharable link %@",link);
-    NSLog(@"file path %@",path);
-    self.sharedLink = link;
-    self.URLLabel.text = link;
-    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Don't forget to click 'Send' to submitt your application" message:[NSString stringWithFormat:@"Your Resume Link: \n%@",self.sharedLink] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-
-    [errorMessage show];
+    if ([segue.identifier isEqualToString:@"dbView"])
+    {
+        
+        if ([segue.destinationViewController respondsToSelector:@selector(setDbFile:)] )
+        {
+            [ segue.destinationViewController performSelector:@selector(setDbFile:) withObject:self.dropBoxFile];
+        }
+    }
+    
 }
 
--(void)restClient:(DBRestClient*)restClient loadSharableLinkFailedWithError:(NSError*)error
-{
-    NSLog(@"Error sharing file: %@", error);
-    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please make sure your 'MyResume' folder is shared" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    [errorMessage show];
-}
+
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -134,8 +161,10 @@
         [self hidenKeyboard];
     }
 }
+
 - (IBAction)sendApplication:(UIButton *)sender
 {
+    
     NSLog(@"%@",self.sharedLink);
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
@@ -162,11 +191,12 @@
                 self.responseLabel.hidden = YES;
                 self.errorDisplay.hidden = NO;
                 applicationCanBeSent = NO;
-            }else if ([self.sharedLink isEqualToString:@""]){
+            }else if (!self.sharedLink){
                 self.responseLabel.hidden = YES;
                 self.errorDisplay.hidden = YES;
                 applicationCanBeSent= NO;
-                self.URLLabel.text = @"click dropbox to get file";
+                self.responseLabel.hidden = NO;
+                self.responseLabel.text = @"please get application file from dropbox";
             }
         }
     }
@@ -233,7 +263,8 @@
     self.errorDisplay.hidden = YES;
     self.jobInfo.dataSource = self;
     self.jobInfo.delegate = self;
-    self.sharedLink = [[NSString alloc]init];
+    self.dropBoxFile = [[NSArray alloc]init];
+    //self.sharedLink = [[NSString alloc]init];
    	// Do any additional setup after loading the view.
     [super viewDidLoad];
     
