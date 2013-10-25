@@ -304,9 +304,12 @@
                                 <color key="textColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="5" maxValue="5" id="pKy-ud-Zuj">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" id="pKy-ud-Zuj">
                                 <rect key="frame" x="18" y="478" width="172" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeSliderValue" destination="wKt-q6-ltP" eventType="valueChanged" id="M0Z-UW-mWl"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pS9-ne-Wca">
                                 <rect key="frame" x="217" y="480" width="87" height="30"/>
@@ -315,6 +318,13 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HiW-QW-E2I">
+                                <rect key="frame" x="189" y="480" width="26" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -322,6 +332,8 @@
                     <connections>
                         <outlet property="answerQuestion" destination="b50-Tr-HZo" id="tKj-fG-2gj"/>
                         <outlet property="answerText" destination="COO-Od-gJ1" id="1Ob-7A-aWi"/>
+                        <outlet property="ratingSlider" destination="pKy-ud-Zuj" id="juY-0r-Prr"/>
+                        <outlet property="ratingValue" destination="HiW-QW-E2I" id="fj4-QQ-RtI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psQ-oh-i1V" userLabel="First Responder" sceneMemberID="firstResponder"/>

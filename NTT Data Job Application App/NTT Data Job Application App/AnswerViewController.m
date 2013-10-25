@@ -9,15 +9,12 @@
 #import "AnswerViewController.h"
 @interface AnswerViewController()
 @property (strong, nonatomic) IBOutlet UITextView *answerText;
-
 @property (weak, nonatomic) IBOutlet UILabel *answerQuestion;
-
 @end
 
 @implementation AnswerViewController
 @synthesize answerText;
 @synthesize text;
-
 @synthesize question;
 
 -(void)viewDidAppear:(BOOL)animated
@@ -27,6 +24,9 @@
     self.answerText.text = self.text;
 }
 
+-(IBAction)changeSliderValue {
+        ratingValue.text = [[NSString alloc] initWithFormat:@"%.0f" ,ratingSlider.value];
+}
 
 
 @end
