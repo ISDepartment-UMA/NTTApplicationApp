@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface AnswerViewController : UIViewController{
 
     IBOutlet UISlider *ratingSlider;
     IBOutlet UILabel *ratingValue;
+    IBOutlet UIButton *ratingButton;
 }
+
 
 @property (nonatomic,strong)NSString* question;
 @property (strong, nonatomic)NSString* text;
 
 - (IBAction)changeSliderValue;
+- (IBAction)selectedRatingButton;
 
 @end
