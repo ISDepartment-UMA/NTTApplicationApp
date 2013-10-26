@@ -54,6 +54,8 @@
 		28E44B3217E3C7600084543B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B3117E3C7600084543B /* MessageUI.framework */; };
 		28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E44B3417E3C7A30084543B /* AppDelegate.m */; };
 		28E44B3617E3C8240084543B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44B2F17E3C75A0084543B /* CoreData.framework */; };
+		28E676D5181C574B0048ADF4 /* SelectedFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */; };
+		28E676D7181C58040048ADF4 /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E676D6181C58040048ADF4 /* DBChooser.framework */; };
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
 		3291990618111B65000FBAE3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990518111B65000FBAE3 /* Security.framework */; };
 		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
@@ -162,6 +164,9 @@
 		28E44B3117E3C7600084543B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		28E44B3317E3C7A30084543B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		28E44B3417E3C7A30084543B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		28E676D3181C574B0048ADF4 /* SelectedFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedFilesViewController.h; sourceTree = "<group>"; };
+		28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedFilesViewController.m; sourceTree = "<group>"; };
+		28E676D6181C58040048ADF4 /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBChooser.framework; path = "NTT Data Job Application App/DBChooser.framework"; sourceTree = "<group>"; };
 		28EAC94F17F2F0140089467C /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = "NTT Data Job Application App/Model/DatabaseManager.h"; sourceTree = SOURCE_ROOT; };
 		28EAC95017F2F0140089467C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "NTT Data Job Application App/Model/DatabaseManager.m"; sourceTree = SOURCE_ROOT; };
 		3291990518111B65000FBAE3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -193,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E676D7181C58040048ADF4 /* DBChooser.framework in Frameworks */,
 				28D8117118187C7B00DC5145 /* DropboxSDK.framework in Frameworks */,
 				C60C02531811E0C80055951E /* Social.framework in Frameworks */,
 				9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */,
@@ -273,6 +279,7 @@
 		28E44A9817E3C5510084543B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28E676D6181C58040048ADF4 /* DBChooser.framework */,
 				28D8117018187C7B00DC5145 /* DropboxSDK.framework */,
 				C60C02521811E0C80055951E /* Social.framework */,
 				9A8930591811BA01005B03DC /* QuartzCore.framework */,
@@ -312,6 +319,8 @@
 				9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */,
 				80172A6D17EC949600538821 /* ApplicationViewController.h */,
 				80172A6E17EC949600538821 /* ApplicationViewController.m */,
+				28E676D3181C574B0048ADF4 /* SelectedFilesViewController.h */,
+				28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */,
 				288C02C017E6072900347FA8 /* Model */,
 				28E44AFE17E3C68A0084543B /* SBJson */,
 				28E44AD417E3C5810084543B /* connection handling */,
@@ -551,6 +560,7 @@
 				283B7D4F17FB50C3005F40C7 /* JobTitle.m in Sources */,
 				28E44B2C17E3C6CB0084543B /* JobSearchViewController.m in Sources */,
 				9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */,
+				28E676D5181C574B0048ADF4 /* SelectedFilesViewController.m in Sources */,
 				281724951806B3E800F2D250 /* Faq.m in Sources */,
 				28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */,
 				329703C31811680E0095799F /* DropBoxViewController.m in Sources */,
@@ -667,6 +677,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"./NTT\\ Data\\ Job\\ Application\\ App",
 					/Library/Frameworks,
+					"/Users/matthiasr/Development/Team\\ Project/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
@@ -686,6 +697,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"./NTT\\ Data\\ Job\\ Application\\ App",
 					/Library/Frameworks,
+					"/Users/matthiasr/Development/Team\\ Project/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
