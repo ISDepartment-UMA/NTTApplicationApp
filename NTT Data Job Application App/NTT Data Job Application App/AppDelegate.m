@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <DBChooser/DBChooser.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -32,6 +32,17 @@
     [DBSession setSharedSession:dbSession];
 
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation
+{
+    
+    if ([[DBChooser defaultChooser] handleOpenURL:url]) {
+        return YES;
+    }
+    
+    return NO;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

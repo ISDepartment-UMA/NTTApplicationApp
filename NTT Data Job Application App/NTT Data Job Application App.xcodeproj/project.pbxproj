@@ -677,7 +677,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"./NTT\\ Data\\ Job\\ Application\\ App",
 					/Library/Frameworks,
-					"/Users/matthiasr/Development/Team\\ Project/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
@@ -697,7 +696,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"./NTT\\ Data\\ Job\\ Application\\ App",
 					/Library/Frameworks,
-					"/Users/matthiasr/Development/Team\\ Project/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
