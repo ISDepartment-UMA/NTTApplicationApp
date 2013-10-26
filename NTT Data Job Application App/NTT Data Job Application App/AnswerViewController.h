@@ -20,7 +20,4 @@
 @property (nonatomic,strong)NSString* question;
 @property (strong, nonatomic)NSString* text;
 
-- (IBAction)changeSliderValue;
-- (IBAction)selectedRatingButton;
-
 @end
