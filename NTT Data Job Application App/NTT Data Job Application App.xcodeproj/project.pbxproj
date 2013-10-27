@@ -72,6 +72,8 @@
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
 		9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD746F418128F350020C2E4 /* facebook-twitter.png */; };
 		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
+		C65919D9181DD1F800366A0D /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = C65919D8181DD1F800366A0D /* Twitter.png */; };
+		C65919DB181DD3B300366A0D /* Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = C65919DA181DD3B300366A0D /* Facebook.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,8 @@
 		9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 		9AD746F418128F350020C2E4 /* facebook-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-twitter.png"; sourceTree = "<group>"; };
 		C60C02521811E0C80055951E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		C65919D8181DD1F800366A0D /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
+		C65919DA181DD3B300366A0D /* Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +340,8 @@
 				80E166741817154A0091BC92 /* question.png */,
 				80E16672181714EA0091BC92 /* phone-book.png */,
 				28E44AA117E3C5510084543B /* NTT Data Job Application App-Info.plist */,
+				C65919D8181DD1F800366A0D /* Twitter.png */,
+				C65919DA181DD3B300366A0D /* Facebook.png */,
 				28E44B3317E3C7A30084543B /* AppDelegate.h */,
 				28E44B3417E3C7A30084543B /* AppDelegate.m */,
 				28E44AA217E3C5510084543B /* InfoPlist.strings */,
@@ -491,8 +497,10 @@
 				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
 				80E16671181712D40091BC92 /* search.png in Resources */,
 				80E166751817154A0091BC92 /* question.png in Resources */,
+				C65919D9181DD1F800366A0D /* Twitter.png in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
+				C65919DB181DD3B300366A0D /* Facebook.png in Resources */,
 				28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */,
 				28E44B2E17E3C6D50084543B /* MainStoryboard.storyboard in Resources */,
 			);
