@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectedFilesViewController : UITableViewController
-
+@property (strong, nonatomic) NSArray* selectedFiles;
 @end

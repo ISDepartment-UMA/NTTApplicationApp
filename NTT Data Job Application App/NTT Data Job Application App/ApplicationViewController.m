@@ -10,14 +10,13 @@
 #import "DatabaseManager.h"
 #import "OSConnectionManager.h"
 #import "ProfileValidater.h"
-
-
+#import "SelectedFilesViewController.h"
+#import <DBChooser/DBChooser.h>
+#import <DropboxSDK/DropboxSDK.h>
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
@@ -27,86 +26,20 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorDisplay;
-
-
 @end
 
 @implementation ApplicationViewController
 @synthesize openPosition;
-@synthesize restClient;
-@synthesize sharedLink;
-@synthesize dropBoxFile;
-
-- (IBAction)passDataFromDB:(UIStoryboardSegue*)unwindSegue
-{
-    
-}
-
-
-
-
-//establish the link
-- (DBRestClient *)restClient {
-    if (!restClient) {
-        restClient =
-        [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
-        restClient.delegate = self;
-    }
-    return restClient;
-}
-
-
-
-- (void)restClient:(DBRestClient *)client loadedMetadata:(DBMetadata *)metadata {
-    if (metadata.isDirectory) {
-        self.dropBoxFile = [metadata.contents valueForKeyPath:@"filename"];
-        NSLog(@"Folder '%@' contains:", self.dropBoxFile);
-        for (DBMetadata *file in metadata.contents) {
-            //NSLog(@"%@", file.filename);
-            
-            
-        }
-    }
-}
-
-- (void)restClient:(DBRestClient *)client
-loadMetadataFailedWithError:(NSError *)error {
-    
-    NSLog(@"Error loading metadata: %@", error);
-}
-
-- (void)didPressLink {
-    if (![[DBSession sharedSession] isLinked]) {
-        
-        [[DBSession sharedSession]linkFromController:self];
-        
-        
-    }
-    
-    else {self.responseLabel.hidden = NO;
-        self. responseLabel.text = @"logged on successfully";}
-    
-}
-- (IBAction)dropBoxButtonClick:(UIButton *)sender {
-    [self didPressLink];
-    [[self restClient] loadMetadata:@"/"];
-}
-
+@synthesize selectedFiles;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"dbView"])
+    if([segue.identifier isEqualToString:@"selectDropBoxFile"])
     {
-        
-        if ([segue.destinationViewController respondsToSelector:@selector(setDbFile:)] )
-        {
-            [ segue.destinationViewController performSelector:@selector(setDbFile:) withObject:self.dropBoxFile];
-        }
+        SelectedFilesViewController* svc = (SelectedFilesViewController*)segue.destinationViewController;
+        svc.selectedFiles = self.selectedFiles;
     }
-    
 }
-
-
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -121,6 +54,7 @@ loadMetadataFailedWithError:(NSError *)error {
     [UIView commitAnimations];
     return YES;
 }
+
 -(void)resumeView
 {
     NSTimeInterval animationDuration=0.30f;
@@ -134,6 +68,7 @@ loadMetadataFailedWithError:(NSError *)error {
     self.view.frame=rect;
     [UIView commitAnimations];
 }
+
 -(void)hidenKeyboard
 {   [self.firstName resignFirstResponder];
     [self.lastName resignFirstResponder];
@@ -142,30 +77,23 @@ loadMetadataFailedWithError:(NSError *)error {
     [self.phoneNumber resignFirstResponder];
     [self resumeView];
 }
+
 -(IBAction)nextOnKeyboard:(UITextField *)sender
 {
-    if (sender == self.firstName) {
-        [self.lastName becomeFirstResponder];}
-    else if (sender == self.lastName){
+    if (sender == self.firstName)
+        [self.lastName becomeFirstResponder];
+    else if (sender == self.lastName)
         [self.address becomeFirstResponder];
-    }
-    else if (sender == self.address){
+    else if (sender == self.address)
         [self.email becomeFirstResponder];
-    }
     else if (sender == self.email)
-    {
         [self.phoneNumber becomeFirstResponder];
-        
-    }
-    else if (sender == self.phoneNumber){
+    else if (sender == self.phoneNumber)
         [self hidenKeyboard];
-    }
 }
 
 - (IBAction)sendApplication:(UIButton *)sender
 {
-    
-    NSLog(@"%@",self.sharedLink);
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
     self.errorDisplay.hidden = YES;
@@ -191,15 +119,17 @@ loadMetadataFailedWithError:(NSError *)error {
                 self.responseLabel.hidden = YES;
                 self.errorDisplay.hidden = NO;
                 applicationCanBeSent = NO;
-            }else if (!self.sharedLink){
-                self.responseLabel.hidden = YES;
-                self.errorDisplay.hidden = YES;
-                applicationCanBeSent= NO;
-                self.responseLabel.hidden = NO;
-                self.responseLabel.text = @"please get application file from dropbox";
             }
         }
     }
+    if (!self.selectedFiles || [selectedFiles count] == 0){
+        self.responseLabel.hidden = YES;
+        self.errorDisplay.hidden = YES;
+        applicationCanBeSent= NO;
+        self.responseLabel.hidden = NO;
+        self.responseLabel.text = @"Please select application files";
+    }
+    
     if (applicationCanBeSent)
     {
         
@@ -219,7 +149,10 @@ loadMetadataFailedWithError:(NSError *)error {
             application.phoneNo = self.phoneNumber.text;
             application.status = @"to_be_processed"; //to_be_processed,withdrawn
             application.statusConfirmed = [NSNumber numberWithBool:NO];
-            application.sharedLink = self.sharedLink;
+            
+            DBChooserResult* dbcr = (DBChooserResult*)[self.selectedFiles lastObject];
+            application.sharedLink = [dbcr.link description];
+            
             [[DatabaseManager sharedInstance]saveContext];
             
             [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
@@ -263,8 +196,6 @@ loadMetadataFailedWithError:(NSError *)error {
     self.errorDisplay.hidden = YES;
     self.jobInfo.dataSource = self;
     self.jobInfo.delegate = self;
-    self.dropBoxFile = [[NSArray alloc]init];
-    //self.sharedLink = [[NSString alloc]init];
    	// Do any additional setup after loading the view.
     [super viewDidLoad];
     
@@ -294,18 +225,14 @@ loadMetadataFailedWithError:(NSError *)error {
     [self.view addGestureRecognizer:gesture];
     
     [self setupProfile];
-    
-    
 }
-
-
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self updateProfile];
-    
     [super viewWillDisappear:animated];
 }
+
 - (void) setupProfile
 {
     MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
@@ -377,6 +304,4 @@ loadMetadataFailedWithError:(NSError *)error {
     
     return cell;
 }
-
-
 @end

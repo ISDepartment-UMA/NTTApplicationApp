@@ -7,16 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DropboxSDK/DropboxSDK.h>
 
-
-
-@interface ApplicationViewController : UIViewController<DBRestClientDelegate>
-
-
+@interface ApplicationViewController : UIViewController
+@property (strong, nonatomic) NSArray* selectedFiles;
 @property (strong, nonatomic)NSDictionary* openPosition;
-@property (strong,nonatomic)DBRestClient* restClient;
-@property (nonatomic,retain) NSString *sharedLink;
-@property (nonatomic,strong) NSArray *dropBoxFile;
-
 @end

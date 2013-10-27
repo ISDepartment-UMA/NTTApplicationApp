@@ -8,9 +8,9 @@
 
 #import "SelectedFilesViewController.h"
 #import <DBChooser/DBChooser.h>
+#import "ApplicationViewController.h"
 
 @interface SelectedFilesViewController ()
-@property (strong, nonatomic) NSArray* selectedFiles;
 @end
 
 @implementation SelectedFilesViewController
@@ -19,12 +19,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
  
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem* backButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(goBackSegue)];
+    [self.navigationItem setLeftBarButtonItem:backButton];
 }
+
+- (void)goBackSegue
+{
+    if([[self.navigationController.viewControllers objectAtIndex:[self.navigationController.viewControllers count]-2] isKindOfClass:[ApplicationViewController class]])
+    {
+        ApplicationViewController* avc = (ApplicationViewController*) [self.navigationController.viewControllers objectAtIndex:[self.navigationController.viewControllers count]-2];
+        avc.selectedFiles = self.selectedFiles;
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (IBAction)shareFiles:(id)sender
 {
     [[DBChooser defaultChooser] openChooserForLinkType:DBChooserLinkTypePreview
@@ -40,11 +51,19 @@
              
              for (DBChooserResult* dbc in results)
              {
-                 if (![files containsObject:dbc]) {
-                     [files addObject:dbc];
+                 bool notcontained = NO;
+                 for (DBChooserResult* oldres in files) {
+                     if ([oldres.name isEqualToString:dbc.name] && [[oldres.link description] isEqualToString:[dbc.link description]]) {
+                         notcontained = YES;
+                         continue;
+                     }
                  }
+                 if (!notcontained) 
+                     [files addObject:dbc];
              }
+             
              self.selectedFiles = [files copy];
+             [self.tableView reloadData];
          }
          else
          {
@@ -98,11 +117,5 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return NO;
-}
-
-#pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
 }
 @end
