@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7LZ-Gn-sZT">
-                                <rect key="frame" x="2" y="63.999999999999993" width="105" height="112"/>
+                                <rect key="frame" x="2" y="64" width="105" height="112"/>
                                 <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <state key="normal" title="Job Title">
@@ -111,13 +111,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="17 Jobs" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PRW-nV-ho7">
-                                <rect key="frame" x="250" y="435" width="52" height="20"/>
+                                <rect key="frame" x="248" y="414" width="52" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hsc-kf-6QG">
-                                <rect key="frame" x="120" y="427" width="182" height="30"/>
+                                <rect key="frame" x="115" y="404" width="185" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -127,18 +127,8 @@
                                     <action selector="sarchButtonPressed:" destination="2" eventType="touchUpInside" id="VHX-3y-RAx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xWg-ct-zRs">
-                                <rect key="frame" x="120" y="392" width="182" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="contSearch:" destination="2" eventType="touchUpInside" id="zq2-XP-RKY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IRI-F7-igD">
-                                <rect key="frame" x="120" y="455" width="182" height="30"/>
+                                <rect key="frame" x="115" y="434" width="185" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Propose a Job">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -149,7 +139,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tDL-xg-4Ap">
-                                <rect key="frame" x="118" y="488" width="182" height="30"/>
+                                <rect key="frame" x="115" y="467" width="183" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Free Text Search">
@@ -179,7 +169,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contButton" destination="xWg-ct-zRs" id="smY-fD-dEb"/>
                         <outlet property="expLabel" destination="S00-dp-7dP" id="3k0-m5-G6z"/>
                         <outlet property="experience" destination="L2L-c0-2eD" id="GgT-Cp-ngc"/>
                         <outlet property="freeTextButton" destination="tDL-xg-4Ap" id="GjL-Mc-SdK"/>
