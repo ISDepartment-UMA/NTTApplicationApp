@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7LZ-Gn-sZT">
-                                <rect key="frame" x="2" y="64" width="105" height="112"/>
+                                <rect key="frame" x="2" y="63.999999999999993" width="105" height="112"/>
                                 <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <state key="normal" title="Job Title">
@@ -193,6 +193,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="2Oh-5h-2Cy">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4R-Cy-5oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController definesPresentationContext="YES" id="fOd-dl-a1f" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5or-ld-9SX"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -203,13 +204,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="b0G-nJ-AMe" kind="relationship" relationship="viewControllers" id="TKd-9V-3H4"/>
-                        <segue destination="GOH-VM-1BY" kind="relationship" relationship="viewControllers" id="XXZ-dx-U7a"/>
-                        <segue destination="Jpv-mU-CS0" kind="relationship" relationship="viewControllers" id="GyZ-OW-wtr"/>
+                        <segue destination="PYo-ln-aiA" kind="relationship" relationship="viewControllers" id="BQM-OY-gR5"/>
+                        <segue destination="GOH-VM-1BY" kind="relationship" relationship="viewControllers" id="atM-jF-fII"/>
+                        <segue destination="Jpv-mU-CS0" kind="relationship" relationship="viewControllers" id="rVk-dE-91v"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P4R-Cy-5oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-867" y="886"/>
+            <point key="canvasLocation" x="-915" y="1126"/>
         </scene>
         <!--View Controller - FAQ-->
         <scene sceneID="g2q-jn-Tzd">
@@ -268,7 +269,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTC-Mf-vZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168" y="1844"/>
+            <point key="canvasLocation" x="1192" y="2868"/>
         </scene>
         <!--Answer View Controller - Answer-->
         <scene sceneID="80C-gs-ywX">
@@ -333,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psQ-oh-i1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="1844"/>
+            <point key="canvasLocation" x="1726" y="2868"/>
         </scene>
         <!--My Profile View Controller - My Profile-->
         <scene sceneID="RLP-ei-kMP">
@@ -448,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tov-9n-BSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168" y="886"/>
+            <point key="canvasLocation" x="1192" y="1886"/>
         </scene>
         <!--My Applications View Controller - My Applications-->
         <scene sceneID="PrU-d3-dqH">
@@ -494,7 +495,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aI5-K0-8d2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1690" y="886"/>
+            <point key="canvasLocation" x="1726" y="1886"/>
         </scene>
         <!--Free Text Search View Controller - Free Text Search-->
         <scene sceneID="8L0-Bv-NLb">
@@ -1184,7 +1185,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cg-lB-Eel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642" y="1844"/>
+            <point key="canvasLocation" x="653" y="2868"/>
         </scene>
         <!--Navigation Controller - Search-->
         <scene sceneID="EKA-bX-BiP">
@@ -1205,6 +1206,37 @@
             </objects>
             <point key="canvasLocation" x="630" y="-367"/>
         </scene>
+        <!--Navigation Controller - Speculative Application-->
+        <scene sceneID="R9h-R5-Q79">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="PYo-ln-aiA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Speculative Application" id="l6F-Vz-ivp"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W6d-xu-96R">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mKC-1T-Cef" kind="relationship" relationship="rootViewController" id="fGx-bn-TZd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBf-sW-dWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653" y="946"/>
+        </scene>
+        <!--Speculative Application View Controller - Speculative Application-->
+        <scene sceneID="cNs-eN-aaI">
+            <objects>
+                <viewController id="mKC-1T-Cef" customClass="SpeculativeApplicationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vLk-jg-k1Q" customClass="SpeculativeApplication">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Speculative Application" id="EDr-l0-j3r"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFP-eO-Fj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="946"/>
+        </scene>
         <!--Navigation Controller - My Profile-->
         <scene sceneID="8Af-wD-2uM">
             <objects>
@@ -1222,7 +1254,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fR-0j-Mqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642" y="886"/>
+            <point key="canvasLocation" x="666" y="1886"/>
         </scene>
     </scenes>
     <resources>

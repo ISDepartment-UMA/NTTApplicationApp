@@ -70,6 +70,7 @@
 		9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8930591811BA01005B03DC /* QuartzCore.framework */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
+		9A9184A918231F770077A2B1 /* SpeculativeApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9184A818231F770077A2B1 /* SpeculativeApplicationViewController.m */; };
 		9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD746F418128F350020C2E4 /* facebook-twitter.png */; };
 		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
 		C65919D9181DD1F800366A0D /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = C65919D8181DD1F800366A0D /* Twitter.png */; };
@@ -191,6 +192,8 @@
 		9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
 		9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
+		9A9184A718231F770077A2B1 /* SpeculativeApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeculativeApplicationViewController.h; sourceTree = "<group>"; };
+		9A9184A818231F770077A2B1 /* SpeculativeApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeculativeApplicationViewController.m; sourceTree = "<group>"; };
 		9AD746F418128F350020C2E4 /* facebook-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-twitter.png"; sourceTree = "<group>"; };
 		C60C02521811E0C80055951E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C65919D8181DD1F800366A0D /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 				28E44B2717E3C6CB0084543B /* JobSearchViewController.h */,
 				28E44B2817E3C6CB0084543B /* JobSearchViewController.m */,
 				28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */,
+				9A9184A718231F770077A2B1 /* SpeculativeApplicationViewController.h */,
+				9A9184A818231F770077A2B1 /* SpeculativeApplicationViewController.m */,
 				329703C11811680E0095799F /* DropBoxViewController.h */,
 				329703C21811680E0095799F /* DropBoxViewController.m */,
 				9A911EC817FCDE4B004DFBD0 /* FAQViewController.h */,
@@ -546,6 +551,7 @@
 				283B7D4617FB50C3005F40C7 /* Topic.m in Sources */,
 				281724921806B3E700F2D250 /* Rating.m in Sources */,
 				28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */,
+				9A9184A918231F770077A2B1 /* SpeculativeApplicationViewController.m in Sources */,
 				283B7D5517FB50C3005F40C7 /* MyProfile.m in Sources */,
 				9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */,
 				9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */,
