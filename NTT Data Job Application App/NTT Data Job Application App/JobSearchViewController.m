@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *topics;
 @property (weak, nonatomic) IBOutlet UIButton *location;
 @property (weak, nonatomic) IBOutlet UIButton *experience;
-@property (weak, nonatomic) IBOutlet UIButton *contButton;
 
 @property (weak, nonatomic) IBOutlet UITableView *searchSelection;
 @property (strong, nonatomic) NSArray *jobTitleList; // of String
@@ -128,12 +127,10 @@
     self.locationLabel.text = @"";
     self.expLabel.text = @"";
     
-    self.contButton.enabled = YES;
     self.searchButton.enabled = YES;
     self.proposeJobButton.enabled = YES;
     self.searchCountLabel.text = @"";
     
-    self.contButton.alpha = 1;
     self.searchButton.alpha = 1;    
 
     self.selected = nil;   
@@ -255,7 +252,6 @@
     {
         [loaderView setHidden:YES];
         [loader stopAnimating];
-        self.contButton.selected=YES;
         self.selected = self.jobTitleList;
         [self.optionsTable reloadData];
     }
@@ -281,8 +277,6 @@
     self.location.selected = NO;
     self.topics.selected = NO;
     self.experience.selected = NO;
-    self.contButton.enabled = YES;
-    self.contButton.alpha = 1.0;
     if (!sender.selected)
         self.selected = nil;
     [self.searchSelection reloadData];
@@ -295,9 +289,6 @@
     self.location.selected = NO;
     self.jobTitle.selected = NO;
     self.experience.selected = NO;
-    self.contButton.selected = NO;
-    self.contButton.enabled = YES;
-    self.contButton.alpha = 1.0;
     if (!sender.selected)
         self.selected = nil;
     [self.searchSelection reloadData];    
@@ -309,8 +300,6 @@
     self.topics.selected = NO;
     self.jobTitle.selected = NO;
     self.experience.selected = NO;
-    self.contButton.enabled = YES;
-    self.contButton.alpha = 1.0;
     if (!sender.selected)
         self.selected = nil;
     [self.searchSelection reloadData];
@@ -322,38 +311,9 @@
     self.topics.selected = NO;
     self.jobTitle.selected = NO;
     self.location.selected = NO;
-    self.contButton.enabled = NO;
-    self.contButton.alpha = 0.3;
     if (!sender.selected)
         self.selected = nil;
     [self.searchSelection reloadData];
-}
-
-- (IBAction)contSearch:(UIButton *)sender {
-    if(self.jobTitle.isSelected)
-    {
-        self.jobTitle.selected = NO;
-        self.topics.selected = YES;
-        self.selected = self.topicsList;
-        [self.searchSelection reloadData];
-    }
-    
-    else if (self.topics.isSelected)
-    {
-        self.topics.selected = NO;
-        self.location.selected = YES;
-        self.selected = self.locationsList;
-        [self.searchSelection reloadData];
-    }
-    
-    else if (self.location.isSelected) {
-        self.location.selected = NO;
-        self.experience.selected = YES;
-        self.selected = self.experienceList;
-        [self.searchSelection reloadData];
-        self.contButton.enabled = NO;
-        self.contButton.alpha = 0.3;
-    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
