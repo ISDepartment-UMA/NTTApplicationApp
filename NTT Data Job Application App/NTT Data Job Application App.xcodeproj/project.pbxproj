@@ -68,6 +68,7 @@
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
 		9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8930591811BA01005B03DC /* QuartzCore.framework */; };
+		9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
 		9A9184A918231F770077A2B1 /* SpeculativeApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9184A818231F770077A2B1 /* SpeculativeApplicationViewController.m */; };
@@ -188,6 +189,8 @@
 		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
 		9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTextSearchViewController.m; sourceTree = "<group>"; };
 		9A8930591811BA01005B03DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9A8EE6E718257EB100E4F2FA /* MyFilterSetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFilterSetsViewController.h; sourceTree = "<group>"; };
+		9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFilterSetsViewController.m; sourceTree = "<group>"; };
 		9A911EC817FCDE4B004DFBD0 /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
 		9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				28E44B2717E3C6CB0084543B /* JobSearchViewController.h */,
 				28E44B2817E3C6CB0084543B /* JobSearchViewController.m */,
 				28E44B2D17E3C6D50084543B /* MainStoryboard.storyboard */,
+				9A8EE6E718257EB100E4F2FA /* MyFilterSetsViewController.h */,
+				9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */,
 				9A9184A718231F770077A2B1 /* SpeculativeApplicationViewController.h */,
 				9A9184A818231F770077A2B1 /* SpeculativeApplicationViewController.m */,
 				329703C11811680E0095799F /* DropBoxViewController.h */,
@@ -580,6 +585,7 @@
 				329703C31811680E0095799F /* DropBoxViewController.m in Sources */,
 				28BDF247180357C500132948 /* SBJsonParser.m in Sources */,
 				9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */,
+				9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */,
 				28BDF24D180357C500132948 /* SBJsonStreamWriter.m in Sources */,
 				80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */,
 			);
