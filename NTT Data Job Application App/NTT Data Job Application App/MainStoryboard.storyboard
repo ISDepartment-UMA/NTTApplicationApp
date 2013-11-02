@@ -893,7 +893,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Iqg-sI-4Ie">
-                                        <rect key="frame" x="270" y="28" width="60" height="32"/>
+                                        <rect key="frame" x="271" y="40" width="59" height="25"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Apply">
                                             <color key="titleColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -904,7 +904,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OXB-YQ-JI6">
-                                        <rect key="frame" x="302" y="5" width="31" height="31"/>
+                                        <rect key="frame" x="306" y="6" width="24" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Share" image="Twitter.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -914,7 +914,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bla-jV-iQh">
-                                        <rect key="frame" x="121" y="0.0" width="149" height="65"/>
+                                        <rect key="frame" x="139" y="0.0" width="149" height="65"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="10"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -927,7 +927,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8f1-XI-KAP">
-                                        <rect key="frame" x="269" y="5" width="31" height="31"/>
+                                        <rect key="frame" x="278" y="6" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="facebook" image="Facebook.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -935,6 +935,13 @@
                                         <connections>
                                             <action selector="socialFB:" destination="Gyy-ut-UNb" eventType="touchUpInside" id="y7v-Vs-z08"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ygQ-Ym-hkq">
+                                        <rect key="frame" x="117" y="25" width="15" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Save Button" image="save.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
                                 </subviews>
                             </scrollView>
@@ -946,6 +953,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="FilterSetSaveButton" destination="ygQ-Ym-hkq" id="mnJ-l9-xIA"/>
                         <outlet property="contact" destination="r7b-rD-Z9u" id="gOm-ce-DhB"/>
                         <outlet property="description" destination="jQd-BV-FT1" id="bYb-Qk-iKG"/>
                         <outlet property="descriptionText" destination="7LM-eo-X7K" id="Xmr-vz-twn"/>
@@ -1305,6 +1313,7 @@
         <image name="Twitter.png" width="128" height="128"/>
         <image name="phone-book.png" width="30" height="30"/>
         <image name="question.png" width="30" height="30"/>
+        <image name="save.png" width="297" height="300"/>
         <image name="search.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *mainTaskText;
 @property (weak, nonatomic) IBOutlet UITextView *perspectiveText;
 @property (weak, nonatomic) IBOutlet UITextView *requirementText;
+@property (weak, nonatomic) IBOutlet UIButton *FilterSetSaveButton;
 @end
 
 @implementation FoundPositionDetailViewController
