@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7LZ-Gn-sZT">
-                                <rect key="frame" x="2" y="63.999999999999993" width="105" height="112"/>
+                                <rect key="frame" x="2" y="64" width="105" height="112"/>
                                 <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <state key="normal" title="Job Title">
@@ -963,6 +963,7 @@
                         <outlet property="displaySelectedFilters" destination="Bla-jV-iQh" id="tOG-ph-1wG"/>
                         <outlet property="email" destination="XoF-Kz-XeS" id="O06-CG-E7M"/>
                         <outlet property="exp" destination="ZIr-9A-hpF" id="aP0-rz-aJ9"/>
+                        <outlet property="filterSetSaveButton" destination="ygQ-Ym-hkq" id="n0S-2s-855"/>
                         <outlet property="jobTitle" destination="WvF-X4-se2" id="oKN-RF-3Cf"/>
                         <outlet property="mainTask" destination="CHQ-jg-Qpj" id="tPl-kM-GDb"/>
                         <outlet property="mainTaskText" destination="FGA-UO-YOO" id="Qna-aS-pyk"/>

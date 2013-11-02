@@ -84,6 +84,10 @@
     
     self.displaySelectedFilters.numberOfLines =3;
     self.displaySelectedFilters.text = content;
+    
+    if ([self.displaySelectedFilters.text isEqualToString:@""]) {
+        [self.filterSetSaveButton removeFromSuperview];
+    }
 }
     
 
