@@ -942,6 +942,9 @@
                                         <state key="normal" title="Save Button" image="save.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveFilterSets:" destination="Gyy-ut-UNb" eventType="touchUpInside" id="ble-yb-KT5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </scrollView>

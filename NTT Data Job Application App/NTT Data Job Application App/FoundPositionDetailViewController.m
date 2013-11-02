@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *mainTaskText;
 @property (weak, nonatomic) IBOutlet UITextView *perspectiveText;
 @property (weak, nonatomic) IBOutlet UITextView *requirementText;
-@property (weak, nonatomic) IBOutlet UIButton *FilterSetSaveButton;
+@property (weak, nonatomic) IBOutlet UIButton *filterSetSaveButton;
 @end
 
 @implementation FoundPositionDetailViewController
@@ -183,6 +183,12 @@
         [alertView show];
     }
 }
+
+- (IBAction)saveFilterSets:(UIButton *)sender {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+    [alertView show];
+}
+
 - (IBAction)socialFB:(id)sender
 {
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
