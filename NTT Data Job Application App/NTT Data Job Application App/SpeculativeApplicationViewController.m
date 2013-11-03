@@ -7,6 +7,12 @@
 //
 
 #import "SpeculativeApplicationViewController.h"
+@interface SpeculativeApplicationViewController()
+@property (weak, nonatomic) IBOutlet UIButton *getMyProfileDataButton;
+@property (weak, nonatomic) IBOutlet UILabel *responseLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+
+@end
 
 @implementation SpeculativeApplicationViewController
 

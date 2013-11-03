@@ -1356,6 +1356,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Speculative Application" id="EDr-l0-j3r"/>
+                    <connections>
+                        <outlet property="getMyProfileDataButton" destination="49H-HX-Q1b" id="n7h-tB-tuk"/>
+                        <outlet property="responseLabel" destination="yg2-DM-V1h" id="mVx-Lb-TLH"/>
+                        <outlet property="sendButton" destination="rAs-zd-VJa" id="v2O-q7-Chh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFP-eO-Fj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
