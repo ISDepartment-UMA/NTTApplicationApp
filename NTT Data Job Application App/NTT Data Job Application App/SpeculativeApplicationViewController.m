@@ -16,4 +16,13 @@
 
 @implementation SpeculativeApplicationViewController
 
+- (IBAction)getDataFromMyProfile:(id)sender {
+    self.getMyProfileDataButton.alpha=1;
+}
+
+- (IBAction)sendApplication:(id)sender {
+    self.responseLabel.hidden=NO;
+}
+
+
 @end
