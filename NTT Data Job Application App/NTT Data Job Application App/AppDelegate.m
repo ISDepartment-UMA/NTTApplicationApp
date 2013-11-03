@@ -23,6 +23,7 @@
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    sleep(1.5);
     DBSession* dbSession =
     [[DBSession alloc]
       initWithAppKey:@"8pptn1m3kun48pp"
