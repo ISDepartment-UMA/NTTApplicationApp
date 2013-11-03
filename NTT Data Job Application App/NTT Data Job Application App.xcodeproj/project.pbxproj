@@ -68,6 +68,8 @@
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
 		9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8930591811BA01005B03DC /* QuartzCore.framework */; };
+		9A8BF79B1826F38100FCAD6D /* addFile.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A8BF79A1826F38100FCAD6D /* addFile.png */; };
+		9A8BF79D1826F38A00FCAD6D /* getData.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A8BF79C1826F38A00FCAD6D /* getData.png */; };
 		9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */; };
 		9A8EE6EB182587EA00E4F2FA /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A8EE6EA182587E900E4F2FA /* save.png */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
@@ -190,6 +192,8 @@
 		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
 		9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTextSearchViewController.m; sourceTree = "<group>"; };
 		9A8930591811BA01005B03DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9A8BF79A1826F38100FCAD6D /* addFile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addFile.png; sourceTree = "<group>"; };
+		9A8BF79C1826F38A00FCAD6D /* getData.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = getData.png; sourceTree = "<group>"; };
 		9A8EE6E718257EB100E4F2FA /* MyFilterSetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFilterSetsViewController.h; sourceTree = "<group>"; };
 		9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFilterSetsViewController.m; sourceTree = "<group>"; };
 		9A8EE6EA182587E900E4F2FA /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9A8BF79C1826F38A00FCAD6D /* getData.png */,
+				9A8BF79A1826F38100FCAD6D /* addFile.png */,
 				9A8EE6EA182587E900E4F2FA /* save.png */,
 				9AD746F418128F350020C2E4 /* facebook-twitter.png */,
 				80E166741817154A0091BC92 /* question.png */,
@@ -509,8 +515,10 @@
 				80E16673181714EA0091BC92 /* phone-book.png in Resources */,
 				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
 				80E16671181712D40091BC92 /* search.png in Resources */,
+				9A8BF79D1826F38A00FCAD6D /* getData.png in Resources */,
 				80E166751817154A0091BC92 /* question.png in Resources */,
 				C65919D9181DD1F800366A0D /* Twitter.png in Resources */,
+				9A8BF79B1826F38100FCAD6D /* addFile.png in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
 				9A8EE6EB182587EA00E4F2FA /* save.png in Resources */,
