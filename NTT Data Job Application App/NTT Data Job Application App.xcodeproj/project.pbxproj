@@ -78,6 +78,12 @@
 		C65919DB181DD3B300366A0D /* Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = C65919DA181DD3B300366A0D /* Facebook.png */; };
 		C6DC690E182715EF0086B32A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DC690D182715EF0086B32A /* Images.xcassets */; };
 		C6DC69101827160D0086B32A /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DC690F1827160D0086B32A /* images.png */; };
+		C6E3F70E1828667400D07BEB /* icon ios 5,6 57pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */; };
+		C6E3F70F1828667400D07BEB /* icon spotlight ios7 40pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */; };
+		C6E3F7101828667400D07BEB /* icon settings ios5-7 29pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F70A1828667400D07BEB /* icon settings ios5-7 29pt.png */; };
+		C6E3F7111828667400D07BEB /* icon soptlightios5,6 29pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F70B1828667400D07BEB /* icon soptlightios5,6 29pt.png */; };
+		C6E3F7121828667400D07BEB /* icon ios7 60pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F70C1828667400D07BEB /* icon ios7 60pt.png */; };
+		C6E3F7131828667400D07BEB /* icon ios5,6 57pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F70D1828667400D07BEB /* icon ios5,6 57pt.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +210,12 @@
 		C65919DA181DD3B300366A0D /* Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook.png; sourceTree = "<group>"; };
 		C6DC690D182715EF0086B32A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6DC690F1827160D0086B32A /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
+		C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon ios 5,6 57pt.png"; sourceTree = "<group>"; };
+		C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon spotlight ios7 40pt.png"; sourceTree = "<group>"; };
+		C6E3F70A1828667400D07BEB /* icon settings ios5-7 29pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon settings ios5-7 29pt.png"; sourceTree = "<group>"; };
+		C6E3F70B1828667400D07BEB /* icon soptlightios5,6 29pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon soptlightios5,6 29pt.png"; sourceTree = "<group>"; };
+		C6E3F70C1828667400D07BEB /* icon ios7 60pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon ios7 60pt.png"; sourceTree = "<group>"; };
+		C6E3F70D1828667400D07BEB /* icon ios5,6 57pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon ios5,6 57pt.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +360,12 @@
 		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */,
+				C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */,
+				C6E3F70A1828667400D07BEB /* icon settings ios5-7 29pt.png */,
+				C6E3F70B1828667400D07BEB /* icon soptlightios5,6 29pt.png */,
+				C6E3F70C1828667400D07BEB /* icon ios7 60pt.png */,
+				C6E3F70D1828667400D07BEB /* icon ios5,6 57pt.png */,
 				9A44D09018284A26003CE0F0 /* save.png */,
 				9AD746F418128F350020C2E4 /* facebook-twitter.png */,
 				C6DC690F1827160D0086B32A /* images.png */,
@@ -508,7 +526,9 @@
 				9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */,
 				C6DC690E182715EF0086B32A /* Images.xcassets in Resources */,
 				329703BB181151770095799F /* DBLogo.png in Resources */,
+				C6E3F70E1828667400D07BEB /* icon ios 5,6 57pt.png in Resources */,
 				80E16673181714EA0091BC92 /* phone-book.png in Resources */,
+				C6E3F7111828667400D07BEB /* icon soptlightios5,6 29pt.png in Resources */,
 				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
 				80E16671181712D40091BC92 /* search.png in Resources */,
 				80E166751817154A0091BC92 /* question.png in Resources */,
@@ -517,8 +537,12 @@
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
 				9A44D09118284A26003CE0F0 /* save.png in Resources */,
+				C6E3F70F1828667400D07BEB /* icon spotlight ios7 40pt.png in Resources */,
 				C65919DB181DD3B300366A0D /* Facebook.png in Resources */,
+				C6E3F7131828667400D07BEB /* icon ios5,6 57pt.png in Resources */,
+				C6E3F7101828667400D07BEB /* icon settings ios5-7 29pt.png in Resources */,
 				28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */,
+				C6E3F7121828667400D07BEB /* icon ios7 60pt.png in Resources */,
 				28E44B2E17E3C6D50084543B /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
