@@ -133,6 +133,7 @@
     self.selected = nil;   
     [self initLoader];
     [self loadAllData];
+    [self selectTitle:self.jobTitle];
     [self.searchSelection reloadData];   
     
 }
