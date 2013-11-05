@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OSConnectionManager.h"
 
-@interface MyFilterSetsViewController : UITableViewController
+@interface MyFilterSetsViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, OSConnectionCompletionDelegate>
 
+@property(nonatomic,strong) NSArray *filterSet;
 @end

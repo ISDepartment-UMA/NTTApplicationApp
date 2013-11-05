@@ -10,6 +10,8 @@
 #import "MessageUI/MessageUI.h"
 #import "MessageUI/MFMailComposeViewController.h"
 #import "DatabaseManager.h"
+#import "AppDelegate.h"
+#import "Filter.h"
 
 @interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *displaySelectedFilters;
@@ -31,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *perspectiveText;
 @property (weak, nonatomic) IBOutlet UITextView *requirementText;
 @property (weak, nonatomic) IBOutlet UIButton *filterSetSaveButton;
+@property (nonatomic, retain)NSManagedObjectContext* managedObjectContext;
+
 @end
 
 @implementation FoundPositionDetailViewController
@@ -189,6 +193,25 @@
 }
 
 - (IBAction)saveFilterSets:(UIButton *)sender {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    
+    Filter *filter = [NSEntityDescription insertNewObjectForEntityForName:@"Filter"
+                                                   inManagedObjectContext:self.managedObjectContext];
+    
+    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"experience"]];
+    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"jobtitles"]];
+    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
+    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
+    
+    filter.expFilter = contentExperience;
+    filter.titleFilter = contentJobTitle;
+    filter.topicFilter = contentTopic;
+    filter.locationFilter = contentLocation;
+    
+    NSLog(@"%@",filter);
+
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
     [alertView show];
 }
