@@ -92,13 +92,10 @@
         [button.layer insertSublayer:btnGradient atIndex:0];
     }
     
-    self.jobTitleList = [[NSArray alloc] init];
-    self.topicsList = [[NSArray alloc] init];
-    self.locationsList =[[NSArray alloc] init];
-    self.experienceList = [[NSArray alloc] init];
-    self.selected = self.jobTitleList;
-    //self.jobTitle.selected = YES;
-    [self selectTitle:nil];
+   
+    
+    [self loadAllData];
+    [self selectTitle:self.jobTitle];
     
     self.searchSelection.dataSource = self;
     self.searchSelection.delegate = self;
