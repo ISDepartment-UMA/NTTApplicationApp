@@ -23,6 +23,12 @@
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="isRatedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rating" inverseName="rates" inverseEntity="Rating" syncable="YES"/>
     </entity>
+    <entity name="Filter" representedClassName="Filter" syncable="YES">
+        <attribute name="expFilter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationFilter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titleFilter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topicFilter" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="JobTitle" representedClassName="JobTitle" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
@@ -68,14 +74,15 @@
         <relationship name="topicMatchedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OpenPosition" inverseName="dealsWith" inverseEntity="OpenPosition" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Application" positionX="-567" positionY="-168" width="128" height="208"/>
-        <element name="Experience" positionX="-362" positionY="306" width="128" height="90"/>
-        <element name="Faq" positionX="160" positionY="-81" width="128" height="88"/>
-        <element name="JobTitle" positionX="-18" positionY="261" width="128" height="90"/>
-        <element name="Location" positionX="-128" positionY="-279" width="128" height="90"/>
-        <element name="MyProfile" positionX="-414" positionY="-306" width="128" height="135"/>
-        <element name="OpenPosition" positionX="-306" positionY="-36" width="128" height="255"/>
-        <element name="Rating" positionX="-0" positionY="54" width="128" height="88"/>
-        <element name="Topic" positionX="97" positionY="-243" width="128" height="90"/>
+        <element name="Application" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Experience" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Faq" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="JobTitle" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MyProfile" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="OpenPosition" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Rating" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Topic" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Filter" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
