@@ -57,10 +57,10 @@
 		28E676D5181C574B0048ADF4 /* SelectedFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */; };
 		28E676D7181C58040048ADF4 /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E676D6181C58040048ADF4 /* DBChooser.framework */; };
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
+		32898FCC182C463800F544AA /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32898FCB182C463800F544AA /* Filter.m */; };
 		3291990618111B65000FBAE3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990518111B65000FBAE3 /* Security.framework */; };
 		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
 		329703C31811680E0095799F /* DropBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329703C21811680E0095799F /* DropBoxViewController.m */; };
-		32978C031829195A001E1BBF /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32978C021829195A001E1BBF /* Filter.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		80E16671181712D40091BC92 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16670181712D40091BC92 /* search.png */; };
 		80E16673181714EA0091BC92 /* phone-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16672181714EA0091BC92 /* phone-book.png */; };
@@ -182,12 +182,12 @@
 		28E676D6181C58040048ADF4 /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBChooser.framework; path = "NTT Data Job Application App/DBChooser.framework"; sourceTree = "<group>"; };
 		28EAC94F17F2F0140089467C /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = "NTT Data Job Application App/Model/DatabaseManager.h"; sourceTree = SOURCE_ROOT; };
 		28EAC95017F2F0140089467C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "NTT Data Job Application App/Model/DatabaseManager.m"; sourceTree = SOURCE_ROOT; };
+		32898FCA182C463800F544AA /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = "NTT Data Job Application App/Filter.h"; sourceTree = SOURCE_ROOT; };
+		32898FCB182C463800F544AA /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filter.m; path = "NTT Data Job Application App/Filter.m"; sourceTree = SOURCE_ROOT; };
 		3291990518111B65000FBAE3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		329703BA181151770095799F /* DBLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DBLogo.png; sourceTree = "<group>"; };
 		329703C11811680E0095799F /* DropBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBoxViewController.h; sourceTree = "<group>"; };
 		329703C21811680E0095799F /* DropBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBoxViewController.m; sourceTree = "<group>"; };
-		32978C011829195A001E1BBF /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filter.h; sourceTree = SOURCE_ROOT; };
-		32978C021829195A001E1BBF /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filter.m; sourceTree = SOURCE_ROOT; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
 		80E16670181712D40091BC92 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -258,8 +258,8 @@
 				28EAC94F17F2F0140089467C /* DatabaseManager.h */,
 				28EAC95017F2F0140089467C /* DatabaseManager.m */,
 				284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */,
-				32978C011829195A001E1BBF /* Filter.h */,
-				32978C021829195A001E1BBF /* Filter.m */,
+				32898FCA182C463800F544AA /* Filter.h */,
+				32898FCB182C463800F544AA /* Filter.m */,
 				281724931806B3E800F2D250 /* Faq.h */,
 				281724941806B3E800F2D250 /* Faq.m */,
 				281724901806B3E700F2D250 /* Rating.h */,
@@ -599,7 +599,7 @@
 				28BDF250180357C500132948 /* SBJsonWriter.m in Sources */,
 				28BDF249180357C500132948 /* SBJsonStreamParserAccumulator.m in Sources */,
 				28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */,
-				32978C031829195A001E1BBF /* Filter.m in Sources */,
+				32898FCC182C463800F544AA /* Filter.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,
 				28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */,
 				9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */,
