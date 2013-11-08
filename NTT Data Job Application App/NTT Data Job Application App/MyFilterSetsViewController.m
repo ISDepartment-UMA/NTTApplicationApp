@@ -60,13 +60,14 @@
 }
 -(void)connectionFailed:(OSConnectionType)connectionType;
 {
-    
+    NSLog(@"fail");
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryCheckmark;
     NSString *freeText = [self.filterSet [indexPath.row ]valueForKey:@"freeTextFilter"];
+    
     if (!freeText){
     
     NSString *exp = [[self.filterSet[indexPath.row] valueForKey:@"expFilter"]lowercaseString];
@@ -88,13 +89,15 @@
     
     [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
-        [self performSegueWithIdentifier:@"showJobsFromFilter" sender:self];}
-    else {
-        
+    [self performSegueWithIdentifier:@"showJobsFromFilter" sender:self];
+    }
+    else
+    {
+        [OSConnectionManager sharedManager].delegate = self;
         [[OSConnectionManager sharedManager].searchObject setObject:freeText forKey:@"freeText"];
         [[OSConnectionManager sharedManager] StartConnection:OSCGetFreeTextSearch];
-        [self performSegueWithIdentifier:@"showJobsFromFilter" sender:self];
-       
+        [self performSegueWithIdentifier:@"showJobsFromFreeTextFilter" sender:self];
+        
     }
     
 }
@@ -107,10 +110,16 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+{      FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;
     if ([segue.identifier isEqualToString:@"showJobsFromFilter"]){
-        FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;
-        [overviewVC startSearchWithType:OSCGetSearch];}
+        ;
+       // [overviewVC startSearchWithType:OSCGetFreeTextSearch]
+        [overviewVC startSearchWithType:OSCGetSearch];
+    }
+    if ( [segue.identifier isEqualToString:@"showJobsFromFreeTextFilter"])
+    {
+        [overviewVC startSearchWithType:OSCGetFreeTextSearch];
+    }
     
     NSLog(@"search is!! %@", [OSConnectionManager sharedManager].searchObject);
     
