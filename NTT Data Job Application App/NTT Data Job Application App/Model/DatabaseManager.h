@@ -16,9 +16,14 @@
 #import "MyProfile.h"
 #import "Faq.h"
 #import "Rating.h"
+#import "Filter.h"
 
 @interface DatabaseManager : NSObject
+
 + (DatabaseManager*)sharedInstance;
+
+-(NSArray*)getAllFilter;
+-(void)storeFilter:(NSString*)contentExperience :(NSString*)contentJobTitle :(NSString*)contentTopic :(NSString*)contentLocation :(NSString*)freeTextFilter;
 
 - (Experience*)createExperience;
 - (NSArray*)allExperiences;

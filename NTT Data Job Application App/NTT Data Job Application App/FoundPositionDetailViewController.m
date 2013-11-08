@@ -11,6 +11,7 @@
 #import "MessageUI/MFMailComposeViewController.h"
 #import "DatabaseManager.h"
 
+
 @interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *displaySelectedFilters;
 @property (weak, nonatomic) IBOutlet UILabel *reference;
@@ -30,6 +31,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *mainTaskText;
 @property (weak, nonatomic) IBOutlet UITextView *perspectiveText;
 @property (weak, nonatomic) IBOutlet UITextView *requirementText;
+@property (weak, nonatomic) IBOutlet UIButton *filterSetSaveButton;
+@property (nonatomic, retain)NSManagedObjectContext* managedObjectContext;
+
 @end
 
 @implementation FoundPositionDetailViewController
@@ -83,6 +87,10 @@
     
     self.displaySelectedFilters.numberOfLines =3;
     self.displaySelectedFilters.text = content;
+    
+    if ([self.displaySelectedFilters.text isEqualToString:@""]) {
+        [self.filterSetSaveButton removeFromSuperview];
+    }
 }
     
 
@@ -168,45 +176,56 @@
 
 - (IBAction)social:(id)sender
 {
-    UIActionSheet *share = [[UIActionSheet alloc]initWithTitle:@"Position Sharing" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter it!",@"Facebook it!", nil];
-    [share showInView:self.view];
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0) {
-        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
-            SLComposeViewController *twittersheet = [[SLComposeViewController alloc] init];
-            
-            twittersheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-            
-            [twittersheet setInitialText:[NSString stringWithFormat:@"#NTT_DATA #open_position %@ \n%@	",[self.openPosition objectForKey:@"position_name"],[self.openPosition objectForKey:@"url"]]];
-            [self presentViewController:twittersheet animated:YES completion:nil];
-            
-            
-        }else
-        {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Twitter service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-            [alertView show];
-        }
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
+        SLComposeViewController *twittersheet = [[SLComposeViewController alloc] init];
+        
+        twittersheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        [twittersheet setInitialText:[NSString stringWithFormat:@"#NTT_DATA #open_position %@ \n%@	",[self.openPosition objectForKey:@"position_name"],[self.openPosition objectForKey:@"url"]]];
+        [self presentViewController:twittersheet animated:YES completion:nil];
         
         
-    }else if (buttonIndex == 1)
-     {
-        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
-            SLComposeViewController *facebooksheet = [[SLComposeViewController alloc] init];
-            
-            facebooksheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-            
-            [facebooksheet setInitialText:[NSString stringWithFormat:@"NTT Data open posistion : %@ \nIf your interested check the line below: \n%@",[self.openPosition objectForKey:@"position_name"],[self.openPosition objectForKey:@"url"]]];
-            [self presentViewController:facebooksheet animated:YES completion:nil];
-            
-            
-        }	else
-        {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Facebook service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-            [alertView show];
-        }
+    }else
+    {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Twitter service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alertView show];
     }
 }
-@end
+
+- (IBAction)saveFilterSets:(UIButton *)sender {
+    
+    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"experience"]];
+    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"jobtitles"]];
+    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
+    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
+    if (self.freeText){
+        [[DatabaseManager sharedInstance]storeFilter:nil :nil :nil :nil :self.freeText];
+    }else
+    [[DatabaseManager sharedInstance]storeFilter:contentExperience :contentJobTitle :contentTopic :contentLocation :Nil];
+    
+
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+    [alertView show];
+}
+
+- (IBAction)socialFB:(id)sender
+{
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+                    SLComposeViewController *facebooksheet = [[SLComposeViewController alloc] init];
+        
+                    facebooksheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+                    [facebooksheet setInitialText:[NSString stringWithFormat:@"NTT Data open posistion : %@ \nIf your interested check the line below: \n%@",[self.openPosition objectForKey:@"position_name"],[self.openPosition objectForKey:@"url"]]];
+                    [self presentViewController:facebooksheet animated:YES completion:nil];
+        
+        
+                }	else
+               {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Facebook service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+                   [alertView show];
+                }
+    
+}
+
+    @end;
 
 
 

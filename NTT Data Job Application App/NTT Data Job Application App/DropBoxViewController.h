@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <DropboxSDK/DropboxSDK.h>
+#import "ApplicationViewController.h"
+#import "ApplicationViewController.h"
 
 
-@interface DropBoxViewController : UIViewController
+@interface DropBoxViewController : UIViewController<DBRestClientDelegate>
+@property (nonatomic,strong)NSArray* dbFile;
+@property (strong,nonatomic)DBRestClient* restClient;
 
 @end

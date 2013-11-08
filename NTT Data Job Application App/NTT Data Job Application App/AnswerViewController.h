@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AnswerViewController : UIViewController
+
+@interface AnswerViewController : UIViewController{
+
+    IBOutlet UISlider *ratingSlider;
+    IBOutlet UILabel *ratingValue;
+    IBOutlet UIButton *ratingButton;
+}
 
 
 @property (nonatomic,strong)NSString* question;
-
 @property (strong, nonatomic)NSString* text;
 
 @end

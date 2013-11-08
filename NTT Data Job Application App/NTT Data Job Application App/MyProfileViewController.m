@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *myApplicationsButton;
+@property (weak, nonatomic) IBOutlet UIButton *myFilterSetsButton;
 @end
 
 @implementation MyProfileViewController

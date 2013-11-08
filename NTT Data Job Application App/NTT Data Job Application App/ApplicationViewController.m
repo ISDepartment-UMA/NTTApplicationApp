@@ -10,14 +10,13 @@
 #import "DatabaseManager.h"
 #import "OSConnectionManager.h"
 #import "ProfileValidater.h"
-
-
+#import "SelectedFilesViewController.h"
+#import <DBChooser/DBChooser.h>
+#import <DropboxSDK/DropboxSDK.h>
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
-@property (weak, nonatomic) IBOutlet UILabel *URLLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
@@ -26,57 +25,20 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
-
-
+@property (weak, nonatomic) IBOutlet UILabel *errorDisplay;
 @end
 
 @implementation ApplicationViewController
 @synthesize openPosition;
-@synthesize restClient;
-@synthesize sharedLink;
+@synthesize selectedFiles;
 
-
-//establish the link
-- (DBRestClient *)restClient {
-    if (!restClient) {
-        restClient =
-        [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
-        restClient.delegate = self;
-    }
-    return restClient;
-}
-
-- (void)didPressLink {
-    if (![[DBSession sharedSession] isLinked]) {
-        
-        [[DBSession sharedSession]link];
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"" message:@"Click again to retrieve your application file" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [errorMessage show];
-        
-    }
-    else [[self restClient]loadSharableLinkForFile:@"/MyResume"];
-}
-- (IBAction)dropBoxButtonClick:(UIButton *)sender {
-    [self didPressLink];
-}
-
-
-
--(void)restClient:(DBRestClient *)restClient loadedSharableLink:(NSString *)link forFile:(NSString *)path
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"sharable link %@",link);
-    NSLog(@"file path %@",path);
-    self.sharedLink = link;
-    self.URLLabel.text = link;
-    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Your Resume Link:" message:[NSString stringWithFormat:@"%@",self.sharedLink] delegate:self cancelButtonTitle:@"Don't forget to click 'send' to submitt your application" otherButtonTitles:nil];
-    [errorMessage show];
-}
-
--(void)restClient:(DBRestClient*)restClient loadSharableLinkFailedWithError:(NSError*)error
-{
-    NSLog(@"Error sharing file: %@", error);
-    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please make sure your 'MyResume' folder is shared" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    [errorMessage show];
+    if([segue.identifier isEqualToString:@"selectDropBoxFile"])
+    {
+        SelectedFilesViewController* svc = (SelectedFilesViewController*)segue.destinationViewController;
+        svc.selectedFiles = self.selectedFiles;
+    }
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
@@ -92,6 +54,7 @@
     [UIView commitAnimations];
     return YES;
 }
+
 -(void)resumeView
 {
     NSTimeInterval animationDuration=0.30f;
@@ -105,6 +68,7 @@
     self.view.frame=rect;
     [UIView commitAnimations];
 }
+
 -(void)hidenKeyboard
 {   [self.firstName resignFirstResponder];
     [self.lastName resignFirstResponder];
@@ -113,35 +77,30 @@
     [self.phoneNumber resignFirstResponder];
     [self resumeView];
 }
+
 -(IBAction)nextOnKeyboard:(UITextField *)sender
 {
-    if (sender == self.firstName) {
-        [self.lastName becomeFirstResponder];}
-    else if (sender == self.lastName){
+    if (sender == self.firstName)
+        [self.lastName becomeFirstResponder];
+    else if (sender == self.lastName)
         [self.address becomeFirstResponder];
-    }
-    else if (sender == self.address){
+    else if (sender == self.address)
         [self.email becomeFirstResponder];
-    }
     else if (sender == self.email)
-    {
         [self.phoneNumber becomeFirstResponder];
-        
-    }
-    else if (sender == self.phoneNumber){
+    else if (sender == self.phoneNumber)
         [self hidenKeyboard];
-    }
 }
+
 - (IBAction)sendApplication:(UIButton *)sender
 {
-    NSLog(@"%@",self.sharedLink);
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
+    self.errorDisplay.hidden = YES;
     if ((self.sendButton.enabled==YES)&&([self.firstName.text isEqualToString:@""]||[self.lastName.text isEqualToString:@""]||[self.address.text isEqualToString:@""]||[self.email.text isEqualToString:@""]||[self.phoneNumber.text isEqualToString:@""]))
     {
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in all fields" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [errorMessage show];
         self.responseLabel.hidden = YES;
+        self.errorDisplay.hidden = NO;
         applicationCanBeSent = NO;
     }
     else
@@ -149,26 +108,28 @@
         ProfileValidater* validater = [[ProfileValidater alloc]init];
         if (![validater checkIfMailAddressIsValid:self.email.text])
         {
-            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid email" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [errorMessage show];
             self.responseLabel.hidden = YES;
+            self.errorDisplay.hidden = NO;
             applicationCanBeSent = NO;
         }
         else
         {
             if (![validater checkIfPhoneNoIsValid:self.phoneNumber.text])
             {
-                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Please fill in valid phone number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                [errorMessage show];
                 self.responseLabel.hidden = YES;
+                self.errorDisplay.hidden = NO;
                 applicationCanBeSent = NO;
-            }else if ([self.sharedLink isEqualToString:@""]){
-                self.responseLabel.hidden = YES;
-                applicationCanBeSent= NO;
-                self.URLLabel.text = @"click dropbox to get file";
             }
         }
     }
+    if (!self.selectedFiles || [selectedFiles count] == 0){
+        self.responseLabel.hidden = YES;
+        self.errorDisplay.hidden = YES;
+        applicationCanBeSent= NO;
+        self.responseLabel.hidden = NO;
+        self.responseLabel.text = @"Please select application files";
+    }
+    
     if (applicationCanBeSent)
     {
         
@@ -188,7 +149,10 @@
             application.phoneNo = self.phoneNumber.text;
             application.status = @"to_be_processed"; //to_be_processed,withdrawn
             application.statusConfirmed = [NSNumber numberWithBool:NO];
-            application.sharedLink = self.sharedLink;
+            
+            DBChooserResult* dbcr = (DBChooserResult*)[self.selectedFiles lastObject];
+            application.sharedLink = [dbcr.link description];
+            
             [[DatabaseManager sharedInstance]saveContext];
             
             [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
@@ -229,9 +193,9 @@
 {
     [super viewDidLoad];
     self.responseLabel.hidden = YES;
+    self.errorDisplay.hidden = YES;
     self.jobInfo.dataSource = self;
     self.jobInfo.delegate = self;
-    self.sharedLink = [[NSString alloc]init];
    	// Do any additional setup after loading the view.
     [super viewDidLoad];
     
@@ -261,18 +225,14 @@
     [self.view addGestureRecognizer:gesture];
     
     [self setupProfile];
-    
-    
 }
-
-
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     [self updateProfile];
-    
     [super viewWillDisappear:animated];
 }
+
 - (void) setupProfile
 {
     MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
@@ -331,18 +291,17 @@
     
     // Configure the cell...
     cell.accessoryType= UITableViewCellAccessoryNone;
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:12];
+    cell.textLabel.textColor = [UIColor orangeColor];
+    cell.textLabel.numberOfLines = 3;
     cell.textLabel.text = [self titleForRow:indexPath.row];
     
     
     NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
-    cell.detailTextLabel.numberOfLines = 2;
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
+    cell.detailTextLabel.numberOfLines = 3;
     cell.detailTextLabel.text = subtitle;
     
     return cell;
 }
-
-
 @end

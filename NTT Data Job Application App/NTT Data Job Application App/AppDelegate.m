@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import <DBChooser/DBChooser.h>
+#import <CoreData/CoreData.h>
 
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     if ([[DBSession sharedSession] handleOpenURL:url]) {
@@ -23,6 +26,7 @@
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    sleep(1.5);
     DBSession* dbSession =
     [[DBSession alloc]
       initWithAppKey:@"8pptn1m3kun48pp"
@@ -32,6 +36,17 @@
     [DBSession setSharedSession:dbSession];
 
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation
+{
+    
+    if ([[DBChooser defaultChooser] handleOpenURL:url]) {
+        return YES;
+    }
+    
+    return NO;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
