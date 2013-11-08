@@ -39,6 +39,38 @@
     
     return sharedInstance;
 }
+#pragma mark FilterSet
+
+
+-(NSArray*)getAllFilter
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Filter"
+                                              inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedRecords;
+    
+}
+
+-(void)storeFilter:(NSString*)contentExperience :(NSString*)contentJobTitle :(NSString*)contentTopic :(NSString*) contentLocation
+{
+    Filter *filter = [NSEntityDescription insertNewObjectForEntityForName:@"Filter"
+                                                   inManagedObjectContext:_managedObjectContext];   
+    
+    filter.expFilter = contentExperience;
+    filter.titleFilter = contentJobTitle;
+    filter.topicFilter = contentTopic;
+    filter.locationFilter = contentLocation;
+
+}
 
 #pragma mark -
 #pragma mark Experience

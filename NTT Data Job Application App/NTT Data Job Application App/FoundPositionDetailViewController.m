@@ -10,7 +10,6 @@
 #import "MessageUI/MessageUI.h"
 #import "MessageUI/MFMailComposeViewController.h"
 #import "DatabaseManager.h"
-#import "AppDelegate.h"
 #import "Filter.h"
 
 @interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
@@ -193,24 +192,13 @@
 }
 
 - (IBAction)saveFilterSets:(UIButton *)sender {
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
-    
-    
-    Filter *filter = [NSEntityDescription insertNewObjectForEntityForName:@"Filter"
-                                                   inManagedObjectContext:self.managedObjectContext];
     
     NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"experience"]];
     NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"jobtitles"]];
     NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
     NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
     
-    filter.expFilter = contentExperience;
-    filter.titleFilter = contentJobTitle;
-    filter.topicFilter = contentTopic;
-    filter.locationFilter = contentLocation;
-    
-    NSLog(@"%@",filter);
+    [[DatabaseManager sharedInstance]storeFilter:contentExperience :contentJobTitle :contentTopic :contentLocation];
 
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
     [alertView show];

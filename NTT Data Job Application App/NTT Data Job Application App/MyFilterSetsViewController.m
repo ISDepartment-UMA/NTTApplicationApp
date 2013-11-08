@@ -22,9 +22,9 @@
 {
     [super viewDidLoad];
     
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     
-    self.filterSet = [appDelegate getAllFilter];
+    
+    self.filterSet = [[DatabaseManager sharedInstance]getAllFilter];
     
 }
 
