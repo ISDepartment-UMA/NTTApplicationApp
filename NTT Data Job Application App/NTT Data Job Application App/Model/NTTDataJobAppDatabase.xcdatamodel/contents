@@ -25,6 +25,7 @@
     </entity>
     <entity name="Filter" representedClassName="Filter" syncable="YES">
         <attribute name="expFilter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="freeTextFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="titleFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="topicFilter" optional="YES" attributeType="String" syncable="YES"/>
@@ -77,12 +78,12 @@
         <element name="Application" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Experience" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Faq" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Filter" positionX="0" positionY="0" width="0" height="0"/>
         <element name="JobTitle" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Location" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MyProfile" positionX="0" positionY="0" width="0" height="0"/>
         <element name="OpenPosition" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Rating" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Topic" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Filter" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

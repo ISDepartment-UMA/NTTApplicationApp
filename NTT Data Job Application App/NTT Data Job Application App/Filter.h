@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString * locationFilter;
 @property (nonatomic, retain) NSString * titleFilter;
 @property (nonatomic, retain) NSString * topicFilter;
+@property (nonatomic, retain) NSString * freeTextFilter;
 
 @end

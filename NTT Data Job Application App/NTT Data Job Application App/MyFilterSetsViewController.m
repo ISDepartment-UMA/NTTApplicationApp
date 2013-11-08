@@ -7,12 +7,7 @@
 //
 
 #import "MyFilterSetsViewController.h"
-#import "AppDelegate.h"
 #import "FoundPositionsOverviewViewController.h"
-#import "Topic.h"
-#import "Location.h"
-#import "Experience.h"
-#import "JobTitle.h"
 #import "DatabaseManager.h"
 
 @implementation MyFilterSetsViewController
@@ -21,7 +16,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     
     self.filterSet = [[DatabaseManager sharedInstance]getAllFilter];
@@ -50,7 +44,10 @@
     NSString *loc = [self.filterSet[indexPath.row] valueForKey:@"locationFilter"];
     NSString *topic = [self.filterSet [indexPath.row] valueForKey:@"topicFilter"];
     NSString *title = [self.filterSet[indexPath.row] valueForKey:@"titleFilter"];
+    NSString *freeText = [self.filterSet [indexPath.row ]valueForKey:@"freeTextFilter"];
+    if (!freeText)
     cell.textLabel.text = [NSString stringWithFormat:@"experience: %@, location: %@, topic: %@, title: %@",exp,loc,topic,title];
+    else cell.textLabel.text = [NSString stringWithFormat:@"Key words: %@",freeText];
     cell.textLabel.numberOfLines = 2 ;
     return cell;
     
@@ -69,7 +66,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryCheckmark;
-    
+    NSString *freeText = [self.filterSet [indexPath.row ]valueForKey:@"freeTextFilter"];
+    if (!freeText){
     
     NSString *exp = [[self.filterSet[indexPath.row] valueForKey:@"expFilter"]lowercaseString];
     NSString *loc = [[self.filterSet[indexPath.row] valueForKey:@"locationFilter"]lowercaseString];
@@ -90,7 +88,14 @@
     
     [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager] StartConnection:OSCGetSearch];
-    [self performSegueWithIdentifier:@"showJobsFromFilter" sender:self];
+        [self performSegueWithIdentifier:@"showJobsFromFilter" sender:self];}
+    else {
+        
+        [[OSConnectionManager sharedManager].searchObject setObject:freeText forKey:@"freeText"];
+        [[OSConnectionManager sharedManager] StartConnection:OSCGetFreeTextSearch];
+        [self performSegueWithIdentifier:@"showJobsFromFilter" sender:self];
+       
+    }
     
 }
 

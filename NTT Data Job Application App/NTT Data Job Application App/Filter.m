@@ -15,5 +15,6 @@
 @dynamic locationFilter;
 @dynamic titleFilter;
 @dynamic topicFilter;
+@dynamic freeTextFilter;
 
 @end

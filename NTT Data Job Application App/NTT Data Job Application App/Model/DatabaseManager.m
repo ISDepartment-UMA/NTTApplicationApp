@@ -60,7 +60,7 @@
     
 }
 
--(void)storeFilter:(NSString*)contentExperience :(NSString*)contentJobTitle :(NSString*)contentTopic :(NSString*) contentLocation
+-(void)storeFilter:(NSString*)contentExperience :(NSString*)contentJobTitle :(NSString*)contentTopic :(NSString*)contentLocation :(NSString*)freeTextFilter
 {
     Filter *filter = [NSEntityDescription insertNewObjectForEntityForName:@"Filter"
                                                    inManagedObjectContext:_managedObjectContext];   
@@ -69,6 +69,7 @@
     filter.titleFilter = contentJobTitle;
     filter.topicFilter = contentTopic;
     filter.locationFilter = contentLocation;
+    filter.freeTextFilter = freeTextFilter;
 
 }
 

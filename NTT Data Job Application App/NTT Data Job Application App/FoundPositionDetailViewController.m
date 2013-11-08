@@ -10,7 +10,7 @@
 #import "MessageUI/MessageUI.h"
 #import "MessageUI/MFMailComposeViewController.h"
 #import "DatabaseManager.h"
-#import "Filter.h"
+
 
 @interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *displaySelectedFilters;
@@ -197,8 +197,11 @@
     NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"jobtitles"]];
     NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
     NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
+    if (self.freeText){
+        [[DatabaseManager sharedInstance]storeFilter:nil :nil :nil :nil :self.freeText];
+    }else
+    [[DatabaseManager sharedInstance]storeFilter:contentExperience :contentJobTitle :contentTopic :contentLocation :Nil];
     
-    [[DatabaseManager sharedInstance]storeFilter:contentExperience :contentJobTitle :contentTopic :contentLocation];
 
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
     [alertView show];
