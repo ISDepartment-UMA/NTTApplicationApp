@@ -18,8 +18,12 @@
     [super viewDidLoad];
     
     
-    self.filterSet = [[DatabaseManager sharedInstance]getAllFilter];
+    [self loadFilters];
     
+}
+
+- (void)loadFilters{
+    self.filterSet = [[DatabaseManager sharedInstance]getAllFilter];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,6 +56,23 @@
     return cell;
     
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Filter *filter = self.filterSet[indexPath.row];
+        [[DatabaseManager sharedInstance] removeFilter:filter];
+        [self loadFilters];
+        [self.tableView reloadData];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {

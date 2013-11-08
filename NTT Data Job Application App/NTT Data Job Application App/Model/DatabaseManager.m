@@ -41,6 +41,11 @@
 }
 #pragma mark FilterSet
 
+-(void)removeFilter:(Filter*)filter
+{
+    [_managedObjectContext deleteObject:filter];
+    
+}
 
 -(NSArray*)getAllFilter
 {

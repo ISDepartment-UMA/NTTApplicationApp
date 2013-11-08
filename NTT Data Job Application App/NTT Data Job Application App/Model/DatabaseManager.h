@@ -22,6 +22,7 @@
 
 + (DatabaseManager*)sharedInstance;
 
+-(void)removeFilter:(Filter*)filter;
 -(NSArray*)getAllFilter;
 -(void)storeFilter:(NSString*)contentExperience :(NSString*)contentJobTitle :(NSString*)contentTopic :(NSString*)contentLocation :(NSString*)freeTextFilter;
 
