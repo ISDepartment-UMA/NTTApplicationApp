@@ -73,6 +73,12 @@
 
 }
 
+-(void)deleteFilter:(id)object
+{
+   // [_managedObjectContext deleteObject:[self.fetchedRecordsArray objectAtIndex:indexPath.row]];
+    [_managedObjectContext deleteObject:object];
+}
+
 #pragma mark -
 #pragma mark Experience
 #pragma mark - 
