@@ -101,6 +101,10 @@ import dao.JobsDao;
  		 
  		if(uuid!=null&device_id!=null)
  		{
+ 			if(filterSetsDao.queryFilterSetsbyUUID(uuid) != null){
+ 				errorMessage+="the uuid is duplicated, please use unique UUID";
+ 			}
+ 			else{
  				FilterSet filterSet=new FilterSet();
  				filterSet.setUuid(uuid);
  				filterSet.setDevice_id(device_id);
@@ -119,7 +123,8 @@ import dao.JobsDao;
  				
  				else{
  					responseMessage="failed tostore filterSets, please try again";
- 					} 		 
+ 					} 		
+ 				}
  		} 		
  		
  		else{			 

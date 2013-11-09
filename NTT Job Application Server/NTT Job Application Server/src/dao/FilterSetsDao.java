@@ -92,6 +92,30 @@ public class FilterSetsDao {
 
 			return filterSets.isEmpty() ? null : filterSets;		
 		}
+		
+public List<FilterSet> queryFilterSetsbyUUID(String uuid){
+			
+			
+			List<FilterSet> filterSets = null;
+			query = "SELECT * FROM filtersets WHERE uuid = '" + uuid
+					+ "'";
+			
+			try {
+				filterSets = run.query(query, filterSetsHandler);
+				DbUtilHelper.log("queryFilterSetsbyUUID success: " + query);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("queryFilterSetsbyUUID failed");
+
+			}
+
+			if (filterSets.isEmpty()) {
+				DbUtilHelper.log("queryFilterSetsbyUUID result is empty!");
+
+			}
+
+			return filterSets.isEmpty() ? null : filterSets;		
+		}
 
 
 		public Boolean deleteFilterSet(String uuid){
