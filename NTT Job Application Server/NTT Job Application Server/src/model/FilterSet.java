@@ -1,11 +1,20 @@
 package model;
 
 public class FilterSet {
+	private String uuid;
 	private String device_id;
 	private String job_title;
 	private String location;
 	private String topic;
 	private String exp;
+	
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+	
 	public String getDevice_id() {
 		return device_id;
 	}
