@@ -42,13 +42,15 @@ public class FilterSetsDao {
 			Boolean test=null;			 
 			String query = "insert into filtersets (uuid, device_id, job_title, location, topic, exp) VALUES (";
 			query += "\"" + filterSet.getUuid() + "\"" + ",";
+			query += "\"" + filterSet.getDevice_id() + "\"" + ",";
 			query += "\"" + filterSet.getJob_title() + "\"" + ",";
-			query += "\"" + filterSet.getLocation() + "\"";
-			query += "\"" + filterSet.getTopic() + "\"";
+			query += "\"" + filterSet.getLocation() + "\"" + ",";
+			query += "\"" + filterSet.getTopic() + "\""+ ",";
 			query += "\"" + filterSet.getExp() + "\"";
 			query += ")";	
 			 		
 			try{
+				System.out.println("query: "+query);
 				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
 				int after_insert_num=stmt.executeUpdate(query);				 
 				DbUtilHelper.log("insertFilterSet success: " + query);

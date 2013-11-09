@@ -69,7 +69,7 @@ import dao.JobsDao;
 		 
     	  FilterSetsDao filterSetsDao=new FilterSetsDao();
  		 
- 		if(!device_id.equalsIgnoreCase("null"))
+ 		if(device_id!=null)
  		{
  				 
  				List<FilterSet> filterSets=new ArrayList<FilterSet>();
@@ -103,7 +103,7 @@ import dao.JobsDao;
  	 		 
  		}
  		}
- 		else if(device_id.equalsIgnoreCase("null")){
+ 		else if(device_id==null){
  			errorMessage+=" the parameter device_id can't be null! ";
  		}
  		

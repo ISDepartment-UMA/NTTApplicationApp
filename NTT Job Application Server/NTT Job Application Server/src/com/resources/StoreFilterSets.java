@@ -87,7 +87,7 @@ import dao.JobsDao;
 			errorMessage+=" the parameter : topic is missing! ";}
  			
  			if(jsonObject.has("exp")){
- 				topic=jsonObject.getString("exp");}
+ 				exp=jsonObject.getString("exp");}
  			else{ 		
 			errorMessage+=" the parameter : exp is missing! ";}
  			
@@ -99,7 +99,7 @@ import dao.JobsDao;
 		 
     	  FilterSetsDao filterSetsDao=new FilterSetsDao();
  		 
- 		if(!uuid.equalsIgnoreCase("null")&device_id.equalsIgnoreCase("null"))
+ 		if(uuid!=null&device_id!=null)
  		{
  				FilterSet filterSet=new FilterSet();
  				filterSet.setUuid(uuid);
@@ -124,10 +124,10 @@ import dao.JobsDao;
  		
  		else{			 
  			
- 			if(device_id.equalsIgnoreCase("null"))
+ 			if(device_id==null)
  				errorMessage+=" the parameter device_id can not be null! ";
  			
- 			if(uuid.equalsIgnoreCase("null"))
+ 			if(uuid==null)
 				errorMessage+=" the parameter uuid can not be null! ";
 
  			 			 
