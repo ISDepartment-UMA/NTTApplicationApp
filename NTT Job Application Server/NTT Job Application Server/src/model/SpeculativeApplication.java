@@ -11,6 +11,8 @@ public class SpeculativeApplication {
 	private String address;
 	private String phone_no;
 	private String dropbox_url;
+	private String freetext;
+	
 	public String getUuid() {
 		return uuid;
 	}
@@ -70,6 +72,12 @@ public class SpeculativeApplication {
 	}
 	public void setDropbox_url(String dropbox_url) {
 		this.dropbox_url = dropbox_url;
+	}
+	public String getFreetext() {
+		return freetext;
+	}
+	public void setFreetext(String freetext) {
+		this.freetext = freetext;
 	}
 	
 	

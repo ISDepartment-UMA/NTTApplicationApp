@@ -10,6 +10,7 @@ import model.FAQrates;
 import model.Jobs;
 import model.Jobtitle;
 import model.Locations;
+import model.SpeculativeApplication;
 import model.Topics;
 import model.Applications;
 
@@ -25,6 +26,7 @@ public class ApplicationsDao {
 		private QueryRunner run;
 		private ResultSetHandler<List<Applications>> applicationsHandler;
 		private ResultSetHandler<List<FAQrates>> faqratesHandler;
+		private ResultSetHandler<List<SpeculativeApplication>> specApplicationHandler;
 		 
 		
 		private String query;
@@ -34,6 +36,8 @@ public class ApplicationsDao {
 			run = DbUtilHelper.getQueryRunner();
 			applicationsHandler = new BeanListHandler<Applications>(Applications.class);	
 			faqratesHandler = new BeanListHandler<FAQrates>(FAQrates.class);
+			specApplicationHandler =new BeanListHandler<SpeculativeApplication>(SpeculativeApplication.class);
+			
 		}
 		
 		public Boolean insertFAQRates(FAQrates faqrates){
@@ -122,6 +126,42 @@ public class ApplicationsDao {
 			}
 			 return test;
 		}
+		
+		public Boolean insertSpecApplications(SpeculativeApplication specApplication){
+			 
+			Boolean test=null;			 
+			String query = "insert into speculative_applications (uuid, device_id, apply_time, application_status, email, first_name, last_name, address, phone_no, dropbox_url, freetext) VALUES (";
+			query += "\"" + specApplication.getUuid() + "\"" + ",";
+			query += "\"" + specApplication.getDevice_id() + "\"" + ",";
+			query += "\"" + specApplication.getApply_time() + "\"" + ",";
+			query += "\"" + specApplication.getApplication_satus() + "\"" + ",";
+			query += "\"" + specApplication.getEmail() + "\"" + ",";
+			query += "\"" + specApplication.getFirst_name() + "\"" + ",";
+			query += "\"" + specApplication.getLast_name() + "\"" + ",";
+			query += "\"" + specApplication.getAddress() + "\"" + ",";
+			query += "\"" + specApplication.getPhone_no() + "\"" + ",";
+			query += "\"" + specApplication.getDropbox_url() + "\""+ ",";
+			query += "\"" + specApplication.getFreetext() + "\"";
+			query += ")";			
+			try{
+				Statement stmt=DbUtilHelper.getConnection().createStatement();		 
+				int after_insert_num=stmt.executeUpdate(query);				 
+				DbUtilHelper.log("insertSpecApplications success: " + query);
+				 
+				if(after_insert_num>=0){
+					test=true;
+				}				
+					else{
+						test=false;
+				}			
+				DbUtilHelper.log("insertSpecApplications: " + test);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("insertSpecApplications failed");
+			}
+			 return test;
+		}
+		
 		
 		public Boolean checkRefNOInput(String job_ref_no){
 			Boolean test=null;
@@ -214,6 +254,30 @@ public class ApplicationsDao {
 
 			if (applications.isEmpty()) {
 				DbUtilHelper.log("queryApplications result is empty!");
+
+			}
+
+			return applications.isEmpty() ? null : applications;		
+		}
+		
+public List<SpeculativeApplication> querySpecApplications(String device_id, String uuid){
+			
+			
+			List<SpeculativeApplication> applications = null;
+			query = "SELECT * FROM speculative_applications WHERE device_id = '" + device_id
+					+ "' and uuid ='" + uuid + "'";
+			
+			try {
+				applications = run.query(query, specApplicationHandler);
+				DbUtilHelper.log("querySpecApplications success: " + query);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				DbUtilHelper.log("querySpecApplications failed");
+
+			}
+
+			if (applications.isEmpty()) {
+				DbUtilHelper.log("querySpecApplications result is empty!");
 
 			}
 
