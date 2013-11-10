@@ -9,6 +9,7 @@
 #import "SelectedFilesViewController.h"
 #import <DBChooser/DBChooser.h>
 #import "ApplicationViewController.h"
+#import "MyProfileViewController.h"
 
 @interface SelectedFilesViewController ()
 @end
@@ -32,6 +33,12 @@
     {
         ApplicationViewController* avc = (ApplicationViewController*) [self.navigationController.viewControllers objectAtIndex:[self.navigationController.viewControllers count]-2];
         avc.selectedFiles = self.selectedFiles;
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if([[self.navigationController.viewControllers objectAtIndex:[self.navigationController.viewControllers count]-2] isKindOfClass:[MyProfileViewController class]])
+    {
+        MyProfileViewController* mpvc = (MyProfileViewController*)[self.navigationController.viewControllers objectAtIndex:[self.navigationController.viewControllers count]-2];
+        mpvc.selectedFiles = self.selectedFiles;
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

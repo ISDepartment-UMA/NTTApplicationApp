@@ -2,7 +2,7 @@
 //  Application.h
 //  NTT Data Job Application App
 //
-//  Created by Matthias Rabus on 10.10.13.
+//  Created by Matthias  on 10.11.13.
 //  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
 
@@ -20,8 +20,9 @@
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * phoneNo;
 @property (nonatomic, retain) NSString * ref_No;
+@property (nonatomic, retain) NSString * sharedLink;
 @property (nonatomic, retain) NSString * status;
 @property (nonatomic, retain) NSNumber * statusConfirmed;
-@property (nonatomic,retain) NSString *sharedLink;
+@property (nonatomic, retain) NSString * freeText;
 
 @end

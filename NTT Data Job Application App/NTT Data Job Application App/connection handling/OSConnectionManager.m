@@ -46,6 +46,14 @@
     return ((input) ? [NSString stringWithFormat:@"\"%@\"",input] : @"null");
 }
 
+- (NSString *)GetUUID
+{
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    CFRelease(theUUID);
+    return (__bridge NSString *)string;
+}
+
 /**
  *	Start a connection for getting data from server api with post&get parameters
  *
@@ -104,6 +112,22 @@
         [formatter setDateStyle:NSDateFormatterShortStyle];
         
         NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"resume_dropbox_url\":\"%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,application.sharedLink];
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
+    else if (connectionType == OSCSendSpeculativeApplication)
+    {
+        NSString* refNo = [searchObject objectForKey:@"ref_no"];
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:refNo];
+        
+        if (!application) {
+            return NO;
+        }
+        
+        NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        
+        NSString* postString = [NSString stringWithFormat:@"{\"uuid\":\"%@\",\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"dropbox_url\":\"%@\",\"freetext\":\"%@\"}", [self GetUUID], application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,application.sharedLink, application.freeText];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }

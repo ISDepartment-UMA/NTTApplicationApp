@@ -10,5 +10,6 @@
 
 
 @interface MyProfileViewController : UIViewController
+@property (strong, nonatomic) NSArray* selectedFiles;
 
 @end
