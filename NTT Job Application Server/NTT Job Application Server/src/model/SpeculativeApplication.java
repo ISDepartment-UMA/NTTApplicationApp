@@ -4,7 +4,7 @@ public class SpeculativeApplication {
 	private String uuid;
 	private String device_id;
 	private String apply_time;
-	private String application_satus;
+	private String application_status;
 	private String email;
 	private String first_name;
 	private String last_name;
@@ -31,11 +31,11 @@ public class SpeculativeApplication {
 	public void setApply_time(String apply_time) {
 		this.apply_time = apply_time;
 	}
-	public String getApplication_satus() {
-		return application_satus;
+	public String getApplication_status() {
+		return application_status;
 	}
-	public void setApplication_satus(String application_satus) {
-		this.application_satus = application_satus;
+	public void setApplication_status(String application_status) {
+		this.application_status = application_status;
 	}
 	public String getEmail() {
 		return email;
