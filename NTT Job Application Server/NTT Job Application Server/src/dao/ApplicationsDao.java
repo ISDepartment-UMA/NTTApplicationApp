@@ -284,6 +284,28 @@ public class ApplicationsDao {
 		return applications.isEmpty() ? null : applications;		
 	}
 
+	public List<SpeculativeApplication> querySpecApplications(String device_id) {
+		List<SpeculativeApplication> applications = null;
+		query = "SELECT * FROM speculative_applications WHERE device_id = '" + device_id
+				+ "'";
+	
+		try {
+			applications = run.query(query, specApplicationHandler);
+			DbUtilHelper.log("querySpecApplications success: " + query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("querySpecApplications failed");
+	
+		}
+	
+		if (applications.isEmpty()) {
+			DbUtilHelper.log("querySpecApplications result is empty!");
+	
+		}
+	
+		return applications.isEmpty() ? null : applications;	
+	}
+
 	public List<Applications> queryApplications(String device_id){
 
 

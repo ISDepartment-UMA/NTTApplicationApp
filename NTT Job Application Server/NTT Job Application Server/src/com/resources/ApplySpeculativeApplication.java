@@ -30,7 +30,7 @@ import dao.JobsDao;
 
 
 
-@Path("/applyjob")
+@Path("/apply_speculative_application")
 public class ApplySpeculativeApplication {
 
 
