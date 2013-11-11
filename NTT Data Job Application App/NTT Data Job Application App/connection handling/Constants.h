@@ -22,6 +22,7 @@ typedef NS_ENUM (NSUInteger,OSConnectionType)
     OSCGetApplicationsByDevice = 80,
     OSCGetApplicationsByDeviceAndReference = 81,
     OSCSendApplication = 90,
+    OSCSendSpeculativeApplication = 91,
     OSCSendWithdrawApplication = 95
 };
 

@@ -9,8 +9,11 @@
 #import "MyProfileViewController.h"
 #import "DatabaseManager.h"
 #import "ProfileValidater.h"
+#import "SelectedFilesViewController.h"
+#import "OSConnectionManager.h"
+#import <DBChooser/DBChooser.h>
 
-@interface MyProfileViewController ()<UITextFieldDelegate>
+@interface MyProfileViewController ()<UITextFieldDelegate, OSConnectionCompletionDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
 @property (weak, nonatomic) IBOutlet UITextField *address;
@@ -20,9 +23,42 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *myApplicationsButton;
 @property (weak, nonatomic) IBOutlet UIButton *myFilterSetsButton;
+@property (weak, nonatomic) IBOutlet UITextView* freeTextTextView;
 @end
 
 @implementation MyProfileViewController
+@synthesize selectedFiles = _selectedFiles;
+
+- (NSArray*)selectedFiles
+{
+    if (!_selectedFiles)
+        _selectedFiles = [[NSArray alloc]init];
+    
+    return _selectedFiles;
+}
+
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
+{
+    if (connectionType == OSCSendSpeculativeApplication)
+    {
+        NSLog(@"%@", array);
+        
+        NSDictionary* dict = (NSDictionary*)array;
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo: [dict objectForKey:@"job_ref_no"]];
+        if ([application.deviceID isEqualToString:[dict objectForKey:@"device_id"]] && [dict objectForKey:@"applyingJob_successful"])
+        {
+            application.statusConfirmed = [NSNumber numberWithBool:YES];
+            [[DatabaseManager sharedInstance]saveContext];
+            
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Application has been successfully sent to NTT Data" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+        }
+    }}
+
+- (void)connectionFailed:(OSConnectionType)connectionType
+{
+
+}
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
@@ -78,7 +114,6 @@
     else if (sender == self.phoneNumber){
         [self hidenKeyboard];
     }
-    
 }
 
 - (void)loadProfileData
@@ -117,6 +152,83 @@
 {
     [self loadProfileData];
     [super viewWillAppear:animated];
+}
+
+- (IBAction)sendSpeculativeApplication:(UIButton *)sender
+{
+    
+    BOOL applicationCanBeSent = YES;
+
+    if ([self.firstName.text isEqualToString:@""]||[self.lastName.text isEqualToString:@""]||[self.address.text isEqualToString:@""]||[self.email.text isEqualToString:@""]||[self.phoneNumber.text isEqualToString:@""]||[self.freeTextTextView.text isEqualToString:@""])
+    {
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please fill in all fields before applying" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
+        applicationCanBeSent = NO;
+    }
+    else
+    {
+        ProfileValidater* validater = [[ProfileValidater alloc]init];
+        if (![validater checkIfMailAddressIsValid:self.email.text])
+        {
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The entered mail address is not valid" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+            applicationCanBeSent = NO;
+        }
+        else
+        {
+            if (![validater checkIfPhoneNoIsValid:self.phoneNumber.text])
+            {
+                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"The entered phone no. is not valid" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [errorMessage show];
+                applicationCanBeSent = NO;
+            }
+        }
+    }
+    if (!self.selectedFiles || [self.selectedFiles count] == 0){
+        applicationCanBeSent= NO;
+    }
+    
+    if (applicationCanBeSent)
+    {
+        static NSString* specApp_refNo = @"specApp_NTTData";
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:specApp_refNo];
+        if (!application)
+        {
+            application = [[DatabaseManager sharedInstance]createApplication];
+            application.ref_No =specApp_refNo;
+            application.firstName = self.firstName.text;
+            application.lastName = self.lastName.text;
+            application.address = self.address.text;
+            application.email = self.email.text;
+            application.phoneNo = self.phoneNumber.text;
+            application.status = @"to_be_processed"; //to_be_processed,withdrawn
+            application.statusConfirmed = [NSNumber numberWithBool:NO];
+            application.freeText = self.freeTextTextView.text;
+            
+            DBChooserResult* dbcr = (DBChooserResult*)[self.selectedFiles lastObject];
+            application.sharedLink = [dbcr.link description];
+            
+            [[DatabaseManager sharedInstance]saveContext];
+            
+            [[OSConnectionManager sharedManager].searchObject setObject:specApp_refNo forKey:@"ref_no"];
+            [[OSConnectionManager sharedManager]StartConnection:OSCSendSpeculativeApplication];
+        }
+        else
+        {
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+        }
+    }
+
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"selectDropBoxFile"])
+    {
+        SelectedFilesViewController* svc = (SelectedFilesViewController*)segue.destinationViewController;
+        svc.selectedFiles = self.selectedFiles;
+    }
 }
 
 - (IBAction)phoneNumberEditingFinished:(UITextField *)sender
