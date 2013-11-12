@@ -70,6 +70,7 @@
     filter.topicFilter = contentTopic;
     filter.locationFilter = contentLocation;
     filter.freeTextFilter = freeTextFilter;
+    filter.device_ID = [[[Helper alloc]init]getDeviceID];
 
 }
 

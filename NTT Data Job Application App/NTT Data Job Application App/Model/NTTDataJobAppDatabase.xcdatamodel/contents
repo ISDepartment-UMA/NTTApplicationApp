@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Application" representedClassName="Application" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateApplied" optional="YES" attributeType="Date" syncable="YES"/>
@@ -25,6 +25,7 @@
         <relationship name="isRatedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rating" inverseName="rates" inverseEntity="Rating" syncable="YES"/>
     </entity>
     <entity name="Filter" representedClassName="Filter" syncable="YES">
+        <attribute name="device_ID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="expFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="freeTextFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationFilter" optional="YES" attributeType="String" syncable="YES"/>

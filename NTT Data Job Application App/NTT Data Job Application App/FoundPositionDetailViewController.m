@@ -199,8 +199,11 @@
     NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
     if (self.freeText){
         [[DatabaseManager sharedInstance]storeFilter:nil :nil :nil :nil :self.freeText];
+       
+        
     }else
     [[DatabaseManager sharedInstance]storeFilter:contentExperience :contentJobTitle :contentTopic :contentLocation :Nil];
+     [[OSConnectionManager sharedManager]StartConnection:OSCSendFilterSet];
     
 
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];

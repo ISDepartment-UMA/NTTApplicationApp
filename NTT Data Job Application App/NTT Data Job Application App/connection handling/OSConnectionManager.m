@@ -5,6 +5,7 @@
 #import "Application.h"
 #import "DatabaseManager.h"
 #import "MyProfile.h"
+#import "Helper.h"
 
 @interface OSConnectionManager ()
 {
@@ -112,6 +113,19 @@
         [formatter setDateStyle:NSDateFormatterShortStyle];
         
         NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"resume_dropbox_url\":\"%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,application.sharedLink];
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
+    else if (connectionType == OSCSendFilterSet){
+        
+        NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"experience"]];
+        NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"jobtitles"]];
+        NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
+        NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
+        NSString *deviceID = [[[Helper alloc]init]getDeviceID];
+        
+        NSString* postString = [NSString stringWithFormat:@"{\"uuid\":\"%@\",\"device_id\":\"%@\",\"job_title\":\"%@\",\"location\":\"%@\",\"topic\":\"%@\",\"exp\":\"%@\"}" ,[self GetUUID],deviceID,contentJobTitle,contentLocation,contentTopic,contentExperience];
+        NSLog(@"%@",postString);
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
