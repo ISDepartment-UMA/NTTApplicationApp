@@ -17,6 +17,6 @@
 @property (nonatomic, retain) NSString * locationFilter;
 @property (nonatomic, retain) NSString * titleFilter;
 @property (nonatomic, retain) NSString * topicFilter;
-@property (nonatomic, retain) NSString * device_ID;
+@property (nonatomic, retain) NSString * uuid;
 
 @end

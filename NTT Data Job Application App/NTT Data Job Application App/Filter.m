@@ -16,6 +16,6 @@
 @dynamic locationFilter;
 @dynamic titleFilter;
 @dynamic topicFilter;
-@dynamic device_ID;
+@dynamic uuid;
 
 @end

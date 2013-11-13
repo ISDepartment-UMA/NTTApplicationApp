@@ -9,6 +9,7 @@
 #import "MyFilterSetsViewController.h"
 #import "FoundPositionsOverviewViewController.h"
 #import "DatabaseManager.h"
+#import "Filter.h"
 
 @implementation MyFilterSetsViewController
 @synthesize filterSet;
@@ -112,17 +113,13 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {      FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;
     if ([segue.identifier isEqualToString:@"showJobsFromFilter"]){
-        ;
-       // [overviewVC startSearchWithType:OSCGetFreeTextSearch]
+        ;       
         [overviewVC startSearchWithType:OSCGetSearch];
     }
     if ( [segue.identifier isEqualToString:@"showJobsFromFreeTextFilter"])
     {
         [overviewVC startSearchWithType:OSCGetFreeTextSearch];
-    }
-    
-    NSLog(@"search is!! %@", [OSConnectionManager sharedManager].searchObject);
-    
+    }    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,7 +130,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {        
         // delete object in database
         [[DatabaseManager sharedInstance]deleteFilter:[self.filterSet objectAtIndex:indexPath.row]];
-        // refresh tableview
+        Filter *filter = [self.filterSet objectAtIndex:indexPath.row];
+        if (!filter.freeTextFilter){
+        [[OSConnectionManager sharedManager].searchObject setObject:filter.uuid forKey:@"uuid"];
+            [[OSConnectionManager sharedManager]StartConnection:OSCSendDeleteFilterSet];}
         [self viewDidLoad];
         [tableView reloadData];
     }

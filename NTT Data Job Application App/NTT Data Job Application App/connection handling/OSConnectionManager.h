@@ -29,6 +29,7 @@
 @property (nonatomic,strong)    NSMutableDictionary* connectionsHashTable;
 @property (nonatomic,weak)    id<OSConnectionCompletionDelegate> delegate;
 
+
 @property (nonatomic,strong) NSMutableDictionary* searchObject;
 +(OSConnectionManager*)sharedManager;
 -(BOOL)StartConnection:(OSConnectionType)connectionType;

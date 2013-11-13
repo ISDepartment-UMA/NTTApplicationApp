@@ -123,9 +123,22 @@
         NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
         NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
         NSString *deviceID = [[[Helper alloc]init]getDeviceID];
+        NSString *uuid = [self GetUUID];
+       
+        NSString* postString = [NSString stringWithFormat:@"{\"uuid\":\"%@\",\"device_id\":\"%@\",\"job_title\":\"%@\",\"location\":\"%@\",\"topic\":\"%@\",\"exp\":\"%@\"}" ,uuid,deviceID,contentJobTitle,contentLocation,contentTopic,contentExperience];
         
-        NSString* postString = [NSString stringWithFormat:@"{\"uuid\":\"%@\",\"device_id\":\"%@\",\"job_title\":\"%@\",\"location\":\"%@\",\"topic\":\"%@\",\"exp\":\"%@\"}" ,[self GetUUID],deviceID,contentJobTitle,contentLocation,contentTopic,contentExperience];
-        NSLog(@"%@",postString);
+        [[DatabaseManager sharedInstance]storeFilter:uuid :contentExperience :contentJobTitle :contentTopic :contentLocation :nil];
+        
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
+    else if(connectionType == OSCSendDeleteFilterSet)
+    {
+        NSString *UUID = [searchObject objectForKey:@"uuid"];
+        NSLog(@"%@",UUID);
+
+        NSString* postString = [NSString stringWithFormat:@"{\"uuid\":\"%@\"}", UUID];
+        
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }

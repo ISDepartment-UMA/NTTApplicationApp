@@ -25,12 +25,12 @@
         <relationship name="isRatedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rating" inverseName="rates" inverseEntity="Rating" syncable="YES"/>
     </entity>
     <entity name="Filter" representedClassName="Filter" syncable="YES">
-        <attribute name="device_ID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="expFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="freeTextFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="titleFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="topicFilter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="JobTitle" representedClassName="JobTitle" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>

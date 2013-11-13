@@ -117,6 +117,10 @@ static OSURLHelper *sharedHelper = nil;
             return [sharedHelper sendFilterSet];
             break;
         }
+        case OSCSendDeleteFilterSet:
+        {
+            return [sharedHelper deleteFilterSet];
+        }
     }
     return [NSURL URLWithString:@""];
 }
@@ -200,5 +204,12 @@ static OSURLHelper *sharedHelper = nil;
     NSString *result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/store_filter_set"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
+}
+
+-(NSURL *)deleteFilterSet{
+    NSString *result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/delete_filter_set"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+
 }
 @end
