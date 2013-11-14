@@ -19,11 +19,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *address;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
-@property (weak, nonatomic) IBOutlet UIButton *editButton;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *myApplicationsButton;
 @property (weak, nonatomic) IBOutlet UIButton *myFilterSetsButton;
 @property (weak, nonatomic) IBOutlet UITextView* freeTextTextView;
+@property (weak, nonatomic) IBOutlet UIButton *lastPositionsButton;
+
 @end
 
 @implementation MyProfileViewController
