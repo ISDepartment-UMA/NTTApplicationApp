@@ -73,7 +73,7 @@
 		9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
-		9A95DA2618356CC7008AC7AD /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A95DA2518356CC7008AC7AD /* JVFloatLabeledTextField.m */; };
+		9A95DA2718356DED008AC7AD /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A95DA2518356CC7008AC7AD /* JVFloatLabeledTextField.m */; };
 		9AA47B581831833400044D11 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA47B571831833400044D11 /* images.png */; };
 		9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD746F418128F350020C2E4 /* facebook-twitter.png */; };
 		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
@@ -596,6 +596,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A95DA2718356DED008AC7AD /* JVFloatLabeledTextField.m in Sources */,
 				28E44AA617E3C5510084543B /* main.m in Sources */,
 				28BDF24C180357C500132948 /* SBJsonStreamTokeniser.m in Sources */,
 				283B7D5B17FC1A91005F40C7 /* ProfileValidater.m in Sources */,
@@ -614,7 +615,6 @@
 				28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */,
 				329456FC1832CDBB0043D153 /* Filter.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,
-				9A95DA2618356CC7008AC7AD /* JVFloatLabeledTextField.m in Sources */,
 				28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */,
 				9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */,
 				284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */,
