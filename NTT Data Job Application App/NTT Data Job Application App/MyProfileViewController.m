@@ -15,6 +15,7 @@
 #import "JVFloatLabeledTextField.h"
 
 @interface MyProfileViewController ()<UITextFieldDelegate, OSConnectionCompletionDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *myApplicationsButton;
 @property (weak, nonatomic) IBOutlet UIButton *myFilterSetsButton;
 @property (weak, nonatomic) IBOutlet UITextView* freeTextTextView;
@@ -22,7 +23,7 @@
 @end
 
 const static CGFloat kJVFieldHeight = 30.0f;
-const static CGFloat kJVFieldHMargin = 15.0f;
+const static CGFloat kJVFieldHMargin = 20.0f;
 const static CGFloat kJVFieldFontSize = 14.0f;
 const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
 
@@ -175,12 +176,13 @@ JVFloatLabeledTextField *phoneField;
     addressField.delegate = self;
     phoneField.delegate = self;
     
-    [firstNameField addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [emailField addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [lastNameField addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [emailField addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [addressField addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [phoneField addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+    [firstNameField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [emailField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [lastNameField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [emailField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [addressField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [phoneField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenKeyboard)];
     gesture.numberOfTapsRequired = 1;
