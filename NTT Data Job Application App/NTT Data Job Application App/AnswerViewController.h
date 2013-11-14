@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Faq.h"
 
 @interface AnswerViewController : UIViewController{
 
@@ -19,5 +19,6 @@
 
 @property (nonatomic,strong)NSString* question;
 @property (strong, nonatomic)NSString* text;
+@property (strong,nonatomic)Faq* faq;
 
 @end

@@ -177,6 +177,12 @@
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
+    else if (connectionType == OSCGetFaqRating){
+        NSString* deviceID= [[[Helper alloc]init]getDeviceID];
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"faq_no\":\"2\",\"score\":\"1\"}",deviceID];
+        NSData* requestData =[NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
 
     // start connection for requested url and set the connection type
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:request delegate:self];
