@@ -81,8 +81,8 @@
     [UIView setAnimationDuration:animationDuration];
     float width = self.view.frame.size.width;
     float height = self.view.frame.size.height;
-    float Y = 20.0f;
-    CGRect rect=CGRectMake(0.0f,Y,width,height);
+    //float Y = 20.0f;
+    CGRect rect=CGRectMake(0.0f,0,width,height);
     self.view.frame=rect;
     [UIView commitAnimations];
 }
@@ -93,6 +93,7 @@
     [self.address resignFirstResponder];
     [self.email resignFirstResponder];
     [self.phoneNumber resignFirstResponder];
+    
     [self resumeView];
 }
 
