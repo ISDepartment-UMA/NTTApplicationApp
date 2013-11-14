@@ -73,6 +73,7 @@
 		9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
+		9A95DA2618356CC7008AC7AD /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A95DA2518356CC7008AC7AD /* JVFloatLabeledTextField.m */; };
 		9AA47B581831833400044D11 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA47B571831833400044D11 /* images.png */; };
 		9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD746F418128F350020C2E4 /* facebook-twitter.png */; };
 		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
@@ -207,6 +208,8 @@
 		9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
 		9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
+		9A95DA2418356CC7008AC7AD /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		9A95DA2518356CC7008AC7AD /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
 		9AA47B571831833400044D11 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		9AD746F418128F350020C2E4 /* facebook-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-twitter.png"; sourceTree = "<group>"; };
 		C60C02521811E0C80055951E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -353,6 +356,7 @@
 				80172A6E17EC949600538821 /* ApplicationViewController.m */,
 				28E676D3181C574B0048ADF4 /* SelectedFilesViewController.h */,
 				28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */,
+				9A95DA2318356CC7008AC7AD /* JVFloatLabeledTextField */,
 				288C02C017E6072900347FA8 /* Model */,
 				28E44AFE17E3C68A0084543B /* SBJson */,
 				28E44AD417E3C5810084543B /* connection handling */,
@@ -450,6 +454,15 @@
 				28BDF246180357C500132948 /* SBJsonWriter.m */,
 			);
 			path = SBJson;
+			sourceTree = "<group>";
+		};
+		9A95DA2318356CC7008AC7AD /* JVFloatLabeledTextField */ = {
+			isa = PBXGroup;
+			children = (
+				9A95DA2418356CC7008AC7AD /* JVFloatLabeledTextField.h */,
+				9A95DA2518356CC7008AC7AD /* JVFloatLabeledTextField.m */,
+			);
+			path = JVFloatLabeledTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -601,6 +614,7 @@
 				28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */,
 				329456FC1832CDBB0043D153 /* Filter.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,
+				9A95DA2618356CC7008AC7AD /* JVFloatLabeledTextField.m in Sources */,
 				28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */,
 				9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */,
 				284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */,
@@ -735,6 +749,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"./NTT\\ Data\\ Job\\ Application\\ App",
 					/Library/Frameworks,
+					"/Users/hilal/Desktop/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
@@ -756,6 +771,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"./NTT\\ Data\\ Job\\ Application\\ App",
 					/Library/Frameworks,
+					"/Users/hilal/Desktop/NTTApplicationApp/NTT\\ Data\\ Job\\ Application\\ App/NTT\\ Data\\ Job\\ Application\\ App",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
