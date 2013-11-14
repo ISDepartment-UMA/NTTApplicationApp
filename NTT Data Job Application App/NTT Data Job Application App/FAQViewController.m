@@ -26,6 +26,8 @@
     @property(nonatomic,strong) UIView* loaderView;
     @property(nonatomic,strong)  UIActivityIndicatorView* loader;
 @property (nonatomic,strong) NSString* question;
+@property (nonatomic,strong)Faq* faq;
+@property (nonatomic,strong)NSArray* rate;
 @end
 
 @implementation FAQViewController
@@ -53,6 +55,9 @@
         if ([segue.destinationViewController respondsToSelector:@selector(setQuestion:)] )
         {
             [ segue.destinationViewController performSelector:@selector(setQuestion:) withObject:self.question];
+            [segue.destinationViewController performSelector:@selector(setFaq:) withObject:self.faq];
+            [segue.destinationViewController performSelector:@selector(setFaqArray:) withObject:faqArray];
+            
         }
     }
 }
@@ -123,7 +128,8 @@
 
 - (void) loadFaqData
 {
-    NSArray* faqFromDatabase = [[DatabaseManager sharedInstance]getAllFaqs];
+    
+   /* NSArray* faqFromDatabase = [[DatabaseManager sharedInstance]getAllFaqs];
     
     if (!faqFromDatabase || [faqFromDatabase count] == 0)
     {
@@ -133,7 +139,13 @@
     }else
     {
         faqArray = faqFromDatabase;
-    }
+       
+    }*/
+    [[OSConnectionManager sharedManager] StartConnection:OSCGetFaq];
+    [loader startAnimating];
+    [loaderView setHidden:NO];
+    
+    
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -162,10 +174,12 @@
 
 #pragma mark - Connection delegate
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
+
 {
     [[DatabaseManager sharedInstance]createFaqsFromJSON:array];
-    faqArray = [[DatabaseManager sharedInstance]getAllFaqs];
+    self.rate = array;
     
+    faqArray = [[DatabaseManager sharedInstance]getAllFaqs];
     [self.tableView reloadData];
     [loader stopAnimating];
     [loaderView setHidden:YES];
@@ -201,7 +215,10 @@
     if(!isFiltered)
     {
         Faq* question = [faqArray objectAtIndex:indexPath.row];
-        [cell.textLabel setText:question.question];
+        NSString *avgRate = [self.rate[indexPath.row]objectForKey:@"average_rates"];
+        NSLog(@"%@",avgRate);
+        NSString* questionWithRate = [question.question stringByAppendingString:[NSString stringWithFormat:@"   (avg_rate: %@)",avgRate]];
+        [cell.textLabel setText:questionWithRate];
         
         
     }
@@ -221,6 +238,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     selected = indexPath.row;
+    self.faq = [faqArray objectAtIndex:indexPath.row];
+    
     [self performSegueWithIdentifier:@"openAnswer" sender:self];
     
 }
