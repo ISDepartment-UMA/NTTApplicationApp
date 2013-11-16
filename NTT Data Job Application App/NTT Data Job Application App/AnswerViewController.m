@@ -14,6 +14,12 @@
 @property (strong, nonatomic) IBOutlet UITextView *answerText;
 @property (weak, nonatomic) IBOutlet UILabel *answerQuestion;
 @property (strong,nonatomic)NSArray* faqArray;
+@property (weak, nonatomic) IBOutlet UIImageView *starEmpty1;
+@property (weak, nonatomic) IBOutlet UIImageView *starEmpty2;
+@property (weak, nonatomic) IBOutlet UIImageView *starEmpty3;
+@property (weak, nonatomic) IBOutlet UIImageView *starEmpty4;
+@property (weak, nonatomic) IBOutlet UIImageView *starEmpty5;
+
 @end
 
 @implementation AnswerViewController
@@ -35,6 +41,50 @@
 -(IBAction)changeSliderValue
 {
     ratingValue.text = [[NSString alloc] initWithFormat:@"%.0f" ,ratingSlider.value];
+    
+    if ([ratingValue.text isEqualToString: @"0"]) {
+        self.starEmpty1.hidden=NO;
+        self.starEmpty2.hidden=NO;
+        self.starEmpty3.hidden=NO;
+        self.starEmpty4.hidden=NO;
+        self.starEmpty5.hidden=NO;
+    }
+    else if ([ratingValue.text isEqualToString: @"1"]) {
+        self.starEmpty1.hidden=YES;
+        self.starEmpty2.hidden=NO;
+        self.starEmpty3.hidden=NO;
+        self.starEmpty4.hidden=NO;
+        self.starEmpty5.hidden=NO;
+    }
+    else if ([ratingValue.text isEqualToString: @"2"]) {
+        self.starEmpty1.hidden=YES;
+        self.starEmpty2.hidden=YES;
+        self.starEmpty3.hidden=NO;
+        self.starEmpty4.hidden=NO;
+        self.starEmpty5.hidden=NO;
+    }
+    else if ([ratingValue.text isEqualToString: @"3"]) {
+        self.starEmpty1.hidden=YES;
+        self.starEmpty2.hidden=YES;
+        self.starEmpty3.hidden=YES;
+        self.starEmpty4.hidden=NO;
+        self.starEmpty5.hidden=NO;
+    }
+    else if ([ratingValue.text isEqualToString: @"4"]) {
+        self.starEmpty1.hidden=YES;
+        self.starEmpty2.hidden=YES;
+        self.starEmpty3.hidden=YES;
+        self.starEmpty4.hidden=YES;
+        self.starEmpty5.hidden=NO;
+    }
+    else if ([ratingValue.text isEqualToString: @"5"]) {
+        self.starEmpty1.hidden=YES;
+        self.starEmpty2.hidden=YES;
+        self.starEmpty3.hidden=YES;
+        self.starEmpty4.hidden=YES;
+        self.starEmpty5.hidden=YES;
+    }
+    
 }
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array{

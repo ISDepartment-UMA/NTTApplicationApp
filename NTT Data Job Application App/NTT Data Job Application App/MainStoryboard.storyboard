@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7LZ-Gn-sZT">
-                                <rect key="frame" x="2" y="63.999999999999993" width="105" height="112"/>
+                                <rect key="frame" x="2" y="64" width="105" height="112"/>
                                 <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <state key="normal" title="Job Title">
@@ -320,11 +320,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty.png" id="rJZ-aQ-W0i">
-                                <rect key="frame" x="54" y="453" width="20" height="20"/>
+                                <rect key="frame" x="52" y="453" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty.png" id="kmG-uJ-yxT">
-                                <rect key="frame" x="82" y="453" width="20" height="20"/>
+                                <rect key="frame" x="80" y="453" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty.png" id="eUU-d1-I7j">
@@ -349,6 +349,11 @@
                         <outlet property="ratingButton" destination="pS9-ne-Wca" id="5lM-Ai-wa6"/>
                         <outlet property="ratingSlider" destination="pKy-ud-Zuj" id="juY-0r-Prr"/>
                         <outlet property="ratingValue" destination="HiW-QW-E2I" id="fj4-QQ-RtI"/>
+                        <outlet property="starEmpty1" destination="rJZ-aQ-W0i" id="KMS-Au-Ij1"/>
+                        <outlet property="starEmpty2" destination="kmG-uJ-yxT" id="aBK-nh-hy3"/>
+                        <outlet property="starEmpty3" destination="eUU-d1-I7j" id="fIB-cj-Br7"/>
+                        <outlet property="starEmpty4" destination="5P6-GH-rRr" id="gkT-3J-Oe4"/>
+                        <outlet property="starEmpty5" destination="pRt-jR-Gbn" id="0ro-oz-JFu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psQ-oh-i1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
