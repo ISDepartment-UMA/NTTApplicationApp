@@ -15,10 +15,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *answerQuestion;
 @property (strong,nonatomic)NSArray* faqArray;
 @property (weak, nonatomic) IBOutlet UIImageView *starEmpty1;
+@property (weak, nonatomic) IBOutlet UIImageView *starFull1;
+@property (weak, nonatomic) IBOutlet UIImageView *starFull2;
 @property (weak, nonatomic) IBOutlet UIImageView *starEmpty2;
 @property (weak, nonatomic) IBOutlet UIImageView *starEmpty3;
+@property (weak, nonatomic) IBOutlet UIImageView *starFull3;
 @property (weak, nonatomic) IBOutlet UIImageView *starEmpty4;
+@property (weak, nonatomic) IBOutlet UIImageView *starFull4;
 @property (weak, nonatomic) IBOutlet UIImageView *starEmpty5;
+@property (weak, nonatomic) IBOutlet UIImageView *starFull5;
 
 @end
 
@@ -29,14 +34,24 @@
 @synthesize faq;
 @synthesize faqArray;
 
+-(void)viewDidLoad {
+    self.starFull1.hidden=YES;
+    self.starFull2.hidden=YES;
+    self.starFull3.hidden=YES;
+    self.starFull4.hidden=YES;
+    self.starFull5.hidden=YES;
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     self.answerQuestion.text = self.question;
     self.answerQuestion.numberOfLines = 3;
     self.answerText.text = self.text;
-   
+  
     
 }
+
+
 
 -(IBAction)changeSliderValue
 {
@@ -48,6 +63,8 @@
         self.starEmpty3.hidden=NO;
         self.starEmpty4.hidden=NO;
         self.starEmpty5.hidden=NO;
+        self.starFull1.hidden=YES;
+
     }
     else if ([ratingValue.text isEqualToString: @"1"]) {
         self.starEmpty1.hidden=YES;
@@ -55,6 +72,12 @@
         self.starEmpty3.hidden=NO;
         self.starEmpty4.hidden=NO;
         self.starEmpty5.hidden=NO;
+        self.starFull1.hidden=NO;
+        self.starFull2.hidden=YES;
+        self.starFull3.hidden=YES;
+        self.starFull4.hidden=YES;
+        self.starFull5.hidden=YES;
+        
     }
     else if ([ratingValue.text isEqualToString: @"2"]) {
         self.starEmpty1.hidden=YES;
@@ -62,6 +85,11 @@
         self.starEmpty3.hidden=NO;
         self.starEmpty4.hidden=NO;
         self.starEmpty5.hidden=NO;
+        self.starFull1.hidden=NO;
+        self.starFull2.hidden=NO;
+        self.starFull3.hidden=YES;
+        self.starFull4.hidden=YES;
+        self.starFull5.hidden=YES;
     }
     else if ([ratingValue.text isEqualToString: @"3"]) {
         self.starEmpty1.hidden=YES;
@@ -69,6 +97,11 @@
         self.starEmpty3.hidden=YES;
         self.starEmpty4.hidden=NO;
         self.starEmpty5.hidden=NO;
+        self.starFull1.hidden=NO;
+        self.starFull2.hidden=NO;
+        self.starFull3.hidden=NO;
+        self.starFull4.hidden=YES;
+        self.starFull5.hidden=YES;
     }
     else if ([ratingValue.text isEqualToString: @"4"]) {
         self.starEmpty1.hidden=YES;
@@ -76,6 +109,11 @@
         self.starEmpty3.hidden=YES;
         self.starEmpty4.hidden=YES;
         self.starEmpty5.hidden=NO;
+        self.starFull1.hidden=NO;
+        self.starFull2.hidden=NO;
+        self.starFull3.hidden=NO;
+        self.starFull4.hidden=NO;
+        self.starFull5.hidden=YES;
     }
     else if ([ratingValue.text isEqualToString: @"5"]) {
         self.starEmpty1.hidden=YES;
@@ -83,6 +121,11 @@
         self.starEmpty3.hidden=YES;
         self.starEmpty4.hidden=YES;
         self.starEmpty5.hidden=YES;
+        self.starFull1.hidden=NO;
+        self.starFull2.hidden=NO;
+        self.starFull3.hidden=NO;
+        self.starFull4.hidden=NO;
+        self.starFull5.hidden=NO;
     }
     
 }

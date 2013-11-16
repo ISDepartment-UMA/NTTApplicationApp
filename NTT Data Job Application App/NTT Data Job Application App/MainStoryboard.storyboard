@@ -339,6 +339,26 @@
                                 <rect key="frame" x="164" y="453" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" id="Pfy-Qt-UjP">
+                                <rect key="frame" x="52" y="453" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" id="Trp-Bo-gDV">
+                                <rect key="frame" x="80" y="453" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" id="T5r-t7-kaH">
+                                <rect key="frame" x="108" y="453" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" id="yiN-G0-h0N">
+                                <rect key="frame" x="136" y="453" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_full.png" id="ne5-ad-ITm">
+                                <rect key="frame" x="164" y="453" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -354,6 +374,11 @@
                         <outlet property="starEmpty3" destination="eUU-d1-I7j" id="fIB-cj-Br7"/>
                         <outlet property="starEmpty4" destination="5P6-GH-rRr" id="gkT-3J-Oe4"/>
                         <outlet property="starEmpty5" destination="pRt-jR-Gbn" id="0ro-oz-JFu"/>
+                        <outlet property="starFull1" destination="Pfy-Qt-UjP" id="mIg-PM-tzP"/>
+                        <outlet property="starFull2" destination="Trp-Bo-gDV" id="vFj-h9-Ju3"/>
+                        <outlet property="starFull3" destination="T5r-t7-kaH" id="Zfa-bD-3yJ"/>
+                        <outlet property="starFull4" destination="yiN-G0-h0N" id="etd-r9-Bws"/>
+                        <outlet property="starFull5" destination="ne5-ad-ITm" id="5Iq-6M-KXV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psQ-oh-i1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1254,6 +1279,11 @@
         <image name="star_empty.png" width="256" height="264"/>
         <image name="star_empty.png" width="256" height="264"/>
         <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
