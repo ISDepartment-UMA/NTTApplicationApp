@@ -70,6 +70,8 @@
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
 		9A89305A1811BA01005B03DC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8930591811BA01005B03DC /* QuartzCore.framework */; };
+		9A8E480B1838214600344C40 /* star_empty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E48091838214600344C40 /* star_empty.jpg */; };
+		9A8E480C1838214600344C40 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E480A1838214600344C40 /* star_full.png */; };
 		9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
@@ -202,6 +204,8 @@
 		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
 		9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreeTextSearchViewController.m; sourceTree = "<group>"; };
 		9A8930591811BA01005B03DC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9A8E48091838214600344C40 /* star_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star_empty.jpg; sourceTree = "<group>"; };
+		9A8E480A1838214600344C40 /* star_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_full.png; sourceTree = "<group>"; };
 		9A8EE6E718257EB100E4F2FA /* MyFilterSetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFilterSetsViewController.h; sourceTree = "<group>"; };
 		9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFilterSetsViewController.m; sourceTree = "<group>"; };
 		9A911EC817FCDE4B004DFBD0 /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
@@ -369,6 +373,8 @@
 		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9A8E48091838214600344C40 /* star_empty.jpg */,
+				9A8E480A1838214600344C40 /* star_full.png */,
 				9AA47B571831833400044D11 /* images.png */,
 				C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */,
 				C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */,
@@ -552,12 +558,14 @@
 				80E166751817154A0091BC92 /* question.png in Resources */,
 				C65919D9181DD1F800366A0D /* Twitter.png in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
+				9A8E480B1838214600344C40 /* star_empty.jpg in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
 				9A44D09118284A26003CE0F0 /* save.png in Resources */,
 				C6E3F70F1828667400D07BEB /* icon spotlight ios7 40pt.png in Resources */,
 				C65919DB181DD3B300366A0D /* Facebook.png in Resources */,
 				C6E3F7131828667400D07BEB /* icon ios5,6 57pt.png in Resources */,
 				C6E3F7101828667400D07BEB /* icon settings ios5-7 29pt.png in Resources */,
+				9A8E480C1838214600344C40 /* star_full.png in Resources */,
 				28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */,
 				9AA47B581831833400044D11 /* images.png in Resources */,
 				C6E3F7121828667400D07BEB /* icon ios7 60pt.png in Resources */,
