@@ -43,6 +43,7 @@
 {
     [self loadData];
     [self loadSelectedFilters];
+    [self synchronizewith:self.openPosition];
 }
 
 - (void)loadSelectedFilters
@@ -91,6 +92,37 @@
     if ([self.displaySelectedFilters.text isEqualToString:@""]) {
         [self.filterSetSaveButton removeFromSuperview];
     }
+}
+#define VIEWED_POSITIONS_KEY @"ViewedPositions"
+-(void) synchronizewith: (NSDictionary *) selectedPosition{
+    NSMutableArray *accessedPositions = [[[NSUserDefaults  standardUserDefaults] arrayForKey:VIEWED_POSITIONS_KEY] mutableCopy];
+    if (!accessedPositions) {
+        accessedPositions= [[NSMutableArray alloc] init];
+    }
+    //NSLog(@"start");
+    //NSLog([NSString stringWithFormat:@"%d",accessedPositions.count]);
+    
+    if ([accessedPositions containsObject:selectedPosition]) {
+        [accessedPositions removeObject:selectedPosition];
+    }
+    
+    
+    //[accessedPhotos removeObjectAtIndex:0];
+    
+    [accessedPositions addObject:selectedPosition];
+    if (accessedPositions.count > 3) {
+        [accessedPositions removeObjectAtIndex:0];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:accessedPositions forKey:VIEWED_POSITIONS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    /*NSMutableArray *accessedPhotos = [[[NSUserDefaults  standardUserDefaults] arrayForKey:ALL_PHOTOS_KEY] mutableCopy];
+     if (!accessedPhotos) {
+     accessedPhotos = [[NSMutableArray alloc] init];
+     }
+     [accessedPhotos addObject:selectedPhoto];
+     [[NSUserDefaults standardUserDefaults] setObject:accessedPhotos forKey:ALL_PHOTOS_KEY];
+     [[NSUserDefaults standardUserDefaults] synchronize];*/
 }
     
 

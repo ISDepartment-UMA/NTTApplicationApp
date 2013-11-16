@@ -14,13 +14,15 @@
 @implementation MyFilterSetsViewController
 @synthesize filterSet;
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     
     [self loadFilters];
-    
 }
 
 - (void)loadFilters{
@@ -140,7 +142,8 @@
     if ( [segue.identifier isEqualToString:@"showJobsFromFreeTextFilter"])
     {
         [overviewVC startSearchWithType:OSCGetFreeTextSearch];
-    }    
+    }
+
 }
 
 

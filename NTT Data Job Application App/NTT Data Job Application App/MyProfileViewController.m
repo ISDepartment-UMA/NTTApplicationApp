@@ -13,6 +13,7 @@
 #import "OSConnectionManager.h"
 #import <DBChooser/DBChooser.h>
 #import "JVFloatLabeledTextField.h"
+#import "FoundPositionsOverviewViewController.h"
 
 @interface MyProfileViewController ()<UITextFieldDelegate, OSConnectionCompletionDelegate>
 
@@ -43,6 +44,8 @@ JVFloatLabeledTextField *phoneField;
     
     return _selectedFiles;
 }
+
+
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
@@ -118,6 +121,7 @@ JVFloatLabeledTextField *phoneField;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
   
     [self.view setTintColor:[UIColor orangeColor]];
     
@@ -265,10 +269,14 @@ JVFloatLabeledTextField *phoneField;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;
     if([segue.identifier isEqualToString:@"selectDropBoxFile"])
     {
         SelectedFilesViewController* svc = (SelectedFilesViewController*)segue.destinationViewController;
         svc.selectedFiles = self.selectedFiles;
+    }
+    if ([segue.identifier isEqualToString:@"show3"]) {
+        overviewVC.cacheAccess = YES;
     }
 }
 
