@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Application" representedClassName="Application" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateApplied" optional="YES" attributeType="Date" syncable="YES"/>
@@ -30,6 +30,7 @@
         <attribute name="locationFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="titleFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="topicFilter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="JobTitle" representedClassName="JobTitle" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>

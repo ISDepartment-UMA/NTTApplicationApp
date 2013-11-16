@@ -75,17 +75,23 @@
     self.resultArray = [[NSArray alloc] init];
     
     [self initLoader];
+   
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [loaderView setHidden:YES];
+    
 }
 
 
 #pragma mark - Connection handling
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
+    if ([array isKindOfClass:[NSDictionary class]]){
+        [self startSearchWithType:OSCGetSearch];
+    }
+    else
     self.resultArray = array;
     
     if (!resultArray)
@@ -185,6 +191,7 @@
 - (NSString *)jobTitleForRow:(NSUInteger)row
 {
     NSDictionary* object = [resultArray objectAtIndex:row];
+  
     return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[object objectForKey:@"job_title"]];
 }
 

@@ -13,20 +13,27 @@
 #import "SelectedFilesViewController.h"
 #import <DBChooser/DBChooser.h>
 #import <DropboxSDK/DropboxSDK.h>
+#import "JVFloatLabeledTextField.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
-@property (weak, nonatomic) IBOutlet UITextField *firstName;
-@property (weak, nonatomic) IBOutlet UITextField *lastName;
-@property (weak, nonatomic) IBOutlet UITextField *address;
-@property (weak, nonatomic) IBOutlet UITextField *email;
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorDisplay;
 @end
+
+const static CGFloat kJVFieldHeight = 30.0f;
+const static CGFloat kJVFieldHMargin = 20.0f;
+const static CGFloat kJVFieldFontSize = 14.0f;
+const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
+
+JVFloatLabeledTextField *firstNameField;
+JVFloatLabeledTextField *lastNameField;
+JVFloatLabeledTextField *addressField;
+JVFloatLabeledTextField *emailField;
+JVFloatLabeledTextField *phoneField;
 
 @implementation ApplicationViewController
 @synthesize openPosition;
@@ -70,34 +77,21 @@
 }
 
 -(void)hidenKeyboard
-{   [self.firstName resignFirstResponder];
-    [self.lastName resignFirstResponder];
-    [self.address resignFirstResponder];
-    [self.email resignFirstResponder];
-    [self.phoneNumber resignFirstResponder];
+{   [firstNameField resignFirstResponder];
+    [lastNameField resignFirstResponder];
+    [addressField resignFirstResponder];
+    [emailField resignFirstResponder];
+    [phoneField resignFirstResponder];
     [self resumeView];
 }
 
--(IBAction)nextOnKeyboard:(UITextField *)sender
-{
-    if (sender == self.firstName)
-        [self.lastName becomeFirstResponder];
-    else if (sender == self.lastName)
-        [self.address becomeFirstResponder];
-    else if (sender == self.address)
-        [self.email becomeFirstResponder];
-    else if (sender == self.email)
-        [self.phoneNumber becomeFirstResponder];
-    else if (sender == self.phoneNumber)
-        [self hidenKeyboard];
-}
 
 - (IBAction)sendApplication:(UIButton *)sender
 {
     BOOL applicationCanBeSent = YES;
     self.responseLabel.hidden = NO;
     self.errorDisplay.hidden = YES;
-    if ((self.sendButton.enabled==YES)&&([self.firstName.text isEqualToString:@""]||[self.lastName.text isEqualToString:@""]||[self.address.text isEqualToString:@""]||[self.email.text isEqualToString:@""]||[self.phoneNumber.text isEqualToString:@""]))
+    if ((self.sendButton.enabled==YES)&&([firstNameField.text isEqualToString:@""]||[lastNameField.text isEqualToString:@""]||[addressField.text isEqualToString:@""]||[emailField.text isEqualToString:@""]||[phoneField.text isEqualToString:@""]))
     {
         self.responseLabel.hidden = YES;
         self.errorDisplay.hidden = NO;
@@ -106,7 +100,7 @@
     else
     {
         ProfileValidater* validater = [[ProfileValidater alloc]init];
-        if (![validater checkIfMailAddressIsValid:self.email.text])
+        if (![validater checkIfMailAddressIsValid:emailField.text])
         {
             self.responseLabel.hidden = YES;
             self.errorDisplay.hidden = NO;
@@ -114,7 +108,7 @@
         }
         else
         {
-            if (![validater checkIfPhoneNoIsValid:self.phoneNumber.text])
+            if (![validater checkIfPhoneNoIsValid:phoneField.text])
             {
                 self.responseLabel.hidden = YES;
                 self.errorDisplay.hidden = NO;
@@ -142,11 +136,11 @@
             [[DatabaseManager sharedInstance] saveContext];
             application = [[DatabaseManager sharedInstance]createApplication];
             application.ref_No =[openPosition objectForKey:@"ref_no"];
-            application.firstName = self.firstName.text;
-            application.lastName = self.lastName.text;
-            application.address = self.address.text;
-            application.email = self.email.text;
-            application.phoneNo = self.phoneNumber.text;
+            application.firstName = firstNameField.text;
+            application.lastName = lastNameField.text;
+            application.address = addressField.text;
+            application.email = emailField.text;
+            application.phoneNo = phoneField.text;
             application.status = @"to_be_processed"; //to_be_processed,withdrawn
             application.statusConfirmed = [NSNumber numberWithBool:NO];
             
@@ -192,6 +186,59 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.view setTintColor:[UIColor orangeColor]];
+    
+    UIColor *floatingLabelColor = [UIColor grayColor];
+    
+    
+    firstNameField = [[JVFloatLabeledTextField alloc] initWithFrame:
+                      CGRectMake(kJVFieldHMargin, 210.0f, 100.0f,  kJVFieldHeight)];
+    firstNameField.placeholder = NSLocalizedString(@"First Name", @"");
+    firstNameField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
+    firstNameField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    firstNameField.floatingLabelTextColor = floatingLabelColor;
+    firstNameField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [self.view addSubview:firstNameField];
+    
+    
+    
+    lastNameField = [[JVFloatLabeledTextField alloc] initWithFrame:
+                     CGRectMake(kJVFieldHMargin, 245.0f, 100.0f, kJVFieldHeight)];
+    lastNameField.placeholder = NSLocalizedString(@"Last Name", @"");
+    lastNameField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
+    lastNameField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    lastNameField.floatingLabelTextColor = floatingLabelColor;
+    [self.view addSubview:lastNameField];
+    
+    
+    addressField = [[JVFloatLabeledTextField alloc] initWithFrame:
+                    CGRectMake(kJVFieldHMargin, 280.0f, 200.0f, kJVFieldHeight)];
+    addressField.placeholder = NSLocalizedString(@"Address", @"");
+    addressField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
+    addressField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    addressField.floatingLabelTextColor = floatingLabelColor;
+    [self.view addSubview:addressField];
+    
+    
+    emailField = [[JVFloatLabeledTextField alloc] initWithFrame:
+                  CGRectMake(kJVFieldHMargin, 315.0f, 200.0f, kJVFieldHeight)];
+    emailField.placeholder = NSLocalizedString(@"Email", @"");
+    emailField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
+    emailField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    emailField.floatingLabelTextColor = floatingLabelColor;
+    [self.view addSubview:emailField];
+    
+    
+    phoneField = [[JVFloatLabeledTextField alloc] initWithFrame:
+                  CGRectMake(kJVFieldHMargin, 350.0f, 200.0f, kJVFieldHeight)];
+    phoneField.placeholder = NSLocalizedString(@"Phone Number", @"");
+    phoneField.font = [UIFont systemFontOfSize:kJVFieldFontSize];
+    phoneField.floatingLabel.font = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    phoneField.floatingLabelTextColor = floatingLabelColor;
+    [self.view addSubview:phoneField];
+
+    
     self.responseLabel.hidden = YES;
     self.errorDisplay.hidden = YES;
     self.jobInfo.dataSource = self;
@@ -199,26 +246,26 @@
    	// Do any additional setup after loading the view.
     [super viewDidLoad];
     
-    self.firstName.delegate=self;
-    self.lastName.delegate = self;
-    self.email.delegate = self;
-    self.address.delegate = self;
-    self.phoneNumber.delegate = self;
+    firstNameField.delegate=self;
+    lastNameField.delegate = self;
+    emailField.delegate = self;
+    addressField.delegate = self;
+    phoneField.delegate = self;
     [OSConnectionManager sharedManager].delegate = self;
     
-    self.firstName.returnKeyType = UIReturnKeyNext;
-    self.lastName.returnKeyType = UIReturnKeyNext;
-    self.email.returnKeyType = UIReturnKeyNext;
-    self.address.returnKeyType = UIReturnKeyNext;
-    self.phoneNumber.returnKeyType = UIReturnKeyDefault;
+    firstNameField.returnKeyType = UIReturnKeyNext;
+    lastNameField.returnKeyType = UIReturnKeyNext;
+    emailField.returnKeyType = UIReturnKeyNext;
+    addressField.returnKeyType = UIReturnKeyNext;
+    phoneField.returnKeyType = UIReturnKeyDefault;
     
     
-    [self.firstName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [self.lastName addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [self.email addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [self.address addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [self.phoneNumber addTarget:self action:@selector(nextOnKeyboard:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [firstNameField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [emailField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [lastNameField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [emailField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [addressField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [phoneField addTarget:self action:@selector(nextResponder) forControlEvents:UIControlEventEditingDidEndOnExit];
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hidenKeyboard)];
     gesture.numberOfTapsRequired = 1;
@@ -236,21 +283,21 @@
 - (void) setupProfile
 {
     MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
-    self.firstName.text = profile.firstName;
-    self.lastName.text = profile.lastName;
-    self.email.text = profile.email;
-    self.phoneNumber.text = profile.phoneNo;
-    self.address.text = profile.address;
+    firstNameField.text = profile.firstName;
+    lastNameField.text = profile.lastName;
+    emailField.text = profile.email;
+    phoneField.text = profile.phoneNo;
+    addressField.text = profile.address;
 }
 
 - (void)updateProfile
 {
     MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
-    profile.firstName = self.firstName.text;
-    profile.lastName = self.lastName.text;
-    profile.email = self.email.text;
-    profile.address = self.address.text;
-    profile.phoneNo = self.phoneNumber.text;
+    profile.firstName = firstNameField.text;
+    profile.lastName = lastNameField.text;
+    profile.email = emailField.text;
+    profile.address = addressField.text;
+    profile.phoneNo = phoneField.text;
     [[DatabaseManager sharedInstance]saveContext];
 }
 

@@ -58,9 +58,9 @@
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
 		28FBFEB71830207D0017FEE8 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FBFEB61830207D0017FEE8 /* Application.m */; };
 		3291990618111B65000FBAE3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990518111B65000FBAE3 /* Security.framework */; };
+		329456FC1832CDBB0043D153 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 329456FB1832CDBB0043D153 /* Filter.m */; };
 		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
 		329703C31811680E0095799F /* DropBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329703C21811680E0095799F /* DropBoxViewController.m */; };
-		329A1D5B182D169300B938F8 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 329A1D5A182D169300B938F8 /* Filter.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		80E16671181712D40091BC92 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16670181712D40091BC92 /* search.png */; };
 		80E16673181714EA0091BC92 /* phone-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16672181714EA0091BC92 /* phone-book.png */; };
@@ -73,12 +73,13 @@
 		9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8EE6E818257EB100E4F2FA /* MyFilterSetsViewController.m */; };
 		9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */; };
 		9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */; };
+		9A95DA2718356DED008AC7AD /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A95DA2518356CC7008AC7AD /* JVFloatLabeledTextField.m */; };
+		9AA47B581831833400044D11 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA47B571831833400044D11 /* images.png */; };
 		9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AD746F418128F350020C2E4 /* facebook-twitter.png */; };
 		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
 		C65919D9181DD1F800366A0D /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = C65919D8181DD1F800366A0D /* Twitter.png */; };
 		C65919DB181DD3B300366A0D /* Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = C65919DA181DD3B300366A0D /* Facebook.png */; };
 		C6DC690E182715EF0086B32A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DC690D182715EF0086B32A /* Images.xcassets */; };
-		C6DC69101827160D0086B32A /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = C6DC690F1827160D0086B32A /* images.png */; };
 		C6E3F70E1828667400D07BEB /* icon ios 5,6 57pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */; };
 		C6E3F70F1828667400D07BEB /* icon spotlight ios7 40pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */; };
 		C6E3F7101828667400D07BEB /* icon settings ios5-7 29pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F70A1828667400D07BEB /* icon settings ios5-7 29pt.png */; };
@@ -183,11 +184,11 @@
 		28FBFEB51830207D0017FEE8 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = "NTT Data Job Application App/Model/Application.h"; sourceTree = SOURCE_ROOT; };
 		28FBFEB61830207D0017FEE8 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = "NTT Data Job Application App/Model/Application.m"; sourceTree = SOURCE_ROOT; };
 		3291990518111B65000FBAE3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		329456FA1832CDBB0043D153 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = "NTT Data Job Application App/Filter.h"; sourceTree = SOURCE_ROOT; };
+		329456FB1832CDBB0043D153 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filter.m; path = "NTT Data Job Application App/Filter.m"; sourceTree = SOURCE_ROOT; };
 		329703BA181151770095799F /* DBLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DBLogo.png; sourceTree = "<group>"; };
 		329703C11811680E0095799F /* DropBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBoxViewController.h; sourceTree = "<group>"; };
 		329703C21811680E0095799F /* DropBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBoxViewController.m; sourceTree = "<group>"; };
-		329A1D59182D169300B938F8 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = "NTT Data Job Application App/Filter.h"; sourceTree = SOURCE_ROOT; };
-		329A1D5A182D169300B938F8 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filter.m; path = "NTT Data Job Application App/Filter.m"; sourceTree = SOURCE_ROOT; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
 		80E16670181712D40091BC92 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -207,12 +208,14 @@
 		9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
 		9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
+		9A95DA2418356CC7008AC7AD /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		9A95DA2518356CC7008AC7AD /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		9AA47B571831833400044D11 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		9AD746F418128F350020C2E4 /* facebook-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-twitter.png"; sourceTree = "<group>"; };
 		C60C02521811E0C80055951E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C65919D8181DD1F800366A0D /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
 		C65919DA181DD3B300366A0D /* Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook.png; sourceTree = "<group>"; };
 		C6DC690D182715EF0086B32A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C6DC690F1827160D0086B32A /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon ios 5,6 57pt.png"; sourceTree = "<group>"; };
 		C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon spotlight ios7 40pt.png"; sourceTree = "<group>"; };
 		C6E3F70A1828667400D07BEB /* icon settings ios5-7 29pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon settings ios5-7 29pt.png"; sourceTree = "<group>"; };
@@ -257,11 +260,11 @@
 			children = (
 				28EAC94F17F2F0140089467C /* DatabaseManager.h */,
 				28EAC95017F2F0140089467C /* DatabaseManager.m */,
+				329456FA1832CDBB0043D153 /* Filter.h */,
+				329456FB1832CDBB0043D153 /* Filter.m */,
 				284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */,
 				28FBFEB51830207D0017FEE8 /* Application.h */,
 				28FBFEB61830207D0017FEE8 /* Application.m */,
-				329A1D59182D169300B938F8 /* Filter.h */,
-				329A1D5A182D169300B938F8 /* Filter.m */,
 				281724931806B3E800F2D250 /* Faq.h */,
 				281724941806B3E800F2D250 /* Faq.m */,
 				281724901806B3E700F2D250 /* Rating.h */,
@@ -353,6 +356,7 @@
 				80172A6E17EC949600538821 /* ApplicationViewController.m */,
 				28E676D3181C574B0048ADF4 /* SelectedFilesViewController.h */,
 				28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */,
+				9A95DA2318356CC7008AC7AD /* JVFloatLabeledTextField */,
 				288C02C017E6072900347FA8 /* Model */,
 				28E44AFE17E3C68A0084543B /* SBJson */,
 				28E44AD417E3C5810084543B /* connection handling */,
@@ -365,6 +369,7 @@
 		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9AA47B571831833400044D11 /* images.png */,
 				C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */,
 				C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */,
 				C6E3F70A1828667400D07BEB /* icon settings ios5-7 29pt.png */,
@@ -373,7 +378,6 @@
 				C6E3F70D1828667400D07BEB /* icon ios5,6 57pt.png */,
 				9A44D09018284A26003CE0F0 /* save.png */,
 				9AD746F418128F350020C2E4 /* facebook-twitter.png */,
-				C6DC690F1827160D0086B32A /* images.png */,
 				80E166741817154A0091BC92 /* question.png */,
 				80E16672181714EA0091BC92 /* phone-book.png */,
 				28E44AA117E3C5510084543B /* NTT Data Job Application App-Info.plist */,
@@ -450,6 +454,15 @@
 				28BDF246180357C500132948 /* SBJsonWriter.m */,
 			);
 			path = SBJson;
+			sourceTree = "<group>";
+		};
+		9A95DA2318356CC7008AC7AD /* JVFloatLabeledTextField */ = {
+			isa = PBXGroup;
+			children = (
+				9A95DA2418356CC7008AC7AD /* JVFloatLabeledTextField.h */,
+				9A95DA2518356CC7008AC7AD /* JVFloatLabeledTextField.m */,
+			);
+			path = JVFloatLabeledTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -538,7 +551,6 @@
 				80E16671181712D40091BC92 /* search.png in Resources */,
 				80E166751817154A0091BC92 /* question.png in Resources */,
 				C65919D9181DD1F800366A0D /* Twitter.png in Resources */,
-				C6DC69101827160D0086B32A /* images.png in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
 				9A44D09118284A26003CE0F0 /* save.png in Resources */,
@@ -547,6 +559,7 @@
 				C6E3F7131828667400D07BEB /* icon ios5,6 57pt.png in Resources */,
 				C6E3F7101828667400D07BEB /* icon settings ios5-7 29pt.png in Resources */,
 				28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */,
+				9AA47B581831833400044D11 /* images.png in Resources */,
 				C6E3F7121828667400D07BEB /* icon ios7 60pt.png in Resources */,
 				28E44B2E17E3C6D50084543B /* MainStoryboard.storyboard in Resources */,
 			);
@@ -583,6 +596,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A95DA2718356DED008AC7AD /* JVFloatLabeledTextField.m in Sources */,
 				28E44AA617E3C5510084543B /* main.m in Sources */,
 				28BDF24C180357C500132948 /* SBJsonStreamTokeniser.m in Sources */,
 				283B7D5B17FC1A91005F40C7 /* ProfileValidater.m in Sources */,
@@ -599,7 +613,7 @@
 				28BDF250180357C500132948 /* SBJsonWriter.m in Sources */,
 				28BDF249180357C500132948 /* SBJsonStreamParserAccumulator.m in Sources */,
 				28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */,
-				329A1D5B182D169300B938F8 /* Filter.m in Sources */,
+				329456FC1832CDBB0043D153 /* Filter.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,
 				28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */,
 				9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */,

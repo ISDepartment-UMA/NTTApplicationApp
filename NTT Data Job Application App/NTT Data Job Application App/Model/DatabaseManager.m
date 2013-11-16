@@ -65,7 +65,7 @@
     
 }
 
--(void)storeFilter:(NSString*)contentExperience :(NSString*)contentJobTitle :(NSString*)contentTopic :(NSString*)contentLocation :(NSString*)freeTextFilter
+-(void)storeFilter:(NSString*)uuid :(NSString*)contentExperience :(NSString*)contentJobTitle :(NSString*)contentTopic :(NSString*)contentLocation :(NSString*)freeTextFilter
 {
     Filter *filter = [NSEntityDescription insertNewObjectForEntityForName:@"Filter"
                                                    inManagedObjectContext:_managedObjectContext];   
@@ -75,6 +75,7 @@
     filter.topicFilter = contentTopic;
     filter.locationFilter = contentLocation;
     filter.freeTextFilter = freeTextFilter;
+    filter.uuid = uuid;
 
 }
 

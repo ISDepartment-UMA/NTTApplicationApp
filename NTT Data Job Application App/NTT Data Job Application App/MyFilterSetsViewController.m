@@ -9,6 +9,7 @@
 #import "MyFilterSetsViewController.h"
 #import "FoundPositionsOverviewViewController.h"
 #import "DatabaseManager.h"
+#import "Filter.h"
 
 @implementation MyFilterSetsViewController
 @synthesize filterSet;
@@ -133,17 +134,13 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {      FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;
     if ([segue.identifier isEqualToString:@"showJobsFromFilter"]){
-        ;
-       // [overviewVC startSearchWithType:OSCGetFreeTextSearch]
+        ;       
         [overviewVC startSearchWithType:OSCGetSearch];
     }
     if ( [segue.identifier isEqualToString:@"showJobsFromFreeTextFilter"])
     {
         [overviewVC startSearchWithType:OSCGetFreeTextSearch];
-    }
-    
-    NSLog(@"search is!! %@", [OSConnectionManager sharedManager].searchObject);
-    
+    }    
 }
 
 

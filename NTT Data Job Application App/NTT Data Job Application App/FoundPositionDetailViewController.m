@@ -191,16 +191,16 @@
     }
 }
 
-- (IBAction)saveFilterSets:(UIButton *)sender {
-    
-    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"experience"]];
-    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"jobtitles"]];
-    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
-    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
+- (IBAction)saveFilterSets:(UIButton *)sender {    
+   
     if (self.freeText){
-        [[DatabaseManager sharedInstance]storeFilter:nil :nil :nil :nil :self.freeText];
+        [[DatabaseManager sharedInstance]storeFilter:nil:nil :nil :nil :nil :self.freeText];       
+        
     }else
-    [[DatabaseManager sharedInstance]storeFilter:contentExperience :contentJobTitle :contentTopic :contentLocation :Nil];
+    
+     [[OSConnectionManager sharedManager]StartConnection:OSCSendFilterSet];
+    
+    
     
 
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
