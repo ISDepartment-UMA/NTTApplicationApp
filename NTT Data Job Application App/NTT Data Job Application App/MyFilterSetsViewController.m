@@ -9,17 +9,24 @@
 #import "MyFilterSetsViewController.h"
 #import "FoundPositionsOverviewViewController.h"
 #import "DatabaseManager.h"
+#import "Filter.h"
 
 @implementation MyFilterSetsViewController
 @synthesize filterSet;
+
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.filterSet = [[DatabaseManager sharedInstance]getAllFilter];
-
     
+    [self loadFilters];
+}
+
+- (void)loadFilters{
+    self.filterSet = [[DatabaseManager sharedInstance]getAllFilter];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -52,6 +59,23 @@
     return cell;
     
 }
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Filter *filter = self.filterSet[indexPath.row];
+        [[DatabaseManager sharedInstance] removeFilter:filter];
+        [self loadFilters];
+        [self.tableView reloadData];
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
@@ -112,32 +136,16 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {      FoundPositionsOverviewViewController* overviewVC = (FoundPositionsOverviewViewController*)segue.destinationViewController;
     if ([segue.identifier isEqualToString:@"showJobsFromFilter"]){
-        ;
-       // [overviewVC startSearchWithType:OSCGetFreeTextSearch]
+        ;       
         [overviewVC startSearchWithType:OSCGetSearch];
     }
     if ( [segue.identifier isEqualToString:@"showJobsFromFreeTextFilter"])
     {
         [overviewVC startSearchWithType:OSCGetFreeTextSearch];
     }
-    
-    NSLog(@"search is!! %@", [OSConnectionManager sharedManager].searchObject);
-    
+
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {        
-        // delete object in database
-        [[DatabaseManager sharedInstance]deleteFilter:[self.filterSet objectAtIndex:indexPath.row]];
-        // refresh tableview
-        [self viewDidLoad];
-        [tableView reloadData];
-    }
-}
 
 
 

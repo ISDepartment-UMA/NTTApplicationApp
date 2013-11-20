@@ -16,7 +16,6 @@
 @property(nonatomic,strong) UIView* loaderView;
 @property(nonatomic,strong)  UIActivityIndicatorView* loader;
 @property (weak, nonatomic) IBOutlet UITableView *optionsTable;
-@property (strong, nonatomic)  NSArray* resultArray;
 @property (nonatomic) BOOL locationOrderedAscending;
 @property (nonatomic) BOOL jobTitleOrderedAscending;
 @property (nonatomic) NSInteger selectedJob;
@@ -28,12 +27,15 @@
 @synthesize resultArray;
 @synthesize selectedJob;
 
+
+
 #pragma mark - View Controller Life Cycle
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showPositionsDetails"])
     {
         NSDictionary* position = [[resultArray objectAtIndex:selectedJob] copy];
+
         if ([segue.destinationViewController respondsToSelector:@selector(setOpenPosition:)])
             [segue.destinationViewController performSelector:@selector(setOpenPosition:) withObject:position];
         if ([segue.destinationViewController respondsToSelector:@selector(setFreeText:)]) {
@@ -41,6 +43,7 @@
         }
     }
 }
+
 
 -(void)initLoader
 {
@@ -68,24 +71,46 @@
     [self.view addSubview:loaderView];
     [loaderView setHidden:YES];
 }
-
+#define VIEWED_POSITIONS_KEY @"ViewedPositions"
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.resultArray = [[NSArray alloc] init];
+    
+  
     
     [self initLoader];
+   
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [loaderView setHidden:YES];
+    if (self.cacheAccess) {
+        NSMutableArray *accessedPositions = [[[NSUserDefaults  standardUserDefaults] arrayForKey:VIEWED_POSITIONS_KEY] mutableCopy];
+        if (!accessedPositions) {
+            accessedPositions = [[NSMutableArray alloc] init];
+        }
+        NSMutableArray *recentAtTop = [[NSMutableArray alloc] init];
+        for (int i = accessedPositions.count; i>0; i--) {
+            [recentAtTop addObject:accessedPositions[i-1]];
+        }
+        self.resultArray = (NSArray *) recentAtTop;
+        [self.tableView reloadData];
+        
+    }
+    if (!self.resultArray) {
+        self.resultArray = [[NSArray alloc] init];
+    }
 }
 
 
 #pragma mark - Connection handling
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
+    if ([array isKindOfClass:[NSDictionary class]]){
+        [self startSearchWithType:OSCGetSearch];
+    }
+    else
     self.resultArray = array;
     
     if (!resultArray)
@@ -185,6 +210,7 @@
 - (NSString *)jobTitleForRow:(NSUInteger)row
 {
     NSDictionary* object = [resultArray objectAtIndex:row];
+  
     return [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[object objectForKey:@"job_title"]];
 }
 

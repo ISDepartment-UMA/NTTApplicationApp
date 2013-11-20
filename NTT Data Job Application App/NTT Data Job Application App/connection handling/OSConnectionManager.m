@@ -5,6 +5,7 @@
 #import "Application.h"
 #import "DatabaseManager.h"
 #import "MyProfile.h"
+#import "Helper.h"
 
 @interface OSConnectionManager ()
 {
@@ -44,6 +45,14 @@
 - (NSString*) preprocessString:(NSString*)input
 {
     return ((input) ? [NSString stringWithFormat:@"\"%@\"",input] : @"null");
+}
+
+- (NSString *)GetUUID
+{
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    CFRelease(theUUID);
+    return (__bridge NSString *)string;
 }
 
 /**
@@ -107,6 +116,48 @@
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
+    else if (connectionType == OSCSendFilterSet){
+        
+        NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"experience"]];
+        NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"jobtitles"]];
+        NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
+        NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
+        NSString *deviceID = [[[Helper alloc]init]getDeviceID];
+        NSString *uuid = [self GetUUID];
+       
+        NSString* postString = [NSString stringWithFormat:@"{\"uuid\":\"%@\",\"device_id\":\"%@\",\"job_title\":\"%@\",\"location\":\"%@\",\"topic\":\"%@\",\"exp\":\"%@\"}" ,uuid,deviceID,contentJobTitle,contentLocation,contentTopic,contentExperience];
+        
+        [[DatabaseManager sharedInstance]storeFilter:uuid :contentExperience :contentJobTitle :contentTopic :contentLocation :nil];
+        
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
+    else if(connectionType == OSCSendDeleteFilterSet)
+    {
+        NSString *UUID = [searchObject objectForKey:@"uuid"];
+        NSLog(@"%@",UUID);
+
+        NSString* postString = [NSString stringWithFormat:@"{\"uuid\":\"%@\"}", UUID];
+        
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
+    else if (connectionType == OSCSendSpeculativeApplication)
+    {
+        NSString* refNo = [searchObject objectForKey:@"ref_no"];
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:refNo];
+        
+        if (!application) {
+            return NO;
+        }
+        
+        NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        
+        NSString* postString = [NSString stringWithFormat:@"{\"uuid\":\"%@\",\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"dropbox_url\":\"%@\",\"freetext\":\"%@\"}", [self GetUUID], application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,application.sharedLink, application.freeText];
+        NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
     else if (connectionType == OSCSendWithdrawApplication || connectionType == OSCGetApplicationsByDeviceAndReference)
     {
         NSString* refNo = [searchObject objectForKey:@"ref_no"];
@@ -124,6 +175,12 @@
     {
         NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\"}", [[DatabaseManager sharedInstance]getMyProfile].deviceID];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
+    else if (connectionType == OSCGetFaqRating){
+        NSString* deviceID= [[[Helper alloc]init]getDeviceID];
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"faq_no\":\"2\",\"score\":\"1\"}",deviceID];
+        NSData* requestData =[NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
 

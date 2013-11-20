@@ -97,6 +97,11 @@ static OSURLHelper *sharedHelper = nil;
             return [sharedHelper sendApplication];
             break;
         }
+        case OSCSendSpeculativeApplication:
+        {
+            return [sharedHelper sendSpeculativeApplication];
+            break;
+        }
         case OSCSendWithdrawApplication:
         {
             return [sharedHelper sendWithdrawApplication];
@@ -106,6 +111,19 @@ static OSURLHelper *sharedHelper = nil;
         {
             return [sharedHelper getFaq];
             break;
+        }
+        case OSCSendFilterSet:
+        {
+            return [sharedHelper sendFilterSet];
+            break;
+        }
+        case OSCSendDeleteFilterSet:
+        {
+            return [sharedHelper deleteFilterSet];
+        }
+        case OSCGetFaqRating:
+        {
+            return [sharedHelper getFaqRating];
         }
     }
     return [NSURL URLWithString:@""];
@@ -166,7 +184,6 @@ static OSURLHelper *sharedHelper = nil;
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }
-
 -(NSURL*)sendWithdrawApplication
 {
     NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/withdrawapplication"];
@@ -178,6 +195,32 @@ static OSURLHelper *sharedHelper = nil;
     NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/faqquery"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
+}
+-(NSURL*)sendSpeculativeApplication
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/apply_speculative_application"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+}
 
+-(NSURL*)sendFilterSet
+{
+    NSString *result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/store_filter_set"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+}
+
+-(NSURL *)deleteFilterSet{
+    NSString *result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/delete_filter_set"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+
+}
+
+-(NSURL *)getFaqRating {
+    NSString *result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/ratefaq"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+    
 }
 @end

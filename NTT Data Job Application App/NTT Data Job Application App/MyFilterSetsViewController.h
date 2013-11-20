@@ -12,4 +12,5 @@
 @interface MyFilterSetsViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate, OSConnectionCompletionDelegate>
 
 @property(nonatomic,strong) NSArray *filterSet;
+
 @end

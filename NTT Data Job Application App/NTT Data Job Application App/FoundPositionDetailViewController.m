@@ -43,6 +43,7 @@
 {
     [self loadData];
     [self loadSelectedFilters];
+    [self synchronizewith:self.openPosition];
 }
 
 - (void)loadSelectedFilters
@@ -91,6 +92,37 @@
     if ([self.displaySelectedFilters.text isEqualToString:@""]) {
         [self.filterSetSaveButton removeFromSuperview];
     }
+}
+#define VIEWED_POSITIONS_KEY @"ViewedPositions"
+-(void) synchronizewith: (NSDictionary *) selectedPosition{
+    NSMutableArray *accessedPositions = [[[NSUserDefaults  standardUserDefaults] arrayForKey:VIEWED_POSITIONS_KEY] mutableCopy];
+    if (!accessedPositions) {
+        accessedPositions= [[NSMutableArray alloc] init];
+    }
+    //NSLog(@"start");
+    //NSLog([NSString stringWithFormat:@"%d",accessedPositions.count]);
+    
+    if ([accessedPositions containsObject:selectedPosition]) {
+        [accessedPositions removeObject:selectedPosition];
+    }
+    
+    
+    //[accessedPhotos removeObjectAtIndex:0];
+    
+    [accessedPositions addObject:selectedPosition];
+    if (accessedPositions.count > 3) {
+        [accessedPositions removeObjectAtIndex:0];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:accessedPositions forKey:VIEWED_POSITIONS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    /*NSMutableArray *accessedPhotos = [[[NSUserDefaults  standardUserDefaults] arrayForKey:ALL_PHOTOS_KEY] mutableCopy];
+     if (!accessedPhotos) {
+     accessedPhotos = [[NSMutableArray alloc] init];
+     }
+     [accessedPhotos addObject:selectedPhoto];
+     [[NSUserDefaults standardUserDefaults] setObject:accessedPhotos forKey:ALL_PHOTOS_KEY];
+     [[NSUserDefaults standardUserDefaults] synchronize];*/
 }
     
 
@@ -191,16 +223,16 @@
     }
 }
 
-- (IBAction)saveFilterSets:(UIButton *)sender {
-    
-    NSString *contentExperience = [[DatabaseManager sharedInstance]getExperienceDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"experience"]];
-    NSString *contentJobTitle = [[DatabaseManager sharedInstance]getJobTitleDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"jobtitles"]];
-    NSString *contentTopic = [[DatabaseManager sharedInstance]getTopicDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"topics"]];
-    NSString *contentLocation = [[DatabaseManager sharedInstance]getLocationDisplayNameFromDatabaseName:[[OSConnectionManager sharedManager].searchObject objectForKey:@"location"]];
+- (IBAction)saveFilterSets:(UIButton *)sender {    
+   
     if (self.freeText){
-        [[DatabaseManager sharedInstance]storeFilter:nil :nil :nil :nil :self.freeText];
+        [[DatabaseManager sharedInstance]storeFilter:nil:nil :nil :nil :nil :self.freeText];       
+        
     }else
-    [[DatabaseManager sharedInstance]storeFilter:contentExperience :contentJobTitle :contentTopic :contentLocation :Nil];
+    
+     [[OSConnectionManager sharedManager]StartConnection:OSCSendFilterSet];
+    
+    
     
 
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];

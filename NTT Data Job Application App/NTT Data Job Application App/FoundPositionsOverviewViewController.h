@@ -11,5 +11,7 @@
 
 @interface FoundPositionsOverviewViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,OSConnectionCompletionDelegate>
 @property NSString *freeText;
+@property (strong, nonatomic)  NSArray* resultArray;
+@property BOOL cacheAccess;
 - (void)startSearchWithType: (OSConnectionType)type;
 @end

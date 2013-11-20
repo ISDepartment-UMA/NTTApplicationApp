@@ -6,6 +6,7 @@
         <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="freeText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ref_No" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,6 +30,7 @@
         <attribute name="locationFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="titleFilter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="topicFilter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="JobTitle" representedClassName="JobTitle" syncable="YES">
         <attribute name="databasename" optional="YES" attributeType="String" syncable="YES"/>
