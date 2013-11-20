@@ -379,5 +379,27 @@ public class ApplicationsDao {
 		return test;		
 	}
 
+	public Boolean deleteSpecApplications(String uuid){
+
+		Boolean test=null;			 
+		String query = "delete from speculative_applications where uuid='" + uuid + "'";
+		try{
+			Statement stmt=DbUtilHelper.getConnection().createStatement();		 
+			int after_delete_num=stmt.executeUpdate(query);				 
+			DbUtilHelper.log("deleteSpecApplications success: " + query);
+
+			if(after_delete_num>=0){
+				test=true;
+			}				
+			else{
+				test=false;
+			}			
+			DbUtilHelper.log("deleteSpecApplications: " + test);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("deleteSpecApplications failed");
+		}
+		return test;
+	}
 
 }
