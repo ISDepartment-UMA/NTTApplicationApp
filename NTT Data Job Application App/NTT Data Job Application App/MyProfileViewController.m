@@ -104,6 +104,7 @@ JVFloatLabeledTextField *phoneField;
     [addressField resignFirstResponder];
     [emailField resignFirstResponder];
     [phoneField resignFirstResponder];
+    [self.freeTextTextView resignFirstResponder];
     [self resumeView];
 }
 
@@ -117,6 +118,7 @@ JVFloatLabeledTextField *phoneField;
     phoneField.text = profile.phoneNo;
     addressField.text = profile.address;
 }
+
 
 - (void)viewDidLoad
 {
