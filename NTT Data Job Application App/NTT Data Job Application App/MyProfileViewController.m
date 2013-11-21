@@ -264,6 +264,9 @@ JVFloatLabeledTextField *phoneField;
     }
     if (!self.selectedFiles || [self.selectedFiles count] == 0){
         applicationCanBeSent= NO;
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select application files from dropbox" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
+        applicationCanBeSent = NO;
     }
     
     if (applicationCanBeSent)
