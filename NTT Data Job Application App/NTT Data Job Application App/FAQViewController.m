@@ -215,13 +215,12 @@
     if(!isFiltered)
     {
         Faq* question = [faqArray objectAtIndex:indexPath.row];
-        NSString *avgRate = [self.rate[indexPath.row]objectForKey:@"average_rates"];
-        NSLog(@"%@",avgRate);
-        NSString* questionWithRate = [question.question stringByAppendingString:[NSString stringWithFormat:@"   (avg_rate: %@)",avgRate]];
+        NSString *avgRate = [self.rate[indexPath.row]objectForKey: @"average_rates"];
+        NSString* questionWithRate = [question.question stringByAppendingString:[NSString stringWithFormat:
+        @"\nAverage rate: %@", avgRate]];
         [cell.textLabel setText:questionWithRate];
-        
-        
     }
+    
     else
     {
         Faq* question = [filteredFaqs objectAtIndex:indexPath.row];
@@ -231,7 +230,7 @@
     }
     // Configure the cell...
     cell.textLabel.font = [UIFont systemFontOfSize:12];
-    cell.textLabel.numberOfLines = 2;
+    cell.textLabel.numberOfLines = 3;
     return cell;
 }
 
