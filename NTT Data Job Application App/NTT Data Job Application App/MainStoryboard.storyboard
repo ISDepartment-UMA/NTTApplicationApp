@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fOd-dl-a1f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fOd-dl-a1f">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Job Search View Controller - Classical Search-->
@@ -1267,7 +1267,6 @@
     </scenes>
     <resources>
         <image name="DBLogo.png" width="72" height="68"/>
-        <image name="DBLogo.png" width="72" height="68"/>
         <image name="Facebook.png" width="128" height="128"/>
         <image name="Twitter.png" width="128" height="128"/>
         <image name="phone-book.png" width="30" height="30"/>
@@ -1275,14 +1274,6 @@
         <image name="save.png" width="297" height="300"/>
         <image name="search.png" width="30" height="30"/>
         <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_full.png" width="256" height="264"/>
-        <image name="star_full.png" width="256" height="264"/>
-        <image name="star_full.png" width="256" height="264"/>
-        <image name="star_full.png" width="256" height="264"/>
         <image name="star_full.png" width="256" height="264"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
