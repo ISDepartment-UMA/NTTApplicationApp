@@ -2,6 +2,7 @@ package model;
 
 public class Jobs {
 	private String ref_no;
+	private String position_status;
 	private String position_name;
 	private String exp;
 	private String location1;
@@ -151,6 +152,12 @@ public class Jobs {
 	}
 	public void setPerspective(String perspective) {
 		this.perspective = perspective;
+	}
+	public String getPosition_status() {
+		return position_status;
+	}
+	public void setPosition_status(String position_status) {
+		this.position_status = position_status;
 	}
 	
 

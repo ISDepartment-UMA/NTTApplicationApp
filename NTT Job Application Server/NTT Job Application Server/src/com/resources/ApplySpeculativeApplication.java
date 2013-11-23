@@ -138,7 +138,7 @@ public class ApplySpeculativeApplication {
 				dropbox_url!=null
 				)
 		{
-			if(appDao.checkRepeatSpecApply(device_id)==false){   //means the user hasn't applied for this job
+			if(appDao.checkRepeatSpecApply(device_id)==false){   //means the user hasn't applied for specApplication
 
 				SpeculativeApplication application=new SpeculativeApplication();
 
@@ -157,11 +157,11 @@ public class ApplySpeculativeApplication {
 				isSuccessfulInserted=appDao.insertSpecApplications(application);
 
 				if(isSuccessfulInserted==true)
-					responseMessage= "{\"applyingJob_successful\":\"true\",\"device_id\":\""+device_id+"\",\"uuid\":\""+uuid+"\"}"; 	  	
+					responseMessage= "{\"apply_SpecApplication_successful\":\"true\",\"device_id\":\""+device_id+"\",\"uuid\":\""+uuid+"\"}"; 	  	
 
 			}
 			else{
-				responseMessage="the user already applyed this job, please don't apply again";
+				responseMessage="the user already applied speculative position, please don't apply again";
 			} 	
 		}
 

@@ -71,19 +71,7 @@ JVFloatLabeledTextField *phoneField;
 
 }
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    NSTimeInterval animationDuration=0.30f;
-    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    float width = self.view.frame.size.width;
-    float height = self.view.frame.size.height;
-    
-    CGRect rect=CGRectMake(0.0f,-25,width,height);
-    self.view.frame=rect;
-    [UIView commitAnimations];
-    return YES;
-}
+
 
 -(void)resumeView
 {
@@ -104,6 +92,7 @@ JVFloatLabeledTextField *phoneField;
     [addressField resignFirstResponder];
     [emailField resignFirstResponder];
     [phoneField resignFirstResponder];
+    [self.freeTextTextView resignFirstResponder];
     [self resumeView];
 }
 
@@ -117,6 +106,50 @@ JVFloatLabeledTextField *phoneField;
     phoneField.text = profile.phoneNo;
     addressField.text = profile.address;
 }
+- (void)viewDidAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShown:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+
+
+- (void)moveTextViewForKeyboard:(NSNotification*)aNotification up:(BOOL)up {
+    NSDictionary* userInfo = [aNotification userInfo];
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardEndFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    float width = self.view.frame.size.width;
+    float height = self.view.frame.size.height;
+    //float Y = 20.0f;
+    CGRect rect=CGRectMake(0.0f,-55,width,height);
+    self.view.frame=rect;
+    
+    [UIView commitAnimations];
+}
+
+- (void)keyboardWillShown:(NSNotification*)aNotification
+{
+    //buttonDone.enabled = true;
+    [self moveTextViewForKeyboard:aNotification up:YES];
+}
+
+- (void)keyboardWillHide:(NSNotification*)aNotification
+{
+    //buttonDone.enabled = false;
+    [self moveTextViewForKeyboard:aNotification up:NO];
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -231,6 +264,9 @@ JVFloatLabeledTextField *phoneField;
     }
     if (!self.selectedFiles || [self.selectedFiles count] == 0){
         applicationCanBeSent= NO;
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select application files from dropbox" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
+        applicationCanBeSent = NO;
     }
     
     if (applicationCanBeSent)
@@ -309,6 +345,7 @@ JVFloatLabeledTextField *phoneField;
     profile.email = emailField.text;
     profile.phoneNo = phoneField.text;
     [[DatabaseManager sharedInstance]saveContext];
+     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [super viewWillDisappear:animated];
 }
