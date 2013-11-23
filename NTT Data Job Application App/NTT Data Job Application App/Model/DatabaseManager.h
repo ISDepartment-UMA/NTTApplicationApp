@@ -19,7 +19,7 @@
 #import "Filter.h"
 
 @interface DatabaseManager : NSObject
-
+#define SPECULATIVE_APPLICATION_REFNO @"specApp_NTTData"
 + (DatabaseManager*)sharedInstance;
 
 -(void)removeFilter:(Filter*)filter;

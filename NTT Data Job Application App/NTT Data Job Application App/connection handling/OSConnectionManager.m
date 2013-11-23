@@ -171,7 +171,7 @@
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
-    else if (connectionType == OSCGetApplicationsByDevice)
+    else if (connectionType == OSCGetApplicationsByDevice || connectionType == OSCGetSpeculativeApplicationsByDevice)
     {
         NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\"}", [[DatabaseManager sharedInstance]getMyProfile].deviceID];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
@@ -182,6 +182,10 @@
         NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"faq_no\":\"2\",\"score\":\"1\"}",deviceID];
         NSData* requestData =[NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
+    }
+    else if(connectionType == OSCDeleteSpeculativeApplicaton)
+    {
+        //'{"device_id":"testdeviceID2","uuid":"test_uuid"}' 
     }
 
     // start connection for requested url and set the connection type

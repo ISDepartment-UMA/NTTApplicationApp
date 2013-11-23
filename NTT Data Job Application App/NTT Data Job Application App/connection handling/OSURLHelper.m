@@ -107,6 +107,16 @@ static OSURLHelper *sharedHelper = nil;
             return [sharedHelper sendWithdrawApplication];
             break;
         }
+        case OSCGetSpeculativeApplicationsByDevice:
+        {
+            return [sharedHelper getSpeculativeApplications];
+            break;
+        }
+        case OSCDeleteSpeculativeApplicaton:
+        {
+            return [sharedHelper deleteSpeculativeApplication];
+            break;
+        }
         case OSCGetFaq:
         {
             return [sharedHelper getFaq];
@@ -120,10 +130,12 @@ static OSURLHelper *sharedHelper = nil;
         case OSCSendDeleteFilterSet:
         {
             return [sharedHelper deleteFilterSet];
+            break;
         }
         case OSCGetFaqRating:
         {
             return [sharedHelper getFaqRating];
+            break;
         }
     }
     return [NSURL URLWithString:@""];
@@ -202,25 +214,34 @@ static OSURLHelper *sharedHelper = nil;
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }
-
 -(NSURL*)sendFilterSet
 {
     NSString *result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/store_filter_set"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }
-
--(NSURL *)deleteFilterSet{
+-(NSURL *)deleteFilterSet
+{
     NSString *result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/delete_filter_set"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
-
 }
-
--(NSURL *)getFaqRating {
+-(NSURL *)getFaqRating
+{
     NSString *result = [NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/ratefaq"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
-    
+}
+-(NSURL*)getSpeculativeApplications
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/query_spec_application"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+}
+-(NSURL*)deleteSpeculativeApplication
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/delete_spec_application"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
 }
 @end
