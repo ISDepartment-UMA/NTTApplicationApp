@@ -207,7 +207,7 @@
     else if(connectionType == OSCGetSearch)
     {
         self.searchCountLabel.text = @"";
-        NSArray* results = array;
+        NSArray* results = [self removeObsoletePositions:array];
         
         if ([results count] > 1)
         {
@@ -254,6 +254,17 @@
         [self.optionsTable reloadData];
     }
 }
+- (NSArray *) removeObsoletePositions: (NSArray *) allPositions{
+    NSMutableArray* allPositions2 = [[NSMutableArray alloc ] initWithArray:allPositions];
+    NSMutableArray* allPositions3 = [[NSMutableArray alloc ] initWithArray:allPositions];
+    for (NSDictionary* position in allPositions2) {
+        if(![[position objectForKey:@"position_status"] isEqualToString:@"active"]){
+            [allPositions3 removeObject:position];
+        }
+    }
+    return allPositions3;
+}
+
 
 -(void)connectionFailed:(OSConnectionType)connectionType;
 {

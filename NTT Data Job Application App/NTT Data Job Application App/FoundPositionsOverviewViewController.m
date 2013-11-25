@@ -111,7 +111,7 @@
         [self startSearchWithType:OSCGetSearch];
     }
     else
-    self.resultArray = array;
+    self.resultArray = [self removeObsoletePositions:array];
     
     if (!resultArray)
         resultArray = [[NSArray alloc]init];
@@ -135,6 +135,16 @@
         self.title = @"1 Open Position";
     else
         self.title = [NSString stringWithFormat:@"%d Open Positions", [resultArray count]];
+}
+- (NSArray *) removeObsoletePositions: (NSArray *) allPositions{
+    NSMutableArray* allPositions2 = [[NSMutableArray alloc ] initWithArray:allPositions];
+    NSMutableArray* allPositions3 = [[NSMutableArray alloc ] initWithArray:allPositions];
+    for (NSDictionary* position in allPositions2) {
+        if(![[position objectForKey:@"position_status"] isEqualToString:@"active"]){
+            [allPositions3 removeObject:position];
+        }
+    }
+    return allPositions3;
 }
 
 - (void)connectionFailed:(OSConnectionType)connectionType
@@ -251,6 +261,7 @@
         // Configure the cell...
         cell.userInteractionEnabled = YES;
         cell.textLabel.text = [self titleForRow:indexPath.row];
+        
         
         NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
         
