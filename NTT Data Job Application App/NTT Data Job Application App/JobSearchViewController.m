@@ -30,6 +30,7 @@
 @property (strong, nonatomic) NSArray *locationsList; // of String
 @property (strong, nonatomic) NSArray *experienceList; // of String
 @property (strong, nonatomic) NSArray *selected;  // of String
+@property (strong,nonatomic)NSArray *results;
 
 @property(nonatomic,strong) UIView* loaderView;
 @property(nonatomic,strong)  UIActivityIndicatorView* loader;
@@ -207,21 +208,23 @@
     else if(connectionType == OSCGetSearch)
     {
         self.searchCountLabel.text = @"";
-        NSArray* results = [self removeObsoletePositions:array];
+        if ([array isKindOfClass:[NSArray class]]){
+            self.results = [self removeObsoletePositions:array];}
+        else self.results = array;
         
-        if ([results count] > 1)
+        if ([self.results count] > 1)
         {
-            self.searchCountLabel.text = [NSString stringWithFormat:@"%d Jobs", [results count]];
+            self.searchCountLabel.text = [NSString stringWithFormat:@"%d Jobs", [_results count]];
             if (self.searchButton.enabled != YES)
             {
                 self.searchButton.enabled = YES;
                 self.searchButton.alpha = 1.0;
             }
         }
-        else if([results count] == 1)
+        else if([_results count] == 1)
         {
-            if ([results isKindOfClass:[NSDictionary class]]) {
-                NSArray* keys = [(NSDictionary*)results allKeys];
+            if ([_results isKindOfClass:[NSDictionary class]]) {
+                NSArray* keys = [(NSDictionary*)self.results allKeys];
                 if ([keys containsObject:@"resultIsEmpty"])
                 {
                     self.searchCountLabel.text = @"No Jobs";
@@ -234,7 +237,7 @@
             }
             else
             {
-                self.searchCountLabel.text = [NSString stringWithFormat:@"%d Jobs", [results count]];
+                self.searchCountLabel.text = [NSString stringWithFormat:@"%d Jobs", [_results count]];
                 if (self.searchButton.enabled != YES)
                 {
                     self.searchButton.enabled = YES;
