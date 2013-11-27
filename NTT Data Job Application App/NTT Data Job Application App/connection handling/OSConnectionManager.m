@@ -185,7 +185,15 @@
     }
     else if(connectionType == OSCDeleteSpeculativeApplicaton)
     {
-        //'{"device_id":"testdeviceID2","uuid":"test_uuid"}' 
+        DatabaseManager* manager = [DatabaseManager sharedInstance];
+        MyProfile* prof = [manager getMyProfile];
+        
+        NSString* refNo = [searchObject objectForKey:@"ref_no"];
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:refNo];
+        
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"uuid\":\"%@\"}", prof.deviceID, application.uuid];
+        NSData* requestData =[NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
     }
 
     // start connection for requested url and set the connection type

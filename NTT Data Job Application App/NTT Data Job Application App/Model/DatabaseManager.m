@@ -43,7 +43,7 @@
 
 -(void)removeFilter:(Filter*)filter
 {
-    [_managedObjectContext deleteObject:filter];
+    [[self context] deleteObject:filter];
     
 }
 
@@ -54,7 +54,7 @@
     
     //Setting Entity to be Queried
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Filter"
-                                              inManagedObjectContext:_managedObjectContext];
+                                              inManagedObjectContext:[self context]];
     [fetchRequest setEntity:entity];
     NSError* error;
     
@@ -68,7 +68,7 @@
 -(void)storeFilter:(NSString*)uuid :(NSString*)contentExperience :(NSString*)contentJobTitle :(NSString*)contentTopic :(NSString*)contentLocation :(NSString*)freeTextFilter
 {
     Filter *filter = [NSEntityDescription insertNewObjectForEntityForName:@"Filter"
-                                                   inManagedObjectContext:_managedObjectContext];   
+                                                   inManagedObjectContext:[self context]];
     
     filter.expFilter = contentExperience;
     filter.titleFilter = contentJobTitle;
@@ -81,8 +81,7 @@
 
 -(void)deleteFilter:(id)object
 {
-   // [_managedObjectContext deleteObject:[self.fetchedRecordsArray objectAtIndex:indexPath.row]];
-    [_managedObjectContext deleteObject:object];
+    [[self context] deleteObject:object];
 }
 
 #pragma mark -
@@ -516,6 +515,7 @@
     Application* currentApplication =  [NSEntityDescription insertNewObjectForEntityForName:APPLICATION_TABLENAME inManagedObjectContext:[self context]];
     currentApplication.dateApplied = [NSDate date];
     currentApplication.deviceID = [[[Helper alloc]init]getDeviceID];
+    currentApplication.uuid = [self GetUUID];
     
     return currentApplication;
 }
@@ -577,6 +577,10 @@
             application.address = [dict objectForKey:@"address"];
             application.phoneNo = [dict objectForKey:@"phone_no"];
             application.sharedLink = [dict objectForKey:@"resume_dropbox_url"];
+            application.uuid = [dict objectForKey:@"uuid"];
+            if ([[dict allKeys]containsObject:@"freetext"]) {
+                application.freeText = [dict objectForKey:@"freetext"];
+            }
             
         }else
         {
@@ -589,6 +593,10 @@
             application.address = [dict objectForKey:@"address"];
             application.phoneNo = [dict objectForKey:@"phone_no"];
             application.sharedLink = [dict objectForKey:@"resume_dropbox_url"];
+            application.uuid = [dict objectForKey:@"uuid"];
+            if ([[dict allKeys]containsObject:@"freetext"]) {
+                application.freeText = [dict objectForKey:@"freetext"];
+            }
         }
     }
     
@@ -858,6 +866,14 @@
         }
     }
     return @"";
+}
+
+- (NSString *)GetUUID
+{
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    CFRelease(theUUID);
+    return (__bridge NSString *)string;
 }
 
 @end
