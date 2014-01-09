@@ -208,8 +208,9 @@
     else if(connectionType == OSCGetSearch)
     {
         self.searchCountLabel.text = @"";
-        NSArray* results = [self removeObsoletePositions:array];
-      
+        if ([array isKindOfClass:[NSArray class]]){
+            self.results = [self removeObsoletePositions:array];}
+        else self.results = array;
         
         if ([self.results count] > 1)
         {
