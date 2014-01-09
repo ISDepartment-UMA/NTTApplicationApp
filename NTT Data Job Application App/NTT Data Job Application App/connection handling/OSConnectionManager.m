@@ -171,7 +171,7 @@
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
-    else if (connectionType == OSCGetApplicationsByDevice)
+    else if (connectionType == OSCGetApplicationsByDevice || connectionType == OSCGetSpeculativeApplicationsByDevice)
     {
         NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\"}", [[DatabaseManager sharedInstance]getMyProfile].deviceID];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
@@ -180,6 +180,18 @@
     else if (connectionType == OSCGetFaqRating){
         NSString* deviceID= [[[Helper alloc]init]getDeviceID];
         NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"faq_no\":\"2\",\"score\":\"1\"}",deviceID];
+        NSData* requestData =[NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        [request setHTTPBody:requestData];
+    }
+    else if(connectionType == OSCDeleteSpeculativeApplicaton)
+    {
+        DatabaseManager* manager = [DatabaseManager sharedInstance];
+        MyProfile* prof = [manager getMyProfile];
+        
+        NSString* refNo = [searchObject objectForKey:@"ref_no"];
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:refNo];
+        
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"uuid\":\"%@\"}", prof.deviceID, application.uuid];
         NSData* requestData =[NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }

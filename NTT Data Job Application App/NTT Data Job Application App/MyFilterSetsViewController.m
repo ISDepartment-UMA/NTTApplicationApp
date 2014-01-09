@@ -65,6 +65,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         Filter *filter = self.filterSet[indexPath.row];
+        [[OSConnectionManager sharedManager].searchObject setObject:[filter valueForKey:@"uuid"]forKey:@"uuid"];
+        [[OSConnectionManager sharedManager]StartConnection:OSCSendDeleteFilterSet];
         [[DatabaseManager sharedInstance] removeFilter:filter];
         [self loadFilters];
         [self.tableView reloadData];

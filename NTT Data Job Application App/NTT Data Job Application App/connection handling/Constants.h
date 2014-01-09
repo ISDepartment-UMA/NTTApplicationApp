@@ -24,7 +24,9 @@ typedef NS_ENUM (NSUInteger,OSConnectionType)
     OSCGetApplicationsByDeviceAndReference = 81,
     OSCSendApplication = 90,
     OSCSendSpeculativeApplication = 91,
-    OSCSendWithdrawApplication = 95,
+    OSCGetSpeculativeApplicationsByDevice = 92,
+    OSCDeleteSpeculativeApplicaton = 93,
+    OSCSendWithdrawApplication = 98,
     OSCSendFilterSet = 31,
     OSCSendDeleteFilterSet = 25
 };

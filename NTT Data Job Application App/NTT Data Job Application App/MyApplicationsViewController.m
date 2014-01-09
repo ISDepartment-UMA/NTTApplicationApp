@@ -26,6 +26,7 @@
 {
     [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager]StartConnection:OSCGetApplicationsByDevice];
+    [[OSConnectionManager sharedManager]StartConnection:OSCGetSpeculativeApplicationsByDevice];
     
     [super viewDidAppear:animated];
 }
@@ -91,7 +92,14 @@
         [[DatabaseManager sharedInstance]saveContext];
         
         [[OSConnectionManager sharedManager].searchObject setObject:application.ref_No forKey:@"ref_no"];
-        [[OSConnectionManager sharedManager] StartConnection:OSCSendWithdrawApplication];
+        if ([application.ref_No isEqualToString:SPECULATIVE_APPLICATION_REFNO])
+        {
+            [[OSConnectionManager sharedManager] StartConnection:OSCDeleteSpeculativeApplicaton];
+        }
+        else
+        {
+            [[OSConnectionManager sharedManager] StartConnection:OSCSendWithdrawApplication];
+        }
         
         [self.tableView reloadData];
     }
@@ -105,7 +113,7 @@
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    if (connectionType == OSCGetApplicationsByDevice)
+    if (connectionType == OSCGetApplicationsByDevice || connectionType == OSCGetSpeculativeApplicationsByDevice)
     {
         for (id dict in array)
         {

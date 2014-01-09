@@ -271,12 +271,11 @@ JVFloatLabeledTextField *phoneField;
     
     if (applicationCanBeSent)
     {
-        static NSString* specApp_refNo = @"specApp_NTTData";
-        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:specApp_refNo];
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:SPECULATIVE_APPLICATION_REFNO];
         if (!application)
         {
             application = [[DatabaseManager sharedInstance]createApplication];
-            application.ref_No =specApp_refNo;
+            application.ref_No = SPECULATIVE_APPLICATION_REFNO;
             application.firstName = firstNameField.text;
             application.lastName = lastNameField.text;
             application.address = addressField.text;
@@ -291,7 +290,7 @@ JVFloatLabeledTextField *phoneField;
             
             [[DatabaseManager sharedInstance]saveContext];
             
-            [[OSConnectionManager sharedManager].searchObject setObject:specApp_refNo forKey:@"ref_no"];
+            [[OSConnectionManager sharedManager].searchObject setObject:SPECULATIVE_APPLICATION_REFNO forKey:@"ref_no"];
             [[OSConnectionManager sharedManager]StartConnection:OSCSendSpeculativeApplication];
         }
         else
