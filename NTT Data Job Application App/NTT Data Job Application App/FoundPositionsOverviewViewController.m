@@ -19,6 +19,7 @@
 @property (nonatomic) BOOL locationOrderedAscending;
 @property (nonatomic) BOOL jobTitleOrderedAscending;
 @property (nonatomic) NSInteger selectedJob;
+@property (nonatomic,strong) NSMutableArray* allPositions;
 @end
 
 @implementation FoundPositionsOverviewViewController
@@ -85,6 +86,13 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [loaderView setHidden:YES];
+    [self showCachedPositons];
+            if (!self.resultArray) {
+        self.resultArray = [[NSArray alloc] init];
+    }
+}
+
+-(void) showCachedPositons{
     if (self.cacheAccess) {
         NSMutableArray *accessedPositions = [[[NSUserDefaults  standardUserDefaults] arrayForKey:VIEWED_POSITIONS_KEY] mutableCopy];
         if (!accessedPositions) {
@@ -94,25 +102,33 @@
         for (int i = accessedPositions.count; i>0; i--) {
             [recentAtTop addObject:accessedPositions[i-1]];
         }
+        
+        //for (NSDictionary* cachedPosition in recentAtTop) {
+          //  for (NSDictionary* position in self.allPositions) {
+            //    if ([[cachedPosition valueForKey:@"ref_no"]isEqualToString:[position valueForKey:@"ref_no"]]) {
+              //      self.allPositions removeObject:p
+                //}
+           // }
+       // }
         self.resultArray = (NSArray *) recentAtTop;
         [self.tableView reloadData];
         
     }
-    if (!self.resultArray) {
-        self.resultArray = [[NSArray alloc] init];
-    }
+
 }
 
 
 #pragma mark - Connection handling
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
+    self.allPositions = array.mutableCopy;
     if ([array isKindOfClass:[NSDictionary class]]){
         [self startSearchWithType:OSCGetSearch];
     }
     else
     self.resultArray = [self removeObsoletePositions:array];
-    
+    [self showCachedPositons];
+ 
     if (!resultArray)
         resultArray = [[NSArray alloc]init];
     else
@@ -236,6 +252,12 @@
     return [object objectForKey:@"ref_no"];
 }
 
+- (NSString *)statusForRow:(NSUInteger)row
+{
+    NSDictionary* object = [resultArray objectAtIndex:row];
+    return [object objectForKey:@"position_status"];
+}
+
 #pragma mark - UITableViewDataSource
 // lets the UITableView know how many rows it should display
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -263,7 +285,7 @@
         cell.textLabel.text = [self titleForRow:indexPath.row];
         
         
-        NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row]];
+        NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@, Status: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row],[self statusForRow:indexPath.row] ];
         
         cell.detailTextLabel.numberOfLines = 3;
         cell.detailTextLabel.text = subtitle;

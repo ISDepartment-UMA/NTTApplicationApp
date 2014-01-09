@@ -208,6 +208,7 @@
     {
         self.searchCountLabel.text = @"";
         NSArray* results = [self removeObsoletePositions:array];
+      
         
         if ([results count] > 1)
         {
@@ -254,15 +255,25 @@
         [self.optionsTable reloadData];
     }
 }
-- (NSArray *) removeObsoletePositions: (NSArray *) allPositions{
+- ( id) removeObsoletePositions: (NSArray *) allPositions{
+    if (![allPositions isKindOfClass:[NSDictionary class]]) {
+        
+
     NSMutableArray* allPositions2 = [[NSMutableArray alloc ] initWithArray:allPositions];
     NSMutableArray* allPositions3 = [[NSMutableArray alloc ] initWithArray:allPositions];
     for (NSDictionary* position in allPositions2) {
+        
         if(![[position objectForKey:@"position_status"] isEqualToString:@"active"]){
             [allPositions3 removeObject:position];
         }
+        
     }
+    
     return allPositions3;
+    }
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"value1", @"resultIsEmpty", nil];
+    return dict;
 }
 
 
