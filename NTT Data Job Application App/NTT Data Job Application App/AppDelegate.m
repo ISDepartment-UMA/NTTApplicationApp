@@ -34,6 +34,9 @@
       root:kDBRootDropbox] // either kDBRootAppFolder or kDBRootDropbox
      ;
     [DBSession setSharedSession:dbSession];
+    
+    //ask device whether to receive push notification
+    [[UIApplication sharedApplication]registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert |UIRemoteNotificationTypeSound)];
 
     return YES;
 }
