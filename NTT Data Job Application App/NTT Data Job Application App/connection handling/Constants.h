@@ -28,7 +28,7 @@ typedef NS_ENUM (NSUInteger,OSConnectionType)
     OSCDeleteSpeculativeApplicaton = 93,
     OSCSendWithdrawApplication = 98,
     OSCSendFilterSet = 31,
-    OSCSendDeleteFilterSet = 25,
+    OSCSendDeleteFilterSet = 25,	
     OSSendRating = 110,
 };
 

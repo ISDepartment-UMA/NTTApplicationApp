@@ -215,7 +215,7 @@
     if(!isFiltered)
     {
         Faq* question = [faqArray objectAtIndex:indexPath.row];
-        NSString *avgRate = question.rating;
+        NSString *avgRate = [self.rate[indexPath.row]objectForKey: @"average_rates"];
         NSString* questionWithRate = [question.question stringByAppendingString:[NSString stringWithFormat:
         @"\nAverage rate: %@", avgRate]];
         [cell.textLabel setText:questionWithRate];

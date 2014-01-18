@@ -201,7 +201,7 @@
         NSString* faq = [searchObject objectForKey:@"faq"];
         NSString* rate =[searchObject objectForKey:@"rate"];
         NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"faq_no\":\"%@\",\"score\":\"%@\"}",deviceID,faq,rate];
-        NSData* requestData =[NSData dataWithBytes:[postString UTF8String] length:[postString length]];
+        NSData* requestData =[NSData dataWithBytes:[postString UTF8String] length:	[postString length]];
         [request setHTTPBody:requestData];
     }
 
