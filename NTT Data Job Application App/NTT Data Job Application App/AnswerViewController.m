@@ -144,11 +144,11 @@
     [errorMessage show];
     
     //[[OSConnectionManager sharedManager].searchObject setObject:filter.uuid forKey:@"uuid"];
-  //  NSNumber* rating = [NSNumber numberWithFloat:ratingSlider.value];
-  //  [[DatabaseManager sharedInstance]createRatingForFaq:faq withValue:rating];
+    //  NSNumber* rating = [NSNumber numberWithFloat:ratingSlider.value];
+    //    [[DatabaseManager sharedInstance]createRatingForFaq:faq withValue:rating];
     
-    [[OSConnectionManager sharedManager]StartConnection:OSCGetFaqRating];
-
+    [[OSConnectionManager sharedManager]StartConnection:OSSendRating];
+    
 }
 
 @end
