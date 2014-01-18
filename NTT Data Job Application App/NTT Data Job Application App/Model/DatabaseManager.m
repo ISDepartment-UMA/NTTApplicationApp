@@ -713,6 +713,8 @@
             Faq* faq = [self createFaq];
             faq.question = [dict objectForKey:@"question"];
             faq.answer = [dict objectForKey:@"answer"];
+            faq.faqId = [NSString stringWithFormat:@"%i",[[dict objectForKey:@"number"] intValue]];
+            faq.rating =[dict objectForKey:@"average_rates"];
         }
     }
     
