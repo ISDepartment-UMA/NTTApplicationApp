@@ -16,6 +16,8 @@
 @property (nonatomic, retain) NSString * answer;
 @property (nonatomic, retain) NSString * question;
 @property (nonatomic, retain) NSSet *isRatedBy;
+@property (nonatomic, retain) NSString * faqId;
+@property (nonatomic, retain) NSString * rating;
 @end
 
 @interface Faq (CoreDataGeneratedAccessors)

@@ -15,5 +15,7 @@
 @dynamic answer;
 @dynamic question;
 @dynamic isRatedBy;
+@dynamic faqId;
+@dynamic rating;
 
 @end

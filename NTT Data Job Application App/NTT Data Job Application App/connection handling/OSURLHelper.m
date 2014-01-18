@@ -137,6 +137,10 @@ static OSURLHelper *sharedHelper = nil;
             return [sharedHelper getFaqRating];
             break;
         }
+        case OSSendRating:
+        {
+            return [sharedHelper sendRatingToApplication];
+        }
     }
     return [NSURL URLWithString:@""];
 }
@@ -241,6 +245,12 @@ static OSURLHelper *sharedHelper = nil;
 -(NSURL*)deleteSpeculativeApplication
 {
     NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/delete_spec_application"];
+    NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return url;
+}
+-(NSURL*)sendRatingToApplication
+{
+    NSString* result =[NSString stringWithFormat:@"http://54.213.109.35:8080/NTT_Job_Application_Server/rest/ratefaq"];
     NSURL* url = [NSURL URLWithString:[result stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return url;
 }

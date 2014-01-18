@@ -136,6 +136,10 @@
 
 -(IBAction)selectedRatingButton{
     
+    NSString* faqId = [NSString stringWithFormat:@"%@",faq.faqId];
+    [[OSConnectionManager sharedManager].searchObject setObject:ratingValue.text forKey:@"rate"];
+    [[OSConnectionManager sharedManager].searchObject setObject:faqId forKey:@"faq"];
+    [OSConnectionManager sharedManager].delegate = self;
     UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Rating" message:[NSString stringWithFormat:@"You rated this answer with %@", ratingValue.text] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [errorMessage show];
     
@@ -143,7 +147,7 @@
   //  NSNumber* rating = [NSNumber numberWithFloat:ratingSlider.value];
   //  [[DatabaseManager sharedInstance]createRatingForFaq:faq withValue:rating];
     
-   // [[OSConnectionManager sharedManager]StartConnection:OSCGetFaqRating];
+    [[OSConnectionManager sharedManager]StartConnection:OSCGetFaqRating];
 
 }
 
