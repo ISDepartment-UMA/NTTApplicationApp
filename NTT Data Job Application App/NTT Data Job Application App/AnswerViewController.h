@@ -20,5 +20,6 @@
 @property (nonatomic,strong)NSString* question;
 @property (strong, nonatomic)NSString* text;
 @property (strong,nonatomic)Faq* faq;
+@property (weak, nonatomic) IBOutlet UIWebView *vedioWebview;
 
 @end

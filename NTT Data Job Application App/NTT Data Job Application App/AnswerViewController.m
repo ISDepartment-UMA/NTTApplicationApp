@@ -47,7 +47,23 @@
     self.answerQuestion.text = self.question;
     self.answerQuestion.numberOfLines = 3;
     self.answerText.text = self.text;
-  
+    static NSString *youTubeVideoHTML = @"<html>\
+    <body style=\"margin:0;\">\
+    <embed class=\"youtube-player\" type=\"text/html\" width=\"%0.0f\" height=\"%0.0f\" src=\"http://www.youtube.com/embed/%@\" frameborder=\"0\">\
+    </iframe>\
+    </body>\
+    </html>";
+    
+    NSString *html = [NSString stringWithFormat:youTubeVideoHTML, self.vedioWebview.frame.size.width, self.vedioWebview.frame.size.height, @"vNNF-S_zcao"];
+    
+    [self.vedioWebview loadHTMLString:html baseURL:nil];
+    //if ()
+    //{
+        [self.vedioWebview setHidden:NO];
+    //}
+    //else
+    //{[self.vedioWebview setHidden:YES];}
+
     
 }
 
