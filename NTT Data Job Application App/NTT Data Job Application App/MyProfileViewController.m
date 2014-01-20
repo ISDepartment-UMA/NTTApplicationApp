@@ -312,6 +312,7 @@ JVFloatLabeledTextField *phoneField;
     }
     if ([segue.identifier isEqualToString:@"show3"]) {
         overviewVC.cacheAccess = YES;
+        [OSConnectionManager sharedManager].searchObject = [[NSMutableDictionary alloc]init];
         [overviewVC startSearchWithType:OSCGetSearch];
     }
 }

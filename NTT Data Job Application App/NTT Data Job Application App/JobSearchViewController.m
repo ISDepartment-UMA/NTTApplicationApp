@@ -31,6 +31,7 @@
 @property (strong, nonatomic) NSArray *experienceList; // of String
 @property (strong, nonatomic) NSArray *selected;  // of String
 @property (strong,nonatomic)NSArray *results;
+@property (strong, nonatomic)NSArray *allPositions; //cointains all Positions including obsolete
 
 @property(nonatomic,strong) UIView* loaderView;
 @property(nonatomic,strong)  UIActivityIndicatorView* loader;

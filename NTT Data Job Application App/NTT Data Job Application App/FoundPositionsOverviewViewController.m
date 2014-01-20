@@ -102,15 +102,16 @@
         for (int i = accessedPositions.count; i>0; i--) {
             [recentAtTop addObject:accessedPositions[i-1]];
         }
-        
-        //for (NSDictionary* cachedPosition in recentAtTop) {
-          //  for (NSDictionary* position in self.allPositions) {
-            //    if ([[cachedPosition valueForKey:@"ref_no"]isEqualToString:[position valueForKey:@"ref_no"]]) {
-              //      self.allPositions removeObject:p
-                //}
-           // }
-       // }
-        self.resultArray = (NSArray *) recentAtTop;
+        NSMutableArray *updatedPositionCache = [[NSMutableArray alloc] init];
+        for (NSDictionary* cachedPosition in recentAtTop) {
+            for (NSDictionary* position in self.allPositions) {
+                if ([[cachedPosition valueForKey:@"ref_no"]isEqualToString:[position valueForKey:@"ref_no"]]) {
+                    [updatedPositionCache addObject:position];
+              
+                }
+           }
+       }
+        self.resultArray = (NSArray *) updatedPositionCache;
         [self.tableView reloadData];
         
     }
@@ -126,7 +127,7 @@
         [self startSearchWithType:OSCGetSearch];
     }
     else
-    self.resultArray = [self removeObsoletePositions:array];
+        self.resultArray = [self removeObsoletePositions:array];
     [self showCachedPositons];
  
     if (!resultArray)
@@ -286,9 +287,18 @@
         
         
         NSString *subtitle = [NSString stringWithFormat:@"Job Title: %@, Location: %@\nReferenceID: %@, Status: %@", [self jobTitleForRow:indexPath.row],[self locationForRow:indexPath.row], [self refNoForRow:indexPath.row],[self statusForRow:indexPath.row] ];
+        if (self.cacheAccess) {
+            if (![[self statusForRow:indexPath.row]isEqualToString:@"active"]) {
+                cell.userInteractionEnabled = NO;
+                subtitle = @"Status: deprecated";
+            }
+        }
+        
+      
         
         cell.detailTextLabel.numberOfLines = 3;
         cell.detailTextLabel.text = subtitle;
+        
     }
     else
     {
