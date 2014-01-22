@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7LZ-Gn-sZT">
-                                <rect key="frame" x="2" y="64" width="105" height="112"/>
+                                <rect key="frame" x="2" y="63.999999999999993" width="105" height="112"/>
                                 <color key="backgroundColor" red="0.4505592913" green="0.51381930870000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <state key="normal" title="Job Title">
@@ -1006,6 +1006,16 @@
                                             <action selector="socialFB:" destination="Gyy-ut-UNb" eventType="touchUpInside" id="y7v-Vs-z08"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IwS-L1-pum">
+                                        <rect key="frame" x="250" y="6" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="xing" image="xing.jpg">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="socialFB:" destination="Gyy-ut-UNb" eventType="touchUpInside" id="6j7-gt-Axb"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ygQ-Ym-hkq">
                                         <rect key="frame" x="117" y="25" width="15" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1282,6 +1292,7 @@
     </scenes>
     <resources>
         <image name="DBLogo.png" width="72" height="68"/>
+        <image name="DBLogo.png" width="72" height="68"/>
         <image name="Facebook.png" width="128" height="128"/>
         <image name="Twitter.png" width="128" height="128"/>
         <image name="phone-book.png" width="30" height="30"/>
@@ -1289,7 +1300,16 @@
         <image name="save.png" width="297" height="300"/>
         <image name="search.png" width="30" height="30"/>
         <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_empty.png" width="256" height="264"/>
         <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="xing.jpg" width="80" height="80"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

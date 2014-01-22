@@ -66,6 +66,7 @@
 		80E16673181714EA0091BC92 /* phone-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16672181714EA0091BC92 /* phone-book.png */; };
 		80E166751817154A0091BC92 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E166741817154A0091BC92 /* question.png */; };
 		9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A187E0117FB3C710097650D /* MyApplicationsViewController.m */; };
+		9A2B801C18908FF300CFA92F /* xing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A2B801B18908FF300CFA92F /* xing.jpg */; };
 		9A44D09118284A26003CE0F0 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A44D09018284A26003CE0F0 /* save.png */; };
 		9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A514A3617FCD4460039553D /* MyProfileViewController.m */; };
 		9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */; };
@@ -199,6 +200,7 @@
 		9A187DFD17FB3BB40097650D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		9A187E0017FB3C710097650D /* MyApplicationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplicationsViewController.h; sourceTree = "<group>"; };
 		9A187E0117FB3C710097650D /* MyApplicationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplicationsViewController.m; sourceTree = "<group>"; };
+		9A2B801B18908FF300CFA92F /* xing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xing.jpg; sourceTree = "<group>"; };
 		9A44D09018284A26003CE0F0 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		9A514A3617FCD4460039553D /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 		28E44A9F17E3C5510084543B /* NTT Data Job Application App */ = {
 			isa = PBXGroup;
 			children = (
+				9A2B801B18908FF300CFA92F /* xing.jpg */,
 				28E44B2117E3C6CB0084543B /* FoundPositionDetailViewController.h */,
 				28E44B2217E3C6CB0084543B /* FoundPositionDetailViewController.m */,
 				28E44B2317E3C6CB0084543B /* FoundPositionsOverviewViewController.h */,
@@ -560,6 +563,7 @@
 				C65919D9181DD1F800366A0D /* Twitter.png in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
+				9A2B801C18908FF300CFA92F /* xing.jpg in Resources */,
 				9A44D09118284A26003CE0F0 /* save.png in Resources */,
 				C6E3F70F1828667400D07BEB /* icon spotlight ios7 40pt.png in Resources */,
 				C65919DB181DD3B300366A0D /* Facebook.png in Resources */,
