@@ -21,5 +21,7 @@
 @property (strong, nonatomic)NSString* text;
 @property (strong,nonatomic)Faq* faq;
 @property (weak, nonatomic) IBOutlet UIWebView *vedioWebview;
+@property (weak, nonatomic) IBOutlet UILabel *videoLabel;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end

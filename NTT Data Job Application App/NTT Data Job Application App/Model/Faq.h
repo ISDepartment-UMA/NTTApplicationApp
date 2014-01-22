@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSSet *isRatedBy;
 @property (nonatomic, retain) NSString * faqId;
 @property (nonatomic, retain) NSString * rating;
+@property (nonatomic, retain) NSString * videoId;
 @end
 
 @interface Faq (CoreDataGeneratedAccessors)

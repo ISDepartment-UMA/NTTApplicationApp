@@ -17,5 +17,6 @@
 @dynamic isRatedBy;
 @dynamic faqId;
 @dynamic rating;
+@dynamic videoId;
 
 @end

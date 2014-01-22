@@ -360,10 +360,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <webView contentMode="scaleToFill" id="qQf-B6-72t">
-                                <rect key="frame" x="20" y="333" width="280" height="112"/>
+                                <rect key="frame" x="20" y="353" width="280" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W9H-ZH-Fd2">
+                                <rect key="frame" x="20" y="333" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -384,7 +391,9 @@
                         <outlet property="starFull3" destination="T5r-t7-kaH" id="Zfa-bD-3yJ"/>
                         <outlet property="starFull4" destination="yiN-G0-h0N" id="etd-r9-Bws"/>
                         <outlet property="starFull5" destination="ne5-ad-ITm" id="5Iq-6M-KXV"/>
+                        <outlet property="textView" destination="COO-Od-gJ1" id="AOf-Qm-3Zd"/>
                         <outlet property="vedioWebview" destination="qQf-B6-72t" id="4is-w4-YDM"/>
+                        <outlet property="videoLabel" destination="W9H-ZH-Fd2" id="4px-Tg-BDe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psQ-oh-i1V" userLabel="First Responder" sceneMemberID="firstResponder"/>

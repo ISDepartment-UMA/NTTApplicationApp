@@ -715,6 +715,13 @@
             faq.answer = [dict objectForKey:@"answer"];
             faq.faqId = [NSString stringWithFormat:@"%i",[[dict objectForKey:@"number"] intValue]];
             faq.rating =[dict objectForKey:@"average_rates"];
+            if ([faq.rating integerValue] > 3)
+            {
+                faq.videoId = @"vNNF-S_zcao";
+            }
+            else
+                faq.videoId = @"";
+            
         }
     }
     

@@ -28,6 +28,7 @@
 @property (nonatomic,strong) NSString* question;
 @property (nonatomic,strong)Faq* faq;
 @property (nonatomic,strong)NSArray* rate;
+@property (nonatomic,strong)NSArray* videoId;
 @end
 
 @implementation FAQViewController
