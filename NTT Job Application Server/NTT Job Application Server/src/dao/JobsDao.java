@@ -1,5 +1,6 @@
 package dao;
 
+import model.Applications;
 import model.FAQ;
 import model.Jobs;
 import model.Jobtitle;
@@ -42,7 +43,51 @@ public class JobsDao {
 
 	// now we write database actions
 	
-	
+	public Boolean insertJob(Jobs job){
+
+		Boolean test=null;			 
+		String query = "insert into jobs (ref_no, position_status, position_name, exp, location1, location2, location3, location4, job_title, topic1, topic2, topic3, topic4, contact_person, phone_no, email, job_description, main_tasks, job_requirements, perspective, our_offer, url ) VALUES (";
+		query += "\"" + job.getRef_no() + "\"" + ",";
+		query += "\"" + job.getPosition_status() + "\"" + ",";
+		query += "\"" + job.getPosition_name() + "\"" + ",";
+		query += "\"" + job.getExp() + "\"" + ",";
+		query += "\"" + job.getLocation1() + "\"" + ",";
+		query += "\"" + job.getLocation2() + "\"" + ",";
+		query += "\"" + job.getLocation3() + "\"" + ",";
+		query += "\"" + job.getLocation4() + "\"" + ",";
+		query += "\"" + job.getJob_title() + "\"" + ",";
+		query += "\"" + job.getTopic1() + "\""+ ",";
+		query += "\"" + job.getTopic2() + "\""+ ",";
+		query += "\"" + job.getTopic3() + "\""+ ",";
+		query += "\"" + job.getTopic4() + "\""+ ",";
+		query += "\"" + job.getContact_person() + "\""+ ",";
+		query += "\"" + job.getPhone_no() + "\""+ ",";
+		query += "\"" + job.getEmail() + "\""+ ",";
+		query += "\"" + job.getJob_description() + "\""+ ",";
+		query += "\"" + job.getMain_tasks() + "\""+ ",";
+		query += "\"" + job.getJob_requirements() + "\""+ ",";
+		query += "\"" + job.getPerspective() + "\""+ ",";
+		query += "\"" + job.getOur_offer() + "\""+ ",";
+		query += "\"" + job.getUrl() + "\"";
+		query += ")";			
+		try{
+			Statement stmt=DbUtilHelper.getConnection().createStatement();		 
+			int after_insert_num=stmt.executeUpdate(query);				 
+			DbUtilHelper.log("insertJob success: " + query);
+
+			if(after_insert_num>=0){
+				test=true;
+			}				
+			else{
+				test=false;
+			}			
+			DbUtilHelper.log("insertJob: " + test);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("insertJob failed");
+		}
+		return test;
+	}
 	
 	public List<Jobs> jobsQueryByRefID(String ref_id) {
 		List<Jobs> jobs = null;
