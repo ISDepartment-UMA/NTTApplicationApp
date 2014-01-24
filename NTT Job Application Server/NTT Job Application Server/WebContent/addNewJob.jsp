@@ -137,7 +137,7 @@
 				<tr>				
 					<td class="col_1">Topic2<font color="blue" style="position:relative; top:2px;">*</font></td>
 					<td width="10"></td>
-					<td> <select name="topic1"   >
+					<td> <select name="topic2"   >
 										
 						<option value="application management">Application Management</option>
 						<option value="business intelligence">Business Intelligence</option>
@@ -152,7 +152,7 @@
 				<tr>				
 					<td class="col_1">Topic3<font color="blue" style="position:relative; top:2px;">*</font></td>
 					<td width="10"></td>
-					<td> <select name="topic1"   >
+					<td> <select name="topic3"   >
 										
 						<option value="application management">Application Management</option>
 						<option value="business intelligence">Business Intelligence</option>
@@ -167,7 +167,7 @@
 				<tr>				
 					<td class="col_1">Topic4<font color="blue" style="position:relative; top:2px;">*</font></td>
 					<td width="10"></td>
-					<td> <select name="topic1"   >
+					<td> <select name="topic4"   >
 										
 						<option value="application management">Application Management</option>
 						<option value="business intelligence">Business Intelligence</option>
@@ -241,7 +241,7 @@
 				<tr>
 					<td class="col_1">Device Token<font color="blue" style="position:relative; top:2px;">*</font></td>
 						<td width="10"></td>
-					<td> <input name="url" type="text"   required /> <td>
+					<td> <input name="device_token" type="text"   /> <td>
 				</tr>
 				
 							
