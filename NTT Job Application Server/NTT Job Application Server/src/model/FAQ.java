@@ -5,6 +5,7 @@ public class FAQ {
 	private String question;
 	private String answer;
 	private String average_rates;
+	private String videoId;
 	public String getAverage_rates() {
 		return average_rates;
 	}
@@ -28,6 +29,12 @@ public class FAQ {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	public String getVideoId() {
+		return videoId;
+	}
+	public void setVideoId(String videoId) {
+		this.videoId = videoId;
 	}
 	 
 	
