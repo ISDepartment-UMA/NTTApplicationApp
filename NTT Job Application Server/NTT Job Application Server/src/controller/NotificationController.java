@@ -113,7 +113,7 @@ public class NotificationController extends HttpServlet {
 		} catch (Exception e) {
 		}
 		
-		File keystore= new File("/Users/tonyyang/git/NTTApplicationApp/NTT Job Application Server/NTT Job Application Server/WebContent/JobPushService.p12");
+		File keystore= new File("/usr/share/apache-tomcat-7.0.42/webapps/NTT_Job_Application_Server/JobPushService.p12");
 		String password="jobpush";
 		Boolean production=false;
 		String[] devices=new String[10];
@@ -129,6 +129,10 @@ public class NotificationController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		response.sendRedirect("addNewJob.jsp");
+		
+		
 	}
 	
 	
