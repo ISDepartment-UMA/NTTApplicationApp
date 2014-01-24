@@ -1,0 +1,271 @@
+@charset "UTF-8";
+
+body
+{
+background-color: #FFFFFF;
+padding: 0px;
+text-wrap: none;
+}
+
+a
+{
+font: 12px Arial;
+color: #225A9D;
+}
+
+#inside
+{
+clear: left;	
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 1px;
+padding-left: 6px;
+background-color: #D9E5F2;
+font: 0.8em Arial;
+}
+
+#header1
+{
+clear: left;	
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 1px;
+
+padding: 3px 0px 3px 6px;
+background-color: #B6CFE6;
+font: bold 0.8em Arial;
+}
+#steps
+{
+clear: left;	
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 5px;
+padding:0px;
+background-color: #ffffff;
+background-repeat: no-repeat;
+min-height: 33px;
+position: relative;
+}
+
+#stepsText
+{
+top: 15%;
+/* min-width: 232px; */
+font: 17px Arial;
+/* font-weight: bold; */
+margin-left: 1%;
+}
+
+.stepsTable
+{
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+table-layout: fixed;
+min-height: 35px;
+margin-bottom: 10px;
+}
+
+.stepsTableCell
+{
+width: 25%;
+background-repeat: no-repeat;
+text-align: center;
+}
+
+.stepsTableRow
+{
+height: 33px;
+}
+
+div#beschreibung
+{
+float: left;
+width: 140px;
+padding-top: 2px;
+padding-bottom: 2px;
+}
+
+div#beschreibung2
+{
+float: left;
+width: 660px;
+padding-top: 2px;
+padding-bottom: 2px;
+}
+
+div#beschreibung3
+{
+padding-top: 2px;
+padding-bottom: 2px;
+}
+
+div#beschreibung4
+{
+float: left;
+width: 160px;
+padding-top: 6px;
+padding-bottom: 6px;
+}
+
+div#eingabe
+{
+float: left;
+width: 560px;
+}
+
+div#kopf
+{
+padding: 4px 0px 4px 0px;	
+}
+
+#spacer1
+{
+width: 400px;
+height: 10px;	
+}
+
+#spacer2
+{
+width: 100px;
+height: 6px;	
+}
+
+
+table{
+	border: 0px;
+	border-spacing: 0px;
+	border-collapse: 0px;
+}
+tr{
+	height: 30px;
+}
+.labels{
+	width: 100px;
+	font: 0.8em Arial;
+}
+.colspacer{
+margin-left:5px;
+width: 25px;
+border-right: 1px solid #ffffff;;
+}
+.colspacer2{
+margin-left:5px;
+padding-left:15px;
+width: 25px;
+border-left: 1px solid #ffffff;;
+}
+
+form
+{
+display: inline;
+margin: 0;
+padding: 0;
+}
+
+input, textarea, checkbox, select
+{
+color:  #000000;
+border: 1px solid #7F9DB9;
+font: 0.9em Arial;
+width: 200px;
+}
+
+#button1
+{
+color:  #000000;
+border: 1px solid #999999;
+font: 0.9em Arial;
+width: 200px;
+margin-left: 15px;
+}
+#button2
+{
+color:  #000000;
+border: 1px solid #999999;
+font: 0.9em Arial;
+width: 200px;
+}
+
+input#Layout, input#Anzahl
+{ margin-left: 0px; margin-right: 10px; width: 16px; border: none;}
+
+
+#visitenkarte1
+{
+background-color:#ffffff;
+width: 520px;
+height: 336px;
+padding: 20px;
+margin-right: 40px;
+border-width: 1px 2px 2px 1px;
+border-style: solid;
+border-color: gray black black gray;
+border-width: 1px 2px 2px 1px;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+font-size: 11px;
+color: #000000;
+float: left;
+}
+
+#leftbox
+{
+float: left;
+width: 167px;
+}
+
+#rightbox
+{
+float: left;	
+width: 167px;
+}
+
+h1
+{
+font: bold 1.4em Arial;
+color: darkblue;
+margin: 0px;
+padding:0px;
+}
+
+hr
+{
+border:none;
+height:1px;
+background-color:#B6CFE6;
+color:#B6CFE6;
+width: 790px;
+margin-left: 0px;
+text-align: left;
+}
+
+.auflage{
+	vertical-align:top;
+	padding-left:50px;
+	padding-top:20px;
+	text-align: left;
+}
+#priceCalc{
+	background-image: url('../images/price.png'); 
+	width: 242px;
+	height: 80px;
+	margin-bottom:40px;
+	padding-left: 10px;
+	padding-top: 7px;
+}
+.netto{
+	font-size: 16pt;
+	font-weight: bold;
+}
+#customerTable td{
+	border-right: 5px;
+	border-color: red;
+}
+
+/* label.error{
+	white-space: nowrap;
+} */

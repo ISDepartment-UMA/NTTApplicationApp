@@ -1,0 +1,141 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+select, input[type="password"], input[type="text"] {
+	padding: 1px 1px;
+	height: auto;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font: 9pt Arial;
+}
+
+input[type="file"] {
+	height: auto;
+	font: 9pt Arial;
+}
+
+body,th,td, label, input, button, select, textarea, input[type="file"] {
+	font: 9pt Arial;
+}
+
+#wrapper {
+	width: 1150px;
+	margin: 0 auto;
+}
+
+.header {
+	height: 32px;
+	padding: 5px 0;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #D7D7D7;
+}
+
+.alert-info,.form-actions,.alert-error,.content {
+	padding: 5px 15px;
+	margin: 0 0 3px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.alert .close, .info .close {
+	right: 0px;
+}
+
+.left-nav {
+	width: 198px;
+	padding: 10px 0;
+	float: left;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.right-content {
+	width: 1145px;
+	margin-left: 5px;
+	float: left;
+}
+
+.nav-list > li > a {
+    padding: 5px 15px;
+}
+
+.form-actions {
+	background-color: #8FB2DD;
+}
+
+.content {
+	padding: 15px;
+	margin-bottom: 3px;
+	background-color: #D9E5F2;
+}
+
+table {
+	max-width: 100%;
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.table {
+	margin-bottom: 0;
+}
+
+.table th,.table td {
+	padding: 4px;
+	text-align: center;
+	vertical-align: top;
+	border: 1px solid #EEE;
+	background-color: #EEE;
+}
+
+.table thead th {
+	vertical-align: bottom;
+	font-weight: bold;
+	background-color: #D5D5D5;
+}
+
+.table input {
+	width: 100%;
+}
+
+td.input {
+	padding: 2px;
+}
+
+.control-group {
+	margin-bottom: 0px;
+}
+
+.bcard {
+	padding: 100px 172px;
+	background: #777;
+}
+
+.col_1{
+	text-align: left;
+	
+}
+.chooseDesignButton{
+	text-align:center;
+	
+}

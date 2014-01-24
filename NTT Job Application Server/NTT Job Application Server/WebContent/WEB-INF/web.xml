@@ -31,6 +31,16 @@
 		<servlet-name>TestController</servlet-name>
 		<url-pattern>/Test</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>Notification</display-name>
+		<servlet-name>Notification</servlet-name>
+		<servlet-class>controller.NotificationController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Notification</servlet-name>
+		<url-pattern>/Noti</url-pattern>
+	</servlet-mapping>
 	
   <servlet>
   <servlet-name>Jersey REST Service</servlet-name>
