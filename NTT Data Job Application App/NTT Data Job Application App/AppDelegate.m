@@ -38,6 +38,17 @@
     
     //ask device whether to receive push notification
     [[UIApplication sharedApplication]registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert |UIRemoteNotificationTypeSound)];
+    
+    if (launchOptions != nil)
+    {
+        NSDictionary* dic = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        {
+            if (dic != nil){
+                NSLog(@"notification: %@",dic);
+                //handle dic
+            }
+        }
+    }
 
     return YES;
 }
@@ -71,7 +82,8 @@
         [nvc pushViewController:notificationController animated:YES];
     
 }
-    
+
+
     
 							
 - (void)applicationWillResignActive:(UIApplication *)application
