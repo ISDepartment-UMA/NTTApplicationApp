@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <DBChooser/DBChooser.h>
 #import <CoreData/CoreData.h>
+#import "FoundPositionDetailViewController.h"
 
 @implementation AppDelegate
 
@@ -60,6 +61,16 @@
     
     return NO;
 }
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"Push received:%@",userInfo);
+    UINavigationController *nc = (UINavigationController*)self.window.rootViewController;
+    FoundPositionDetailViewController *fpdvc = [[FoundPositionDetailViewController alloc]init];
+    [nc.visibleViewController.navigationController pushViewController:fpdvc animated:YES];
+}
+    
+    
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
