@@ -65,9 +65,11 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"Push received:%@",userInfo);
-    UINavigationController *nc = (UINavigationController*)self.window.rootViewController;
-    FoundPositionDetailViewController *fpdvc = [[FoundPositionDetailViewController alloc]init];
-    [nc.visibleViewController.navigationController pushViewController:fpdvc animated:YES];
+    
+        UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
+        UIViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+        [nvc pushViewController:notificationController animated:YES];
+    
 }
     
     
