@@ -154,6 +154,19 @@
 						<option value="business intelligence">Business Intelligence</option>
 						<option value="business process management">Business Process Management</option>
 						<option value="corporate functions">Corporate Functions</option>
+						<option value="customer management">Customer Management</option>
+						<option value="finance transformation">Finance Transformation</option>
+						<option value="financial services">Financial Services</option>
+						<option value="it and methods">IT and Methods</option>
+						<option value="it management">IT Management</option>
+						<option value="management consulting">Management Consulting</option>
+						<option value="manufacturing">Manufacturing</option>
+						<option value="public">Public</option>
+						<option value="sales">Sales</option>
+						<option value="sap consulting">SAP Consulting</option>
+						<option value="service and logistics">Service and Logistics</option>
+						<option value="telecommunication">Telecommunication</option>
+						<option value="utilities">Utilities</option>
 					 					
 						 
 					</select>
