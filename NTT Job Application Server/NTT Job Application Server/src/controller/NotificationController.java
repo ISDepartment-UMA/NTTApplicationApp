@@ -4,6 +4,7 @@ import model.Jobs;
 
 import org.apache.log4j.*;
 
+import dao.ApplicationsDao;
 import dao.JobsDao;
 import javapns.communication.exceptions.CommunicationException;
 import javapns.communication.exceptions.KeystoreException;
@@ -105,6 +106,16 @@ public class NotificationController extends HttpServlet {
 		
 		JobsDao jobsDao=new JobsDao();
 		jobsDao.insertJob(job);
+		ApplicationsDao appDao=new ApplicationsDao();
+		
+		Boolean isNewDevice=true;
+		String[] devices=appDao.queryNotificationDevices();
+		for(int i=0;i<=devices.length-1;i++){
+			if(devices[i].equalsIgnoreCase(device_token))
+				isNewDevice=false;			
+		}
+		if(isNewDevice=true)
+		appDao.insertNotificationDevice(device_token);
 		
 		String notification_content="New Job offers! "+job.getRef_no()+" "+job.getPosition_name();
 		
@@ -116,9 +127,7 @@ public class NotificationController extends HttpServlet {
 		File keystore= new File("/usr/share/apache-tomcat-7.0.42/webapps/NTT_Job_Application_Server/JobPushService.p12");
 		String password="jobpush";
 		Boolean production=false;
-		String[] devices=new String[10];
-		 devices[0]="ac6daefc759c9ed0629b65ffedb246fcddfe83211133d72095db8f0ed0cc430e";
-		 if(device_token!=null)devices[1]=device_token;
+		devices=appDao.queryNotificationDevices();		  
 		
 		try {
 			Push.alert(notification_content, keystore, password, production, devices);

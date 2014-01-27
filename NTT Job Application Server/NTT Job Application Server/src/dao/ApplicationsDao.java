@@ -406,7 +406,7 @@ public class ApplicationsDao {
 		return test;
 	}
 	
-	public Boolean insertNotificationDevice(FAQrates device_token){
+	public Boolean insertNotificationDevice(String device_token){
 
 		Boolean test=null;			 
 		String query = "insert into notification_device_tokens (device_token) VALUES (";
