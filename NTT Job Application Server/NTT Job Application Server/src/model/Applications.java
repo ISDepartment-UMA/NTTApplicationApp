@@ -11,6 +11,8 @@ public class Applications {
 	private String address;
 	private String phone_no;
 	private String resume_dropbox_url;
+	private String linkedin_url;
+	private String xing_url;
 	public String getResume_dropbox_url() {
 		return resume_dropbox_url;
 	}
@@ -70,6 +72,18 @@ public class Applications {
 	}
 	public void setPhone_no(String phone_no) {
 		this.phone_no = phone_no;
+	}
+	public String getLinkedin_url() {
+		return linkedin_url;
+	}
+	public void setLinkedin_url(String linkedin_url) {
+		this.linkedin_url = linkedin_url;
+	}
+	public String getXing_url() {
+		return xing_url;
+	}
+	public void setXing_url(String xing_url) {
+		this.xing_url = xing_url;
 	}
 	
 
