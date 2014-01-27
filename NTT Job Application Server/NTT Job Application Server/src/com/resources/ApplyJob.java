@@ -46,6 +46,8 @@ import dao.JobsDao;
 		 String address=null;
 		 String phone_no=null;
 		 String resume_dropbox_url=null;
+		 String linkedin_url=null;
+		 String xing_url=null;
 				 
 		 Boolean refNOIsValid=null;
 		 Boolean isSuccessfulInserted=null;
@@ -110,7 +112,17 @@ import dao.JobsDao;
  				resume_dropbox_url=jsonObject.getString("resume_dropbox_url");}
  	 			else{
  				errorMessage+=" the parameter : resume_dropbox_url is missing! ";}
+ 			
+ 			if(jsonObject.has("linkedin_url")){
+ 				linkedin_url=jsonObject.getString("linkedin_url");}
+ 	 			else{
+ 				errorMessage+=" the parameter : linkedin_url is missing! ";}
 			
+ 			if(jsonObject.has("xing_url")){
+ 				xing_url=jsonObject.getString("xing_url");}
+ 	 			else{
+ 				errorMessage+=" the parameter : xing_url is missing! ";}
+ 			
 		} catch (JSONException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -152,6 +164,8 @@ import dao.JobsDao;
  				application.setAddress(address);
  				application.setPhone_no(phone_no);
  				application.setResume_dropbox_url(resume_dropbox_url);
+ 				application.setLinkedin_url(linkedin_url);
+ 				application.setXing_url(xing_url);
  			 
  				isSuccessfulInserted=appDao.insertApplications(application);
  			  
@@ -179,23 +193,7 @@ import dao.JobsDao;
  			if(application_status==null)
 				errorMessage+=" the parameter application_status can not be null! ";
 
- 			if(email==null)
-				errorMessage+=" the parameter email can not be null! ";
-
- 			if(first_name==null)
-				errorMessage+=" the parameter first_name can not be null! ";
-
- 			if(last_name==null)
-				errorMessage+=" the parameter last_name can not be null! ";
-
- 			if(address==null)
-				errorMessage+=" the parameter address can not be null! ";
-
- 			if(phone_no==null)
-				errorMessage+=" the parameter phone_no can not be null! "; 			
- 		
- 			if(resume_dropbox_url==null)
-			errorMessage+=" the parameter phone_no can not be null! ";
+ 			 
 			}
 				 			
  		

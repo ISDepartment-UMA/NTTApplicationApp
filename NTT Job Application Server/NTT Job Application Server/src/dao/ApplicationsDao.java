@@ -108,7 +108,7 @@ public class ApplicationsDao {
 		query += "\"" + application.getPhone_no() + "\""+ ",";
 		query += "\"" + application.getResume_dropbox_url() + "\"" + ",";
 		query += "\"" + application.getLinkedin_url() + "\"" + ",";
-		query += "\"" + application.getXing_url() + "\"" + ",";
+		query += "\"" + application.getXing_url() + "\"";
 		query += ")";			
 		try{
 			Statement stmt=DbUtilHelper.getConnection().createStatement();		 
