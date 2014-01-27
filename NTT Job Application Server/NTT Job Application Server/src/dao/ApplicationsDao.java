@@ -10,6 +10,7 @@ import model.FAQrates;
 import model.Jobs;
 import model.Jobtitle;
 import model.Locations;
+import model.Notification_device_tokens;
 import model.SpeculativeApplication;
 import model.Topics;
 import model.Applications;
@@ -27,6 +28,7 @@ public class ApplicationsDao {
 	private ResultSetHandler<List<Applications>> applicationsHandler;
 	private ResultSetHandler<List<FAQrates>> faqratesHandler;
 	private ResultSetHandler<List<SpeculativeApplication>> specApplicationHandler;
+	private ResultSetHandler<List<Notification_device_tokens>> notiHandler;
 
 
 	private String query;
@@ -37,7 +39,7 @@ public class ApplicationsDao {
 		applicationsHandler = new BeanListHandler<Applications>(Applications.class);	
 		faqratesHandler = new BeanListHandler<FAQrates>(FAQrates.class);
 		specApplicationHandler =new BeanListHandler<SpeculativeApplication>(SpeculativeApplication.class);
-
+		notiHandler =new BeanListHandler<Notification_device_tokens>(Notification_device_tokens.class);
 	}
 
 	public Boolean insertFAQRates(FAQrates faqrates){
@@ -428,6 +430,36 @@ public class ApplicationsDao {
 			DbUtilHelper.log("insertNotificationDevice failed");
 		}
 		return test;
+	}
+	
+	public String[] queryNotificationDevices(){
+
+		List<Notification_device_tokens> devices=null;
+		String[] deviceList=null;
+		 
+		query = "SELECT * FROM notification_device_tokens ";
+
+		try {
+			devices = run.query(query, notiHandler);
+			DbUtilHelper.log("queryNotificationDevices success: " + query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("queryNotificationDevices failed");
+
+		}
+
+		if (devices.isEmpty()) {
+			DbUtilHelper.log("queryNotificationDevices result is empty!");
+
+		}
+		if(!devices.isEmpty()){
+			deviceList=new String[devices.size()];
+		for(int i=0;i<=devices.size()-1;i++){		
+			deviceList[i]=devices.get(i).getDevice_token();				 
+		}
+		}
+		
+		return deviceList;		
 	}
 
 }
