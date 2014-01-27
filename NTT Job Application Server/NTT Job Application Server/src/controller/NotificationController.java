@@ -27,6 +27,7 @@ public class NotificationController extends HttpServlet {
 				HttpServletResponse response) throws ServletException, IOException {
 		
 		String device_token=null;
+		String[] devices=null;
 		
 		Jobs job=new Jobs();
 		
@@ -108,14 +109,16 @@ public class NotificationController extends HttpServlet {
 		jobsDao.insertJob(job);
 		ApplicationsDao appDao=new ApplicationsDao();
 		
+		if(device_token!=null){
 		Boolean isNewDevice=true;
-		String[] devices=appDao.queryNotificationDevices();
+		devices=appDao.queryNotificationDevices();
 		for(int i=0;i<=devices.length-1;i++){
 			if(devices[i].equalsIgnoreCase(device_token))
 				isNewDevice=false;			
 		}
 		if(isNewDevice=true)
 		appDao.insertNotificationDevice(device_token);
+		}
 		
 		String notification_content="New Job offers! "+job.getRef_no()+" "+job.getPosition_name();
 		
