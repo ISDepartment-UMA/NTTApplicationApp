@@ -403,5 +403,31 @@ public class ApplicationsDao {
 		}
 		return test;
 	}
+	
+	public Boolean insertNotificationDevice(FAQrates device_token){
+
+		Boolean test=null;			 
+		String query = "insert into notification_device_tokens (device_token) VALUES (";
+		query += "\"" + device_token + "\"";		 
+		query += ")";	
+
+		try{
+			Statement stmt=DbUtilHelper.getConnection().createStatement();		 
+			int after_insert_num=stmt.executeUpdate(query);				 
+			DbUtilHelper.log("insertNotificationDevice success: " + query);
+
+			if(after_insert_num>=0){
+				test=true;
+			}				
+			else{
+				test=false;
+			}			
+			DbUtilHelper.log("insertNotificationDevice: " + test);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			DbUtilHelper.log("insertNotificationDevice failed");
+		}
+		return test;
+	}
 
 }
