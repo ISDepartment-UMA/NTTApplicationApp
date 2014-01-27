@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <DBChooser/DBChooser.h>
 #import <CoreData/CoreData.h>
+#import "FoundPositionDetailViewController.h"
 
 @implementation AppDelegate
 
@@ -37,6 +38,17 @@
     
     //ask device whether to receive push notification
     [[UIApplication sharedApplication]registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert |UIRemoteNotificationTypeSound)];
+    
+    if (launchOptions != nil)
+    {
+        NSDictionary* dic = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        {
+            if (dic != nil){
+                NSLog(@"notification: %@",dic);
+                //handle dic
+            }
+        }
+    }
 
     return YES;
 }
@@ -60,6 +72,19 @@
     
     return NO;
 }
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"Push received:%@",userInfo);
+    
+        UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
+        UIViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+        [nvc pushViewController:notificationController animated:YES];
+    
+}
+
+
+    
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

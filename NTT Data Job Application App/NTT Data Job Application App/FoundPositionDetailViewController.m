@@ -39,6 +39,8 @@
 @implementation FoundPositionDetailViewController
 @synthesize openPosition;
 
+
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [self loadData];
