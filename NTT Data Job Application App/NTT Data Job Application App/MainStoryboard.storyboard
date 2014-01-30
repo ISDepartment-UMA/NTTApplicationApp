@@ -364,7 +364,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W9H-ZH-Fd2">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NTT Data Introduction  Video" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W9H-ZH-Fd2">
                                 <rect key="frame" x="20" y="333" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1292,6 +1292,7 @@
     </scenes>
     <resources>
         <image name="DBLogo.png" width="72" height="68"/>
+        <image name="DBLogo.png" width="72" height="68"/>
         <image name="Facebook.png" width="128" height="128"/>
         <image name="Twitter.png" width="128" height="128"/>
         <image name="phone-book.png" width="30" height="30"/>
@@ -1299,6 +1300,14 @@
         <image name="save.png" width="297" height="300"/>
         <image name="search.png" width="30" height="30"/>
         <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_empty.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
+        <image name="star_full.png" width="256" height="264"/>
         <image name="star_full.png" width="256" height="264"/>
         <image name="xing.jpg" width="80" height="80"/>
     </resources>
