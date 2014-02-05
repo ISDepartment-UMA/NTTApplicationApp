@@ -49,7 +49,9 @@
             }
         }
     }
-
+    if (![[AppSettingsHelper sharedHelper] checkSettingFound]) {
+        [[AppSettingsHelper sharedHelper] setSetting:YES];
+    }
     return YES;
 }
 

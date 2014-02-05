@@ -162,6 +162,11 @@
                         <color key="backgroundColor" red="0.55889343559101223" green="0.62273820870324803" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Classical Search" id="Vzb-Vl-jh2">
+                        <barButtonItem key="leftBarButtonItem" image="9250.png" id="ikq-SJ-Wec">
+                            <connections>
+                                <action selector="help:" destination="2" id="rcr-Ya-IE2"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="dZb-Po-PUS">
                             <connections>
                                 <action selector="refreshButton:" destination="2" id="NZh-qI-JFj"/>
@@ -1289,9 +1294,78 @@
             </objects>
             <point key="canvasLocation" x="582" y="1310"/>
         </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="MfF-MP-X8H">
+            <objects>
+                <viewController storyboardIdentifier="tutorial" id="Gp0-B2-8tL" customClass="TutorialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="09d-Ey-n1o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="p8I-th-McT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="OR2-3P-lsS">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rHz-fX-6KA">
+                                <rect key="frame" x="100" y="100" width="200" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="move:" destination="Gp0-B2-8tL" eventType="touchUpInside" id="VVF-I3-iWq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qPU-0H-5vD">
+                                <rect key="frame" x="0.0" y="58" width="122" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="move:" destination="Gp0-B2-8tL" eventType="touchUpInside" id="er5-uj-3Qm"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="10" id="HJl-QP-O7N">
+                                <rect key="frame" x="89" y="499" width="136" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Har-Xp-5px">
+                                <rect key="frame" x="15" y="25" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.16072650550000001" green="0.50171076640000001" blue="0.72368270990000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="remove:" destination="Gp0-B2-8tL" eventType="touchUpInside" id="ebG-xs-2K7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="rHz-fX-6KA" id="KGb-yb-adU"/>
+                        <outlet property="mainView" destination="OR2-3P-lsS" id="HB5-Ut-dF9"/>
+                        <outlet property="pager" destination="HJl-QP-O7N" id="Lqx-7F-MhQ"/>
+                        <outlet property="scrollView" destination="p8I-th-McT" id="UQa-sd-qci"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Haw-cS-r1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661" y="357"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="DBLogo.png" width="72" height="68"/>
+        <image name="9250.png" width="30" height="30"/>
         <image name="DBLogo.png" width="72" height="68"/>
         <image name="Facebook.png" width="128" height="128"/>
         <image name="Twitter.png" width="128" height="128"/>
@@ -1300,14 +1374,6 @@
         <image name="save.png" width="297" height="300"/>
         <image name="search.png" width="30" height="30"/>
         <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_empty.png" width="256" height="264"/>
-        <image name="star_full.png" width="256" height="264"/>
-        <image name="star_full.png" width="256" height="264"/>
-        <image name="star_full.png" width="256" height="264"/>
-        <image name="star_full.png" width="256" height="264"/>
         <image name="star_full.png" width="256" height="264"/>
         <image name="xing.jpg" width="80" height="80"/>
     </resources>
@@ -1317,7 +1383,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gQM-gz-Suw"/>
+        <segue reference="mLm-ON-D5y"/>
         <segue reference="VMe-Zd-4GK"/>
     </inferredMetricsTieBreakers>
 </document>

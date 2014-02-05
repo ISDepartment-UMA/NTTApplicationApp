@@ -82,6 +82,19 @@
 		C60C02531811E0C80055951E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60C02521811E0C80055951E /* Social.framework */; };
 		C65919D9181DD1F800366A0D /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = C65919D8181DD1F800366A0D /* Twitter.png */; };
 		C65919DB181DD3B300366A0D /* Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = C65919DA181DD3B300366A0D /* Facebook.png */; };
+		C695479C18A1ABC800461ED4 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C695479B18A1ABC800461ED4 /* TutorialViewController.m */; };
+		C695479F18A1AC4200461ED4 /* AppSettingsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C695479E18A1AC4200461ED4 /* AppSettingsHelper.m */; };
+		C69547AA18A1B55500461ED4 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A018A1B55500461ED4 /* 1.png */; };
+		C69547AB18A1B55500461ED4 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A118A1B55500461ED4 /* 2.png */; };
+		C69547AC18A1B55500461ED4 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A218A1B55500461ED4 /* 3.png */; };
+		C69547AD18A1B55500461ED4 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A318A1B55500461ED4 /* 4.png */; };
+		C69547AE18A1B55500461ED4 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A418A1B55500461ED4 /* 5.png */; };
+		C69547AF18A1B55500461ED4 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A518A1B55500461ED4 /* 6.png */; };
+		C69547B018A1B55500461ED4 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A618A1B55500461ED4 /* 7.png */; };
+		C69547B118A1B55500461ED4 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A718A1B55500461ED4 /* 8.png */; };
+		C69547B218A1B55500461ED4 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A818A1B55500461ED4 /* 9.png */; };
+		C69547B318A1B55500461ED4 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547A918A1B55500461ED4 /* 10.png */; };
+		C69547B518A1B5C300461ED4 /* 9250.png in Resources */ = {isa = PBXBuildFile; fileRef = C69547B418A1B5C300461ED4 /* 9250.png */; };
 		C6DC690E182715EF0086B32A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6DC690D182715EF0086B32A /* Images.xcassets */; };
 		C6E3F70E1828667400D07BEB /* icon ios 5,6 57pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */; };
 		C6E3F70F1828667400D07BEB /* icon spotlight ios7 40pt.png in Resources */ = {isa = PBXBuildFile; fileRef = C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */; };
@@ -221,6 +234,21 @@
 		C60C02521811E0C80055951E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C65919D8181DD1F800366A0D /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
 		C65919DA181DD3B300366A0D /* Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook.png; sourceTree = "<group>"; };
+		C695479A18A1ABC800461ED4 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		C695479B18A1ABC800461ED4 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		C695479D18A1AC4200461ED4 /* AppSettingsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingsHelper.h; sourceTree = "<group>"; };
+		C695479E18A1AC4200461ED4 /* AppSettingsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettingsHelper.m; sourceTree = "<group>"; };
+		C69547A018A1B55500461ED4 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		C69547A118A1B55500461ED4 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		C69547A218A1B55500461ED4 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		C69547A318A1B55500461ED4 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		C69547A418A1B55500461ED4 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		C69547A518A1B55500461ED4 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		C69547A618A1B55500461ED4 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		C69547A718A1B55500461ED4 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		C69547A818A1B55500461ED4 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		C69547A918A1B55500461ED4 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		C69547B418A1B5C300461ED4 /* 9250.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9250.png; sourceTree = "<group>"; };
 		C6DC690D182715EF0086B32A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon ios 5,6 57pt.png"; sourceTree = "<group>"; };
 		C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon spotlight ios7 40pt.png"; sourceTree = "<group>"; };
@@ -357,6 +385,10 @@
 				9A911EC917FCDE4B004DFBD0 /* FAQViewController.m */,
 				9A911ECB17FCDE72004DFBD0 /* AnswerViewController.h */,
 				9A911ECC17FCDE72004DFBD0 /* AnswerViewController.m */,
+				C695479A18A1ABC800461ED4 /* TutorialViewController.h */,
+				C695479B18A1ABC800461ED4 /* TutorialViewController.m */,
+				C695479D18A1AC4200461ED4 /* AppSettingsHelper.h */,
+				C695479E18A1AC4200461ED4 /* AppSettingsHelper.m */,
 				9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */,
 				9A86A23017F23A41009F8DA3 /* FreeTextSearchViewController.m */,
 				80172A6D17EC949600538821 /* ApplicationViewController.h */,
@@ -376,6 +408,17 @@
 		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C69547A018A1B55500461ED4 /* 1.png */,
+				C69547A118A1B55500461ED4 /* 2.png */,
+				C69547A218A1B55500461ED4 /* 3.png */,
+				C69547A318A1B55500461ED4 /* 4.png */,
+				C69547A418A1B55500461ED4 /* 5.png */,
+				C69547A518A1B55500461ED4 /* 6.png */,
+				C69547A618A1B55500461ED4 /* 7.png */,
+				C69547A718A1B55500461ED4 /* 8.png */,
+				C69547A818A1B55500461ED4 /* 9.png */,
+				C69547A918A1B55500461ED4 /* 10.png */,
+				C69547B418A1B5C300461ED4 /* 9250.png */,
 				9A8E480D1838260300344C40 /* star_empty.png */,
 				9A8E480A1838214600344C40 /* star_full.png */,
 				9AA47B571831833400044D11 /* images.png */,
@@ -550,25 +593,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C69547B218A1B55500461ED4 /* 9.png in Resources */,
+				C69547AE18A1B55500461ED4 /* 5.png in Resources */,
+				C69547AB18A1B55500461ED4 /* 2.png in Resources */,
 				9AD746F518128F350020C2E4 /* facebook-twitter.png in Resources */,
+				C69547B318A1B55500461ED4 /* 10.png in Resources */,
 				C6DC690E182715EF0086B32A /* Images.xcassets in Resources */,
 				329703BB181151770095799F /* DBLogo.png in Resources */,
 				C6E3F70E1828667400D07BEB /* icon ios 5,6 57pt.png in Resources */,
+				C69547AA18A1B55500461ED4 /* 1.png in Resources */,
 				80E16673181714EA0091BC92 /* phone-book.png in Resources */,
 				C6E3F7111828667400D07BEB /* icon soptlightios5,6 29pt.png in Resources */,
+				C69547AD18A1B55500461ED4 /* 4.png in Resources */,
+				C69547B518A1B5C300461ED4 /* 9250.png in Resources */,
 				28E44AA417E3C5510084543B /* InfoPlist.strings in Resources */,
 				80E16671181712D40091BC92 /* search.png in Resources */,
 				80E166751817154A0091BC92 /* question.png in Resources */,
 				9A8E480E1838260300344C40 /* star_empty.png in Resources */,
+				C69547AC18A1B55500461ED4 /* 3.png in Resources */,
 				C65919D9181DD1F800366A0D /* Twitter.png in Resources */,
+				C69547B118A1B55500461ED4 /* 8.png in Resources */,
 				28E44AAC17E3C5510084543B /* Default.png in Resources */,
 				28E44AAE17E3C5510084543B /* Default@2x.png in Resources */,
 				9A2B801C18908FF300CFA92F /* xing.jpg in Resources */,
 				9A44D09118284A26003CE0F0 /* save.png in Resources */,
 				C6E3F70F1828667400D07BEB /* icon spotlight ios7 40pt.png in Resources */,
 				C65919DB181DD3B300366A0D /* Facebook.png in Resources */,
+				C69547B018A1B55500461ED4 /* 7.png in Resources */,
 				C6E3F7131828667400D07BEB /* icon ios5,6 57pt.png in Resources */,
 				C6E3F7101828667400D07BEB /* icon settings ios5-7 29pt.png in Resources */,
+				C69547AF18A1B55500461ED4 /* 6.png in Resources */,
 				9A8E480C1838214600344C40 /* star_full.png in Resources */,
 				28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */,
 				9AA47B581831833400044D11 /* images.png in Resources */,
@@ -615,10 +669,12 @@
 				28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */,
 				28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */,
 				283B7D4617FB50C3005F40C7 /* Topic.m in Sources */,
+				C695479C18A1ABC800461ED4 /* TutorialViewController.m in Sources */,
 				281724921806B3E700F2D250 /* Rating.m in Sources */,
 				28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */,
 				283B7D5517FB50C3005F40C7 /* MyProfile.m in Sources */,
 				9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */,
+				C695479F18A1AC4200461ED4 /* AppSettingsHelper.m in Sources */,
 				9A911ECD17FCDE72004DFBD0 /* AnswerViewController.m in Sources */,
 				28BDF24A180357C500132948 /* SBJsonStreamParserAdapter.m in Sources */,
 				28BDF250180357C500132948 /* SBJsonWriter.m in Sources */,

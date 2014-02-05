@@ -49,7 +49,7 @@
 @implementation JobSearchViewController
 @synthesize loaderView;
 @synthesize loader;
-
+@synthesize viewController;
 -(void)initLoader
 {
     float width = 100;
@@ -76,7 +76,7 @@
     [loaderView addSubview:loader];
     [self.view addSubview:loaderView];
     [loaderView setHidden:YES];
-
+    
 }
 - (void)viewDidLoad
 {
@@ -94,14 +94,14 @@
         [button.layer insertSublayer:btnGradient atIndex:0];
     }
     
-   
+    
     
     [self loadAllData];
     [self selectTitle:self.jobTitle];
     
     self.searchSelection.dataSource = self;
     self.searchSelection.delegate = self;
-        [self initLoader];
+    [self initLoader];
     [self loadAllData];
     self.searchCountLabel.text = @"";
     
@@ -130,19 +130,23 @@
     self.proposeJobButton.enabled = YES;
     self.searchCountLabel.text = @"";
     
-    self.searchButton.alpha = 1;    
-
-    self.selected = nil;   
+    self.searchButton.alpha = 1;
+    
+    self.selected = nil;
     [self initLoader];
     [self loadAllData];
     [self selectTitle:self.jobTitle];
-    [self.searchSelection reloadData];   
+    [self.searchSelection reloadData];
     
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [OSConnectionManager sharedManager].delegate = self;
+    if ([[AppSettingsHelper sharedHelper] getSetting])
+    {
+        [self help:nil];
+    }
     [super viewDidAppear:animated];
 }
 
@@ -210,7 +214,7 @@
     {
         self.searchCountLabel.text = @"";
         self.results = [self removeObsoletePositions:array];
-
+        
         if ([_results count] == 0) {
             self.searchCountLabel.text = @"No Jobs";
             if (self.searchButton.enabled != NO)
@@ -218,7 +222,7 @@
                 self.searchButton.enabled = NO;
                 self.searchButton.alpha = 0.3;
             }
-
+            
         }
         else if ([self.results count] > 1)
         {
@@ -252,7 +256,7 @@
                     self.searchButton.alpha = 1.0;
                 }
             }
-                
+            
         }
         
     }
@@ -309,7 +313,7 @@
     if (!sender.selected)
         self.selected = nil;
     [self.searchSelection reloadData];
-
+    
 }
 
 - (IBAction)selectTopic:(UIButton *) sender {
@@ -320,7 +324,7 @@
     self.experience.selected = NO;
     if (!sender.selected)
         self.selected = nil;
-    [self.searchSelection reloadData];    
+    [self.searchSelection reloadData];
 }
 
 - (IBAction)selectLocation:(UIButton *)sender {
@@ -381,7 +385,7 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryNone; 
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType=UITableViewCellAccessoryNone;
 }
 
 
@@ -429,5 +433,13 @@
 - (IBAction)sarchButtonPressed:(UIButton *)sender
 {
     [self performSegueWithIdentifier:@"showOpenPositionsOverview" sender:self];
+}
+
+-(IBAction)help:(id)sender
+{
+    
+    viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"tutorial"];
+    [self addChildViewController:viewController];
+    [self.view addSubview:viewController.view];
 }
 @end
