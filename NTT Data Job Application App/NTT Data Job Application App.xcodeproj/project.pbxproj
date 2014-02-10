@@ -363,7 +363,6 @@
 		28E44A9F17E3C5510084543B /* NTT Data Job Application App */ = {
 			isa = PBXGroup;
 			children = (
-				9A2B801B18908FF300CFA92F /* xing.jpg */,
 				28E44B2117E3C6CB0084543B /* FoundPositionDetailViewController.h */,
 				28E44B2217E3C6CB0084543B /* FoundPositionDetailViewController.m */,
 				28E44B2317E3C6CB0084543B /* FoundPositionsOverviewViewController.h */,
@@ -445,6 +444,7 @@
 				80E16670181712D40091BC92 /* search.png */,
 				28E44AAD17E3C5510084543B /* Default@2x.png */,
 				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
+				9A2B801B18908FF300CFA92F /* xing.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
