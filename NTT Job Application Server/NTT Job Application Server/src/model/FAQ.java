@@ -6,6 +6,8 @@ public class FAQ {
 	private String answer;
 	private String average_rates;
 	private String videoId;
+	private String video_header;
+	
 	public String getAverage_rates() {
 		return average_rates;
 	}
@@ -35,6 +37,12 @@ public class FAQ {
 	}
 	public void setVideoId(String videoId) {
 		this.videoId = videoId;
+	}
+	public String getVideo_header() {
+		return video_header;
+	}
+	public void setVideo_header(String video_header) {
+		this.video_header = video_header;
 	}
 	 
 	
