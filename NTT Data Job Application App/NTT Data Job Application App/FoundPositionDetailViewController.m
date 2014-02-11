@@ -241,6 +241,14 @@
     [alertView show];
 }
 
+- (IBAction)applyViaxing:(id)sender
+{
+  //  NSString *const xingConsumerKey = @"146f887d0de6e23bf376";
+  //  NSString *const xingConsumerSecret = @"e8c54aa82c1579d654b891acef9f1987acd0db95";
+    
+    
+}
+
 - (IBAction)socialFB:(id)sender
 {
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){

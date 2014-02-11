@@ -1018,7 +1018,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="socialFB:" destination="Gyy-ut-UNb" eventType="touchUpInside" id="6j7-gt-Axb"/>
+                                            <action selector="applyViaxing:" destination="Gyy-ut-UNb" eventType="touchUpInside" id="AFb-3z-vw5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ygQ-Ym-hkq">
