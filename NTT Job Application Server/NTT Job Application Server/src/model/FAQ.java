@@ -8,12 +8,6 @@ public class FAQ {
 	private String videoId;
 	private String video_header;
 	
-	public String getAverage_rates() {
-		return average_rates;
-	}
-	public void setAverage_rates(String average_rates) {
-		this.average_rates = average_rates;
-	}
 	public String getNumber() {
 		return number;
 	}
@@ -31,6 +25,12 @@ public class FAQ {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	public String getAverage_rates() {
+		return average_rates;
+	}
+	public void setAverage_rates(String average_rates) {
+		this.average_rates = average_rates;
 	}
 	public String getVideoId() {
 		return videoId;
