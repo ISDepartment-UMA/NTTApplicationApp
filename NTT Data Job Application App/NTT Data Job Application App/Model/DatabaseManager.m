@@ -715,9 +715,9 @@
             faq.answer = [dict objectForKey:@"answer"];
             faq.faqId = [NSString stringWithFormat:@"%i",[[dict objectForKey:@"number"] intValue]];
             faq.rating =[dict objectForKey:@"average_rates"];
-            if ([faq.rating integerValue] > 3)
+            if ([dict objectForKey:@"videoId"] != nil && [[dict objectForKey:@"videoId"] class]!= [NSNull class])
             {
-                faq.videoId = @"vNNF-S_zcao";
+                faq.videoId =[dict objectForKey:@"videoId"];
             }
             else
                 faq.videoId = @"";

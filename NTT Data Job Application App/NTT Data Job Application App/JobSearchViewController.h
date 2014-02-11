@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "OSConnectionManager.h"
-
+#import "TutorialViewController.h"
 @interface JobSearchViewController : UIViewController<OSConnectionCompletionDelegate>
-
+{
+    TutorialViewController *viewController;
+}
+@property(nonatomic,strong)         TutorialViewController *viewController;
 @end
