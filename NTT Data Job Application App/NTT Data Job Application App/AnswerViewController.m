@@ -10,7 +10,7 @@
 #import "DatabaseManager.h"
 #import "OSConnectionManager.h"
 
-@interface AnswerViewController()
+@interface AnswerViewController() <OSConnectionCompletionDelegate>
 @property (strong, nonatomic) IBOutlet UITextView *answerText;
 @property (weak, nonatomic) IBOutlet UILabel *answerQuestion;
 @property (strong,nonatomic)NSArray* faqArray;
@@ -153,6 +153,10 @@
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array{
     NSLog(@"%@",array);
+}
+
+-(void)connectionFailed:(OSConnectionType)connectionType
+{
 }
 
 -(IBAction)selectedRatingButton{
