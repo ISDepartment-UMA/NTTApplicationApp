@@ -14,6 +14,7 @@
 #import <DBChooser/DBChooser.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "JVFloatLabeledTextField.h"
+#import "XNGAPIClient.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 
@@ -185,8 +186,15 @@ JVFloatLabeledTextField *phoneField;
 
 - (IBAction)applyViaXing:(id)sender
 {
-    //  NSString *const xingConsumerKey = @"146f887d0de6e23bf376";
-    //  NSString *const xingConsumerSecret = @"e8c54aa82c1579d654b891acef9f1987acd0db95";
+    [[XNGAPIClient sharedClient]setConsumerKey:@"146f887d0de6e23bf376"];
+    [[XNGAPIClient sharedClient]setConsumerSecret:@"e8c54aa82c1579d654b891acef9f1987acd0db95"];
+    
+    //if not logged in log in and then go on
+    if (![[XNGAPIClient sharedClient] isLoggedin]) {
+        
+    }
+    
+    
 }
 
 - (void)viewDidLoad
