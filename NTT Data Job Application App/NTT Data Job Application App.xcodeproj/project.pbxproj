@@ -468,6 +468,7 @@
 				80E16670181712D40091BC92 /* search.png */,
 				28E44AAD17E3C5510084543B /* Default@2x.png */,
 				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
+				9A2B801B18908FF300CFA92F /* xing.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
