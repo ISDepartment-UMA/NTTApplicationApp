@@ -21,6 +21,9 @@
 		283B7D6017FDD36B005F40C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5F17FDD36B005F40C7 /* Helper.m */; };
 		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
 		28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */; };
+		28BB7A3518AB8444002BC54B /* XNGLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BB7A3418AB8444002BC54B /* XNGLoginWebViewController.m */; };
+		28BB7A3A18AB84DE002BC54B /* XNGAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BB7A3718AB84DE002BC54B /* XNGAPIClient.m */; };
+		28BB7A3B18AB84DE002BC54B /* XNGAPIClient+UserProfiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BB7A3918AB84DE002BC54B /* XNGAPIClient+UserProfiles.m */; };
 		28BDF247180357C500132948 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF234180357C500132948 /* SBJsonParser.m */; };
 		28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF236180357C500132948 /* SBJsonStreamParser.m */; };
 		28BDF249180357C500132948 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF238180357C500132948 /* SBJsonStreamParserAccumulator.m */; };
@@ -140,6 +143,12 @@
 		283B7D5F17FDD36B005F40C7 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "NTT Data Job Application App/Model/Helper.m"; sourceTree = SOURCE_ROOT; };
 		284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = NTTDataJobAppDatabase.xcdatamodel; path = "NTT Data Job Application App/Model/NTTDataJobAppDatabase.xcdatamodel"; sourceTree = SOURCE_ROOT; };
 		28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerTest.m; sourceTree = "<group>"; };
+		28BB7A3318AB8444002BC54B /* XNGLoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNGLoginWebViewController.h; sourceTree = "<group>"; };
+		28BB7A3418AB8444002BC54B /* XNGLoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNGLoginWebViewController.m; sourceTree = "<group>"; };
+		28BB7A3618AB84DE002BC54B /* XNGAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNGAPIClient.h; sourceTree = "<group>"; };
+		28BB7A3718AB84DE002BC54B /* XNGAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNGAPIClient.m; sourceTree = "<group>"; };
+		28BB7A3818AB84DE002BC54B /* XNGAPIClient+UserProfiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XNGAPIClient+UserProfiles.h"; sourceTree = "<group>"; };
+		28BB7A3918AB84DE002BC54B /* XNGAPIClient+UserProfiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XNGAPIClient+UserProfiles.m"; sourceTree = "<group>"; };
 		28BDF232180357C500132948 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
 		28BDF233180357C500132948 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
 		28BDF234180357C500132948 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
@@ -324,6 +333,20 @@
 			path = ../Model;
 			sourceTree = "<group>";
 		};
+		28BB7A3218AB8421002BC54B /* Xing */ = {
+			isa = PBXGroup;
+			children = (
+				28BB7A3318AB8444002BC54B /* XNGLoginWebViewController.h */,
+				28BB7A3418AB8444002BC54B /* XNGLoginWebViewController.m */,
+				28BB7A3618AB84DE002BC54B /* XNGAPIClient.h */,
+				28BB7A3718AB84DE002BC54B /* XNGAPIClient.m */,
+				28BB7A3818AB84DE002BC54B /* XNGAPIClient+UserProfiles.h */,
+				28BB7A3918AB84DE002BC54B /* XNGAPIClient+UserProfiles.m */,
+				9A2B801B18908FF300CFA92F /* xing.jpg */,
+			);
+			name = Xing;
+			sourceTree = "<group>";
+		};
 		28E44A8D17E3C5510084543B = {
 			isa = PBXGroup;
 			children = (
@@ -363,7 +386,7 @@
 		28E44A9F17E3C5510084543B /* NTT Data Job Application App */ = {
 			isa = PBXGroup;
 			children = (
-				9A2B801B18908FF300CFA92F /* xing.jpg */,
+				28BB7A3218AB8421002BC54B /* Xing */,
 				28E44B2117E3C6CB0084543B /* FoundPositionDetailViewController.h */,
 				28E44B2217E3C6CB0084543B /* FoundPositionDetailViewController.m */,
 				28E44B2317E3C6CB0084543B /* FoundPositionsOverviewViewController.h */,
@@ -683,6 +706,7 @@
 				329456FC1832CDBB0043D153 /* Filter.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,
 				28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */,
+				28BB7A3518AB8444002BC54B /* XNGLoginWebViewController.m in Sources */,
 				9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */,
 				284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */,
 				28BDF24E180357C500132948 /* SBJsonStreamWriterAccumulator.m in Sources */,
@@ -694,6 +718,7 @@
 				28E44B2A17E3C6CB0084543B /* FoundPositionsOverviewViewController.m in Sources */,
 				28E44B2B17E3C6CB0084543B /* JobProposalViewController.m in Sources */,
 				283B7D4F17FB50C3005F40C7 /* JobTitle.m in Sources */,
+				28BB7A3B18AB84DE002BC54B /* XNGAPIClient+UserProfiles.m in Sources */,
 				2821DA0C1844E67A004F24F9 /* Application.m in Sources */,
 				28E44B2C17E3C6CB0084543B /* JobSearchViewController.m in Sources */,
 				9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */,
@@ -706,6 +731,7 @@
 				9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */,
 				28BDF24D180357C500132948 /* SBJsonStreamWriter.m in Sources */,
 				80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */,
+				28BB7A3A18AB84DE002BC54B /* XNGAPIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

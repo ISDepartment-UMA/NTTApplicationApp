@@ -183,6 +183,12 @@ JVFloatLabeledTextField *phoneField;
 {
 }
 
+- (IBAction)applyViaXing:(id)sender
+{
+    //  NSString *const xingConsumerKey = @"146f887d0de6e23bf376";
+    //  NSString *const xingConsumerSecret = @"e8c54aa82c1579d654b891acef9f1987acd0db95";
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
