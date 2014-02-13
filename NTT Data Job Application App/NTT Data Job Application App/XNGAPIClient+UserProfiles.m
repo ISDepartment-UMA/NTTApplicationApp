@@ -60,6 +60,21 @@
               failure:failure];
 }
 
+- (void)getMyProfileWithUserFields:(NSString *)userFields
+                           success:(void (^)(id))success
+                           failure:(void (^)(NSError *))failure
+{
+    NSDictionary *parameters = nil;
+    if ([userFields length]) {
+        parameters = @{ @"fields" : userFields };
+    }
+    NSString* path = @"/v1/users/me";
+    [self getJSONPath:path
+           parameters:parameters
+              success:success
+              failure:failure];
+}
+
 - (void)cancelAllSearchByEmailHTTPOperations {
     NSArray *pathsToBeCanceled = @[ [self HTTPOperationPathForSearchForUsersByEmail] ];
     [self cancelAllHTTPOperationsWithMethod:@"GET" paths:pathsToBeCanceled];

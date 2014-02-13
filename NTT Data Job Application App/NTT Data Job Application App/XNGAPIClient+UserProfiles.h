@@ -49,4 +49,10 @@
  */
 - (void)cancelAllSearchByEmailHTTPOperations;
 
+/**
+Get my own profile 
+ */
+- (void)getMyProfileWithUserFields:(NSString *)userFields
+              success:(void (^)(id))success
+              failure:(void (^)(NSError *))failure;
 @end

@@ -15,6 +15,8 @@
 #import <DropboxSDK/DropboxSDK.h>
 #import "JVFloatLabeledTextField.h"
 #import "XNGAPIClient.h"
+#import "XNGLoginWebViewController.h"
+#import "XNGAPIClient+UserProfiles.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 
@@ -23,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorDisplay;
+@property (nonatomic, strong) XNGLoginWebViewController *loginWebViewController;
 @end
 
 const static CGFloat kJVFieldHeight = 30.0f;
@@ -191,9 +194,44 @@ JVFloatLabeledTextField *phoneField;
     
     //if not logged in log in and then go on
     if (![[XNGAPIClient sharedClient] isLoggedin]) {
+        __weak __typeof(&*self)weakSelf = self;
         
+        [[XNGAPIClient sharedClient] loginOAuthAuthorize:^(NSURL *authURL) {
+            self.loginWebViewController = [[XNGLoginWebViewController alloc] initWithAuthURL:authURL];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.loginWebViewController];
+            [self presentViewController:navigationController animated:YES completion:NULL];
+        } loggedIn:^{
+            if (![weakSelf.presentedViewController isBeingDismissed]) {
+                [weakSelf.loginWebViewController dismiss];
+            }
+        } failuire:^(NSError *error) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                message:error.localizedDescription
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+            if (![weakSelf.presentedViewController isBeingDismissed]) {
+                [weakSelf.loginWebViewController dismiss];
+            }
+        }];
     }
     
+    if ([[XNGAPIClient sharedClient] isLoggedin]) {
+        [[XNGAPIClient sharedClient] getMyProfileWithUserFields:@"" success:^(id JSON)
+        {
+            if (![JSON isKindOfClass:[NSDictionary class]]) {
+                return ;
+            }
+            
+            NSString* profileLink = [JSON valueForKey:@"permalink"];
+            NSLog(@"Profile Link: %@", profileLink);
+        }
+        failure:^(NSError* error)
+        {
+            NSLog(@"Error:\n %@",error);
+        }];
+    }
     
 }
 
