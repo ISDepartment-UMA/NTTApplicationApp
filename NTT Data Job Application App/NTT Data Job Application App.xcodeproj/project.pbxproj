@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		281724921806B3E700F2D250 /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = 281724911806B3E700F2D250 /* Rating.m */; };
 		281724951806B3E800F2D250 /* Faq.m in Sources */ = {isa = PBXBuildFile; fileRef = 281724941806B3E800F2D250 /* Faq.m */; };
-		2821DA0C1844E67A004F24F9 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 2821DA0B1844E67A004F24F9 /* Application.m */; };
 		283B7D4317FB50C2005F40C7 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D4217FB50C2005F40C7 /* Location.m */; };
 		283B7D4617FB50C3005F40C7 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D4517FB50C3005F40C7 /* Topic.m */; };
 		283B7D4917FB50C3005F40C7 /* Experience.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D4817FB50C3005F40C7 /* Experience.m */; };
@@ -79,6 +78,7 @@
 		28E676D5181C574B0048ADF4 /* SelectedFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */; };
 		28E676D7181C58040048ADF4 /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E676D6181C58040048ADF4 /* DBChooser.framework */; };
 		28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EAC95017F2F0140089467C /* DatabaseManager.m */; };
+		28FE35AC18B2D425006264C6 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FE35AB18B2D425006264C6 /* Application.m */; };
 		3291990618111B65000FBAE3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3291990518111B65000FBAE3 /* Security.framework */; };
 		329456FC1832CDBB0043D153 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 329456FB1832CDBB0043D153 /* Filter.m */; };
 		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
@@ -141,8 +141,6 @@
 		281724911806B3E700F2D250 /* Rating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Rating.m; path = "NTT Data Job Application App/Model/Rating.m"; sourceTree = SOURCE_ROOT; };
 		281724931806B3E800F2D250 /* Faq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Faq.h; path = "NTT Data Job Application App/Model/Faq.h"; sourceTree = SOURCE_ROOT; };
 		281724941806B3E800F2D250 /* Faq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Faq.m; path = "NTT Data Job Application App/Model/Faq.m"; sourceTree = SOURCE_ROOT; };
-		2821DA0A1844E67A004F24F9 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = "NTT Data Job Application App/Model/Application.h"; sourceTree = SOURCE_ROOT; };
-		2821DA0B1844E67A004F24F9 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = "NTT Data Job Application App/Model/Application.m"; sourceTree = SOURCE_ROOT; };
 		283B7D4117FB50C2005F40C7 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = "NTT Data Job Application App/Model/Location.h"; sourceTree = SOURCE_ROOT; };
 		283B7D4217FB50C2005F40C7 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = "NTT Data Job Application App/Model/Location.m"; sourceTree = SOURCE_ROOT; };
 		283B7D4417FB50C3005F40C7 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = "NTT Data Job Application App/Model/Topic.h"; sourceTree = SOURCE_ROOT; };
@@ -264,6 +262,8 @@
 		28E676D6181C58040048ADF4 /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBChooser.framework; path = "NTT Data Job Application App/DBChooser.framework"; sourceTree = "<group>"; };
 		28EAC94F17F2F0140089467C /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseManager.h; path = "NTT Data Job Application App/Model/DatabaseManager.h"; sourceTree = SOURCE_ROOT; };
 		28EAC95017F2F0140089467C /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseManager.m; path = "NTT Data Job Application App/Model/DatabaseManager.m"; sourceTree = SOURCE_ROOT; };
+		28FE35AA18B2D425006264C6 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = "NTT Data Job Application App/Model/Application.h"; sourceTree = SOURCE_ROOT; };
+		28FE35AB18B2D425006264C6 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Application.m; path = "NTT Data Job Application App/Model/Application.m"; sourceTree = SOURCE_ROOT; };
 		3291990518111B65000FBAE3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		329456FA1832CDBB0043D153 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = "NTT Data Job Application App/Filter.h"; sourceTree = SOURCE_ROOT; };
 		329456FB1832CDBB0043D153 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filter.m; path = "NTT Data Job Application App/Filter.m"; sourceTree = SOURCE_ROOT; };
@@ -363,9 +363,9 @@
 				28EAC95017F2F0140089467C /* DatabaseManager.m */,
 				329456FA1832CDBB0043D153 /* Filter.h */,
 				329456FB1832CDBB0043D153 /* Filter.m */,
-				2821DA0A1844E67A004F24F9 /* Application.h */,
-				2821DA0B1844E67A004F24F9 /* Application.m */,
 				284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */,
+				28FE35AA18B2D425006264C6 /* Application.h */,
+				28FE35AB18B2D425006264C6 /* Application.m */,
 				281724931806B3E800F2D250 /* Faq.h */,
 				281724941806B3E800F2D250 /* Faq.m */,
 				281724901806B3E700F2D250 /* Rating.h */,
@@ -817,6 +817,7 @@
 				28BDF249180357C500132948 /* SBJsonStreamParserAccumulator.m in Sources */,
 				28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */,
 				329456FC1832CDBB0043D153 /* Filter.m in Sources */,
+				28FE35AC18B2D425006264C6 /* Application.m in Sources */,
 				28BB7A4418AC34AF002BC54B /* AFOAuth1Client.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,
 				28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */,
@@ -837,7 +838,6 @@
 				283B7D4F17FB50C3005F40C7 /* JobTitle.m in Sources */,
 				28BB7A7018AC361D002BC54B /* NSString+URLEncoding.m in Sources */,
 				28BB7A3B18AB84DE002BC54B /* XNGAPIClient+UserProfiles.m in Sources */,
-				2821DA0C1844E67A004F24F9 /* Application.m in Sources */,
 				28E44B2C17E3C6CB0084543B /* JobSearchViewController.m in Sources */,
 				9A187E0217FB3C710097650D /* MyApplicationsViewController.m in Sources */,
 				28E676D5181C574B0048ADF4 /* SelectedFilesViewController.m in Sources */,

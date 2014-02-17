@@ -147,6 +147,7 @@ JVFloatLabeledTextField *phoneField;
             application.phoneNo = phoneField.text;
             application.status = @"to_be_processed"; //to_be_processed,withdrawn
             application.statusConfirmed = [NSNumber numberWithBool:NO];
+            application.socialLink = nil;
             
             DBChooserResult* dbcr = (DBChooserResult*)[self.selectedFiles lastObject];
             application.sharedLink = [dbcr.link description];
@@ -189,50 +190,43 @@ JVFloatLabeledTextField *phoneField;
 
 - (IBAction)applyViaXing:(id)sender
 {
-    [[XNGAPIClient sharedClient]setConsumerKey:@"146f887d0de6e23bf376"];
-    [[XNGAPIClient sharedClient]setConsumerSecret:@"e8c54aa82c1579d654b891acef9f1987acd0db95"];
+    XNGAPIClient* client = [XNGAPIClient sharedClient];
+    [client setConsumerKey:@"146f887d0de6e23bf376"];
+    [client setConsumerSecret:@"e8c54aa82c1579d654b891acef9f1987acd0db95"];
     
-    //if not logged in log in and then go on
-    if (![[XNGAPIClient sharedClient] isLoggedin]) {
-        __weak __typeof(&*self)weakSelf = self;
-        
-        [[XNGAPIClient sharedClient] loginOAuthAuthorize:^(NSURL *authURL) {
-            self.loginWebViewController = [[XNGLoginWebViewController alloc] initWithAuthURL:authURL];
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.loginWebViewController];
-            [self presentViewController:navigationController animated:YES completion:NULL];
-        } loggedIn:^{
-            if (![weakSelf.presentedViewController isBeingDismissed]) {
-                [weakSelf.loginWebViewController dismiss];
-            }
-        } failuire:^(NSError *error) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                message:error.localizedDescription
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-            if (![weakSelf.presentedViewController isBeingDismissed]) {
-                [weakSelf.loginWebViewController dismiss];
-            }
+    __block NSString* profileLink = nil;
+    
+    if ([client isLoggedin]) {
+        profileLink = [self getPermalinkFromXingWithClient:client];
+    }else
+    {
+        [client loginOAuthWithSuccess:^{
+            profileLink = [self getPermalinkFromXingWithClient:client];
+        }failure:^(NSError *error) {
         }];
     }
     
-    if ([[XNGAPIClient sharedClient] isLoggedin]) {
-        [[XNGAPIClient sharedClient] getMyProfileWithUserFields:@"" success:^(id JSON)
+    //create and send application
+    
+}
+
+- (NSString*)getPermalinkFromXingWithClient: (XNGAPIClient*)client
+{
+    __block NSString* permalink = nil;
+    
+    [client getMyProfileWithUserFields:@"permalink" success:^(id JSON){
+        if ([JSON isKindOfClass:[NSDictionary class]])
         {
-            if (![JSON isKindOfClass:[NSDictionary class]]) {
-                return ;
-            }
+            NSArray* dict = [JSON objectForKey:@"users"];
             
-            NSString* profileLink = [JSON valueForKey:@"permalink"];
-            NSLog(@"Profile Link: %@", profileLink);
+            NSDictionary* values = [dict firstObject];
+            permalink = [values objectForKey:@"permalink"];
         }
-        failure:^(NSError* error)
-        {
-            NSLog(@"Error:\n %@",error);
-        }];
-    }
+    } failure:^(NSError *error) {
+        
+    }];
     
+    return permalink;
 }
 
 - (void)viewDidLoad

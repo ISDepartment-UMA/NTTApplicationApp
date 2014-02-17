@@ -2,8 +2,8 @@
 //  Application.h
 //  NTT Data Job Application App
 //
-//  Created by Matthias  on 26.11.13.
-//  Copyright (c) 2013 University of Mannheim - NTT Data Team Project. All rights reserved.
+//  Created by Matthias  on 18.02.14.
+//  Copyright (c) 2014 University of Mannheim - NTT Data Team Project. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -25,5 +25,6 @@
 @property (nonatomic, retain) NSString * status;
 @property (nonatomic, retain) NSNumber * statusConfirmed;
 @property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain) NSString * socialLink;
 
 @end

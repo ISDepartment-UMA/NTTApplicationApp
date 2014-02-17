@@ -10,10 +10,9 @@
 #import <DBChooser/DBChooser.h>
 #import <CoreData/CoreData.h>
 #import "FoundPositionDetailViewController.h"
+#import "XNGAPIClient.h"
 
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     if ([[DBSession sharedSession] handleOpenURL:url]) {
         if ([[DBSession sharedSession] isLinked]) {
@@ -22,12 +21,29 @@
         }
         return YES;
     }
+    
+    if ([[XNGAPIClient sharedClient] handleOpenURL:url])
+        return YES;
+    
     // Add whatever other url handling code your app requires here
     return NO;
 }
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
+  sourceApplication:(NSString *)source annotation:(id)annotation
+{
+    if ([[DBChooser defaultChooser] handleOpenURL:url]) {
+        return YES;
+    }
+    if ([[XNGAPIClient sharedClient] handleOpenURL:url])
+        return YES;
+    
+    return NO;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    sleep(1.5);
+    sleep(1.5);    
     DBSession* dbSession =
     [[DBSession alloc]
       initWithAppKey:@"8pptn1m3kun48pp"
@@ -64,16 +80,6 @@
 {
     NSLog(@"Failed to get token, error: %@",error);
 }
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url
-  sourceApplication:(NSString *)source annotation:(id)annotation
-{
-    
-    if ([[DBChooser defaultChooser] handleOpenURL:url]) {
-        return YES;
-    }
-    
-    return NO;
-}
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
@@ -86,8 +92,6 @@
 }
 
 
-    
-							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
