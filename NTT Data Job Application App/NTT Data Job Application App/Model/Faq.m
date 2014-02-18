@@ -18,5 +18,6 @@
 @dynamic faqId;
 @dynamic rating;
 @dynamic videoId;
+@dynamic video_header;
 
 @end

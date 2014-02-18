@@ -721,6 +721,12 @@
             }
             else
                 faq.videoId = @"";
+            if ([dict objectForKey:@"video_header"] != nil && [[dict objectForKey:@"video_header"] class]!= [NSNull class])
+            {
+                faq.video_header =[dict objectForKey:@"video_header"];
+            }
+            else
+                faq.video_header = @"";
             
         }
     }
