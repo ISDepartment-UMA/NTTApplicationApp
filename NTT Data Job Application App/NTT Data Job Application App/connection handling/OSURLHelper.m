@@ -141,6 +141,16 @@ static OSURLHelper *sharedHelper = nil;
         {
             return [sharedHelper sendRatingToApplication];
         }
+        case OSCSendXingApplication:
+        {
+            return [sharedHelper sendApplication];
+            break;
+        }
+        case OSCSendLinkedInApplication:
+        {
+            return [sharedHelper sendApplication];
+            break;
+        }
     }
     return [NSURL URLWithString:@""];
 }

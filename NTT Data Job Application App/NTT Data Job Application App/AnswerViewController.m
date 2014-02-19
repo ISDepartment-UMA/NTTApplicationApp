@@ -10,7 +10,7 @@
 #import "DatabaseManager.h"
 #import "OSConnectionManager.h"
 
-@interface AnswerViewController() <OSConnectionCompletionDelegate>
+@interface AnswerViewController()<OSConnectionCompletionDelegate>
 @property (strong, nonatomic) IBOutlet UITextView *answerText;
 @property (weak, nonatomic) IBOutlet UILabel *answerQuestion;
 @property (strong,nonatomic)NSArray* faqArray;

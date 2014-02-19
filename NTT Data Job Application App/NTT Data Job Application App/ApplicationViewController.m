@@ -187,6 +187,11 @@ JVFloatLabeledTextField *phoneField;
     
     if (profileLink)
         applicationCanBeSent = YES;
+    else
+    {
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not get the link to your Xing profile. Please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
+    }
     
     //create and send application
     if (applicationCanBeSent)
@@ -214,8 +219,7 @@ JVFloatLabeledTextField *phoneField;
             
             [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
             
-            //TODO: send Xing application
-            //[[OSConnectionManager sharedManager]StartConnection:OSCSendApplication];
+            [[OSConnectionManager sharedManager]StartConnection:OSCSendXingApplication];
         }else
         {
             UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
