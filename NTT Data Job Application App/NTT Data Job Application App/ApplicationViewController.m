@@ -15,17 +15,14 @@
 #import <DropboxSDK/DropboxSDK.h>
 #import "JVFloatLabeledTextField.h"
 #import "XNGAPIClient.h"
-#import "XNGLoginWebViewController.h"
 #import "XNGAPIClient+UserProfiles.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
-
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dropBoxButton;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorDisplay;
-@property (nonatomic, strong) XNGLoginWebViewController *loginWebViewController;
 @end
 
 const static CGFloat kJVFieldHeight = 30.0f;
@@ -88,7 +85,6 @@ JVFloatLabeledTextField *phoneField;
     [phoneField resignFirstResponder];
     [self resumeView];
 }
-
 
 - (IBAction)sendApplication:(UIButton *)sender
 {
@@ -165,31 +161,12 @@ JVFloatLabeledTextField *phoneField;
         
     }
 }
-- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
-{
-    if (connectionType == OSCSendApplication)
-    {
-        NSLog(@"%@", array);
-        
-        NSDictionary* dict = (NSDictionary*)array;
-        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo: [dict objectForKey:@"job_ref_no"]];
-        if ([application.deviceID isEqualToString:[dict objectForKey:@"device_id"]] && [dict objectForKey:@"applyingJob_successful"])
-        {
-            application.statusConfirmed = [NSNumber numberWithBool:YES];
-            [[DatabaseManager sharedInstance]saveContext];
-            
-            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Application has been successfully sent to NTT Data" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [errorMessage show];
-        }
-    }
-}
 
-- (void)connectionFailed:(OSConnectionType)connectionType
-{
-}
 
 - (IBAction)applyViaXing:(id)sender
 {
+    BOOL applicationCanBeSent = NO;
+    
     XNGAPIClient* client = [XNGAPIClient sharedClient];
     [client setConsumerKey:@"146f887d0de6e23bf376"];
     [client setConsumerSecret:@"e8c54aa82c1579d654b891acef9f1987acd0db95"];
@@ -198,15 +175,54 @@ JVFloatLabeledTextField *phoneField;
     
     if ([client isLoggedin]) {
         profileLink = [self getPermalinkFromXingWithClient:client];
-    }else
+    }
+    else
     {
         [client loginOAuthWithSuccess:^{
             profileLink = [self getPermalinkFromXingWithClient:client];
         }failure:^(NSError *error) {
+            
         }];
     }
     
+    if (profileLink)
+        applicationCanBeSent = YES;
+    
     //create and send application
+    if (applicationCanBeSent)
+    {
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
+        if (!application)
+        {
+            OpenPosition* openPosition1 = [[DatabaseManager sharedInstance]createOpenPosition];
+            openPosition1.ref_no = [openPosition objectForKey:@"ref_no"];
+            openPosition1.position_name =[openPosition objectForKey:@"position_name"];
+            [[DatabaseManager sharedInstance] saveContext];
+            
+            application = [[DatabaseManager sharedInstance]createApplication];
+            application.ref_No =[openPosition objectForKey:@"ref_no"];
+            application.firstName = firstNameField.text;
+            application.lastName = lastNameField.text;
+            application.address = addressField.text;
+            application.email = emailField.text;
+            application.phoneNo = phoneField.text;
+            application.status = @"to_be_processed"; //to_be_processed,withdrawn
+            application.statusConfirmed = [NSNumber numberWithBool:NO];
+            application.sharedLink = nil;
+            application.socialLink = profileLink;
+                        [[DatabaseManager sharedInstance]saveContext];
+            
+            [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
+            
+            //TODO: send Xing application
+            //[[OSConnectionManager sharedManager]StartConnection:OSCSendApplication];
+        }else
+        {
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+        }
+        [self updateProfile];
+    }
     
 }
 
@@ -326,6 +342,31 @@ JVFloatLabeledTextField *phoneField;
     [super viewWillDisappear:animated];
 }
 
+#pragma mark - Connection Handling
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
+{
+    if (connectionType == OSCSendApplication)
+    {
+        NSLog(@"%@", array);
+        
+        NSDictionary* dict = (NSDictionary*)array;
+        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo: [dict objectForKey:@"job_ref_no"]];
+        if ([application.deviceID isEqualToString:[dict objectForKey:@"device_id"]] && [dict objectForKey:@"applyingJob_successful"])
+        {
+            application.statusConfirmed = [NSNumber numberWithBool:YES];
+            [[DatabaseManager sharedInstance]saveContext];
+            
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Application has been successfully sent to NTT Data" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+        }
+    }
+}
+
+- (void)connectionFailed:(OSConnectionType)connectionType
+{
+}
+
+#pragma mark - Profile handling
 - (void) setupProfile
 {
     MyProfile* profile = [[DatabaseManager sharedInstance]getMyProfile];
