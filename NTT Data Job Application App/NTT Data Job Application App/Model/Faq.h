@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString * faqId;
 @property (nonatomic, retain) NSString * rating;
 @property (nonatomic, retain) NSString * videoId;
+@property (nonatomic, retain) NSString * video_header;
 @end
 
 @interface Faq (CoreDataGeneratedAccessors)

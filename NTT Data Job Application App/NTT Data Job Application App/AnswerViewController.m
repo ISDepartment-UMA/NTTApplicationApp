@@ -45,6 +45,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.answerQuestion.text = self.question;
+    self.videoLabel.text=faq.video_header;
     self.answerQuestion.numberOfLines = 3;
     self.answerText.text = self.text;
     if ([faq.videoId length]>0)

@@ -26,6 +26,7 @@
         <attribute name="faqId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="video_header" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="videoId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="isRatedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rating" inverseName="rates" inverseEntity="Rating" syncable="YES"/>
     </entity>
