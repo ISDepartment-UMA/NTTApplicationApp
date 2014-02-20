@@ -1011,16 +1011,6 @@
                                             <action selector="socialFB:" destination="Gyy-ut-UNb" eventType="touchUpInside" id="y7v-Vs-z08"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IwS-L1-pum">
-                                        <rect key="frame" x="250" y="6" width="25" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="xing" image="xing.jpg">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="socialFB:" destination="Gyy-ut-UNb" eventType="touchUpInside" id="6j7-gt-Axb"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ygQ-Ym-hkq">
                                         <rect key="frame" x="117" y="25" width="15" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1171,6 +1161,17 @@
                                 </state>
                                 <connections>
                                     <action selector="applyViaXing:" destination="le8-wz-XJp" eventType="touchUpInside" id="WTD-PA-PUx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b8f-Ga-sgO">
+                                <rect key="frame" x="123" y="480" width="47" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="linkedin.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyViaLinkedIn:" destination="le8-wz-XJp" eventType="touchUpInside" id="h63-Xw-vze"/>
+                                    <action selector="applyViaXing:" destination="le8-wz-XJp" eventType="touchUpInside" id="HWh-hN-TaO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1379,6 +1380,7 @@
         <image name="DBLogo.png" width="72" height="68"/>
         <image name="Facebook.png" width="128" height="128"/>
         <image name="Twitter.png" width="128" height="128"/>
+        <image name="linkedin.png" width="2188" height="2188"/>
         <image name="phone-book.png" width="30" height="30"/>
         <image name="question.png" width="30" height="30"/>
         <image name="save.png" width="297" height="300"/>

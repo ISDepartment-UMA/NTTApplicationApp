@@ -164,89 +164,82 @@ JVFloatLabeledTextField *phoneField;
 
 
 - (IBAction)applyViaXing:(id)sender
-{
-    BOOL applicationCanBeSent = NO;
-    
+{    
     XNGAPIClient* client = [XNGAPIClient sharedClient];
-    [client setConsumerKey:@"146f887d0de6e23bf376"];
-    [client setConsumerSecret:@"e8c54aa82c1579d654b891acef9f1987acd0db95"];
+    client.consumerKey =  @"146f887d0de6e23bf376";
+    client.consumerSecret = @"e8c54aa82c1579d654b891acef9f1987acd0db95";
     
-    __block NSString* profileLink = nil;
-    
-    if ([client isLoggedin]) {
-        profileLink = [self getPermalinkFromXingWithClient:client];
-    }
-    else
-    {
+    if (![client isLoggedin]) {
         [client loginOAuthWithSuccess:^{
-            profileLink = [self getPermalinkFromXingWithClient:client];
+            [client getMyProfileWithUserFields:@"permalink" success:^(id JSON){
+                BOOL applicationCanBeSent = NO;
+                NSString* profileLink = nil;
+
+                if ([JSON isKindOfClass:[NSDictionary class]])
+                {
+                    NSArray* dict = [JSON objectForKey:@"users"];
+                    
+                    NSDictionary* values = [dict firstObject];
+                    profileLink = [values objectForKey:@"permalink"];
+                }
+                
+                
+                if (profileLink)
+                    applicationCanBeSent = YES;
+                else
+                {
+                    UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not get the link to your Xing profile. Please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [errorMessage show];
+                }
+                
+                //create and send application
+                if (applicationCanBeSent)
+                {
+                    Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
+                    if (!application)
+                    {
+                        OpenPosition* openPosition1 = [[DatabaseManager sharedInstance]createOpenPosition];
+                        openPosition1.ref_no = [openPosition objectForKey:@"ref_no"];
+                        openPosition1.position_name =[openPosition objectForKey:@"position_name"];
+                        [[DatabaseManager sharedInstance] saveContext];
+                        
+                        application = [[DatabaseManager sharedInstance]createApplication];
+                        application.ref_No =[openPosition objectForKey:@"ref_no"];
+                        application.firstName = firstNameField.text;
+                        application.lastName = lastNameField.text;
+                        application.address = addressField.text;
+                        application.email = emailField.text;
+                        application.phoneNo = phoneField.text;
+                        application.status = @"to_be_processed"; //to_be_processed,withdrawn
+                        application.statusConfirmed = [NSNumber numberWithBool:NO];
+                        application.sharedLink = nil;
+                        application.socialLink = profileLink;
+                        [[DatabaseManager sharedInstance]saveContext];
+                        
+                        [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
+                        
+                        [[OSConnectionManager sharedManager]StartConnection:OSCSendXingApplication];
+                    }else
+                    {
+                        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                        [errorMessage show];
+                    }
+                    [self updateProfile];
+                }
+                [client logout];
+            } failure:^(NSError *error) {
+                
+            }];
         }failure:^(NSError *error) {
             
         }];
     }
-    
-    if (profileLink)
-        applicationCanBeSent = YES;
-    else
-    {
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not get the link to your Xing profile. Please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [errorMessage show];
-    }
-    
-    //create and send application
-    if (applicationCanBeSent)
-    {
-        Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
-        if (!application)
-        {
-            OpenPosition* openPosition1 = [[DatabaseManager sharedInstance]createOpenPosition];
-            openPosition1.ref_no = [openPosition objectForKey:@"ref_no"];
-            openPosition1.position_name =[openPosition objectForKey:@"position_name"];
-            [[DatabaseManager sharedInstance] saveContext];
-            
-            application = [[DatabaseManager sharedInstance]createApplication];
-            application.ref_No =[openPosition objectForKey:@"ref_no"];
-            application.firstName = firstNameField.text;
-            application.lastName = lastNameField.text;
-            application.address = addressField.text;
-            application.email = emailField.text;
-            application.phoneNo = phoneField.text;
-            application.status = @"to_be_processed"; //to_be_processed,withdrawn
-            application.statusConfirmed = [NSNumber numberWithBool:NO];
-            application.sharedLink = nil;
-            application.socialLink = profileLink;
-                        [[DatabaseManager sharedInstance]saveContext];
-            
-            [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
-            
-            [[OSConnectionManager sharedManager]StartConnection:OSCSendXingApplication];
-        }else
-        {
-            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [errorMessage show];
-        }
-        [self updateProfile];
-    }
-    
 }
 
-- (NSString*)getPermalinkFromXingWithClient: (XNGAPIClient*)client
+- (IBAction)applyViaLinkedIn:(id)sender
 {
-    __block NSString* permalink = nil;
+
     
-    [client getMyProfileWithUserFields:@"permalink" success:^(id JSON){
-        if ([JSON isKindOfClass:[NSDictionary class]])
-        {
-            NSArray* dict = [JSON objectForKey:@"users"];
-            
-            NSDictionary* values = [dict firstObject];
-            permalink = [values objectForKey:@"permalink"];
-        }
-    } failure:^(NSError *error) {
-        
-    }];
-    
-    return permalink;
 }
 
 - (void)viewDidLoad
@@ -349,7 +342,7 @@ JVFloatLabeledTextField *phoneField;
 #pragma mark - Connection Handling
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    if (connectionType == OSCSendApplication)
+    if (connectionType == OSCSendApplication || connectionType == OSCSendXingApplication  || connectionType == OSCSendLinkedInApplication)
     {
         NSLog(@"%@", array);
         

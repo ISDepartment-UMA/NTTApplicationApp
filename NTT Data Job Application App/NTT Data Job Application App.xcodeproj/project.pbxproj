@@ -19,22 +19,8 @@
 		283B7D5D17FC1AD5005F40C7 /* ValidaterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5C17FC1AD5005F40C7 /* ValidaterTest.m */; };
 		283B7D6017FDD36B005F40C7 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B7D5F17FDD36B005F40C7 /* Helper.m */; };
 		284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */; };
-		288E4EAE18B4E58600E2CB3E /* LinkedinOAuth2.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EA918B4E58600E2CB3E /* LinkedinOAuth2.m */; };
-		288E4EAF18B4E58600E2CB3E /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EAB18B4E58600E2CB3E /* XMLParser.m */; };
-		288E4EB018B4E58600E2CB3E /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EAD18B4E58600E2CB3E /* Profile.m */; };
-		288E4EB718B4E66000E2CB3E /* NSData+NXOAuth2.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EB218B4E66000E2CB3E /* NSData+NXOAuth2.m */; };
-		288E4EB818B4E66000E2CB3E /* NSString+NXOAuth2.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EB418B4E66000E2CB3E /* NSString+NXOAuth2.m */; };
-		288E4EB918B4E66000E2CB3E /* NSURL+NXOAuth2.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EB618B4E66000E2CB3E /* NSURL+NXOAuth2.m */; };
-		288E4EC418B4E67100E2CB3E /* NXOAuth2Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EBD18B4E67100E2CB3E /* NXOAuth2Constants.m */; };
-		288E4EC518B4E67100E2CB3E /* NXOAuth2AccountStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EBF18B4E67100E2CB3E /* NXOAuth2AccountStore.m */; };
-		288E4EC618B4E67100E2CB3E /* NXOAuth2Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EC118B4E67100E2CB3E /* NXOAuth2Account.m */; };
-		288E4EC718B4E67100E2CB3E /* NXOAuth2Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EC318B4E67100E2CB3E /* NXOAuth2Request.m */; };
-		288E4ECD18B4E67E00E2CB3E /* NXOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4ECA18B4E67E00E2CB3E /* NXOAuth2Client.m */; };
-		288E4ECE18B4E67E00E2CB3E /* NXOAuth2AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4ECC18B4E67E00E2CB3E /* NXOAuth2AccessToken.m */; };
-		288E4ED918B4E68B00E2CB3E /* NXOAuth2Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4ED218B4E68B00E2CB3E /* NXOAuth2Connection.m */; };
-		288E4EDA18B4E68B00E2CB3E /* NXOAuth2PostBodyStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4ED418B4E68B00E2CB3E /* NXOAuth2PostBodyStream.m */; };
-		288E4EDB18B4E68B00E2CB3E /* NXOAuth2PostBodyPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4ED618B4E68B00E2CB3E /* NXOAuth2PostBodyPart.m */; };
-		288E4EDC18B4E68B00E2CB3E /* NXOAuth2FileStreamWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4ED818B4E68B00E2CB3E /* NXOAuth2FileStreamWrapper.m */; };
+		288E4EDE18B51CE600E2CB3E /* linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 288E4EDD18B51CE600E2CB3E /* linkedin.png */; };
+		288E4EE118B5787A00E2CB3E /* XNGLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288E4EE018B5787A00E2CB3E /* XNGLoginWebViewController.m */; };
 		28904F7C17EFBB1F00C2B733 /* CoreDataManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */; };
 		28BB7A3A18AB84DE002BC54B /* XNGAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BB7A3718AB84DE002BC54B /* XNGAPIClient.m */; };
 		28BB7A3B18AB84DE002BC54B /* XNGAPIClient+UserProfiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BB7A3918AB84DE002BC54B /* XNGAPIClient+UserProfiles.m */; };
@@ -173,43 +159,9 @@
 		283B7D5E17FDD36B005F40C7 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Helper.h; path = "NTT Data Job Application App/Model/Helper.h"; sourceTree = SOURCE_ROOT; };
 		283B7D5F17FDD36B005F40C7 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "NTT Data Job Application App/Model/Helper.m"; sourceTree = SOURCE_ROOT; };
 		284FAF9017F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = NTTDataJobAppDatabase.xcdatamodel; path = "NTT Data Job Application App/Model/NTTDataJobAppDatabase.xcdatamodel"; sourceTree = SOURCE_ROOT; };
-		288E4EA818B4E58600E2CB3E /* LinkedinOAuth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedinOAuth2.h; sourceTree = "<group>"; };
-		288E4EA918B4E58600E2CB3E /* LinkedinOAuth2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedinOAuth2.m; sourceTree = "<group>"; };
-		288E4EAA18B4E58600E2CB3E /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
-		288E4EAB18B4E58600E2CB3E /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
-		288E4EAC18B4E58600E2CB3E /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
-		288E4EAD18B4E58600E2CB3E /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
-		288E4EB118B4E66000E2CB3E /* NSData+NXOAuth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+NXOAuth2.h"; sourceTree = "<group>"; };
-		288E4EB218B4E66000E2CB3E /* NSData+NXOAuth2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+NXOAuth2.m"; sourceTree = "<group>"; };
-		288E4EB318B4E66000E2CB3E /* NSString+NXOAuth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NXOAuth2.h"; sourceTree = "<group>"; };
-		288E4EB418B4E66000E2CB3E /* NSString+NXOAuth2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NXOAuth2.m"; sourceTree = "<group>"; };
-		288E4EB518B4E66000E2CB3E /* NSURL+NXOAuth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+NXOAuth2.h"; sourceTree = "<group>"; };
-		288E4EB618B4E66000E2CB3E /* NSURL+NXOAuth2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+NXOAuth2.m"; sourceTree = "<group>"; };
-		288E4EBA18B4E67100E2CB3E /* NXOAuth2Account+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NXOAuth2Account+Private.h"; sourceTree = "<group>"; };
-		288E4EBB18B4E67100E2CB3E /* NXOAuth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2.h; sourceTree = "<group>"; };
-		288E4EBC18B4E67100E2CB3E /* NXOAuth2Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2Constants.h; sourceTree = "<group>"; };
-		288E4EBD18B4E67100E2CB3E /* NXOAuth2Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2Constants.m; sourceTree = "<group>"; };
-		288E4EBE18B4E67100E2CB3E /* NXOAuth2AccountStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2AccountStore.h; sourceTree = "<group>"; };
-		288E4EBF18B4E67100E2CB3E /* NXOAuth2AccountStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2AccountStore.m; sourceTree = "<group>"; };
-		288E4EC018B4E67100E2CB3E /* NXOAuth2Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2Account.h; sourceTree = "<group>"; };
-		288E4EC118B4E67100E2CB3E /* NXOAuth2Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2Account.m; sourceTree = "<group>"; };
-		288E4EC218B4E67100E2CB3E /* NXOAuth2Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2Request.h; sourceTree = "<group>"; };
-		288E4EC318B4E67100E2CB3E /* NXOAuth2Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2Request.m; sourceTree = "<group>"; };
-		288E4EC818B4E67E00E2CB3E /* NXOAuth2ClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2ClientDelegate.h; sourceTree = "<group>"; };
-		288E4EC918B4E67E00E2CB3E /* NXOAuth2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2Client.h; sourceTree = "<group>"; };
-		288E4ECA18B4E67E00E2CB3E /* NXOAuth2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2Client.m; sourceTree = "<group>"; };
-		288E4ECB18B4E67E00E2CB3E /* NXOAuth2AccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2AccessToken.h; sourceTree = "<group>"; };
-		288E4ECC18B4E67E00E2CB3E /* NXOAuth2AccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2AccessToken.m; sourceTree = "<group>"; };
-		288E4ECF18B4E68B00E2CB3E /* NXOAuth2TrustDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2TrustDelegate.h; sourceTree = "<group>"; };
-		288E4ED018B4E68B00E2CB3E /* NXOAuth2ConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2ConnectionDelegate.h; sourceTree = "<group>"; };
-		288E4ED118B4E68B00E2CB3E /* NXOAuth2Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2Connection.h; sourceTree = "<group>"; };
-		288E4ED218B4E68B00E2CB3E /* NXOAuth2Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2Connection.m; sourceTree = "<group>"; };
-		288E4ED318B4E68B00E2CB3E /* NXOAuth2PostBodyStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2PostBodyStream.h; sourceTree = "<group>"; };
-		288E4ED418B4E68B00E2CB3E /* NXOAuth2PostBodyStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2PostBodyStream.m; sourceTree = "<group>"; };
-		288E4ED518B4E68B00E2CB3E /* NXOAuth2PostBodyPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2PostBodyPart.h; sourceTree = "<group>"; };
-		288E4ED618B4E68B00E2CB3E /* NXOAuth2PostBodyPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2PostBodyPart.m; sourceTree = "<group>"; };
-		288E4ED718B4E68B00E2CB3E /* NXOAuth2FileStreamWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXOAuth2FileStreamWrapper.h; sourceTree = "<group>"; };
-		288E4ED818B4E68B00E2CB3E /* NXOAuth2FileStreamWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXOAuth2FileStreamWrapper.m; sourceTree = "<group>"; };
+		288E4EDD18B51CE600E2CB3E /* linkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkedin.png; sourceTree = "<group>"; };
+		288E4EDF18B5787A00E2CB3E /* XNGLoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNGLoginWebViewController.h; sourceTree = "<group>"; };
+		288E4EE018B5787A00E2CB3E /* XNGLoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNGLoginWebViewController.m; sourceTree = "<group>"; };
 		28904F7B17EFBB1F00C2B733 /* CoreDataManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManagerTest.m; sourceTree = "<group>"; };
 		28BB7A3618AB84DE002BC54B /* XNGAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNGAPIClient.h; sourceTree = "<group>"; };
 		28BB7A3718AB84DE002BC54B /* XNGAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNGAPIClient.m; sourceTree = "<group>"; };
@@ -443,43 +395,7 @@
 		288E4EA518B4B51700E2CB3E /* LinkedIn */ = {
 			isa = PBXGroup;
 			children = (
-				288E4ECF18B4E68B00E2CB3E /* NXOAuth2TrustDelegate.h */,
-				288E4ED018B4E68B00E2CB3E /* NXOAuth2ConnectionDelegate.h */,
-				288E4ED118B4E68B00E2CB3E /* NXOAuth2Connection.h */,
-				288E4ED218B4E68B00E2CB3E /* NXOAuth2Connection.m */,
-				288E4ED318B4E68B00E2CB3E /* NXOAuth2PostBodyStream.h */,
-				288E4ED418B4E68B00E2CB3E /* NXOAuth2PostBodyStream.m */,
-				288E4ED518B4E68B00E2CB3E /* NXOAuth2PostBodyPart.h */,
-				288E4ED618B4E68B00E2CB3E /* NXOAuth2PostBodyPart.m */,
-				288E4ED718B4E68B00E2CB3E /* NXOAuth2FileStreamWrapper.h */,
-				288E4ED818B4E68B00E2CB3E /* NXOAuth2FileStreamWrapper.m */,
-				288E4EC818B4E67E00E2CB3E /* NXOAuth2ClientDelegate.h */,
-				288E4EC918B4E67E00E2CB3E /* NXOAuth2Client.h */,
-				288E4ECA18B4E67E00E2CB3E /* NXOAuth2Client.m */,
-				288E4ECB18B4E67E00E2CB3E /* NXOAuth2AccessToken.h */,
-				288E4ECC18B4E67E00E2CB3E /* NXOAuth2AccessToken.m */,
-				288E4EBA18B4E67100E2CB3E /* NXOAuth2Account+Private.h */,
-				288E4EBB18B4E67100E2CB3E /* NXOAuth2.h */,
-				288E4EBC18B4E67100E2CB3E /* NXOAuth2Constants.h */,
-				288E4EBD18B4E67100E2CB3E /* NXOAuth2Constants.m */,
-				288E4EBE18B4E67100E2CB3E /* NXOAuth2AccountStore.h */,
-				288E4EBF18B4E67100E2CB3E /* NXOAuth2AccountStore.m */,
-				288E4EC018B4E67100E2CB3E /* NXOAuth2Account.h */,
-				288E4EC118B4E67100E2CB3E /* NXOAuth2Account.m */,
-				288E4EC218B4E67100E2CB3E /* NXOAuth2Request.h */,
-				288E4EC318B4E67100E2CB3E /* NXOAuth2Request.m */,
-				288E4EB118B4E66000E2CB3E /* NSData+NXOAuth2.h */,
-				288E4EB218B4E66000E2CB3E /* NSData+NXOAuth2.m */,
-				288E4EB318B4E66000E2CB3E /* NSString+NXOAuth2.h */,
-				288E4EB418B4E66000E2CB3E /* NSString+NXOAuth2.m */,
-				288E4EB518B4E66000E2CB3E /* NSURL+NXOAuth2.h */,
-				288E4EB618B4E66000E2CB3E /* NSURL+NXOAuth2.m */,
-				288E4EA818B4E58600E2CB3E /* LinkedinOAuth2.h */,
-				288E4EA918B4E58600E2CB3E /* LinkedinOAuth2.m */,
-				288E4EAA18B4E58600E2CB3E /* XMLParser.h */,
-				288E4EAB18B4E58600E2CB3E /* XMLParser.m */,
-				288E4EAC18B4E58600E2CB3E /* Profile.h */,
-				288E4EAD18B4E58600E2CB3E /* Profile.m */,
+				288E4EDD18B51CE600E2CB3E /* linkedin.png */,
 			);
 			name = LinkedIn;
 			sourceTree = "<group>";
@@ -499,6 +415,8 @@
 		28BB7A7418AC3637002BC54B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				288E4EDF18B5787A00E2CB3E /* XNGLoginWebViewController.h */,
+				288E4EE018B5787A00E2CB3E /* XNGLoginWebViewController.m */,
 				28BB7A6D18AC361D002BC54B /* NSError+XWS.h */,
 				28BB7A6E18AC361D002BC54B /* NSError+XWS.m */,
 				28BB7A4518AC34C7002BC54B /* AFHTTPClient.h */,
@@ -828,6 +746,7 @@
 				80E16671181712D40091BC92 /* search.png in Resources */,
 				80E166751817154A0091BC92 /* question.png in Resources */,
 				9A8E480E1838260300344C40 /* star_empty.png in Resources */,
+				288E4EDE18B51CE600E2CB3E /* linkedin.png in Resources */,
 				C69547AC18A1B55500461ED4 /* 3.png in Resources */,
 				C65919D9181DD1F800366A0D /* Twitter.png in Resources */,
 				C69547B118A1B55500461ED4 /* 8.png in Resources */,
@@ -883,11 +802,9 @@
 				28BB7A5918AC34C7002BC54B /* AFHTTPRequestOperation.m in Sources */,
 				9A95DA2718356DED008AC7AD /* JVFloatLabeledTextField.m in Sources */,
 				28E44AA617E3C5510084543B /* main.m in Sources */,
-				288E4EAF18B4E58600E2CB3E /* XMLParser.m in Sources */,
 				28BDF24C180357C500132948 /* SBJsonStreamTokeniser.m in Sources */,
 				28BB7A5E18AC34C7002BC54B /* AFURLConnectionOperation.m in Sources */,
 				28BB7A5C18AC34C7002BC54B /* AFNetworkActivityIndicatorManager.m in Sources */,
-				288E4EDC18B4E68B00E2CB3E /* NXOAuth2FileStreamWrapper.m in Sources */,
 				283B7D5B17FC1A91005F40C7 /* ProfileValidater.m in Sources */,
 				28EAC95717F2F0140089467C /* DatabaseManager.m in Sources */,
 				28E44ADD17E3C5810084543B /* OSConnectionManager.m in Sources */,
@@ -897,10 +814,7 @@
 				28E44ADE17E3C5810084543B /* OSURLHelper.m in Sources */,
 				283B7D5517FB50C3005F40C7 /* MyProfile.m in Sources */,
 				28BB7A5818AC34C7002BC54B /* AFHTTPClient.m in Sources */,
-				288E4EDB18B4E68B00E2CB3E /* NXOAuth2PostBodyPart.m in Sources */,
 				9A86A23117F23A41009F8DA3 /* FreeTextSearchViewController.m in Sources */,
-				288E4EDA18B4E68B00E2CB3E /* NXOAuth2PostBodyStream.m in Sources */,
-				288E4EC518B4E67100E2CB3E /* NXOAuth2AccountStore.m in Sources */,
 				28BB7A5B18AC34C7002BC54B /* AFJSONRequestOperation.m in Sources */,
 				C695479F18A1AC4200461ED4 /* AppSettingsHelper.m in Sources */,
 				28BB7A7218AC361D002BC54B /* XNGOAuthHandler.m in Sources */,
@@ -909,35 +823,25 @@
 				28BDF24A180357C500132948 /* SBJsonStreamParserAdapter.m in Sources */,
 				28BDF250180357C500132948 /* SBJsonWriter.m in Sources */,
 				28BB7A5A18AC34C7002BC54B /* AFImageRequestOperation.m in Sources */,
-				288E4EC418B4E67100E2CB3E /* NXOAuth2Constants.m in Sources */,
 				28BDF249180357C500132948 /* SBJsonStreamParserAccumulator.m in Sources */,
 				28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */,
 				329456FC1832CDBB0043D153 /* Filter.m in Sources */,
 				28FE35AC18B2D425006264C6 /* Application.m in Sources */,
-				288E4EB818B4E66000E2CB3E /* NSString+NXOAuth2.m in Sources */,
 				28BB7A4418AC34AF002BC54B /* AFOAuth1Client.m in Sources */,
-				288E4EC618B4E67100E2CB3E /* NXOAuth2Account.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,
 				28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */,
-				288E4EB018B4E58600E2CB3E /* Profile.m in Sources */,
 				9A911ECA17FCDE4B004DFBD0 /* FAQViewController.m in Sources */,
-				288E4EC718B4E67100E2CB3E /* NXOAuth2Request.m in Sources */,
 				284FAF9117F2F1FD006C9359 /* NTTDataJobAppDatabase.xcdatamodel in Sources */,
-				288E4EB718B4E66000E2CB3E /* NSData+NXOAuth2.m in Sources */,
 				28BB7A4118AC34A3002BC54B /* SSKeychainQuery.m in Sources */,
-				288E4ECE18B4E67E00E2CB3E /* NXOAuth2AccessToken.m in Sources */,
 				28BDF24E180357C500132948 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				283B7D6017FDD36B005F40C7 /* Helper.m in Sources */,
-				288E4ECD18B4E67E00E2CB3E /* NXOAuth2Client.m in Sources */,
 				28BB7A7118AC361D002BC54B /* XNGJSONRequestOperation.m in Sources */,
-				288E4ED918B4E68B00E2CB3E /* NXOAuth2Connection.m in Sources */,
 				283B7D5217FB50C3005F40C7 /* OpenPosition.m in Sources */,
 				283B7D4917FB50C3005F40C7 /* Experience.m in Sources */,
 				28E44B2917E3C6CB0084543B /* FoundPositionDetailViewController.m in Sources */,
 				283B7D4317FB50C2005F40C7 /* Location.m in Sources */,
 				28BB7A6018AC34C7002BC54B /* UIImageView+AFNetworking.m in Sources */,
 				28E44B2A17E3C6CB0084543B /* FoundPositionsOverviewViewController.m in Sources */,
-				288E4EAE18B4E58600E2CB3E /* LinkedinOAuth2.m in Sources */,
 				28E44B2B17E3C6CB0084543B /* JobProposalViewController.m in Sources */,
 				283B7D4F17FB50C3005F40C7 /* JobTitle.m in Sources */,
 				28BB7A7018AC361D002BC54B /* NSString+URLEncoding.m in Sources */,
@@ -949,9 +853,9 @@
 				28E44B3517E3C7A30084543B /* AppDelegate.m in Sources */,
 				329703C31811680E0095799F /* DropBoxViewController.m in Sources */,
 				28BB7A4018AC34A3002BC54B /* SSKeychain.m in Sources */,
-				288E4EB918B4E66000E2CB3E /* NSURL+NXOAuth2.m in Sources */,
 				28BDF247180357C500132948 /* SBJsonParser.m in Sources */,
 				28BB7A5D18AC34C7002BC54B /* AFPropertyListRequestOperation.m in Sources */,
+				288E4EE118B5787A00E2CB3E /* XNGLoginWebViewController.m in Sources */,
 				9A514A3717FCD4460039553D /* MyProfileViewController.m in Sources */,
 				9A8EE6E918257EB100E4F2FA /* MyFilterSetsViewController.m in Sources */,
 				28BDF24D180357C500132948 /* SBJsonStreamWriter.m in Sources */,

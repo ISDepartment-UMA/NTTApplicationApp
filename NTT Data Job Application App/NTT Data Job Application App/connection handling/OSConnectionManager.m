@@ -112,7 +112,7 @@
         NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
         [formatter setDateStyle:NSDateFormatterShortStyle];
         
-        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"resume_dropbox_url\":\"%@\",\"linkedin_url\":\"%@\",\"xing_url\":\%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,application.sharedLink, @"none", @"none"];
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"resume_dropbox_url\":\"%@\",\"linkedin_url\":\"%@\",\"xing_url\":\"\%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,application.sharedLink, @"none", @"none"];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
@@ -128,7 +128,7 @@
         NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
         [formatter setDateStyle:NSDateFormatterShortStyle];
         
-        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"resume_dropbox_url\":\"%@\",\"linkedin_url\":\"%@\",\"xing_url\":\%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,@"none", application.socialLink, @"none"];
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"resume_dropbox_url\":\"%@\",\"linkedin_url\":\"%@\",\"xing_url\":\"\%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,@"none", application.socialLink, @"none"];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }else if(connectionType == OSCSendXingApplication)
@@ -143,7 +143,7 @@
         NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
         [formatter setDateStyle:NSDateFormatterShortStyle];
         
-        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"resume_dropbox_url\":\"%@\",\"linkedin_url\":\"%@\",\"xing_url\":\%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,@"none", @"none", application.socialLink];
+        NSString* postString = [NSString stringWithFormat:@"{\"device_id\":\"%@\",\"job_ref_no\":\"%@\",\"apply_time\":\"%@\",\"application_status\":\"%@\",\"email\":\"%@\",\"first_name\":\"%@\",\"last_name\":\"%@\",\"address\":\"%@\",\"phone_no\":\"%@\",\"resume_dropbox_url\":\"%@\",\"linkedin_url\":\"%@\",\"xing_url\":\"\%@\"}",application.deviceID, application.ref_No, [formatter stringFromDate:application.dateApplied], application.status, application.email, application.firstName, application.lastName, application.address, application.phoneNo,@"none", @"none", application.socialLink];
         NSData* requestData = [NSData dataWithBytes:[postString UTF8String] length:[postString length]];
         [request setHTTPBody:requestData];
     }
