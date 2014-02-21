@@ -16,6 +16,8 @@
 #import "JVFloatLabeledTextField.h"
 #import "XNGAPIClient.h"
 #import "XNGAPIClient+UserProfiles.h"
+#import "LIALinkedInApplication.h"
+#import "LIALinkedInHttpClient.h"
 
 @interface ApplicationViewController ()< UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, OSConnectionCompletionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *jobInfo;
@@ -298,7 +300,12 @@ JVFloatLabeledTextField *phoneField;
 
 - (IBAction)applyViaLinkedIn:(id)sender
 {
-
+    LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.ancientprogramming.com/liaexample"
+                                                                                    clientId:@"clientId"
+                                                                                clientSecret:@"clientSecret"
+                                                                                       state:@"DCEEFWF45453sdffef424"
+                                                                               grantedAccess:@[@"r_fullprofile", @"r_network"]];
+    [LIALinkedInHttpClient clientForApplication:application presentingViewController:nil];
     
 }
 

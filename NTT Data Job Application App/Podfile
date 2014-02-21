@@ -1,0 +1,4 @@
+platform :ios, '6.0'
+
+pod 'IOSLinkedInAPI', '1.0.0'
+pod 'XNGAPIClient', '~> 0.1.0'
