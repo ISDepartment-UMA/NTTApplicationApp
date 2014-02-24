@@ -69,9 +69,7 @@
         [[AppSettingsHelper sharedHelper] setSetting:YES];
     }
     
-    UIViewController *nvc = self.window.rootViewController;
-    FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
-    [nvc presentViewController:notificationController animated:YES completion:nil];
+ 
     
     return YES;
 }
@@ -90,12 +88,12 @@
 {
     NSLog(@"Push received:%@",userInfo);
     
-  /*      UIViewController *nvc = self.window.rootViewController;
+       UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
         FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
     [nvc presentViewController:notificationController animated:YES completion:nil];
     
   
-   [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];*/
+  // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     
 }
 
