@@ -1171,7 +1171,6 @@
                                 </state>
                                 <connections>
                                     <action selector="applyViaLinkedIn:" destination="le8-wz-XJp" eventType="touchUpInside" id="h63-Xw-vze"/>
-                                    <action selector="applyViaXing:" destination="le8-wz-XJp" eventType="touchUpInside" id="HWh-hN-TaO"/>
                                 </connections>
                             </button>
                         </subviews>

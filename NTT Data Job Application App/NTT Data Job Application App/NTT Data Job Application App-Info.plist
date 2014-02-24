@@ -27,12 +27,6 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>db-8pptn1m3kun48pp</string>
-			</array>
-		</dict>
-		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLIconFile</key>
@@ -42,6 +36,16 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>xingapp146f887d0de6e23bf376</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>dropbox</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>db-8pptn1m3kun48pp</string>
 			</array>
 		</dict>
 	</array>

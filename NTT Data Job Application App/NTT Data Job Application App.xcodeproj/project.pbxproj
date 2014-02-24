@@ -901,7 +901,7 @@
 				GCC_PREFIX_HEADER = "NTT Data Job Application App/NTT Data Job Application App-Prefix.pch";
 				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
 				LIBRARY_SEARCH_PATHS = /Library/Frameworks;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -925,6 +925,7 @@
 				INFOPLIST_FILE = "NTT Data Job Application App/NTT Data Job Application App-Info.plist";
 				LIBRARY_SEARCH_PATHS = /Library/Frameworks;
 				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
