@@ -85,11 +85,16 @@
 {
     NSLog(@"Push received:%@",userInfo);
     
-        UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
+ /*       UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
         UIViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
         [nvc pushViewController:notificationController animated:YES];
+   */
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     
 }
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
