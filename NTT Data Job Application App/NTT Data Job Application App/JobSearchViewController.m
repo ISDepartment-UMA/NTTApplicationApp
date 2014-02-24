@@ -112,10 +112,11 @@
                                      action:@selector(refreshButtonClicked:)];
     [self.navigationItem setRightBarButtonItem:refreshButton animated:YES];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushNotificationReceived) name:@"pushNotification" object:nil];
+    //[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushNotificationReceived) name:@"pushNotification" object:nil];
+    
 }
 
--(void)pushNotificationReceived
+/*-(void)pushNotificationReceived
 {
     [self presentViewController:self.FPDVC animated:YES completion:nil];
 }
@@ -123,7 +124,7 @@
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-}
+}*/
 
 - (void)refreshButtonClicked:(id)sender
 {
