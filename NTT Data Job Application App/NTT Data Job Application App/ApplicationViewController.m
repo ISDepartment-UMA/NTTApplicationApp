@@ -304,12 +304,22 @@ JVFloatLabeledTextField *phoneField;
         [[self client] getAccessToken:code success:^(NSDictionary *accessTokenData) {
             NSString *accessToken = [accessTokenData objectForKey:@"access_token"];
             [self requestMeWithToken:accessToken];
-        }                   failure:^(NSError *error) {
+        }                   failure:^(NSError *error)
+        {
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Quering accessToken failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
             NSLog(@"Quering accessToken failed %@", error);
         }];
-    }                      cancel:^{
+    }
+    cancel:^{
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Authorization was cancelled by user" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
         NSLog(@"Authorization was cancelled by user");
-    }                     failure:^(NSError *error) {
+    }
+    failure:^(NSError *error)
+    {
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Authorization failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
         NSLog(@"Authorization failed %@", error);
     }];
 }
@@ -319,11 +329,58 @@ JVFloatLabeledTextField *phoneField;
     success:^(AFHTTPRequestOperation *operation, NSDictionary *result)
     {
         //Application logic!
-        NSLog(@"current user %@", result);
+        BOOL applicationCanBeSent = NO;
+        NSDictionary* urlDictionary = [result objectForKey:@"siteStandardProfileRequest"];
+        NSString* url = [urlDictionary objectForKey:@"url"];
+        url = [[url componentsSeparatedByString:@"&"]firstObject];
+        
+        if (url)
+            applicationCanBeSent = YES;
+        else
+        {
+            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not get the link to your Xing profile. Please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorMessage show];
+        }
+        
+        if (applicationCanBeSent)
+        {
+            Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
+            if (!application)
+            {
+                OpenPosition* openPosition1 = [[DatabaseManager sharedInstance]createOpenPosition];
+                openPosition1.ref_no = [openPosition objectForKey:@"ref_no"];
+                openPosition1.position_name =[openPosition objectForKey:@"position_name"];
+                [[DatabaseManager sharedInstance] saveContext];
+                
+                application = [[DatabaseManager sharedInstance]createApplication];
+                application.ref_No =[openPosition objectForKey:@"ref_no"];
+                application.firstName = firstNameField.text;
+                application.lastName = lastNameField.text;
+                application.address = addressField.text;
+                application.email = emailField.text;
+                application.phoneNo = phoneField.text;
+                application.status = @"to_be_processed"; //to_be_processed,withdrawn
+                application.statusConfirmed = [NSNumber numberWithBool:NO];
+                application.sharedLink = nil;
+                application.socialLink = url;
+                [[DatabaseManager sharedInstance]saveContext];
+                
+                [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
+                
+                [[OSConnectionManager sharedManager]StartConnection:OSCSendLinkedInApplication];
+            }else
+            {
+                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [errorMessage show];
+            }
+            [self updateProfile];
+        }
+        
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
-        NSLog(@"failed to fetch current user %@", error);
+        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"failed to fetch current user" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [errorMessage show];
     }];
 }
 
