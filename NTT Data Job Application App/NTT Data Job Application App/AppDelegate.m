@@ -87,7 +87,11 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    NSLog(@"Push received:%@",userInfo);
+    NSString* notificationString = [[userInfo valueForKey:@"aps"]valueForKey:@"alert"];
+    NSArray *arr = [notificationString componentsSeparatedByString:@" "];
+    
+    
+    NSLog (@"jobID: %@",arr[3]);
     
     /*   UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
         FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
@@ -95,6 +99,7 @@
     
   */
   // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
+    [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
     
     
@@ -103,7 +108,10 @@
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    NSLog(array,nil);
+    if (!array){
+        NSLog (@"array is nil");
+    }
+    else NSLog(array,nil);
 }
 
 
