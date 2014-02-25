@@ -12,5 +12,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate ,OSConnectionCompletionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong,nonatomic) NSString *jobID;
+@property (strong,nonatomic)NSDictionary *notificationJob;
 
 @end
