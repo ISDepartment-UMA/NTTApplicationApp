@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "OSConnectionManager.h"
 #import "TutorialViewController.h"
+#import "FoundPositionDetailViewController.h"
 @interface JobSearchViewController : UIViewController<OSConnectionCompletionDelegate>
 {
     TutorialViewController *viewController;
 }
 @property(nonatomic,strong)         TutorialViewController *viewController;
+@property (nonatomic, strong) FoundPositionDetailViewController *FPDVC;
 @end

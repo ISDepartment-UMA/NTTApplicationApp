@@ -8,6 +8,7 @@
 
 #import "JobSearchViewController.h"
 #import "QuartzCore/QuartzCore.h"
+#import "FoundPositionDetailViewController.h"
 #import "Topic.h"
 #import "Location.h"
 #import "Experience.h"
@@ -110,7 +111,20 @@
                                      target:self
                                      action:@selector(refreshButtonClicked:)];
     [self.navigationItem setRightBarButtonItem:refreshButton animated:YES];
+    
+    //[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushNotificationReceived) name:@"pushNotification" object:nil];
+    
 }
+
+/*-(void)pushNotificationReceived
+{
+    [self presentViewController:self.FPDVC animated:YES completion:nil];
+}
+
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}*/
 
 - (void)refreshButtonClicked:(id)sender
 {

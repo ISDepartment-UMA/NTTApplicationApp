@@ -68,6 +68,9 @@
     if (![[AppSettingsHelper sharedHelper] checkSettingFound]) {
         [[AppSettingsHelper sharedHelper] setSetting:YES];
     }
+    
+ 
+    
     return YES;
 }
 
@@ -85,11 +88,16 @@
 {
     NSLog(@"Push received:%@",userInfo);
     
-        UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
-        UIViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
-        [nvc pushViewController:notificationController animated:YES];
+       UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
+        FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+    [nvc presentViewController:notificationController animated:YES completion:nil];
+    
+  
+  // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     
 }
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
