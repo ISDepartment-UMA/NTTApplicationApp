@@ -65,6 +65,7 @@
 		329456FC1832CDBB0043D153 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 329456FB1832CDBB0043D153 /* Filter.m */; };
 		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
 		329703C31811680E0095799F /* DropBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329703C21811680E0095799F /* DropBoxViewController.m */; };
+		3299B1AD18BC9D5B00DD2CE3 /* NotificationProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299B1AC18BC9D5B00DD2CE3 /* NotificationProcessing.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		80E16671181712D40091BC92 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16670181712D40091BC92 /* search.png */; };
 		80E16673181714EA0091BC92 /* phone-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16672181714EA0091BC92 /* phone-book.png */; };
@@ -438,6 +439,8 @@
 				80172A6E17EC949600538821 /* ApplicationViewController.m */,
 				28E676D3181C574B0048ADF4 /* SelectedFilesViewController.h */,
 				28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */,
+				3299B1AB18BC9D5B00DD2CE3 /* NotificationProcessing.h */,
+				3299B1AC18BC9D5B00DD2CE3 /* NotificationProcessing.m */,
 				288E4EA518B4B51700E2CB3E /* LinkedIn */,
 				28BB7A3218AB8421002BC54B /* Xing */,
 				9A95DA2318356CC7008AC7AD /* JVFloatLabeledTextField */,
@@ -758,6 +761,7 @@
 				28BDF249180357C500132948 /* SBJsonStreamParserAccumulator.m in Sources */,
 				28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */,
 				329456FC1832CDBB0043D153 /* Filter.m in Sources */,
+				3299B1AD18BC9D5B00DD2CE3 /* NotificationProcessing.m in Sources */,
 				28FE35AC18B2D425006264C6 /* Application.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,
 				28BDF248180357C500132948 /* SBJsonStreamParser.m in Sources */,
