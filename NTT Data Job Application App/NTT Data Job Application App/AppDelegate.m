@@ -89,6 +89,7 @@
 {
     NSString* notificationString = [[userInfo valueForKey:@"aps"]valueForKey:@"alert"];
     NSArray *arr = [notificationString componentsSeparatedByString:@" "];
+    self.jobID = arr[3];
     
     
     NSLog (@"jobID: %@",arr[3]);
@@ -108,10 +109,12 @@
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    if (!array){
-        NSLog (@"array is nil");
+    NSLog (@"joblists: %@",array);
+    for(int i = 0; i< array.count - 1; i++){
+        if ([[array[i]valueForKey:@"ref_no"]isEqualToString:self.jobID]){
+            NSLog(@"notification job: %@",array[i]);
+        }
     }
-    else NSLog(array,nil);
 }
 
 
