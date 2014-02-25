@@ -13,6 +13,7 @@
 #import "XNGAPIClient.h"
 #import "OSConnectionManager.h"
 
+
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     if ([[DBSession sharedSession] handleOpenURL:url]) {
@@ -70,7 +71,8 @@
         [[AppSettingsHelper sharedHelper] setSetting:YES];
     }
     
- 
+    
+
     
     return YES;
 }
@@ -87,18 +89,15 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
+  // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     NSString* notificationString = [[userInfo valueForKey:@"aps"]valueForKey:@"alert"];
     NSArray *arr = [notificationString componentsSeparatedByString:@" "];
     self.jobID = arr[3];
     
+        
     
-    NSLog (@"jobID: %@",arr[3]);
     
-    /*   UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
-        FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
-    [nvc presentViewController:notificationController animated:YES completion:nil];
-    
-  */
+  
   // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
@@ -115,10 +114,10 @@
             NSLog(@"notification job: %@",array[i]);
             
             
-            UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
-             FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+            UIViewController *nvc = self.window.rootViewController;
+            FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
             [notificationController performSelector:@selector(setOpenPosition:) withObject:array[i]];
-             [nvc presentViewController:notificationController animated:YES completion:nil];
+            [nvc presentViewController:notificationController animated:YES completion:nil];
             
         }
     }
