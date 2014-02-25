@@ -172,7 +172,7 @@ JVFloatLabeledTextField *phoneField;
     client.consumerSecret = @"e8c54aa82c1579d654b891acef9f1987acd0db95";
     
     if ([client isLoggedin]) {
-        [client getMyProfileWithUserFields:@"permalink" success:^(id JSON){
+        [client getUserWithID:@"me" userFields:@"permalink" success:^(id JSON){
             BOOL applicationCanBeSent = NO;
             NSString* profileLink = nil;
             
@@ -234,7 +234,7 @@ JVFloatLabeledTextField *phoneField;
     else
     {
         [client loginOAuthWithSuccess:^{
-            [client getMyProfileWithUserFields:@"permalink" success:^(id JSON){
+            [client getUserWithID:@"me" userFields:@"permalink" success:^(id JSON){
                 BOOL applicationCanBeSent = NO;
                 NSString* profileLink = nil;
 
@@ -298,103 +298,7 @@ JVFloatLabeledTextField *phoneField;
     }
 }
 
-- (IBAction)applyViaLinkedIn:(id)sender
-{
-    [[self client] getAuthorizationCode:^(NSString *code) {
-        [[self client] getAccessToken:code success:^(NSDictionary *accessTokenData) {
-            NSString *accessToken = [accessTokenData objectForKey:@"access_token"];
-            [self requestMeWithToken:accessToken];
-        }                   failure:^(NSError *error)
-        {
-            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Quering accessToken failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [errorMessage show];
-            NSLog(@"Quering accessToken failed %@", error);
-        }];
-    }
-    cancel:^{
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Authorization was cancelled by user" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [errorMessage show];
-        NSLog(@"Authorization was cancelled by user");
-    }
-    failure:^(NSError *error)
-    {
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Authorization failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [errorMessage show];
-        NSLog(@"Authorization failed %@", error);
-    }];
-}
 
-- (void)requestMeWithToken:(NSString *)accessToken{
-    [[self client] getPath:[NSString stringWithFormat:@"https://api.linkedin.com/v1/people/~?oauth2_access_token=%@&format=json", accessToken] parameters:nil
-    success:^(AFHTTPRequestOperation *operation, NSDictionary *result)
-    {
-        //Application logic!
-        BOOL applicationCanBeSent = NO;
-        NSDictionary* urlDictionary = [result objectForKey:@"siteStandardProfileRequest"];
-        NSString* url = [urlDictionary objectForKey:@"url"];
-        url = [[url componentsSeparatedByString:@"&"]firstObject];
-        
-        if (url)
-            applicationCanBeSent = YES;
-        else
-        {
-            UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not get the link to your Xing profile. Please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [errorMessage show];
-        }
-        
-        if (applicationCanBeSent)
-        {
-            Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
-            if (!application)
-            {
-                OpenPosition* openPosition1 = [[DatabaseManager sharedInstance]createOpenPosition];
-                openPosition1.ref_no = [openPosition objectForKey:@"ref_no"];
-                openPosition1.position_name =[openPosition objectForKey:@"position_name"];
-                [[DatabaseManager sharedInstance] saveContext];
-                
-                application = [[DatabaseManager sharedInstance]createApplication];
-                application.ref_No =[openPosition objectForKey:@"ref_no"];
-                application.firstName = firstNameField.text;
-                application.lastName = lastNameField.text;
-                application.address = addressField.text;
-                application.email = emailField.text;
-                application.phoneNo = phoneField.text;
-                application.status = @"to_be_processed"; //to_be_processed,withdrawn
-                application.statusConfirmed = [NSNumber numberWithBool:NO];
-                application.sharedLink = nil;
-                application.socialLink = url;
-                [[DatabaseManager sharedInstance]saveContext];
-                
-                [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
-                
-                [[OSConnectionManager sharedManager]StartConnection:OSCSendLinkedInApplication];
-            }else
-            {
-                UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                [errorMessage show];
-            }
-            [self updateProfile];
-        }
-        
-    }
-    failure:^(AFHTTPRequestOperation *operation, NSError *error)
-    {
-        UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"failed to fetch current user" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [errorMessage show];
-    }];
-}
-
-#define LINKEDIN_CLIENT_ID @"777rroifzey1nn"
-#define LINKEDIN_CLIENT_SECRET @"hx06ctBGBHwtScwG"
-- (LIALinkedInHttpClient *)client {
-    LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.ancientprogramming.com/liaexample"
-                                                                                    clientId:LINKEDIN_CLIENT_ID
-                                                                                clientSecret:LINKEDIN_CLIENT_SECRET
-                                                                                       state:@"DCEEFWF45453sdffef424"
-                                                                               grantedAccess:@[@"r_basicprofile"]
-                                           ];
-    return [LIALinkedInHttpClient clientForApplication:application presentingViewController:self];
-}
 
 - (void)viewDidLoad
 {
@@ -587,5 +491,104 @@ JVFloatLabeledTextField *phoneField;
     cell.detailTextLabel.text = subtitle;
     
     return cell;
+}
+
+#pragma mark - Apply Via LinkedIn
+- (IBAction)applyViaLinkedIn:(id)sender
+{
+    [[self client] getAuthorizationCode:^(NSString *code) {
+        [[self client] getAccessToken:code success:^(NSDictionary *accessTokenData) {
+            NSString *accessToken = [accessTokenData objectForKey:@"access_token"];
+            [self requestMeWithToken:accessToken];
+        }                   failure:^(NSError *error)
+         {
+             UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Quering accessToken failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+             [errorMessage show];
+             NSLog(@"Quering accessToken failed %@", error);
+         }];
+    }
+                                 cancel:^{
+                                     UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Authorization was cancelled by user" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                     [errorMessage show];
+                                     NSLog(@"Authorization was cancelled by user");
+                                 }
+                                failure:^(NSError *error)
+     {
+         UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Authorization failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+         [errorMessage show];
+         NSLog(@"Authorization failed %@", error);
+     }];
+}
+
+- (void)requestMeWithToken:(NSString *)accessToken{
+    [[self client] getPath:[NSString stringWithFormat:@"https://api.linkedin.com/v1/people/~?oauth2_access_token=%@&format=json", accessToken] parameters:nil
+                   success:^(AFHTTPRequestOperation *operation, NSDictionary *result)
+     {
+         //Application logic!
+         BOOL applicationCanBeSent = NO;
+         NSDictionary* urlDictionary = [result objectForKey:@"siteStandardProfileRequest"];
+         NSString* url = [urlDictionary objectForKey:@"url"];
+         url = [[url componentsSeparatedByString:@"&"]firstObject];
+         
+         if (url)
+             applicationCanBeSent = YES;
+         else
+         {
+             UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Could not get the link to your Xing profile. Please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+             [errorMessage show];
+         }
+         
+         if (applicationCanBeSent)
+         {
+             Application* application = [[DatabaseManager sharedInstance]getApplicationForRefNo:[self.openPosition objectForKey:@"ref_no"]];
+             if (!application)
+             {
+                 OpenPosition* openPosition1 = [[DatabaseManager sharedInstance]createOpenPosition];
+                 openPosition1.ref_no = [openPosition objectForKey:@"ref_no"];
+                 openPosition1.position_name =[openPosition objectForKey:@"position_name"];
+                 [[DatabaseManager sharedInstance] saveContext];
+                 
+                 application = [[DatabaseManager sharedInstance]createApplication];
+                 application.ref_No =[openPosition objectForKey:@"ref_no"];
+                 application.firstName = firstNameField.text;
+                 application.lastName = lastNameField.text;
+                 application.address = addressField.text;
+                 application.email = emailField.text;
+                 application.phoneNo = phoneField.text;
+                 application.status = @"to_be_processed"; //to_be_processed,withdrawn
+                 application.statusConfirmed = [NSNumber numberWithBool:NO];
+                 application.sharedLink = nil;
+                 application.socialLink = url;
+                 [[DatabaseManager sharedInstance]saveContext];
+                 
+                 [[OSConnectionManager sharedManager].searchObject setObject:[openPosition objectForKey:@"ref_no"]forKey:@"ref_no"];
+                 
+                 [[OSConnectionManager sharedManager]StartConnection:OSCSendLinkedInApplication];
+             }else
+             {
+                 UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You already applied for this position" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                 [errorMessage show];
+             }
+             [self updateProfile];
+         }
+         
+     }
+                   failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         UIAlertView *errorMessage = [[UIAlertView alloc] initWithTitle:@"Error" message:@"failed to fetch current user" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+         [errorMessage show];
+     }];
+}
+
+#define LINKEDIN_CLIENT_ID @"777rroifzey1nn"
+#define LINKEDIN_CLIENT_SECRET @"hx06ctBGBHwtScwG"
+- (LIALinkedInHttpClient *)client {
+    LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.ancientprogramming.com/liaexample"
+                                                                                    clientId:LINKEDIN_CLIENT_ID
+                                                                                clientSecret:LINKEDIN_CLIENT_SECRET
+                                                                                       state:@"DCEEFWF45453sdffef424"
+                                                                               grantedAccess:@[@"r_basicprofile"]
+                                           ];
+    return [LIALinkedInHttpClient clientForApplication:application presentingViewController:self];
 }
 @end
