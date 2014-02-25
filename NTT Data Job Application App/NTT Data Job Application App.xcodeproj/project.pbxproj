@@ -84,6 +84,7 @@
 		329456FC1832CDBB0043D153 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 329456FB1832CDBB0043D153 /* Filter.m */; };
 		329703BB181151770095799F /* DBLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 329703BA181151770095799F /* DBLogo.png */; };
 		329703C31811680E0095799F /* DropBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329703C21811680E0095799F /* DropBoxViewController.m */; };
+		3299B1AD18BC9D5B00DD2CE3 /* NotificationProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = 3299B1AC18BC9D5B00DD2CE3 /* NotificationProcessing.m */; };
 		80172A6F17EC949600538821 /* ApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80172A6E17EC949600538821 /* ApplicationViewController.m */; };
 		80E16671181712D40091BC92 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16670181712D40091BC92 /* search.png */; };
 		80E16673181714EA0091BC92 /* phone-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E16672181714EA0091BC92 /* phone-book.png */; };
@@ -271,6 +272,8 @@
 		329703BA181151770095799F /* DBLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DBLogo.png; sourceTree = "<group>"; };
 		329703C11811680E0095799F /* DropBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropBoxViewController.h; sourceTree = "<group>"; };
 		329703C21811680E0095799F /* DropBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropBoxViewController.m; sourceTree = "<group>"; };
+		3299B1AB18BC9D5B00DD2CE3 /* NotificationProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationProcessing.h; sourceTree = "<group>"; };
+		3299B1AC18BC9D5B00DD2CE3 /* NotificationProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationProcessing.m; sourceTree = "<group>"; };
 		80172A6D17EC949600538821 /* ApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationViewController.h; sourceTree = "<group>"; };
 		80172A6E17EC949600538821 /* ApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationViewController.m; sourceTree = "<group>"; };
 		80E16670181712D40091BC92 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -529,6 +532,8 @@
 				80172A6E17EC949600538821 /* ApplicationViewController.m */,
 				28E676D3181C574B0048ADF4 /* SelectedFilesViewController.h */,
 				28E676D4181C574B0048ADF4 /* SelectedFilesViewController.m */,
+				3299B1AB18BC9D5B00DD2CE3 /* NotificationProcessing.h */,
+				3299B1AC18BC9D5B00DD2CE3 /* NotificationProcessing.m */,
 				288E4EA518B4B51700E2CB3E /* LinkedIn */,
 				28BB7A3218AB8421002BC54B /* Xing */,
 				9A95DA2318356CC7008AC7AD /* JVFloatLabeledTextField */,
@@ -826,6 +831,7 @@
 				28BDF249180357C500132948 /* SBJsonStreamParserAccumulator.m in Sources */,
 				28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */,
 				329456FC1832CDBB0043D153 /* Filter.m in Sources */,
+				3299B1AD18BC9D5B00DD2CE3 /* NotificationProcessing.m in Sources */,
 				28FE35AC18B2D425006264C6 /* Application.m in Sources */,
 				28BB7A4418AC34AF002BC54B /* AFOAuth1Client.m in Sources */,
 				28BDF24B180357C500132948 /* SBJsonStreamParserState.m in Sources */,

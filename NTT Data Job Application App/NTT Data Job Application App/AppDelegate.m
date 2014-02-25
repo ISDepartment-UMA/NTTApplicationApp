@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "FoundPositionDetailViewController.h"
 #import "XNGAPIClient.h"
+#import "OSConnectionManager.h"
 
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -88,15 +89,26 @@
 {
     NSLog(@"Push received:%@",userInfo);
     
-       UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
+    /*   UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
         FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
     [nvc presentViewController:notificationController animated:YES completion:nil];
     
-  
+  */
   // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
+    [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
+    
+    
     
 }
 
+- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
+{
+    NSLog(array,nil);
+}
+
+
+- (void)connectionFailed:(OSConnectionType)connectionType
+{}
 
 
 

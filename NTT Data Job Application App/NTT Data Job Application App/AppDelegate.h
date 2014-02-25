@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <DropboxSDK/DropboxSDK.h>
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "OSConnectionManager.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate ,OSConnectionCompletionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
