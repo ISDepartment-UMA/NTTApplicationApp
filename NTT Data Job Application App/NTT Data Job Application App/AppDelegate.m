@@ -109,10 +109,17 @@
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    NSLog (@"joblists: %@",array);
+    
     for(int i = 0; i< array.count - 1; i++){
         if ([[array[i]valueForKey:@"ref_no"]isEqualToString:self.jobID]){
             NSLog(@"notification job: %@",array[i]);
+            
+            
+            UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
+             FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+            [notificationController performSelector:@selector(setOpenPosition:) withObject:array[i]];
+             [nvc presentViewController:notificationController animated:YES completion:nil];
+            
         }
     }
 }

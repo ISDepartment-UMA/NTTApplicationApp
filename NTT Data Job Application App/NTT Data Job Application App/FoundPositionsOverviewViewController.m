@@ -38,7 +38,8 @@
         NSDictionary* position = [[resultArray objectAtIndex:selectedJob] copy];
 
         if ([segue.destinationViewController respondsToSelector:@selector(setOpenPosition:)])
-            [segue.destinationViewController performSelector:@selector(setOpenPosition:) withObject:position];
+        [segue.destinationViewController performSelector:@selector(setOpenPosition:) withObject:position];
+            
         if ([segue.destinationViewController respondsToSelector:@selector(setFreeText:)]) {
             [segue.destinationViewController performSelector:@selector(setFreeText:) withObject:self.freeText];
         }
