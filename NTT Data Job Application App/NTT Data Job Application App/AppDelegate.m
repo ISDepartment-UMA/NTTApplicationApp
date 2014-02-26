@@ -65,10 +65,6 @@
             if (notification != nil){
                 NSLog(@"notification: %@",notification);
             }
-        self.launchView = [[FoundPositionDetailViewController alloc]init];
-        [self.launchView performSelector:@selector(setOpenPosition:) withObject:self.notificationJob afterDelay:2];
-        self.window.rootViewController = self.launchView;
-        [self.window makeKeyAndVisible];
     }
     
     if (![[AppSettingsHelper sharedHelper] checkSettingFound]) {
@@ -97,15 +93,15 @@
     NSString* notificationString = [[userInfo valueForKey:@"aps"]valueForKey:@"alert"];
     NSArray *arr = [notificationString componentsSeparatedByString:@" "];
     self.jobID = arr[3];
-    
-        
-    
-    
   
   // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
-    
+    self.launchView = [[FoundPositionDetailViewController alloc]init];
+    [self.launchView performSelector:@selector(setOpenPosition:) withObject:self.notificationJob afterDelay:2];
+    self.window.rootViewController = self.launchView;
+    [self.window makeKeyAndVisible];
+
     
     
 }
