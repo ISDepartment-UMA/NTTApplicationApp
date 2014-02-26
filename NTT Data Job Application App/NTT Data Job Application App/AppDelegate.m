@@ -97,10 +97,7 @@
   // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
-    self.launchView = [[FoundPositionDetailViewController alloc]init];
-    [self.launchView performSelector:@selector(setOpenPosition:) withObject:self.notificationJob afterDelay:2];
-    self.window.rootViewController = self.launchView;
-    [self.window makeKeyAndVisible];
+   
 
     
     
@@ -114,7 +111,10 @@
             NSLog(@"notification job: %@",array[i]);
             self.notificationJob = array [i];
             
-            
+            self.launchView = [[FoundPositionDetailViewController alloc]init];
+            [self.launchView performSelector:@selector(setOpenPosition:) withObject:self.notificationJob afterDelay:2];
+            self.window.rootViewController = self.launchView;
+            [self.window makeKeyAndVisible];
          //   UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
           //  FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
           //  [notificationController performSelector:@selector(setOpenPosition:) withObject:array[i]];
