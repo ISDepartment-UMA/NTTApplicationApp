@@ -339,6 +339,46 @@
 			path = ../Model;
 			sourceTree = "<group>";
 		};
+		2895956318BD611F006FF6EB /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				C65919D8181DD1F800366A0D /* Twitter.png */,
+				C65919DA181DD3B300366A0D /* Facebook.png */,
+				329703BA181151770095799F /* DBLogo.png */,
+				28E44AAB17E3C5510084543B /* Default.png */,
+				80E16670181712D40091BC92 /* search.png */,
+				28E44AAD17E3C5510084543B /* Default@2x.png */,
+				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
+				28FEFE5118BCDCFB00F90362 /* star_full.jpeg */,
+				9A2B801B18908FF300CFA92F /* xing.jpg */,
+				288E4EDD18B51CE600E2CB3E /* linkedin.png */,
+				C69547A018A1B55500461ED4 /* 1.png */,
+				C69547A118A1B55500461ED4 /* 2.png */,
+				C69547A218A1B55500461ED4 /* 3.png */,
+				C69547A318A1B55500461ED4 /* 4.png */,
+				C69547A418A1B55500461ED4 /* 5.png */,
+				C69547A518A1B55500461ED4 /* 6.png */,
+				C69547A618A1B55500461ED4 /* 7.png */,
+				C69547A718A1B55500461ED4 /* 8.png */,
+				C69547A818A1B55500461ED4 /* 9.png */,
+				C69547A918A1B55500461ED4 /* 10.png */,
+				C69547B418A1B5C300461ED4 /* 9250.png */,
+				9AA47B571831833400044D11 /* images.png */,
+				C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */,
+				C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */,
+				C6E3F70A1828667400D07BEB /* icon settings ios5-7 29pt.png */,
+				C6E3F70B1828667400D07BEB /* icon soptlightios5,6 29pt.png */,
+				C6E3F70C1828667400D07BEB /* icon ios7 60pt.png */,
+				C6E3F70D1828667400D07BEB /* icon ios5,6 57pt.png */,
+				9A44D09018284A26003CE0F0 /* save.png */,
+				9AD746F418128F350020C2E4 /* facebook-twitter.png */,
+				80E166741817154A0091BC92 /* question.png */,
+				80E16672181714EA0091BC92 /* phone-book.png */,
+				28FEFE4D18BCDCB800F90362 /* star_empty.jpeg */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
 		28E44A8D17E3C5510084543B = {
 			isa = PBXGroup;
 			children = (
@@ -428,45 +468,13 @@
 		28E44AA017E3C5510084543B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				28FEFE4D18BCDCB800F90362 /* star_empty.jpeg */,
-				28FEFE5118BCDCFB00F90362 /* star_full.jpeg */,
-				9A2B801B18908FF300CFA92F /* xing.jpg */,
-				288E4EDD18B51CE600E2CB3E /* linkedin.png */,
-				C69547A018A1B55500461ED4 /* 1.png */,
-				C69547A118A1B55500461ED4 /* 2.png */,
-				C69547A218A1B55500461ED4 /* 3.png */,
-				C69547A318A1B55500461ED4 /* 4.png */,
-				C69547A418A1B55500461ED4 /* 5.png */,
-				C69547A518A1B55500461ED4 /* 6.png */,
-				C69547A618A1B55500461ED4 /* 7.png */,
-				C69547A718A1B55500461ED4 /* 8.png */,
-				C69547A818A1B55500461ED4 /* 9.png */,
-				C69547A918A1B55500461ED4 /* 10.png */,
-				C69547B418A1B5C300461ED4 /* 9250.png */,
-				9AA47B571831833400044D11 /* images.png */,
-				C6E3F7081828667400D07BEB /* icon ios 5,6 57pt.png */,
-				C6E3F7091828667400D07BEB /* icon spotlight ios7 40pt.png */,
-				C6E3F70A1828667400D07BEB /* icon settings ios5-7 29pt.png */,
-				C6E3F70B1828667400D07BEB /* icon soptlightios5,6 29pt.png */,
-				C6E3F70C1828667400D07BEB /* icon ios7 60pt.png */,
-				C6E3F70D1828667400D07BEB /* icon ios5,6 57pt.png */,
-				9A44D09018284A26003CE0F0 /* save.png */,
-				9AD746F418128F350020C2E4 /* facebook-twitter.png */,
-				80E166741817154A0091BC92 /* question.png */,
-				80E16672181714EA0091BC92 /* phone-book.png */,
+				2895956318BD611F006FF6EB /* Pictures */,
 				28E44AA117E3C5510084543B /* NTT Data Job Application App-Info.plist */,
-				C65919D8181DD1F800366A0D /* Twitter.png */,
-				C65919DA181DD3B300366A0D /* Facebook.png */,
 				28E44B3317E3C7A30084543B /* AppDelegate.h */,
 				28E44B3417E3C7A30084543B /* AppDelegate.m */,
 				28E44AA217E3C5510084543B /* InfoPlist.strings */,
 				28E44AA517E3C5510084543B /* main.m */,
 				28E44AA717E3C5510084543B /* NTT Data Job Application App-Prefix.pch */,
-				329703BA181151770095799F /* DBLogo.png */,
-				28E44AAB17E3C5510084543B /* Default.png */,
-				80E16670181712D40091BC92 /* search.png */,
-				28E44AAD17E3C5510084543B /* Default@2x.png */,
-				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

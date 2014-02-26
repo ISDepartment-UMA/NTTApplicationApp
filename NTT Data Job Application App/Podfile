@@ -1,4 +1,15 @@
 platform :ios, '6.0'
 
 pod 'IOSLinkedInAPI', '1.0.0'
-pod 'XNGAPIClient', '~> 0.1.0'
+pod 'XNGAPIClient', '0.1.0'
+
+post_install do | installer |
+    prefix_header_LI = config.project_pods_root + 'Pods-IOSLinkedInAPI-prefix.pch'
+    text_LI = prefix_header_LI.read + "\n#import <SystemConfiguration/SystemConfiguration.h>\n#import <MobileCoreServices/MobileCoreServices.h>\n"
+    prefix_header_LI.open('w') { |file| file.write(text_LI) }
+    
+    prefix_header = config.project_pods_root + 'Pods-XNGAPIClient-prefix.pch'
+    text = prefix_header.read + "\n#import <SystemConfiguration/SystemConfiguration.h>\n#import <MobileCoreServices/MobileCoreServices.h>\n"
+    prefix_header.open('w') { |file| file.write(text) }
+end
+

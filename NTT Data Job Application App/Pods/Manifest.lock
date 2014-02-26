@@ -12,7 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - IOSLinkedInAPI (= 1.0.0)
-  - XNGAPIClient (~> 0.1.0)
+  - XNGAPIClient (= 0.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
