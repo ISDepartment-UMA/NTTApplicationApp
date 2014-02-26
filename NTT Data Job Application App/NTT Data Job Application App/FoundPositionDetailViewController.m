@@ -130,7 +130,7 @@
     
 
 -(void)loadData
-{
+{   NSLog(@"notiJob_display: %@",self.openPosition);
     self.reference.text = [self.openPosition objectForKey:@"ref_no"];
     self.position.text = [self.openPosition objectForKey:@"position_name"];
     self.position.numberOfLines = 3;
