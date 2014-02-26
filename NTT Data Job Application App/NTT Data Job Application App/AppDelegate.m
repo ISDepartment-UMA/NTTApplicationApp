@@ -111,8 +111,11 @@
             NSLog(@"notification job: %@",array[i]);
             self.notificationJob = array [i];
             
-            self.launchView = [[FoundPositionDetailViewController alloc]init];
-            [self.launchView performSelector:@selector(setOpenPosition:) withObject:self.notificationJob afterDelay:2];
+            UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
+             FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+
+            self.launchView = notificationController;
+            [self.launchView performSelector:@selector(setOpenPosition:) withObject:self.notificationJob];
             self.window.rootViewController = self.launchView;
             [self.window makeKeyAndVisible];
          //   UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
