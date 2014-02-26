@@ -14,6 +14,7 @@
 #import "OSConnectionManager.h"
 
 
+
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     if ([[DBSession sharedSession] handleOpenURL:url]) {
@@ -58,15 +59,18 @@
     [[UIApplication sharedApplication]registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert |UIRemoteNotificationTypeSound)];
     
     if (launchOptions != nil)
-    {
-        NSDictionary* dic = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-        {
-            if (dic != nil){
-                NSLog(@"notification: %@",dic);
-                //handle dic
+    {   NSLog(@"launched from notification");
+        NSDictionary* notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        
+            if (notification != nil){
+                NSLog(@"notification: %@",notification);
             }
-        }
+        self.launchView = [[FoundPositionDetailViewController alloc]init];
+        [self.launchView performSelector:@selector(setOpenPosition:) withObject:self.notificationJob afterDelay:2];
+        self.window.rootViewController = self.launchView;
+        [self.window makeKeyAndVisible];
     }
+    
     if (![[AppSettingsHelper sharedHelper] checkSettingFound]) {
         [[AppSettingsHelper sharedHelper] setSetting:YES];
     }
@@ -109,15 +113,16 @@
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
     
-    for(int i = 0; i< array.count - 1; i++){
+    for(int i = 0; i< array.count; i++){
         if ([[array[i]valueForKey:@"ref_no"]isEqualToString:self.jobID]){
             NSLog(@"notification job: %@",array[i]);
+            self.notificationJob = array [i];
             
             
-            UIViewController *nvc = self.window.rootViewController;
-            FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
-            [notificationController performSelector:@selector(setOpenPosition:) withObject:array[i]];
-            [nvc presentViewController:notificationController animated:YES completion:nil];
+         //   UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
+          //  FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+          //  [notificationController performSelector:@selector(setOpenPosition:) withObject:array[i]];
+         //   [nvc presentViewController:notificationController animated:YES completion:nil];
             
         }
     }
