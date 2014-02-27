@@ -13,7 +13,9 @@
 #import "XNGAPIClient.h"
 #import "OSConnectionManager.h"
 
-
+@interface AppDelegate()
+@property (strong,nonatomic) NSString *jobID;
+@end
 
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -71,9 +73,6 @@
         [[AppSettingsHelper sharedHelper] setSetting:YES];
     }
     
-    
-
-    
     return YES;
 }
 
@@ -89,40 +88,31 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-  // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     NSString* notificationString = [[userInfo valueForKey:@"aps"]valueForKey:@"alert"];
     NSArray *arr = [notificationString componentsSeparatedByString:@" "];
     self.jobID = arr[3];
   
-  // [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     [OSConnectionManager sharedManager].delegate = self;
     [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
-   
-
-    
-    
 }
 
 - (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
 {
-    
+    NSDictionary* notificationJob = nil;
     for(int i = 0; i< array.count; i++){
         if ([[array[i]valueForKey:@"ref_no"]isEqualToString:self.jobID]){
             NSLog(@"notification job: %@",array[i]);
-            self.notificationJob = array [i];
+            notificationJob = array [i];
             
-            UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
-             FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
-
-            self.launchView = notificationController;
-            [self.launchView performSelector:@selector(setOpenPosition:) withObject:self.notificationJob];
-            self.window.rootViewController = self.launchView;
-            [self.window makeKeyAndVisible];
-         //   UINavigationController *nvc = (UINavigationController*)self.window.rootViewController;
-          //  FoundPositionDetailViewController *notificationController = [nvc.storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
-          //  [notificationController performSelector:@selector(setOpenPosition:) withObject:array[i]];
-         //   [nvc presentViewController:notificationController animated:YES completion:nil];
+            UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+            FoundPositionDetailViewController* vc = (FoundPositionDetailViewController*)[storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+            vc.openPosition = notificationJob;
+            vc.fromNotification = YES;
             
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+            vc.navigationController.navigationBarHidden = NO;
+            
+            [self.window.rootViewController presentViewController:navigationController animated:YES completion:nil];
         }
     }
 }

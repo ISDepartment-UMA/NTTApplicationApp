@@ -10,6 +10,7 @@
 #import "MessageUI/MessageUI.h"
 #import "MessageUI/MFMailComposeViewController.h"
 #import "DatabaseManager.h"
+#import "AppDelegate.h"
 
 
 @interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
@@ -33,20 +34,40 @@
 @property (weak, nonatomic) IBOutlet UITextView *requirementText;
 @property (weak, nonatomic) IBOutlet UIButton *filterSetSaveButton;
 @property (nonatomic, retain)NSManagedObjectContext* managedObjectContext;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *notificationBackButton;
 
 @end
 
 @implementation FoundPositionDetailViewController
 @synthesize openPosition;
 
-
-
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [self loadData];
     [self loadSelectedFilters];
     [self synchronizewith:self.openPosition];
+    
+    if (self.fromNotification) {
+        NSMutableArray* toolBarItems =  [self.toolbarItems mutableCopy];
+        if (![toolBarItems containsObject:self.notificationBackButton]) {
+            [toolBarItems addObject:self.notificationBackButton];
+        }
+        self.toolbarItems = [toolBarItems copy];
+    }
+    else
+    {
+        NSMutableArray* toolBarItems =  [self.toolbarItems mutableCopy];
+        if ([toolBarItems containsObject:self.notificationBackButton]) {
+            [toolBarItems removeObject:self.notificationBackButton];
+        }
+        self.toolbarItems = [toolBarItems copy];
+    }
+    
+}
+
+- (IBAction)goBackfromNotification:(id)sender {
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [delegate.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)loadSelectedFilters
@@ -99,18 +120,11 @@
 #define VIEWED_POSITIONS_KEY @"ViewedPositions"
 -(void) synchronizewith: (NSDictionary *) selectedPosition{
     NSMutableArray *accessedPositions = [[[NSUserDefaults  standardUserDefaults] arrayForKey:VIEWED_POSITIONS_KEY] mutableCopy];
-    if (!accessedPositions) {
+    if (!accessedPositions)
         accessedPositions= [[NSMutableArray alloc] init];
-    }
-    //NSLog(@"start");
-    //NSLog([NSString stringWithFormat:@"%d",accessedPositions.count]);
     
-    if ([accessedPositions containsObject:selectedPosition]) {
+    if ([accessedPositions containsObject:selectedPosition])
         [accessedPositions removeObject:selectedPosition];
-    }
-    
-    
-    //[accessedPhotos removeObjectAtIndex:0];
     
     [accessedPositions addObject:selectedPosition];
     if (accessedPositions.count > 3) {
@@ -118,19 +132,12 @@
     }
     [[NSUserDefaults standardUserDefaults] setObject:accessedPositions forKey:VIEWED_POSITIONS_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    /*NSMutableArray *accessedPhotos = [[[NSUserDefaults  standardUserDefaults] arrayForKey:ALL_PHOTOS_KEY] mutableCopy];
-     if (!accessedPhotos) {
-     accessedPhotos = [[NSMutableArray alloc] init];
-     }
-     [accessedPhotos addObject:selectedPhoto];
-     [[NSUserDefaults standardUserDefaults] setObject:accessedPhotos forKey:ALL_PHOTOS_KEY];
-     [[NSUserDefaults standardUserDefaults] synchronize];*/
 }
     
 
 -(void)loadData
-{   NSLog(@"notiJob_display: %@",self.openPosition);
+{
+    NSLog(@"notiJob_display: %@",self.openPosition);
     self.reference.text = [self.openPosition objectForKey:@"ref_no"];
     self.position.text = [self.openPosition objectForKey:@"position_name"];
     self.position.numberOfLines = 3;

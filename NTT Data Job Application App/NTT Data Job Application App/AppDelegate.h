@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "OSConnectionManager.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate ,OSConnectionCompletionDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (strong,nonatomic) NSString *jobID;
-@property (strong,nonatomic)NSDictionary *notificationJob;
-@property (strong,nonatomic)UIViewController *launchView;
 
 @end

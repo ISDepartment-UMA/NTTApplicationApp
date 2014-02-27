@@ -9,7 +9,7 @@
 #import <Social/Social.h>
 
 @interface FoundPositionDetailViewController : UIViewController <UIActionSheetDelegate>
-- (IBAction)social:(id)sender;
 @property NSString *freeText;
 @property NSDictionary* openPosition;
+@property BOOL fromNotification;
 @end
