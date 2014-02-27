@@ -1027,7 +1027,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Job Description" id="okN-df-ygD">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Mbe-sL-Oqq">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" style="done" id="Mbe-sL-Oqq">
                             <connections>
                                 <action selector="goBackfromNotification:" destination="Gyy-ut-UNb" id="C7P-Gr-8Lh"/>
                             </connections>
