@@ -63,10 +63,12 @@
     if (launchOptions != nil)
     {   NSLog(@"launched from notification");
         NSDictionary* notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        NSString* notificationString = [[notification valueForKey:@"aps"]valueForKey:@"alert"];
+        NSArray *arr = [notificationString componentsSeparatedByString:@" "];
+        self.jobID = arr[3];
         
-            if (notification != nil){
-                NSLog(@"notification: %@",notification);
-            }
+        [OSConnectionManager sharedManager].delegate = self;
+        [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
     }
     
     if (![[AppSettingsHelper sharedHelper] checkSettingFound]) {
