@@ -1026,14 +1026,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Job Description" id="okN-df-ygD">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" style="done" id="Mbe-sL-Oqq">
-                            <connections>
-                                <action selector="goBackfromNotification:" destination="Gyy-ut-UNb" id="C7P-Gr-8Lh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Job Description" id="okN-df-ygD"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -1048,7 +1044,6 @@
                         <outlet property="jobTitle" destination="WvF-X4-se2" id="oKN-RF-3Cf"/>
                         <outlet property="mainTask" destination="CHQ-jg-Qpj" id="tPl-kM-GDb"/>
                         <outlet property="mainTaskText" destination="FGA-UO-YOO" id="Qna-aS-pyk"/>
-                        <outlet property="notificationBackButton" destination="Mbe-sL-Oqq" id="wD9-Jf-K2W"/>
                         <outlet property="perspectiveText" destination="xb2-0n-kxF" id="l0O-OS-mP0"/>
                         <outlet property="phone" destination="SGJ-fQ-Tls" id="aFZ-dV-04v"/>
                         <outlet property="position" destination="hot-R7-E3r" id="SAj-zf-Ib3"/>

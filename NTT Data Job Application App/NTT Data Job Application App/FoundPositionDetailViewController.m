@@ -34,7 +34,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *requirementText;
 @property (weak, nonatomic) IBOutlet UIButton *filterSetSaveButton;
 @property (nonatomic, retain)NSManagedObjectContext* managedObjectContext;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *notificationBackButton;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *notificationBackButton;
 
 @end
 
@@ -47,25 +48,35 @@
     [self loadSelectedFilters];
     [self synchronizewith:self.openPosition];
     
-    if (self.fromNotification) {
-        NSMutableArray* toolBarItems =  [self.toolbarItems mutableCopy];
-        if (![toolBarItems containsObject:self.notificationBackButton]) {
-            [toolBarItems addObject:self.notificationBackButton];
+    if (self.fromNotification)
+    {
+        if(![self.navigationItem.leftBarButtonItem isEqual:self.notificationBackButton])
+        {
+            [self.navigationItem setLeftBarButtonItem:self.notificationBackButton];
         }
-        self.toolbarItems = [toolBarItems copy];
     }
     else
     {
-        NSMutableArray* toolBarItems =  [self.toolbarItems mutableCopy];
-        if ([toolBarItems containsObject:self.notificationBackButton]) {
-            [toolBarItems removeObject:self.notificationBackButton];
+        if([self.navigationItem.leftBarButtonItem isEqual:self.notificationBackButton])
+        {
+            self.navigationItem.leftBarButtonItem = nil;
         }
-        self.toolbarItems = [toolBarItems copy];
     }
-    
 }
 
+@synthesize notificationBackButton = _notificationBackButton;
+- (UIBarButtonItem*) notificationBackButton
+{
+    if (!_notificationBackButton) {
+        _notificationBackButton = [[UIBarButtonItem alloc]initWithTitle:@"< Back" style:UIBarButtonItemStyleBordered target:self action:@selector(goBackfromNotification:)];
+    }
+    return _notificationBackButton;
+}
+
+
+
 - (IBAction)goBackfromNotification:(id)sender {
+    self.fromNotification = NO;
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }

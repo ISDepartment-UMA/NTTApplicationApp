@@ -68,6 +68,7 @@
         self.jobID = arr[3];
         
         [OSConnectionManager sharedManager].delegate = self;
+        [OSConnectionManager sharedManager].searchObject = [[NSMutableDictionary alloc]init];
         [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
     }
     
@@ -95,6 +96,7 @@
     self.jobID = arr[3];
   
     [OSConnectionManager sharedManager].delegate = self;
+    [OSConnectionManager sharedManager].searchObject = [[NSMutableDictionary alloc]init];
     [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
 }
 
@@ -104,7 +106,7 @@
     for(int i = 0; i< array.count; i++){
         if ([[array[i]valueForKey:@"ref_no"]isEqualToString:self.jobID]){
             NSLog(@"notification job: %@",array[i]);
-            notificationJob = array [i];
+            notificationJob = array[i];
             
             UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
             FoundPositionDetailViewController* vc = (FoundPositionDetailViewController*)[storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
@@ -115,6 +117,7 @@
             vc.navigationController.navigationBarHidden = NO;
             
             [self.window.rootViewController presentViewController:navigationController animated:YES completion:nil];
+            break;
         }
     }
 }
