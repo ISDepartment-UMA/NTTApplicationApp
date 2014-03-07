@@ -1158,7 +1158,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XEA-Nm-qUI">
                                 <rect key="frame" x="186" y="480" width="47" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="xing.jpg">
+                                <state key="normal" title="Xing" image="xing.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1388,7 +1388,7 @@
         <image name="search.png" width="30" height="30"/>
         <image name="star_empty.png" width="256" height="264"/>
         <image name="star_full.png" width="256" height="264"/>
-        <image name="xing.jpg" width="80" height="80"/>
+        <image name="xing.png" width="80" height="80"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

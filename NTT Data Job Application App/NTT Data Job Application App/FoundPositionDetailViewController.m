@@ -152,7 +152,6 @@
 
 -(void)loadData
 {
-    NSLog(@"notiJob_display: %@",self.openPosition);
     self.reference.text = [self.openPosition objectForKey:@"ref_no"];
     self.position.text = [self.openPosition objectForKey:@"position_name"];
     self.position.numberOfLines = 3;
@@ -247,7 +246,7 @@
     if (self.freeText)
         [[DatabaseManager sharedInstance]storeFilter:nil:nil :nil :nil :nil :self.freeText];
     else
-     [[OSConnectionManager sharedManager]StartConnection:OSCSendFilterSet];
+        [[OSConnectionManager sharedManager]StartConnection:OSCSendFilterSet];
     
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];

@@ -33,6 +33,7 @@
 		28BDF24E180357C500132948 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF242180357C500132948 /* SBJsonStreamWriterAccumulator.m */; };
 		28BDF24F180357C500132948 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF244180357C500132948 /* SBJsonStreamWriterState.m */; };
 		28BDF250180357C500132948 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDF246180357C500132948 /* SBJsonWriter.m */; };
+		28C91CB118CA18EA0015F236 /* xing.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C91CB018CA18EA0015F236 /* xing.png */; };
 		28D8117118187C7B00DC5145 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D8117018187C7B00DC5145 /* DropboxSDK.framework */; };
 		28E44A9A17E3C5510084543B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9917E3C5510084543B /* UIKit.framework */; };
 		28E44A9C17E3C5510084543B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E44A9B17E3C5510084543B /* Foundation.framework */; };
@@ -167,6 +168,7 @@
 		28BDF244180357C500132948 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		28BDF245180357C500132948 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		28BDF246180357C500132948 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		28C91CB018CA18EA0015F236 /* xing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xing.png; sourceTree = "<group>"; };
 		28D8117018187C7B00DC5145 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = "NTT Data Job Application App/DropboxSDK.framework"; sourceTree = "<group>"; };
 		28E44A9617E3C5510084543B /* NTT Data Job Application App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTT Data Job Application App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E44A9917E3C5510084543B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -227,7 +229,6 @@
 		9A187DFD17FB3BB40097650D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		9A187E0017FB3C710097650D /* MyApplicationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApplicationsViewController.h; sourceTree = "<group>"; };
 		9A187E0117FB3C710097650D /* MyApplicationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyApplicationsViewController.m; sourceTree = "<group>"; };
-		9A2B801B18908FF300CFA92F /* xing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xing.jpg; path = "/Users/matthiasr/Development/Team Project/NTTApplicationApp/NTT Data Job Application App/NTT Data Job Application App/xing.jpg"; sourceTree = "<absolute>"; };
 		9A44D09018284A26003CE0F0 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		9A514A3617FCD4460039553D /* MyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		9A86A22F17F23A41009F8DA3 /* FreeTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeTextSearchViewController.h; sourceTree = "<group>"; };
@@ -350,7 +351,7 @@
 				28E44AAD17E3C5510084543B /* Default@2x.png */,
 				28E44AAF17E3C5510084543B /* Default-568h@2x.png */,
 				28FEFE5118BCDCFB00F90362 /* star_full.jpeg */,
-				9A2B801B18908FF300CFA92F /* xing.jpg */,
+				28C91CB018CA18EA0015F236 /* xing.png */,
 				288E4EDD18B51CE600E2CB3E /* linkedin.png */,
 				C69547A018A1B55500461ED4 /* 1.png */,
 				C69547A118A1B55500461ED4 /* 2.png */,
@@ -654,6 +655,7 @@
 				C69547B018A1B55500461ED4 /* 7.png in Resources */,
 				C6E3F7131828667400D07BEB /* icon ios5,6 57pt.png in Resources */,
 				C6E3F7101828667400D07BEB /* icon settings ios5-7 29pt.png in Resources */,
+				28C91CB118CA18EA0015F236 /* xing.png in Resources */,
 				C69547AF18A1B55500461ED4 /* 6.png in Resources */,
 				28FEFE4F18BCDCB800F90362 /* star_empty.jpeg in Resources */,
 				28E44AB017E3C5510084543B /* Default-568h@2x.png in Resources */,
