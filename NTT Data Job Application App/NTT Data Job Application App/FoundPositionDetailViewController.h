@@ -6,10 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Social/Social.h>
+#import "OSConnectionManager.h"
 
-@interface FoundPositionDetailViewController : UIViewController <UIActionSheetDelegate>
+@interface FoundPositionDetailViewController : UIViewController <UIActionSheetDelegate, OSConnectionCompletionDelegate>
 @property NSString *freeText;
 @property NSDictionary* openPosition;
+
 @property BOOL fromNotification;
+@property (strong, nonatomic) NSString* jobID;
 @end

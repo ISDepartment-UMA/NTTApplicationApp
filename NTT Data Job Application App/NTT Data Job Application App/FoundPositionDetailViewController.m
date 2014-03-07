@@ -11,7 +11,7 @@
 #import "MessageUI/MFMailComposeViewController.h"
 #import "DatabaseManager.h"
 #import "AppDelegate.h"
-
+#import <Social/Social.h>
 
 @interface FoundPositionDetailViewController () <MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *displaySelectedFilters;
@@ -36,14 +36,15 @@
 @property (nonatomic, retain)NSManagedObjectContext* managedObjectContext;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *notificationBackButton;
-
 @end
 
 @implementation FoundPositionDetailViewController
-@synthesize openPosition;
+@synthesize openPosition = _openPosition;
+@synthesize notificationBackButton = _notificationBackButton;
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self loadData];
     [self loadSelectedFilters];
     [self synchronizewith:self.openPosition];
@@ -51,29 +52,32 @@
     if (self.fromNotification)
     {
         if(![self.navigationItem.leftBarButtonItem isEqual:self.notificationBackButton])
-        {
             [self.navigationItem setLeftBarButtonItem:self.notificationBackButton];
-        }
     }
     else
     {
         if([self.navigationItem.leftBarButtonItem isEqual:self.notificationBackButton])
-        {
             self.navigationItem.leftBarButtonItem = nil;
-        }
+    }
+    
+    if (self.fromNotification && self.jobID ) {
+        [OSConnectionManager sharedManager].delegate = self;
+        [OSConnectionManager sharedManager].searchObject = [[NSMutableDictionary alloc]init];
+        [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
     }
 }
 
-@synthesize notificationBackButton = _notificationBackButton;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (UIBarButtonItem*) notificationBackButton
 {
-    if (!_notificationBackButton) {
+    if (!_notificationBackButton)
         _notificationBackButton = [[UIBarButtonItem alloc]initWithTitle:@"< Back" style:UIBarButtonItemStyleBordered target:self action:@selector(goBackfromNotification:)];
-    }
     return _notificationBackButton;
 }
-
-
 
 - (IBAction)goBackfromNotification:(id)sender {
     self.fromNotification = NO;
@@ -173,7 +177,6 @@
         [self.phone addGestureRecognizer:gesture];
     }
     
-
     self.descriptionText.text = [self.openPosition objectForKey:@"job_description"];
     self.mainTaskText.text = [self.openPosition objectForKey:@"main_tasks"];
     self.perspectiveText.text = [self.openPosition objectForKey:@"perspective"];
@@ -188,8 +191,6 @@
     if ([segue.identifier isEqualToString:@"apply"])
         if ([segue.destinationViewController respondsToSelector:@selector(setOpenPosition:)])
             [segue.destinationViewController performSelector:@selector(setOpenPosition:) withObject:self.openPosition];
-        
-    
 }
 
 - (IBAction)apply:(id)sender
@@ -225,20 +226,17 @@
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
 }
-#pragma mark - posting on social media 
 
+#pragma mark - posting on social media
 - (IBAction)social:(id)sender
 {
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
         SLComposeViewController *twittersheet = [[SLComposeViewController alloc] init];
-        
         twittersheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        
         [twittersheet setInitialText:[NSString stringWithFormat:@"#NTT_DATA #open_position %@ \n%@	",[self.openPosition objectForKey:@"position_name"],[self.openPosition objectForKey:@"url"]]];
         [self presentViewController:twittersheet animated:YES completion:nil];
-        
-        
-    }else
+    }
+    else
     {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Twitter service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [alertView show];
     }
@@ -246,39 +244,71 @@
 
 - (IBAction)saveFilterSets:(UIButton *)sender {    
    
-    if (self.freeText){
-        [[DatabaseManager sharedInstance]storeFilter:nil:nil :nil :nil :nil :self.freeText];       
-        
-    }else
-    
+    if (self.freeText)
+        [[DatabaseManager sharedInstance]storeFilter:nil:nil :nil :nil :nil :self.freeText];
+    else
      [[OSConnectionManager sharedManager]StartConnection:OSCSendFilterSet];
     
     
-    
-
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Your filters are saved!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
     [alertView show];
 }
 
 - (IBAction)socialFB:(id)sender
 {
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
-                    SLComposeViewController *facebooksheet = [[SLComposeViewController alloc] init];
-        
-                    facebooksheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
-                    [facebooksheet setInitialText:[NSString stringWithFormat:@"NTT Data open posistion : %@ \nIf your interested check the line below: \n%@",[self.openPosition objectForKey:@"position_name"],[self.openPosition objectForKey:@"url"]]];
-                    [self presentViewController:facebooksheet animated:YES completion:nil];
-        
-        
-                }	else
-               {   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Facebook service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-                   [alertView show];
-                }
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewController *facebooksheet = [[SLComposeViewController alloc] init];
+        facebooksheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [facebooksheet setInitialText:[NSString stringWithFormat:@"NTT Data open posistion : %@ \nIf your interested check the line below: \n%@",[self.openPosition objectForKey:@"position_name"],[self.openPosition objectForKey:@"url"]]];
+        [self presentViewController:facebooksheet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Service not Available" message:@"Sorry ! Facebook service not available" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+#pragma mark - ConnectionCompletion Delegate
+- (void) connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
+{
+    if([OSConnectionManager sharedManager].delegate == self)
+        [OSConnectionManager sharedManager].delegate = nil;
+
+    
+    if (self.fromNotification)
+    {
+        for(int i = 0; i< array.count; i++){
+            if ([[array[i]valueForKey:@"ref_no"]isEqualToString:self.jobID]){
+                
+                [self setOpenPosition:[array[i] copy]];
+                break;
+            }
+        }
+    }
     
 }
 
-    @end;
+- (void) connectionFailed:(OSConnectionType)connectionType
+{
+}
+
+- (void)setOpenPosition:(NSDictionary *)openPosition
+{
+    _openPosition = openPosition;
+    if (_openPosition)
+        [self loadData];
+}
+
+- (NSDictionary*)openPosition
+{
+    if (!_openPosition)
+        _openPosition = [[NSDictionary alloc]init];
+    
+    return _openPosition;
+}
+@end;
 
 
 

@@ -95,8 +95,6 @@
         [button.layer insertSublayer:btnGradient atIndex:0];
     }
     
-    
-    
     [self loadAllData];
     [self selectTitle:self.jobTitle];
     
@@ -111,20 +109,7 @@
                                      target:self
                                      action:@selector(refreshButtonClicked:)];
     [self.navigationItem setRightBarButtonItem:refreshButton animated:YES];
-    
-    //[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushNotificationReceived) name:@"pushNotification" object:nil];
-    
 }
-
-/*-(void)pushNotificationReceived
-{
-    [self presentViewController:self.FPDVC animated:YES completion:nil];
-}
-
-- (void) dealloc
-{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-}*/
 
 - (void)refreshButtonClicked:(id)sender
 {
@@ -156,7 +141,10 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [OSConnectionManager sharedManager].delegate = self;
+    if (![[OSConnectionManager sharedManager].delegate isKindOfClass:[FoundPositionDetailViewController class]]) {
+        [OSConnectionManager sharedManager].delegate = self;
+    }    
+    
     if ([[AppSettingsHelper sharedHelper] getSetting])
     {
         [self help:nil];

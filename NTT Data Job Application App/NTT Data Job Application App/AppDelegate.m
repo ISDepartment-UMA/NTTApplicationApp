@@ -9,13 +9,10 @@
 #import "AppDelegate.h"
 #import <DBChooser/DBChooser.h>
 #import <CoreData/CoreData.h>
+#import <DropboxSDK/DropboxSDK.h>
 #import "FoundPositionDetailViewController.h"
 #import "XNGAPIClient.h"
 #import "OSConnectionManager.h"
-
-@interface AppDelegate()
-@property (strong,nonatomic) NSString *jobID;
-@end
 
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -49,39 +46,37 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     sleep(1.5);    
-    DBSession* dbSession =
-    [[DBSession alloc]
-      initWithAppKey:@"8pptn1m3kun48pp"
-      appSecret:@"4t2abq4k2lr5g5n"
-      root:kDBRootDropbox] // either kDBRootAppFolder or kDBRootDropbox
-     ;
-    [DBSession setSharedSession:dbSession];
+//    DBSession* dbSession =
+//    [[DBSession alloc]
+//      initWithAppKey:@"8pptn1m3kun48pp"
+//      appSecret:@"4t2abq4k2lr5g5n"
+//      root:kDBRootDropbox] // either kDBRootAppFolder or kDBRootDropbox
+//     ;
+//    [DBSession setSharedSession:dbSession];
     
     //ask device whether to receive push notification
     [[UIApplication sharedApplication]registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert |UIRemoteNotificationTypeSound)];
     
-    if (launchOptions != nil)
-    {   NSLog(@"launched from notification");
-        NSDictionary* notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-        NSString* notificationString = [[notification valueForKey:@"aps"]valueForKey:@"alert"];
-        NSArray *arr = [notificationString componentsSeparatedByString:@" "];
-        self.jobID = arr[3];
-        
-        [OSConnectionManager sharedManager].delegate = self;
-        [OSConnectionManager sharedManager].searchObject = [[NSMutableDictionary alloc]init];
-        [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
-    }
-    
+    NSNotificationCenter* notiCenter = [NSNotificationCenter defaultCenter];
+    [notiCenter addObserver:self selector:@selector(receivedNotification:) name:@"handleInternalNotification" object:nil];
+
     if (![[AppSettingsHelper sharedHelper] checkSettingFound]) {
         [[AppSettingsHelper sharedHelper] setSetting:YES];
     }
     
+    [self.window makeKeyAndVisible];
+    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey])
+    {
+        [self application:application didReceiveRemoteNotification:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]];
+    }
+
     return YES;
 }
 
 //get device token for push service
 -(void)application: (UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{   NSLog(@"Device token is: %@",deviceToken);
+{
+    NSLog(@"Device token is: %@",deviceToken);
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -93,40 +88,18 @@
 {
     NSString* notificationString = [[userInfo valueForKey:@"aps"]valueForKey:@"alert"];
     NSArray *arr = [notificationString componentsSeparatedByString:@" "];
-    self.jobID = arr[3];
-  
-    [OSConnectionManager sharedManager].delegate = self;
-    [OSConnectionManager sharedManager].searchObject = [[NSMutableDictionary alloc]init];
-    [[OSConnectionManager sharedManager]StartConnection:OSCGetSearch];
+    
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+
+    FoundPositionDetailViewController* vc = (FoundPositionDetailViewController*)[storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+
+    [self.window.rootViewController presentViewController:navigationController animated:YES completion:nil];
+    
+    vc.navigationController.navigationBarHidden = NO;
+    vc.fromNotification = YES;
+    vc.jobID = [arr[3] copy];
 }
-
-- (void)connectionSuccess:(OSConnectionType)connectionType withDataInArray:(NSArray *)array
-{
-    NSDictionary* notificationJob = nil;
-    for(int i = 0; i< array.count; i++){
-        if ([[array[i]valueForKey:@"ref_no"]isEqualToString:self.jobID]){
-            NSLog(@"notification job: %@",array[i]);
-            notificationJob = array[i];
-            
-            UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
-            FoundPositionDetailViewController* vc = (FoundPositionDetailViewController*)[storyboard instantiateViewControllerWithIdentifier:@"FPDVC"];
-            vc.openPosition = notificationJob;
-            vc.fromNotification = YES;
-            
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-            vc.navigationController.navigationBarHidden = NO;
-            
-            [self.window.rootViewController presentViewController:navigationController animated:YES completion:nil];
-            break;
-        }
-    }
-}
-
-
-- (void)connectionFailed:(OSConnectionType)connectionType
-{}
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -154,5 +127,4 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 @end
