@@ -32,17 +32,14 @@
 
 -(void)initStyle
 {
-    self.mainView.frame = CGRectMake(0, 0, 2560, 568);
-    [self.mainView removeFromSuperview];
-    [self.scrollView addSubview:self.mainView];
-    [self.scrollView setContentSize:self.mainView.frame.size];
+    [self.navigationController setNavigationBarHidden:YES];
+    [self.tabBarController.tabBar setHidden:YES];
+    [self.scrollView setContentSize:CGSizeMake(2560, 568)];
     for (int i =1; i<= 10; i++)
     {
         UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%i.png",i]]];
         [imageView setFrame:CGRectMake(320*(i-1), 0, 320, 568)];
         [self.mainView addSubview:imageView];
-        [self.navigationController setNavigationBarHidden:YES];
-        [self.tabBarController.tabBar setHidden:YES];
     }
 }
 
