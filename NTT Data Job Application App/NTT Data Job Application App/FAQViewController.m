@@ -216,22 +216,22 @@
     if(!isFiltered)
     {
         question = [faqArray objectAtIndex:indexPath.row];
-        NSString *avgRate = question.rating;//[self.rate[indexPath.row]objectForKey: @"average_rates"];
-        NSString* questionWithRate = [question.question stringByAppendingString:[NSString stringWithFormat: @"\nAverage rate: %@", avgRate]];
+        //NSString *avgRate = question.rating;//[self.rate[indexPath.row]objectForKey: @"average_rates"];
+        NSString* questionWithRate = [question.question stringByAppendingString:[NSString stringWithFormat: @"\nAverage rate: "]];
         [cell.textLabel setText:questionWithRate];
     }
     
     else
     {
         question = [filteredFaqs objectAtIndex:indexPath.row];
-        [cell.textLabel setText:question.question];
+        //[cell.textLabel setText:question.question];
         
         
     }
     for (int i = 0;i< [question.rating intValue];i++)
     {
         UIImageView* image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star_full.jpeg"]];
-        [image setFrame:CGRectMake(120+ i*20, 22, 15, 15)];
+        [image setFrame:CGRectMake(100+ i*20, 22, 15, 15)];
         [cell addSubview:image];
         
     }
